@@ -25,7 +25,9 @@ class RegistrationViewController: UIViewController {
     @IBAction func confirmButtonTapped(_ sender: Any) {
         
         
-        let obj = NCMBObject(className: "Userclass")
+        //let obj = NCMBObject(className: "Userclass")
+        
+        let user = NCMBUser()
         
         user.userName = userEmailTextField.text
         user.password = userPasswordTextField.text
@@ -36,7 +38,6 @@ class RegistrationViewController: UIViewController {
                 // 新規登録成功時の処理
             }
         }
-        
        //( obj?.setObject(userEmailTextField.text, forKey: "email")
         //obj?.setObject(userPasswordTextField.text, forKey: "pass")
         //obj?.saveInBackground({ (error) in
