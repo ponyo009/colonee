@@ -460,6 +460,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="h8X-Bt-O2e"/>
+                                            <action selector="button2:" destination="uiQ-sC-9om" eventType="touchUpInside" id="P4s-rb-EcW"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="qn6-Xu-1JY"/>
                                         </connections>
                                     </button>
@@ -479,6 +480,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="t8F-yw-caR"/>
+                                            <action selector="button3:" destination="uiQ-sC-9om" eventType="touchUpInside" id="5c9-aE-xRX"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="pAI-L7-gvB"/>
                                         </connections>
                                     </button>
@@ -498,6 +500,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="8EN-YN-7iF"/>
+                                            <action selector="button4:" destination="uiQ-sC-9om" eventType="touchUpInside" id="Sy9-AD-evh"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="13X-NV-DEH"/>
                                         </connections>
                                     </button>
@@ -517,6 +520,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="jVB-b3-y0N"/>
+                                            <action selector="button5:" destination="uiQ-sC-9om" eventType="touchUpInside" id="sZd-T4-8s8"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="HhH-oy-LSC"/>
                                         </connections>
                                     </button>
@@ -540,7 +544,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j62-JU-sqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="umt-iv-2T7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2772" y="-385.45727136431788"/>
+            <point key="canvasLocation" x="2239" y="-385"/>
         </scene>
         <!--Protected View Controller-->
         <scene sceneID="O2I-Xj-foJ">
@@ -766,7 +770,7 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SV5-kC-bW2"/>
+        <segue reference="uNA-sV-flg"/>
         <segue reference="13X-NV-DEH"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -34,13 +34,25 @@ class ChooseGameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func button0(_ sender: Any) {
-        let GameNumber = Games.index(of: Game0)
-        print(GameNumber)
-    }
-    
-    @IBAction func button1(_ sender: Any) {
+    @IBAction func button0(_ sender: UIButton) {
+        let GameNumber:Int = Games.index(of: Game0)!
+        let GameName:String = GameNames[GameNumber]
         
+    }
+    @IBAction func button1(_ sender: UIButton) {
+        let GameNumber = Games.index(of: Game1)!
+    }
+    @IBAction func button2(_ sender: UIButton) {
+        let GameNumber = Games.index(of: Game2)!
+    }
+    @IBAction func button3(_ sender: UIButton) {
+        let GameNumber = Games.index(of: Game3)!
+    }
+    @IBAction func button4(_ sender: UIButton) {
+        let GameNumber = Games.index(of: Game4)!
+    }
+    @IBAction func button5(_ sender: UIButton) {
+        let GameNumber = Games.index(of: Game5)!
     }
     
     

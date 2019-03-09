@@ -31,6 +31,8 @@ class RegistrationViewController: UIViewController {
         
         let user = NCMBUser()
         
+        //入力されたのが有効なアドレスとパスワードかどうかの確認メソッド
+        
         user.userName = userEmailTextField.text
         user.password = userPasswordTextField.text
         user.signUpInBackground { (error) in
