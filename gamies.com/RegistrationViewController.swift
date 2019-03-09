@@ -13,8 +13,6 @@ class RegistrationViewController: UIViewController {
     }
     @IBAction func Email(_ sender: Any) {
     }
-    @IBAction func ID(_ sender: Any) {
-    }
     @IBAction func Confirm(_ sender: Any) {
     }
     
