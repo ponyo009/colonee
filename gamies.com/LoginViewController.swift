@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var LoginFailedMessage: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,13 +22,15 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func LoginButtonTapped(_ sender: Any) {
-        NCMBUser.logInWithUsername(inBackground:userEmailTextField.text, password: userPasswordTextField.text, block:{(user: NCMBUser!, error: NSError!) in
+        NCMBUser.logInWithUsername(inBackground:userEmailTextField.text, password: userPasswordTextField.text, block:({(user: NCMBUser!, error: NSError!) in
             if error != nil {
                 // ログイン失敗時の処理
+                self.LoginFailedMessage.alpha = 1
             }else{
                 // ログイン成功時の処理
+                self.performSegue(withIdentifier: "LoginSuccessed", sender: nil)
             }
-            } as! NCMBUserResultBlock)
+            } as! NCMBUserResultBlock))
     }
     /*
     // MARK: - Navigation
