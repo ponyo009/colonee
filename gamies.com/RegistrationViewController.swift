@@ -22,14 +22,8 @@ class RegistrationViewController: UIViewController {
     }
 
     
-    
-    
     @IBAction func confirmButtonTapped(_ sender: Any) {
         
-        let applicationkey = "6592f551af5bd3d036a6d2e256c3f355ee613b1fb786b16c6cd61fffdcc24fdf"
-        let clientkey  = "a1718a69a8664ce4cbefc668d1a3017915ab1a923f4c98dd82231d400c5fd101"
-        
-         NCMB.setApplicationKey(applicationkey, clientKey: clientkey)
         
         let obj = NCMBObject(className: "Userclass")
         
