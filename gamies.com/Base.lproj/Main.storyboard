@@ -11,6 +11,22 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="A3y-af-hmC">
+            <objects>
+                <viewController id="jS6-rb-dIb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k4Q-Lc-wRC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jyI-RU-DHV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OQi-13-yrT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-5T-nvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="394"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
@@ -247,6 +263,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="Name:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="qnC-xY-8tZ"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6L-PG-fiX">
                                 <rect key="frame" x="57" y="240" width="70" height="30"/>
@@ -275,6 +294,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="Emailaddress:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="oO3-DO-Ves"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YourID:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeG-7H-f2D">
                                 <rect key="frame" x="57" y="380" width="70" height="30"/>
@@ -289,12 +311,16 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="ID:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="e71-sY-HFb"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-ly-mkX">
                                 <rect key="frame" x="133" y="471" width="108" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
+                                    <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="kv9-Jp-Nfa"/>
                                     <segue destination="uiQ-sC-9om" kind="push" id="Jmz-jp-QUM"/>
                                 </connections>
                             </button>
@@ -305,6 +331,7 @@
                     <navigationItem key="navigationItem" id="NOV-dX-Ypb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbT-uC-gqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wRm-d6-wmr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="988" y="-385"/>
         </scene>
@@ -335,7 +362,7 @@
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="push" id="jcY-f5-MWg"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" id="8zg-gv-FlK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -353,7 +380,7 @@
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="push" id="0GZ-lv-4i9"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" id="3p4-v0-jzq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -371,7 +398,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="push" id="GBL-G5-HnP"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" id="qn6-Xu-1JY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -389,7 +416,7 @@
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="push" id="BKo-Nc-IaV"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" id="pAI-L7-gvB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -407,7 +434,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="push" id="VE2-1J-NMM"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" id="13X-NV-DEH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -424,9 +451,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHP-zC-LSx">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="push" id="3gZ-uH-FY2"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -475,6 +499,6 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0GZ-lv-4i9"/>
+        <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>
