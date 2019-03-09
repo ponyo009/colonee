@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Tinder
+//  Tinderaaa
 //
 //  Created by Akira Norose on 2019/03/06.
 //  Copyright © 2019 Akira Norose. All rights reserved.
