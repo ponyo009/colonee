@@ -12,7 +12,7 @@ import NCMB
 class RegistrationViewController: UIViewController {
     
 
-
+    let user = NCMBUser()
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     
@@ -27,15 +27,25 @@ class RegistrationViewController: UIViewController {
         
         let obj = NCMBObject(className: "Userclass")
         
-        obj?.setObject(userEmailTextField.text, forKey: "email")
-        obj?.setObject(userPasswordTextField.text, forKey: "pass")
-        obj?.saveInBackground({ (error) in
+        user.userName = userEmailTextField.text
+        user.password = userPasswordTextField.text
+        user.signUpInBackground { (error) in
             if error != nil {
-                // 保存に失敗した場合の処理
+                // 新規登録失敗時の処理
             }else{
-                // 保存に成功した場合の処理
+                // 新規登録成功時の処理
             }
-        })
+        }
+        
+       //( obj?.setObject(userEmailTextField.text, forKey: "email")
+        //obj?.setObject(userPasswordTextField.text, forKey: "pass")
+        //obj?.saveInBackground({ (error) in
+         //   if error != nil {
+                // 保存に失敗した場合の処理
+           // }else{
+                // 保存に成功した場合の処理
+       //     }
+       // })
     }
     /*
     // MARK: - Navigation
