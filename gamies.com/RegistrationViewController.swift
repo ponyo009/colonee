@@ -15,6 +15,8 @@ class RegistrationViewController: UIViewController {
     let user = NCMBUser()
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var SignUpFailedMessage: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,7 @@ class RegistrationViewController: UIViewController {
         user.password = userPasswordTextField.text
         user.signUpInBackground { (error) in
             if error != nil {
+                self.SignUpFailedMessage.alpha = 1
                 // 新規登録失敗時の処理
             }else{
                 // 新規登録成功時の処理

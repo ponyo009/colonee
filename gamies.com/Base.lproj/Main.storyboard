@@ -326,19 +326,27 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urh-K9-aRw">
                                 <rect key="frame" x="118" y="415" width="139" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="I dont have a accout"/>
+                                <state key="normal" title="I have my accout"/>
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="UHE-ix-YHy"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="7xg-W1-Htr"/>
                                     <segue destination="4py-O4-waz" kind="presentation" identifier="loginView" id="L59-tb-XiU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sorry Couldn't Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9z-eg-m1x">
+                                <rect key="frame" x="65" y="311" width="245" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.29672170945472731" blue="0.29708741476483225" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="83i-oX-v9y"/>
                     </view>
                     <navigationItem key="navigationItem" id="NOV-dX-Ypb"/>
                     <connections>
+                        <outlet property="SignUpFailedMessage" destination="A9z-eg-m1x" id="g7I-YS-mBy"/>
                         <outlet property="userEmailTextField" destination="hmv-9w-qkt" id="m1a-Xr-jrd"/>
                         <outlet property="userPasswordTextField" destination="XX7-r1-36e" id="ith-dT-Wr4"/>
                     </connections>
@@ -346,7 +354,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbT-uC-gqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wRm-d6-wmr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1960.8" y="-385.45727136431788"/>
+            <point key="canvasLocation" x="1686" y="-1104"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jhE-4h-Q3M">
+            <objects>
+                <viewController id="0Yw-Zm-3xt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TwF-SM-5zd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome gamies !!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-8t-fcA">
+                                <rect key="frame" x="12" y="265" width="350" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-S3-Xdf">
+                                <rect key="frame" x="117" y="409" width="123" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="4py-O4-waz" kind="push" id="uNA-sV-flg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7qU-Z0-Ee5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9gi-fV-hR3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fnl-tT-HMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2391" y="-1104"/>
         </scene>
         <!--ChooseGame-->
         <scene sceneID="1au-O6-Xkv">
@@ -503,7 +544,6 @@
         <!--Protected View Controller-->
         <scene sceneID="O2I-Xj-foJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="76u-j4-pUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fEl-iL-qie" customClass="ProtectedViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fvF-sG-Hz5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -525,6 +565,7 @@
                         <segue destination="4py-O4-waz" kind="presentation" identifier="loginView" id="QiV-pT-Mek"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76u-j4-pUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="360.80000000000001" y="-398.05097451274366"/>
         </scene>
@@ -677,12 +718,14 @@
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="UNn-Ko-DKN"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="lj2-V9-dfy"/>
+                                    <segue destination="uiQ-sC-9om" kind="push" id="Kof-Z3-e2H"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Mbt-fN-LrI"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rZG-1Q-CHg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckm-SH-sWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
