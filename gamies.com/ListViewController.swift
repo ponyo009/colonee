@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//てすとでござ
 class ListViewController: UIViewController, UITableViewDataSource {
     
     var likedName = [String]()
