@@ -21,7 +21,7 @@ class RegistrationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    
+
     @IBAction func confirmButtonTapped(_ sender: Any) {
         
         
