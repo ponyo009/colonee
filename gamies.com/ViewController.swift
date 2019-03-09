@@ -6,7 +6,7 @@
 //  Copyright © 2019 hanakawa kazuya. All rights reserved.
 //
 
-import UIKit
+import UIKit//gggg
 
 class ViewController: UIViewController {
 
