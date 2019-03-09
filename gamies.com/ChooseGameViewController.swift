@@ -12,15 +12,15 @@ class ChooseGameViewController: UIViewController {
 
     let GameName = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
     
-    
-    @IBAction func fgo(_ sender: Any) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
+        
         // Do any additional setup after loading the view.
+    }
+    @IBAction func GameButton(_ sender: UIButton) {
     }
     
 
