@@ -18,6 +18,7 @@
 		E578320D22335C4B0013E869 /* gamies_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578320C22335C4B0013E869 /* gamies_comTests.swift */; };
 		E578321822335C4B0013E869 /* gamies_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578321722335C4B0013E869 /* gamies_comUITests.swift */; };
 		E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308722336C3300CCF153 /* ListViewController.swift */; };
+		E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F63089223387E400CCF153 /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		E578321722335C4B0013E869 /* gamies_comUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamies_comUITests.swift; sourceTree = "<group>"; };
 		E578321922335C4B0013E869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9F6308722336C3300CCF153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		E9F63089223387E400CCF153 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
 				E578320322335C4A0013E869 /* Info.plist */,
 				E9F6308722336C3300CCF153 /* ListViewController.swift */,
+				E9F63089223387E400CCF153 /* RegistrationViewController.swift */,
 			);
 			path = gamies.com;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			files = (
 				E57831FA22335C480013E869 /* ViewController.swift in Sources */,
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
+				E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */,
 				E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,7 +578,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZD57RY62TR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = gamies.com/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -593,7 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZD57RY62TR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = gamies.com/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
