@@ -1,0 +1,6 @@
+framework module Pods_gamies_comTests {
+  umbrella header "Pods-gamies.comTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
