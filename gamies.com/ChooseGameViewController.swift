@@ -1,5 +1,5 @@
 //
-//  RegistrationViewController.swift
+//  ChooseGameViewController.swift
 //  gamies.com
 //
 //  Created by Akira Norose on 2019/03/09.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
-    @IBAction func Name(_ sender: Any) {
-    }
-    @IBAction func Email(_ sender: Any) {
-    }
-    @IBAction func ID(_ sender: Any) {
-    }
-    @IBAction func Confirm(_ sender: Any) {
+class ChooseGameViewController: UIViewController {
+
+    let GameName = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
+    
+    
+    @IBAction func fgo(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {

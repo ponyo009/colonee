@@ -19,6 +19,7 @@
 		E578321822335C4B0013E869 /* gamies_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578321722335C4B0013E869 /* gamies_comUITests.swift */; };
 		E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308722336C3300CCF153 /* ListViewController.swift */; };
 		E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F63089223387E400CCF153 /* RegistrationViewController.swift */; };
+		E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E578321922335C4B0013E869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9F6308722336C3300CCF153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E9F63089223387E400CCF153 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				E57831F722335C480013E869 /* AppDelegate.swift */,
 				E57831F922335C480013E869 /* ViewController.swift */,
 				E57831FB22335C480013E869 /* Main.storyboard */,
+				E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
 				E578320322335C4A0013E869 /* Info.plist */,
@@ -168,7 +171,6 @@
 				208D398DEBC239A63D0EB81A /* Pods-gamies.comUITests.debug.xcconfig */,
 				DFE47A2F43514BCB2D4BBFB5 /* Pods-gamies.comUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -398,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */,
 				E57831FA22335C480013E869 /* ViewController.swift in Sources */,
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
 				E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */,
