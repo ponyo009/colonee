@@ -38,6 +38,7 @@ class RegistrationViewController: UIViewController {
                 self.SignUpFailedMessage.alpha = 1
                 // 新規登録失敗時の処理
             }else{
+                self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)
                 // 新規登録成功時の処理
             }
         }
