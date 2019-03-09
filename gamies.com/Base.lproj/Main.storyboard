@@ -343,7 +343,7 @@
         <scene sceneID="1au-O6-Xkv">
             <objects>
                 <viewController title="ChooseGame" id="uiQ-sC-9om" customClass="ChooseGameViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WvE-JJ-zQr">
+                    <view key="view" tag="2" contentMode="scaleToFill" id="WvE-JJ-zQr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -354,19 +354,21 @@
                                 <color key="textColor" red="1" green="0.58329627642054349" blue="0.33266681497748452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKB-TG-bao" userLabel="fgo">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKB-TG-bao" userLabel="Fate Grand Order">
                                 <rect key="frame" x="33" y="179" width="140" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FGO" translatesAutoresizingMaskIntoConstraints="NO" id="SqX-BH-0mh">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FGO" translatesAutoresizingMaskIntoConstraints="NO" id="SqX-BH-0mh" userLabel="0">
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEu-Py-3gQ">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="0" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEu-Py-3gQ">
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="GameButton:" destination="umt-iv-2T7" eventType="touchUpInside" id="MDJ-Or-feg"/>
+                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="wkO-Bf-9ng"/>
+                                            <action selector="button0:" destination="uiQ-sC-9om" eventType="touchUpInside" id="UCZ-UY-7n0"/>
                                             <action selector="fgo:" destination="umt-iv-2T7" eventType="touchUpInside" id="HMd-7i-qcC"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="8zg-gv-FlK"/>
                                         </connections>
@@ -374,11 +376,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gy-u9-TNu" userLabel="idol">
+                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gy-u9-TNu" userLabel="アイドルマスター シンデレラガールズ">
                                 <rect key="frame" x="202" y="178" width="140" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idol" translatesAutoresizingMaskIntoConstraints="NO" id="Niq-uF-ucE">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idol" translatesAutoresizingMaskIntoConstraints="NO" id="Niq-uF-ucE" userLabel="1">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -386,17 +388,19 @@
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
+                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="Hp5-Ol-cUe"/>
+                                            <action selector="button1:" destination="uiQ-sC-9om" eventType="touchUpInside" id="p8M-el-xMb"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="3p4-v0-jzq"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4o-HN-wyj" userLabel="kouyakoudou">
+                            <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4o-HN-wyj" userLabel="荒野行動">
                                 <rect key="frame" x="33" y="342" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kouyakoudou" translatesAutoresizingMaskIntoConstraints="NO" id="aZI-ZT-c9R">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kouyakoudou" translatesAutoresizingMaskIntoConstraints="NO" id="aZI-ZT-c9R" userLabel="2">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -404,17 +408,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
+                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="h8X-Bt-O2e"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="qn6-Xu-1JY"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-Di-QiA" userLabel="monsuto">
+                            <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-Di-QiA" userLabel="モンスターストライク">
                                 <rect key="frame" x="202" y="342" width="140" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monsuto" translatesAutoresizingMaskIntoConstraints="NO" id="u3m-Mh-4L3">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monsuto" translatesAutoresizingMaskIntoConstraints="NO" id="u3m-Mh-4L3" userLabel="3">
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -422,17 +427,18 @@
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
+                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="t8F-yw-caR"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="pAI-L7-gvB"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-NX-aVM" userLabel="shironeko">
+                            <view tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-NX-aVM" userLabel="白猫プロジェクト">
                                 <rect key="frame" x="33" y="506" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shironeko" translatesAutoresizingMaskIntoConstraints="NO" id="TIO-DC-ICa">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shironeko" translatesAutoresizingMaskIntoConstraints="NO" id="TIO-DC-ICa" userLabel="4">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -440,17 +446,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
+                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="8EN-YN-7iF"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="13X-NV-DEH"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIm-t2-QzI" userLabel="pazudora">
+                            <view tag="5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIm-t2-QzI" userLabel="Puzzle &amp; Dragons">
                                 <rect key="frame" x="202" y="506" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pazudora" translatesAutoresizingMaskIntoConstraints="NO" id="R2k-Yn-5pX">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pazudora" translatesAutoresizingMaskIntoConstraints="NO" id="R2k-Yn-5pX" userLabel="5">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -458,6 +465,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
+                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="jVB-b3-y0N"/>
                                             <segue destination="jS6-rb-dIb" kind="push" id="HhH-oy-LSC"/>
                                         </connections>
                                     </button>
@@ -469,6 +477,14 @@
                         <viewLayoutGuide key="safeArea" id="aTL-qA-Bcp"/>
                     </view>
                     <navigationItem key="navigationItem" id="mBh-j5-8LQ"/>
+                    <connections>
+                        <outlet property="Game0" destination="AKB-TG-bao" id="Z0Y-mo-uEM"/>
+                        <outlet property="Game1" destination="8gy-u9-TNu" id="xHD-RA-1xW"/>
+                        <outlet property="Game2" destination="l4o-HN-wyj" id="TZ0-R0-alZ"/>
+                        <outlet property="Game3" destination="Rps-Di-QiA" id="OHf-40-7Vp"/>
+                        <outlet property="Game4" destination="wPF-NX-aVM" id="gZ9-Ig-nsF"/>
+                        <outlet property="Game5" destination="JIm-t2-QzI" id="26h-E4-Jo2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j62-JU-sqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="umt-iv-2T7" userLabel="Exit" sceneMemberID="exit"/>

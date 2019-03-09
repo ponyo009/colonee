@@ -10,18 +10,51 @@ import UIKit
 
 class ChooseGameViewController: UIViewController {
 
-    let GameName = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
+    @IBOutlet weak var Game0: UIView!
+    @IBOutlet weak var Game1: UIView!
+    @IBOutlet weak var Game2: UIView!
+    @IBOutlet weak var Game3: UIView!
+    @IBOutlet weak var Game4: UIView!
+    @IBOutlet weak var Game5: UIView!
+    
+    var Games = [UIView]()
+    
+    let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
+        Games.append(Game0)
+        Games.append(Game1)
+        Games.append(Game2)
+        Games.append(Game3)
+        Games.append(Game4)
+        Games.append(Game5)
         
         // Do any additional setup after loading the view.
     }
-    @IBAction func GameButton(_ sender: UIButton) {
+    
+    @IBAction func button0(_ sender: Any) {
+        let GameNumber = Games.index(of: Game0)
+        print(GameNumber)
     }
+    
+    @IBAction func button1(_ sender: Any) {
+        
+    }
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
     
 
     /*
