@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     var people = [UIView]()
     var selectedCardCount: Int = 0
     
-    let name = ["ほのか", "あかり", "ゆり", "マイク" ]
+    let name = []
     var likedName = [String]()
     
     override func viewDidLoad() {

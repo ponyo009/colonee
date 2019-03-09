@@ -14,6 +14,7 @@
 		E578320222335C4A0013E869 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E578320022335C4A0013E869 /* LaunchScreen.storyboard */; };
 		E578320D22335C4B0013E869 /* gamies_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578320C22335C4B0013E869 /* gamies_comTests.swift */; };
 		E578321822335C4B0013E869 /* gamies_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578321722335C4B0013E869 /* gamies_comUITests.swift */; };
+		E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308722336C3300CCF153 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E578321322335C4B0013E869 /* gamies.comUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gamies.comUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E578321722335C4B0013E869 /* gamies_comUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamies_comUITests.swift; sourceTree = "<group>"; };
 		E578321922335C4B0013E869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9F6308722336C3300CCF153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
 				E578320322335C4A0013E869 /* Info.plist */,
+				E9F6308722336C3300CCF153 /* ListViewController.swift */,
 			);
 			path = gamies.com;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				E57831FA22335C480013E869 /* ViewController.swift in Sources */,
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
+				E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
