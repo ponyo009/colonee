@@ -56,9 +56,11 @@ class ChooseGameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
-            vc.GameName = GameNames[]
+            vc.GameName = GameNames[0]
     }
-    
+
+}
+}
 
     
     
@@ -81,4 +83,3 @@ class ChooseGameViewController: UIViewController {
     }
     */
 
-}
