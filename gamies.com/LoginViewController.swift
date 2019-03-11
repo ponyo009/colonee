@@ -9,7 +9,6 @@
 import UIKit
 import NCMB
 
-let user = NCMBUser()
 
 class LoginViewController: UIViewController {
 
@@ -25,18 +24,29 @@ class LoginViewController: UIViewController {
     
     @IBAction func LoginButtonTappd(_ sender: UIButton) {
         
-        user.userName = userEmailTextField.text
-        user.password = userPasswordTextField.text
-        
-        NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
+        NCMBUser.logInWithUsername(inBackground:self.userEmailTextField.text, password: self.userPasswordTextField.text, block:({(user: NCMBUser?, error: NSError!) in
+            
             if error != nil {
                 // ログイン失敗時の処理
                 self.LoginFailedMessage.alpha = 1
+                print ("failed")
             }else{
                 // ログイン成功時の処理
                 self.performSegue(withIdentifier: "ToChooseGame", sender: nil)
+                print("success")
             }
             } as! NCMBUserResultBlock))
+
+        
+      //  NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
+       //     if error != nil {
+                // ログイン失敗時の処理
+         //       self.LoginFailedMessage.alpha = 1
+           // }else{
+                // ログイン成功時の処理
+             //   self.performSegue(withIdentifier: "ToChooseGame", sender: nil)
+           // }
+           // } as! NCMBUserResultBlock))
 
     }
 }
