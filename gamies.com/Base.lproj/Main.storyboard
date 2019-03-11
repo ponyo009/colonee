@@ -13,7 +13,7 @@
         <!--Profile-->
         <scene sceneID="A3y-af-hmC">
             <objects>
-                <viewController title="Profile" id="jS6-rb-dIb" sceneMemberID="viewController">
+                <viewController title="Profile" id="jS6-rb-dIb" customClass="ProfileViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k4Q-Lc-wRC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +28,27 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="of" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YN-6D-sb4">
+                                        <rect key="frame" x="173" y="70" width="29" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7h-X7-3Ze">
+                                        <rect key="frame" x="149" y="118" width="77" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTn-VA-Tnx">
+                                        <rect key="frame" x="68" y="225" width="239" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -36,6 +57,9 @@
                         <viewLayoutGuide key="safeArea" id="jyI-RU-DHV"/>
                     </view>
                     <navigationItem key="navigationItem" id="OQi-13-yrT"/>
+                    <connections>
+                        <outlet property="gamename" destination="y7h-X7-3Ze" id="0d2-N9-g36"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-5T-nvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -421,7 +445,7 @@
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="wkO-Bf-9ng"/>
                                             <action selector="button0:" destination="uiQ-sC-9om" eventType="touchUpInside" id="UCZ-UY-7n0"/>
                                             <action selector="fgo:" destination="umt-iv-2T7" eventType="touchUpInside" id="HMd-7i-qcC"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" id="8zg-gv-FlK"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="8zg-gv-FlK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -441,7 +465,7 @@
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="Hp5-Ol-cUe"/>
                                             <action selector="button1:" destination="uiQ-sC-9om" eventType="touchUpInside" id="p8M-el-xMb"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" id="3p4-v0-jzq"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="3p4-v0-jzq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -461,7 +485,7 @@
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="h8X-Bt-O2e"/>
                                             <action selector="button2:" destination="uiQ-sC-9om" eventType="touchUpInside" id="P4s-rb-EcW"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" id="qn6-Xu-1JY"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="qn6-Xu-1JY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -481,7 +505,7 @@
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="t8F-yw-caR"/>
                                             <action selector="button3:" destination="uiQ-sC-9om" eventType="touchUpInside" id="5c9-aE-xRX"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" id="pAI-L7-gvB"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="pAI-L7-gvB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -501,7 +525,7 @@
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="8EN-YN-7iF"/>
                                             <action selector="button4:" destination="uiQ-sC-9om" eventType="touchUpInside" id="Sy9-AD-evh"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" id="13X-NV-DEH"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="13X-NV-DEH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -521,7 +545,7 @@
                                         <connections>
                                             <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="jVB-b3-y0N"/>
                                             <action selector="button5:" destination="uiQ-sC-9om" eventType="touchUpInside" id="sZd-T4-8s8"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" id="HhH-oy-LSC"/>
+                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="HhH-oy-LSC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -779,6 +803,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uNA-sV-flg"/>
-        <segue reference="13X-NV-DEH"/>
+        <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -36,8 +36,6 @@ class ChooseGameViewController: UIViewController {
     
     @IBAction func button0(_ sender: UIButton) {
         let GameNumber:Int = Games.index(of: Game0)!
-        let GameName:String = GameNames[GameNumber]
-        
     }
     @IBAction func button1(_ sender: UIButton) {
         let GameNumber = Games.index(of: Game1)!
@@ -55,7 +53,11 @@ class ChooseGameViewController: UIViewController {
         let GameNumber = Games.index(of: Game5)!
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ToProfile" ){
+            let vc = segue.destination as! ProfileViewController
+            vc.GameName = GameNames[]
+    }
     
 
     

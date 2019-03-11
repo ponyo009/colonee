@@ -22,6 +22,7 @@
 		E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308722336C3300CCF153 /* ListViewController.swift */; };
 		E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F63089223387E400CCF153 /* RegistrationViewController.swift */; };
 		E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */; };
+		E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308D223502FF00CCF153 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		E9F6308722336C3300CCF153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E9F63089223387E400CCF153 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameViewController.swift; sourceTree = "<group>"; };
+		E9F6308D223502FF00CCF153 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				E9F63089223387E400CCF153 /* RegistrationViewController.swift */,
 				E57832252233D25B0013E869 /* ProtectedViewController.swift */,
 				E57832272233E46B0013E869 /* LoginViewController.swift */,
+				E9F6308D223502FF00CCF153 /* ProfileViewController.swift */,
 			);
 			path = gamies.com;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
 				E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */,
 				E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */,
+				E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */,
 				E57832262233D25B0013E869 /* ProtectedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
