@@ -19,6 +19,7 @@
 		E578321822335C4B0013E869 /* gamies_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578321722335C4B0013E869 /* gamies_comUITests.swift */; };
 		E57832262233D25B0013E869 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832252233D25B0013E869 /* ProtectedViewController.swift */; };
 		E57832282233E46B0013E869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832272233E46B0013E869 /* LoginViewController.swift */; };
+		E96269FE2236372500E3D980 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96269FD2236372500E3D980 /* testViewController.swift */; };
 		E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308722336C3300CCF153 /* ListViewController.swift */; };
 		E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F63089223387E400CCF153 /* RegistrationViewController.swift */; };
 		E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */; };
@@ -67,6 +68,7 @@
 		E578321922335C4B0013E869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E57832252233D25B0013E869 /* ProtectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
 		E57832272233E46B0013E869 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E96269FD2236372500E3D980 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		E9F6308722336C3300CCF153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E9F63089223387E400CCF153 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				E57831F722335C480013E869 /* AppDelegate.swift */,
 				E57831F922335C480013E869 /* ViewController.swift */,
 				E57831FB22335C480013E869 /* Main.storyboard */,
+				E96269FD2236372500E3D980 /* testViewController.swift */,
 				E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
@@ -412,6 +415,7 @@
 				E57832282233E46B0013E869 /* LoginViewController.swift in Sources */,
 				E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */,
 				E57831FA22335C480013E869 /* ViewController.swift in Sources */,
+				E96269FE2236372500E3D980 /* testViewController.swift in Sources */,
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
 				E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */,
 				E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */,

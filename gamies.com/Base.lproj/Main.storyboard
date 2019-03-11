@@ -570,6 +570,31 @@
             </objects>
             <point key="canvasLocation" x="2239" y="-385"/>
         </scene>
+        <!--Test View Controller-->
+        <scene sceneID="2mH-wE-TXi">
+            <objects>
+                <viewController id="aku-aZ-kZB" customClass="testViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lui-pE-IVN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3c-gi-mc7">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="test:" destination="aku-aZ-kZB" eventType="touchUpInside" id="zJ7-WB-2bS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4vK-Bt-fkk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Xe-cV-5bU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="373" y="-1074"/>
+        </scene>
         <!--Protected View Controller-->
         <scene sceneID="O2I-Xj-foJ">
             <objects>
@@ -592,6 +617,7 @@
                     <navigationItem key="navigationItem" id="XLb-qf-buC"/>
                     <connections>
                         <segue destination="4py-O4-waz" kind="presentation" identifier="loginView" id="QiV-pT-Mek"/>
+                        <segue destination="IuG-4G-hGA" kind="push" id="3cg-Lh-rTb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76u-j4-pUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -612,17 +638,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="LoginButtonTapped:" destination="IuG-4G-hGA" eventType="touchUpInside" id="Nwb-hJ-g3X"/>
+                                    <action selector="login:" destination="IuG-4G-hGA" eventType="touchUpInside" id="FFT-gS-wWJ"/>
+                                    <segue destination="uiQ-sC-9om" kind="showDetail" id="onJ-9k-Zd0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pW3-G9-JUY">
                                 <rect key="frame" x="133" y="473" width="108" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="register"/>
-                                <connections>
-                                    <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="gci-my-Sx1"/>
-                                    <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="jvx-op-rib"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-tv-xrH" userLabel="Email">
                                 <rect key="frame" x="16" y="193" width="311" height="30"/>
@@ -691,6 +714,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="z41-Av-XcW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YvZ-Dj-hNh"/>
                     <connections>
                         <outlet property="LoginFailedMessage" destination="54q-i9-86I" id="ckS-Of-sgY"/>
                         <outlet property="userEmailTextField" destination="7MT-oi-dxj" id="l4h-jK-tuL"/>
@@ -755,6 +779,9 @@
                                 <rect key="frame" x="133" y="317" width="108" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="login"/>
+                                <connections>
+                                    <action selector="loginbutton:" destination="4py-O4-waz" eventType="touchUpInside" id="13f-0I-qeK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-ZN-U5l">
                                 <rect key="frame" x="133" y="483" width="108" height="73"/>
@@ -763,7 +790,6 @@
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="yuU-5M-fKQ"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="qWj-z2-dlr"/>
-                                    <segue destination="Pee-0p-LxU" kind="presentation" identifier="registerView" id="f7D-mQ-S72"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -810,7 +836,8 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QiV-pT-Mek"/>
+        <segue reference="SV5-kC-bW2"/>
+        <segue reference="onJ-9k-Zd0"/>
         <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>
