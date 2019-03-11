@@ -21,17 +21,20 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func LoginButtonTapped(_ sender: Any) {
+    
+    @IBAction func LoginButtonTappd(_ sender: UIButton) {
         NCMBUser.logInWithUsername(inBackground:userEmailTextField.text, password: userPasswordTextField.text, block:({(user: NCMBUser!, error: NSError!) in
             if error != nil {
                 // ログイン失敗時の処理
                 self.LoginFailedMessage.alpha = 1
             }else{
                 // ログイン成功時の処理
-                self.performSegue(withIdentifier: "LoginSuccessed", sender: nil)
+                self.performSegue(withIdentifier: "ToChooseGame", sender: nil)
             }
             } as! NCMBUserResultBlock))
+
     }
+}
     /*
     // MARK: - Navigation
 
@@ -42,4 +45,4 @@ class LoginViewController: UIViewController {
     }
     */
 
-}
+
