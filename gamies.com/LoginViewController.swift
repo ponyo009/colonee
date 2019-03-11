@@ -8,6 +8,7 @@
 
 import UIKit
 import NCMB
+
 let user = NCMBUser()
 
 class LoginViewController: UIViewController {
@@ -23,7 +24,11 @@ class LoginViewController: UIViewController {
 
     
     @IBAction func LoginButtonTappd(_ sender: UIButton) {
-        NCMBUser.logInWithUsername(inBackground:userEmailTextField.text, password: userPasswordTextField.text, block:({(user: NCMBUser!, error: NSError!) in
+        
+        user.userName = userEmailTextField.text
+        user.password = userPasswordTextField.text
+        
+        NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
             if error != nil {
                 // ログイン失敗時の処理
                 self.LoginFailedMessage.alpha = 1

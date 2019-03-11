@@ -662,6 +662,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="login"/>
                                 <connections>
+                                    <action selector="LoginButtonTappd:" destination="IuG-4G-hGA" eventType="touchUpInside" id="3Nj-cW-IwO"/>
                                     <action selector="LoginButtonTapped:" destination="IuG-4G-hGA" eventType="touchUpInside" id="CI2-yD-SXQ"/>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="aWJ-ra-YXw"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="l2h-aD-d09"/>
