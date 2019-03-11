@@ -755,7 +755,7 @@
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="UNn-Ko-DKN"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="lj2-V9-dfy"/>
-                                    <segue destination="uiQ-sC-9om" kind="push" identifier="LoginSuccessed" id="Kof-Z3-e2H"/>
+                                    <segue destination="uiQ-sC-9om" kind="modal" identifier="LoginSuccessed" id="Kof-Z3-e2H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -802,7 +802,8 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SV5-kC-bW2"/>
+        <segue reference="f7D-mQ-S72"/>
+        <segue reference="uNA-sV-flg"/>
         <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>
