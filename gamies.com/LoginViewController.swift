@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func LoginButtonTappd(_ sender: UIButton) {
         
+        print("tapped")
+        
         NCMBUser.logInWithUsername(inBackground:self.userEmailTextField.text, password: self.userPasswordTextField.text, block:({(user: NCMBUser?, error: NSError!) in
             
             if error != nil {
