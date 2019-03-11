@@ -399,9 +399,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-S3-Xdf">
                                 <rect key="frame" x="117" y="409" width="123" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Choose Game"/>
                                 <connections>
-                                    <segue destination="4py-O4-waz" kind="modal" id="uNA-sV-flg"/>
+                                    <segue destination="uiQ-sC-9om" kind="showDetail" id="PZr-wV-mPU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -665,6 +665,7 @@
                                     <action selector="LoginButtonTapped:" destination="IuG-4G-hGA" eventType="touchUpInside" id="CI2-yD-SXQ"/>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="aWJ-ra-YXw"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="l2h-aD-d09"/>
+                                    <segue destination="uiQ-sC-9om" kind="showDetail" identifier="ToChooseGame" id="ZAX-X2-CtS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oops Login Failed..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54q-i9-86I">
@@ -755,7 +756,6 @@
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="UNn-Ko-DKN"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="lj2-V9-dfy"/>
-                                    <segue destination="uiQ-sC-9om" kind="modal" identifier="LoginSuccessed" id="Kof-Z3-e2H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -802,8 +802,8 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f7D-mQ-S72"/>
-        <segue reference="uNA-sV-flg"/>
+        <segue reference="SV5-kC-bW2"/>
+        <segue reference="ZAX-X2-CtS"/>
         <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>
