@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     }
 
     
-    @IBAction func LoginButtonTapped(_ sender: UIButton) {
+    @IBAction func LoginButtonTapped(_ sender: Any) {
         print("tapped")
         
         NCMBUser.logInWithUsername(inBackground:self.userEmailTextField.text, password: self.userPasswordTextField.text, block:({(user: NCMBUser?, error: NSError!) in
