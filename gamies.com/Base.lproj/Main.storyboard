@@ -355,7 +355,7 @@
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="UHE-ix-YHy"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="7xg-W1-Htr"/>
-                                    <segue destination="4py-O4-waz" kind="push" id="SV5-kC-bW2"/>
+                                    <segue destination="4py-O4-waz" kind="modal" id="SV5-kC-bW2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sorry Couldn't Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9z-eg-m1x">
@@ -401,7 +401,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="4py-O4-waz" kind="push" id="uNA-sV-flg"/>
+                                    <segue destination="4py-O4-waz" kind="modal" id="uNA-sV-flg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -802,7 +802,7 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uNA-sV-flg"/>
+        <segue reference="SV5-kC-bW2"/>
         <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>
