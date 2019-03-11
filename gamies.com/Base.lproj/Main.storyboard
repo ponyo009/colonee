@@ -663,7 +663,7 @@
                                 <state key="normal" title="login"/>
                                 <connections>
                                     <action selector="LoginButtonTappd:" destination="IuG-4G-hGA" eventType="touchUpInside" id="3Nj-cW-IwO"/>
-                                    <action selector="LoginButtonTapped:" destination="IuG-4G-hGA" eventType="touchUpInside" id="CI2-yD-SXQ"/>
+                                    <action selector="LoginButtonTapped:" destination="IuG-4G-hGA" eventType="touchUpInside" id="3sg-JZ-CHt"/>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="aWJ-ra-YXw"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="l2h-aD-d09"/>
                                     <segue destination="uiQ-sC-9om" kind="showDetail" identifier="ToChooseGame" id="ZAX-X2-CtS"/>
@@ -690,10 +690,10 @@
             </objects>
             <point key="canvasLocation" x="1156" y="-385.45727136431788"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="jPi-Fd-Tbp">
             <objects>
-                <viewController id="4py-O4-waz" sceneMemberID="viewController">
+                <viewController id="4py-O4-waz" customClass="LoginViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="owM-ej-O6n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -740,23 +740,19 @@
                                     <action selector="Emailaddress:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="OuS-yb-bi3"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOr-Ep-VCa">
+                                <rect key="frame" x="133" y="317" width="108" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="login"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-ZN-U5l">
-                                <rect key="frame" x="133" y="398" width="108" height="73"/>
+                                <rect key="frame" x="133" y="483" width="108" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="register"/>
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="yuU-5M-fKQ"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="qWj-z2-dlr"/>
                                     <segue destination="Pee-0p-LxU" kind="presentation" identifier="registerView" id="f7D-mQ-S72"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOr-Ep-VCa">
-                                <rect key="frame" x="133" y="317" width="108" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="login"/>
-                                <connections>
-                                    <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="UNn-Ko-DKN"/>
-                                    <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="lj2-V9-dfy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -803,7 +799,7 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SV5-kC-bW2"/>
+        <segue reference="QiV-pT-Mek"/>
         <segue reference="ZAX-X2-CtS"/>
         <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>

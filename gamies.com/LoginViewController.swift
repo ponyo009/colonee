@@ -22,8 +22,7 @@ class LoginViewController: UIViewController {
     }
 
     
-    @IBAction func LoginButtonTappd(_ sender: UIButton) {
-        
+    @IBAction func LoginButtonTapped(_ sender: UIButton) {
         print("tapped")
         
         NCMBUser.logInWithUsername(inBackground:self.userEmailTextField.text, password: self.userPasswordTextField.text, block:({(user: NCMBUser?, error: NSError!) in
@@ -38,7 +37,21 @@ class LoginViewController: UIViewController {
                 print("success")
             }
             } as! NCMBUserResultBlock))
-
+        
+        
+        //  NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
+        //     if error != nil {
+        // ログイン失敗時の処理
+        //       self.LoginFailedMessage.alpha = 1
+        // }else{
+        // ログイン成功時の処理
+        //   self.performSegue(withIdentifier: "ToChooseGame", sender: nil)
+        // }
+        // } as! NCMBUserResultBlock))
+        
+    
+    }
+    
         
       //  NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
        //     if error != nil {
@@ -51,7 +64,7 @@ class LoginViewController: UIViewController {
            // } as! NCMBUserResultBlock))
 
     }
-}
+
     /*
     // MARK: - Navigation
 
