@@ -23,9 +23,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginbutton(_ sender: UIButton) {
-        print("tapped")
-        print(userEmailTextField.text!)
-        
         do{
             try NCMBUser.logIn(withUsername: userEmailTextField.text, password: userPasswordField.text)
             performSegue(withIdentifier: "ToChooseGame", sender: (Any).self)

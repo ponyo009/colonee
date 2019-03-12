@@ -25,14 +25,8 @@ class RegistrationViewController: UIViewController {
 
 
     @IBAction func confirmButtonTapped(_ sender: Any) {
-        
-        
-        //let obj = NCMBObject(className: "Userclass")
-        
-        let user = NCMBUser()
-        
-        //入力されたのが有効なアドレスとパスワードかどうかの確認メソッド
-        
+        //let obj = NCMBObject(className: "Userclass"
+        //入力されたのが有効なアドレスとパスワードかどうかの確認メソッドが必要
         user.userName = userEmailTextField.text
         user.password = userPasswordTextField.text
         user.signUpInBackground { (error) in
@@ -46,16 +40,13 @@ class RegistrationViewController: UIViewController {
                 // 新規登録成功時の処理
             }
         }
-       //( obj?.setObject(userEmailTextField.text, forKey: "email")
-        //obj?.setObject(userPasswordTextField.text, forKey: "pass")
-        //obj?.saveInBackground({ (error) in
-         //   if error != nil {
-                // 保存に失敗した場合の処理
-           // }else{
-                // 保存に成功した場合の処理
-       //     }
-       // })
     }
+    
+    @IBAction func dismiss(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
     /*
     // MARK: - Navigation
 
@@ -65,5 +56,3 @@ class RegistrationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-}

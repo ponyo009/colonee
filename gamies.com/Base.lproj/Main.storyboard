@@ -322,7 +322,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
-                                    <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="dY6-BM-Dux"/>
+                                    <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="00O-bz-dKm"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="kv9-Jp-Nfa"/>
                                     <segue destination="0Yw-Zm-3xt" kind="show" identifier="SignUpSuccessed" id="5V6-bx-lUi"/>
                                 </connections>
@@ -348,15 +348,6 @@
                                     <action selector="email:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="b5K-Ar-TFE"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urh-K9-aRw">
-                                <rect key="frame" x="118" y="415" width="139" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="I have my accout"/>
-                                <connections>
-                                    <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="UHE-ix-YHy"/>
-                                    <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="7xg-W1-Htr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sorry Couldn't Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9z-eg-m1x">
                                 <rect key="frame" x="65" y="311" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -364,6 +355,14 @@
                                 <color key="textColor" red="1" green="0.29672170945472731" blue="0.29708741476483225" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urh-K9-aRw">
+                                <rect key="frame" x="118" y="439" width="139" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="I have my accout"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="Pee-0p-LxU" eventType="touchUpInside" id="VpE-hw-35j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="83i-oX-v9y"/>
