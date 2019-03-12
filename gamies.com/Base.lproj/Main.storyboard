@@ -379,10 +379,10 @@
             </objects>
             <point key="canvasLocation" x="1686" y="-1104"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="jhE-4h-Q3M">
             <objects>
-                <viewController id="0Yw-Zm-3xt" sceneMemberID="viewController">
+                <viewController id="0Yw-Zm-3xt" customClass="WelcomeViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TwF-SM-5zd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

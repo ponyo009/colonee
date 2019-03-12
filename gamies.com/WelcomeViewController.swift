@@ -9,14 +9,21 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
+    //自動遷移を実装したい
+    var timer :Timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        performSegue(withIdentifier: "ChooseGame", sender: (Any).self)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector(("changeView")), userInfo: nil, repeats: false)
+        
         // Do any additional setup after loading the view.
     }
     
-
+    func changeView() {
+        performSegue(withIdentifier: "ChooseGame", sender: (Any).self)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
