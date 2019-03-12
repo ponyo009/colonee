@@ -10,18 +10,15 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     //自動遷移を実装したい
-    var timer :Timer = Timer()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector(("changeView")), userInfo: nil, repeats: false)
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            // 0.5秒後に実行したい処理
+            self.performSegue(withIdentifier: "ChooseGame", sender: (Any).self)
+        }
         // Do any additional setup after loading the view.
     }
     
-    func changeView() {
-        performSegue(withIdentifier: "ChooseGame", sender: (Any).self)
-    }
     
     
     /*
