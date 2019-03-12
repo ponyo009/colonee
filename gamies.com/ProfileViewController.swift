@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         gamename.text = GameName
-        print(gamename)
+        print(gamename.text)
 
         // Do any additional setup after loading the view.
     }
