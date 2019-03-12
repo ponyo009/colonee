@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import NCMB
 
 class ProfileViewController: UIViewController {
     
+    
     @IBOutlet weak var gamename: UILabel!
     var GameName = ""
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +26,9 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
     
 
     /*
