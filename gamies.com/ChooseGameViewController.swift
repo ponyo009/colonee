@@ -16,10 +16,11 @@ class ChooseGameViewController: UIViewController {
     @IBOutlet weak var Game3: UIView!
     @IBOutlet weak var Game4: UIView!
     @IBOutlet weak var Game5: UIView!
+
     
     var Games = [UIView]()
-    
     let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
+    var tagnum = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,33 +31,18 @@ class ChooseGameViewController: UIViewController {
         Games.append(Game3)
         Games.append(Game4)
         Games.append(Game5)
-        
+
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func button0(_ sender: UIButton) {
-        let GameNumber:Int = Games.index(of: Game0)!
-    }
-    @IBAction func button1(_ sender: UIButton) {
-        let GameNumber = Games.index(of: Game1)!
-    }
-    @IBAction func button2(_ sender: UIButton) {
-        let GameNumber = Games.index(of: Game2)!
-    }
-    @IBAction func button3(_ sender: UIButton) {
-        let GameNumber = Games.index(of: Game3)!
-    }
-    @IBAction func button4(_ sender: UIButton) {
-        let GameNumber = Games.index(of: Game4)!
-    }
-    @IBAction func button5(_ sender: UIButton) {
-        let GameNumber = Games.index(of: Game5)!
+    @IBAction func ButtonTapped(_ sender: UIButton) {
+         tagnum = sender.tag
+        performSegue(withIdentifier: "ToProfile", sender: (Any).self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
-            vc.GameName = GameNames[0]
+            vc.GameName = GameNames[tagnum]
     }
 
 }

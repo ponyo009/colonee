@@ -434,11 +434,9 @@
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="XjO-gm-wNh"/>
                                             <action selector="GameButton:" destination="umt-iv-2T7" eventType="touchUpInside" id="MDJ-Or-feg"/>
-                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="wkO-Bf-9ng"/>
-                                            <action selector="button0:" destination="uiQ-sC-9om" eventType="touchUpInside" id="UCZ-UY-7n0"/>
                                             <action selector="fgo:" destination="umt-iv-2T7" eventType="touchUpInside" id="HMd-7i-qcC"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="8zg-gv-FlK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -452,13 +450,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySZ-ZB-VHr">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySZ-ZB-VHr">
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="Hp5-Ol-cUe"/>
-                                            <action selector="button1:" destination="uiQ-sC-9om" eventType="touchUpInside" id="p8M-el-xMb"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="3p4-v0-jzq"/>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="xto-Nn-dm6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -472,13 +468,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eab-Gd-Fg8">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eab-Gd-Fg8">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="h8X-Bt-O2e"/>
-                                            <action selector="button2:" destination="uiQ-sC-9om" eventType="touchUpInside" id="P4s-rb-EcW"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="qn6-Xu-1JY"/>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="I4w-ne-NSA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -492,13 +486,11 @@
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdi-Gm-FfM">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdi-Gm-FfM">
                                         <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="t8F-yw-caR"/>
-                                            <action selector="button3:" destination="uiQ-sC-9om" eventType="touchUpInside" id="5c9-aE-xRX"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="pAI-L7-gvB"/>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="r8k-Yk-zmF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -512,13 +504,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46n-Yu-1w7">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46n-Yu-1w7">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="8EN-YN-7iF"/>
-                                            <action selector="button4:" destination="uiQ-sC-9om" eventType="touchUpInside" id="Sy9-AD-evh"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="13X-NV-DEH"/>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="qi7-9X-EaD"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -532,13 +522,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHP-zC-LSx">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHP-zC-LSx">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="GameButton:" destination="uiQ-sC-9om" eventType="touchUpInside" id="jVB-b3-y0N"/>
-                                            <action selector="button5:" destination="uiQ-sC-9om" eventType="touchUpInside" id="sZd-T4-8s8"/>
-                                            <segue destination="jS6-rb-dIb" kind="push" identifier="ToProfile" id="HhH-oy-LSC"/>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="YhK-0n-P2W"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -556,6 +544,7 @@
                         <outlet property="Game3" destination="Rps-Di-QiA" id="OHf-40-7Vp"/>
                         <outlet property="Game4" destination="wPF-NX-aVM" id="gZ9-Ig-nsF"/>
                         <outlet property="Game5" destination="JIm-t2-QzI" id="26h-E4-Jo2"/>
+                        <segue destination="jS6-rb-dIb" kind="showDetail" identifier="ToProfile" id="f3n-w3-xSo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j62-JU-sqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -732,6 +721,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Lh0-9m-M3o"/>
         <segue reference="tgP-lf-EMP"/>
-        <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>
