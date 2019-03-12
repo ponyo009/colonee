@@ -25,20 +25,15 @@ class LoginViewController: UIViewController {
     @IBAction func loginbutton(_ sender: UIButton) {
         print("tapped")
         print(userEmailTextField.text!)
-        let user = NCMBUser()
-        user.userName = userEmailTextField.text
         
-        NCMBUser.logInWithUsername(inBackground: userEmailTextField.text, password: userPasswordField.text, block:NSUserName){
-            if (error) != nil {
-                
-            }else{
-                
-            }
-            }
-        
-        
-        
-        
+        do{
+            try NCMBUser.logIn(withUsername: userEmailTextField.text, password: userPasswordField.text)
+            performSegue(withIdentifier: "ToChooseGame", sender: (Any).self)
+        }catch{
+            let errors = error
+            print (errors)
+            performSegue(withIdentifier: "ToRegister", sender: (Any).self)
+        }
         
         
         

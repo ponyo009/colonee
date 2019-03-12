@@ -355,7 +355,6 @@
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="UHE-ix-YHy"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="7xg-W1-Htr"/>
-                                    <segue destination="4py-O4-waz" kind="modal" id="SV5-kC-bW2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sorry Couldn't Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9z-eg-m1x">
@@ -616,8 +615,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="XLb-qf-buC"/>
                     <connections>
-                        <segue destination="4py-O4-waz" kind="presentation" identifier="loginView" id="QiV-pT-Mek"/>
-                        <segue destination="IuG-4G-hGA" kind="push" id="3cg-Lh-rTb"/>
+                        <segue destination="IuG-4G-hGA" kind="showDetail" identifier="loginView" id="iPX-2J-I1g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76u-j4-pUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -638,7 +636,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="login:" destination="IuG-4G-hGA" eventType="touchUpInside" id="FFT-gS-wWJ"/>
+                                    <action selector="loginbutton:" destination="IuG-4G-hGA" eventType="touchUpInside" id="sk8-jV-8Xv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pW3-G9-JUY">
@@ -717,92 +715,12 @@
                     <connections>
                         <outlet property="LoginFailedMessage" destination="54q-i9-86I" id="ckS-Of-sgY"/>
                         <outlet property="userEmailTextField" destination="7MT-oi-dxj" id="l4h-jK-tuL"/>
-                        <outlet property="userPasswordTextField" destination="BM6-EF-yuz" id="VsO-3p-gmh"/>
+                        <outlet property="userPasswordField" destination="BM6-EF-yuz" id="gye-67-1r1"/>
+                        <segue destination="Pee-0p-LxU" kind="show" identifier="ToRegister" id="tgP-lf-EMP"/>
+                        <segue destination="uiQ-sC-9om" kind="show" identifier="ToChooseGame" id="Tqn-Zc-gq8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auh-WD-qtG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1156" y="-385.45727136431788"/>
-        </scene>
-        <!--Login View Controller-->
-        <scene sceneID="jPi-Fd-Tbp">
-            <objects>
-                <viewController id="4py-O4-waz" customClass="LoginViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="owM-ej-O6n">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJi-Yo-Abq">
-                                <rect key="frame" x="63" y="90" width="248" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="41"/>
-                                <color key="textColor" red="0.4585284362" green="0.52855721769999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0N-mX-jCo">
-                                <rect key="frame" x="26" y="196" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcI-dn-amX">
-                                <rect key="frame" x="104" y="196" width="223" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="Emailaddress:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="8eC-Gz-gAT"/>
-                                    <action selector="email:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="9xF-IT-DB1"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQr-RI-sMp">
-                                <rect key="frame" x="16" y="243" width="79" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="LDF-S2-2dH">
-                                <rect key="frame" x="104" y="243" width="223" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="Emailaddress:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="OuS-yb-bi3"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-ZN-U5l">
-                                <rect key="frame" x="133" y="483" width="108" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="register"/>
-                                <connections>
-                                    <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="yuU-5M-fKQ"/>
-                                    <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="qWj-z2-dlr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOr-Ep-VCa">
-                                <rect key="frame" x="133" y="297" width="108" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="login"/>
-                                <connections>
-                                    <action selector="loginbutton:" destination="4py-O4-waz" eventType="touchUpInside" id="13f-0I-qeK"/>
-                                    <segue destination="uiQ-sC-9om" kind="showDetail" identifier="ToChooseGame" id="Acf-UN-7zf"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Mbt-fN-LrI"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="rZG-1Q-CHg"/>
-                    <connections>
-                        <outlet property="userEmailTextField" destination="tcI-dn-amX" id="p7d-x6-wkh"/>
-                        <outlet property="userPasswordField" destination="LDF-S2-2dH" id="Ami-NG-yzc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ckm-SH-sWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1156" y="-385.45727136431788"/>
         </scene>
@@ -840,8 +758,7 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SV5-kC-bW2"/>
-        <segue reference="Acf-UN-7zf"/>
+        <segue reference="Tqn-Zc-gq8"/>
         <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>
