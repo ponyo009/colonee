@@ -324,7 +324,6 @@
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="Pee-0p-LxU" eventType="touchUpInside" id="00O-bz-dKm"/>
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="kv9-Jp-Nfa"/>
-                                    <segue destination="0Yw-Zm-3xt" kind="show" identifier="SignUpSuccessed" id="5V6-bx-lUi"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XX7-r1-36e">
@@ -372,6 +371,7 @@
                         <outlet property="SignUpFailedMessage" destination="A9z-eg-m1x" id="g7I-YS-mBy"/>
                         <outlet property="userEmailTextField" destination="hmv-9w-qkt" id="m1a-Xr-jrd"/>
                         <outlet property="userPasswordTextField" destination="XX7-r1-36e" id="ith-dT-Wr4"/>
+                        <segue destination="0Yw-Zm-3xt" kind="showDetail" identifier="SignUpSuccessed" id="6pS-Ak-kC0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbT-uC-gqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -642,6 +642,9 @@
                                 <rect key="frame" x="133" y="473" width="108" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="register"/>
+                                <connections>
+                                    <segue destination="Pee-0p-LxU" kind="showDetail" id="E3E-Mf-7zU"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-tv-xrH" userLabel="Email">
                                 <rect key="frame" x="16" y="193" width="311" height="30"/>
@@ -758,6 +761,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Tqn-Zc-gq8"/>
+        <segue reference="tgP-lf-EMP"/>
         <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>

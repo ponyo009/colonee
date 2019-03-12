@@ -26,7 +26,11 @@ class RegistrationViewController: UIViewController {
 
     @IBAction func confirmButtonTapped(_ sender: Any) {
         //let obj = NCMBObject(className: "Userclass"
-        //入力されたのが有効なアドレスとパスワードかどうかの確認メソッドが必要
+        //入力されたのが有効なアドレスとパスワードかどうかの確認メソッド
+        if (userEmailTextField.text?.isEmpty)! || (userPasswordTextField.text?.isEmpty)! {
+            SignUpFailedMessage.alpha = 1
+        }
+        
         user.userName = userEmailTextField.text
         user.password = userPasswordTextField.text
         user.signUpInBackground { (error) in
