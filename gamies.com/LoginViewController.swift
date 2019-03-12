@@ -12,8 +12,9 @@ import NCMB
 
 class LoginViewController: UIViewController {
 
+   
     @IBOutlet weak var userEmailTextField: UITextField!
-    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var userPasswordField: UITextField!
     @IBOutlet weak var LoginFailedMessage: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,23 +22,29 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func loginbutton(_ sender: Any) {
+    @IBAction func loginbutton(_ sender: UIButton) {
         print("tapped")
-        NCMBUser.logInWithUsername(inBackground:self.userEmailTextField.text, password: self.userPasswordTextField.text, block:({(user: NCMBUser?, error: NSError!) in
+        print(userEmailTextField.text!)
+        let user = NCMBUser()
+        user.userName = userEmailTextField.text
+        
+        NCMBUser.logInWithUsername(inBackground: userEmailTextField.text, password: userPasswordField.text, block:NSUserName){
+            if (error) != nil {
                 
-                if error != nil {
-                    // ログイン失敗時の処理
-                    self.LoginFailedMessage.alpha = 1
-                    print ("failed")
-                }else{
-                    // ログイン成功時の処理
-                    self.performSegue(withIdentifier: "ToChooseGame", sender: nil)
-                    print("success")
-                }
-                } as! NCMBUserResultBlock))
-            
+            }else{
+                
+            }
+            }
+        
+        
+        
+        
+        
+        
+        
     }
-    
+}
+
         
         //  NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
         //     if error != nil {
@@ -50,7 +57,7 @@ class LoginViewController: UIViewController {
         // } as! NCMBUserResultBlock))
         
     
-    }
+
     
         
       //  NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
@@ -73,5 +80,6 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 

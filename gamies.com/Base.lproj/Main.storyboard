@@ -639,7 +639,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="login:" destination="IuG-4G-hGA" eventType="touchUpInside" id="FFT-gS-wWJ"/>
-                                    <segue destination="uiQ-sC-9om" kind="showDetail" id="onJ-9k-Zd0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pW3-G9-JUY">
@@ -775,14 +774,6 @@
                                     <action selector="Emailaddress:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="OuS-yb-bi3"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOr-Ep-VCa">
-                                <rect key="frame" x="133" y="317" width="108" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="login"/>
-                                <connections>
-                                    <action selector="loginbutton:" destination="4py-O4-waz" eventType="touchUpInside" id="13f-0I-qeK"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-ZN-U5l">
                                 <rect key="frame" x="133" y="483" width="108" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -792,11 +783,24 @@
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="qWj-z2-dlr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOr-Ep-VCa">
+                                <rect key="frame" x="133" y="297" width="108" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="login"/>
+                                <connections>
+                                    <action selector="loginbutton:" destination="4py-O4-waz" eventType="touchUpInside" id="13f-0I-qeK"/>
+                                    <segue destination="uiQ-sC-9om" kind="showDetail" identifier="ToChooseGame" id="Acf-UN-7zf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Mbt-fN-LrI"/>
                     </view>
                     <navigationItem key="navigationItem" id="rZG-1Q-CHg"/>
+                    <connections>
+                        <outlet property="userEmailTextField" destination="tcI-dn-amX" id="p7d-x6-wkh"/>
+                        <outlet property="userPasswordField" destination="LDF-S2-2dH" id="Ami-NG-yzc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckm-SH-sWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -837,7 +841,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SV5-kC-bW2"/>
-        <segue reference="onJ-9k-Zd0"/>
+        <segue reference="Acf-UN-7zf"/>
         <segue reference="pAI-L7-gvB"/>
     </inferredMetricsTieBreakers>
 </document>
