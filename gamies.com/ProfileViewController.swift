@@ -9,6 +9,8 @@
 import UIKit
 import NCMB
 
+
+
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -27,6 +29,42 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var imageView: UIImageView!
     
     
+    @IBAction func btnReset(_ sender: Any) {
+        self.imageView.image = UIImage(named: "default.png")
+    }
+    
+
+    @IBAction func btnSelect(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // ライブラリから選ぶ
+            pickerView.sourceType = .photoLibrary
+            pickerView.delegate = self
+            // 表示
+            self.present(pickerView, animated: true)
+        }
+        
+    }
+
+    @IBAction func btnUpload(_ sender: Any) {
+        let photoData:Data = NSData(data: UIImageJPEGRepresentation(self.imageView.compressionQuality!, 0.80)!) as Data
+        // ファイル名の処理
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-HH-mm-ss"
+        let fileName = formatter.string(from: Date()) + ".jpg"
+        // データとファイル名でNCMBFileを作成
+        let file = NCMBFile.file(withName: fileName, data: photoData) as! NCMBFile
+        // 保存処理
+        file.saveInBackground({ (error) in
+            if error != nil {
+                // 保存失敗時の処理
+                print(error)
+            } else {
+                // 保存成功時の処理
+            }
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +74,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         imageView.image = UIImage(named: "default.png")
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+        
+        
+        
     }
 
         // Do any additional setup after loading the view.
