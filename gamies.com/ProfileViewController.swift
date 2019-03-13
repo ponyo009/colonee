@@ -14,12 +14,14 @@ import NCMB
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
         // 選択した写真を取得
         let image = info[.originalImage] as! UIImage
         // ImageViewに表示する
         self.imageView.image = image
         // 写真を選ぶビューを消す
         self.dismiss(animated: true)
+
     }
     
     @IBOutlet weak var gamename: UILabel!
@@ -44,12 +46,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             // 表示
             self.present(pickerView, animated: true)
         }
-        
     }
+    
+    
 
     @IBAction func btnUpload(_ sender: Any) {
-        let photoData:Data = NSData(data: UIImageJPEGRepresentation(self.imageView.compressionQuality!, 0.80)!) as Data
-        // ファイル名の処理
+        let imageData = self.imageView.image!.jpegData(compressionQuality: 0.80)
+        let photoData:Data = NSData(data: imageData!) as Data
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-dd-HH-mm-ss"
         let fileName = formatter.string(from: Date()) + ".jpg"
@@ -65,6 +69,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         })
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,5 +106,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Pass the selected object to the new view controller.
     }
     */
+
 
 
