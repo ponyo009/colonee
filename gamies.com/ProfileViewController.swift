@@ -9,12 +9,22 @@
 import UIKit
 import NCMB
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択した写真を取得
+        let image = info[.originalImage] as! UIImage
+        // ImageViewに表示する
+        self.imageView.image = image
+        // 写真を選ぶビューを消す
+        self.dismiss(animated: true)
+    }
     
     @IBOutlet weak var gamename: UILabel!
     var GameName = ""
 
+    
+    @IBOutlet weak var imageView: UIImageView!
     
     
     
@@ -23,9 +33,15 @@ class ProfileViewController: UIViewController {
         
         gamename.text = GameName
         print(gamename.text)
+        
+        imageView.image = UIImage(named: "default.png")
+        // Do any additional setup after loading the view, typically from a nib.
+    }
 
         // Do any additional setup after loading the view.
     }
+    
+    
     
     
     
@@ -41,4 +57,4 @@ class ProfileViewController: UIViewController {
     }
     */
 
-}
+
