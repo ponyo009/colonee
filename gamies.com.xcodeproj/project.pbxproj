@@ -53,6 +53,7 @@
 		AEA72ADDE476388A4E31D5B7 /* Pods-gamies.comTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamies.comTests.debug.xcconfig"; path = "Target Support Files/Pods-gamies.comTests/Pods-gamies.comTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C051DD21DB52AA47AF6DE7DC /* Pods-gamies.com.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamies.com.release.xcconfig"; path = "Target Support Files/Pods-gamies.com/Pods-gamies.com.release.xcconfig"; sourceTree = "<group>"; };
 		DFE47A2F43514BCB2D4BBFB5 /* Pods-gamies.comUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamies.comUITests.release.xcconfig"; path = "Target Support Files/Pods-gamies.comUITests/Pods-gamies.comUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E5027C1E22389E9D00816A56 /* gamies.com-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gamies.com-Bridging-Header.h"; sourceTree = "<group>"; };
 		E57831F422335C480013E869 /* gamies.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamies.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57831F722335C480013E869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E57831F922335C480013E869 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		E57831EB22335C480013E869 = {
 			isa = PBXGroup;
 			children = (
+				E5027C1E22389E9D00816A56 /* gamies.com-Bridging-Header.h */,
 				E57831F622335C480013E869 /* gamies.com */,
 				E578320B22335C4B0013E869 /* gamies.comTests */,
 				E578321622335C4B0013E869 /* gamies.comUITests */,
