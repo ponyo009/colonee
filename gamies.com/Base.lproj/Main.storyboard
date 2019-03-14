@@ -53,6 +53,9 @@
                                 <rect key="frame" x="172" y="630" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="決定"/>
+                                <connections>
+                                    <action selector="DecideButtonTapped:" destination="jS6-rb-dIb" eventType="touchUpInside" id="nTf-Rh-p4S"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xR-bW-Vd0">
                                 <rect key="frame" x="49" y="416" width="276" height="30"/>
@@ -102,6 +105,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="OQi-13-yrT"/>
                     <connections>
+                        <outlet property="IntroduceTextField" destination="ARy-YS-FAs" id="CE0-cd-giR"/>
+                        <outlet property="NicknameTextField" destination="2xR-bW-Vd0" id="sAi-Cl-xOm"/>
                         <outlet property="gamename" destination="y7h-X7-3Ze" id="0d2-N9-g36"/>
                         <outlet property="imageView" destination="f7P-jM-eQn" id="sxL-hA-8Oe"/>
                     </connections>

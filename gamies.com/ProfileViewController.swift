@@ -10,8 +10,11 @@ import UIKit
 import NCMB
 
 
-
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    let applicationkey = "6592f551af5bd3d036a6d2e256c3f355ee613b1fb786b16c6cd61fffdcc24fdf"
+    let clientkey  = "a1718a69a8664ce4cbefc668d1a3017915ab1a923f4c98dd82231d400c5fd101"
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
@@ -70,6 +73,32 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         })
     }
     
+
+    
+    @IBOutlet weak var NicknameTextField: UITextField!
+    
+    
+    @IBOutlet weak var IntroduceTextField: UITextField!
+    
+    
+    @IBAction func DecideButtonTapped(_ sender: Any) {
+        let obj = NCMBObject(className: "ProfileClass")
+        
+     
+       
+        obj?.setObject(NicknameTextField.text , forKey: "nickname")
+        obj?.setObject(IntroduceTextField.text , forKey: "introduce")
+        
+        
+        obj?.saveInBackground({ (err) in
+            if err != nil {
+                print(err?.localizedDescription ?? "");
+            } else {
+                print("Saved");
+            }
+        })
+        
+    }
     
     
     override func viewDidLoad() {
