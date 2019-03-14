@@ -36,7 +36,7 @@ class RegistrationViewController: UIViewController {
         user.signUpInBackground { (error) in
             if error != nil {
                 self.SignUpFailedMessage.alpha = 1
-                print("Failed")
+                print("SignUpFailed")
                 // 新規登録失敗時の処理
             }else{
                 self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)

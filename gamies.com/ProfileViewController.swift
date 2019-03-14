@@ -68,6 +68,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 // 保存失敗時の処理
                 print(error)
             } else {
+                print("btnupload successed")
                 // 保存成功時の処理
             }
         })
@@ -82,16 +83,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func DecideButtonTapped(_ sender: Any) {
-        let obj = NCMBObject(className: "ProfileClass")
-        
-     
+        let obj = NCMBObject(className: "Userclass")
        
-        obj?.setObject(NicknameTextField.text , forKey: "nickname")
-        obj?.setObject(IntroduceTextField.text , forKey: "introduce")
+        obj!.add(NicknameTextField.text , forKey: "nickname")
+        obj!.add(IntroduceTextField.text , forKey: "introduce")
         
-        
-        obj?.saveInBackground({ (err) in
+    
+        obj!.saveInBackground({ (err) in
             if err != nil {
+                print("Failed")
                 print(err?.localizedDescription ?? "");
             } else {
                 print("Saved");
