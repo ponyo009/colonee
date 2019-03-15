@@ -27,6 +27,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     }
     
+    let user = NCMBUser.current()
+    
     @IBOutlet weak var gamename: UILabel!
     var GameName = ""
 
@@ -49,7 +51,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageView.image = UIImage(named: "default.png")
         
         //現在ログイン中のユーザーのuserNameを表示
-        let user = NCMBUser.current()
         print (user)
         username.text = user?.userName
         // Do any additional setup after loading the view, typically from a nib.
@@ -100,18 +101,20 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func DecideButtonTapped(_ sender: Any) {
-        let obj = NCMBObject(className: "Userclass")
+        //let obj = NCMBObject(className: "Userclass")
        
-        obj!.add(NicknameTextField.text , forKey: "nickname")
-        obj!.add(IntroduceTextField.text , forKey: "introduce")
+        let obj = NCMBObject(className: "Profileclass")
         
-    
-        obj!.saveInBackground({ (err) in
-            if err != nil {
-                print("SaveProfileFailed")
-                print(err?.localizedDescription ?? "");
-            } else {
-                print("ProfileSaved");
+        //print(obj?.objectId)
+        obj?.setObject(NicknameTextField.text , forKey: "nickname")
+        obj?.setObject(IntroduceTextField.text , forKey: "introduce")
+        obj?.setObject(user, forKey: "User")
+        obj?.saveInBackground({ (err) in
+        if err != nil {
+            print("SaveProfileFailed")
+            print(err?.localizedDescription ?? "");
+        } else {
+            print("ProfileSaved");
             }
         })
         
