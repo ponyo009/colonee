@@ -42,12 +42,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
         print(gamename.text)
         
         imageView.image = UIImage(named: "default.png")
         
+        //現在ログイン中のユーザーのuserNameを表示
         let user = NCMBUser.current()
+        print (user)
         username.text = user?.userName
         // Do any additional setup after loading the view, typically from a nib.
     }
