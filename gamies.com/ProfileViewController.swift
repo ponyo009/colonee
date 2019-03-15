@@ -33,12 +33,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var username: UILabel!
     
     @IBAction func btnReset(_ sender: Any) {
         self.imageView.image = UIImage(named: "default.png")
     }
     
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        gamename.text = GameName
+        print(gamename.text)
+        
+        imageView.image = UIImage(named: "default.png")
+        
+        let user = NCMBUser.current()
+        username.text = user?.userName
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
     @IBAction func btnSelect(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             // 写真を選ぶビュー
@@ -48,6 +61,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             pickerView.delegate = self
             // 表示
             self.present(pickerView, animated: true)
+
         }
     }
     
@@ -91,31 +105,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
         obj!.saveInBackground({ (err) in
             if err != nil {
-                print("Failed")
+                print("SaveProfileFailed")
                 print(err?.localizedDescription ?? "");
             } else {
-                print("Saved");
+                print("ProfileSaved");
             }
         })
         
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        gamename.text = GameName
-        print(gamename.text)
-        
-        imageView.image = UIImage(named: "default.png")
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        
-        
-        
-        
-    }
 
         // Do any additional setup after loading the view.
     }
