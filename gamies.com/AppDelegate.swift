@@ -23,15 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NCMB.setApplicationKey(applicationkey, clientKey: clientkey)
         // Override point for customization after application launch.
         //▼▼▼起動時に処理される▼▼▼
-        let obj = NCMBObject(className: "TestClass")
-        obj?.setObject("Hello, NCMB!", forKey: "message")
-        obj?.saveInBackground({ (error) in
-            if error != nil {
-                // 保存に失敗した場合の処理
-            }else{
-                // 保存に成功した場合の処理
-            }
-        })
+        
         //▲▲▲起動時に処理される▲▲▲
         return true
         
