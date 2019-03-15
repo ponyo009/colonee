@@ -103,21 +103,40 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func DecideButtonTapped(_ sender: Any) {
         //let obj = NCMBObject(className: "Userclass")
        
+        //ゲームタイトルが存在するかどうか検索
+        let searchgame = NCMBQuery(className: "Gameclass")
+        //検索の条件
+        searchgame?.whereKey("GameName", equalTo: GameName)
+        //検索実行
+        searchgame?.findObjectsInBackground({(objects,error)in
+            if (error != nil){
+                print("searchFailed")
+            }else{
+                print("ここから")
+                print(objects)
+                print("ここまで")
+            }
+        })
+        
         let obj = NCMBObject(className: "Profileclass")
         
         obj?.setObject(NicknameTextField.text , forKey: "nickname")
         obj?.setObject(IntroduceTextField.text , forKey: "introduce")
         obj?.setObject(user, forKey: "User")
-        obj?.saveInBackground({ (err) in
-        if err != nil {
-            print("SaveProfileFailed")
-            print(err?.localizedDescription ?? "");
-        } else {
-            print("ProfileSaved");
-            self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
+        obj?.save(nil)
+        
+        
+        let gameobj = NCMBObject(className: "Gameclass")
+        gameobj?.setObject(obj, forKey: "Profile")
+        gameobj?.saveInBackground({ (err) in
+            if err != nil {
+                print("SaveProfileFailed")
+                print(err?.localizedDescription ?? "");
+            } else {
+                print("ProfileSaved");
+                self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
             }
         })
-        
     }
     
     

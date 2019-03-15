@@ -43,15 +43,16 @@ class ChooseGameViewController: UIViewController {
         
         let subobj = NCMBObject(className: "Gameclass")
         subobj?.setObject(GameNames[tagnum], forKey: "GameName")
+        subobj?.save(nil)
         
-        let obj = NCMBObject(className: "UserClass")
+        let obj = NCMBObject(className: "Userclass")
         obj?.setObject(user?.userName, forKey: "userName")
         obj?.setObject(subobj, forKey: "Games")
         obj?.saveInBackground({(error) in if
             (error) != nil{
             print(error)
         }else{
-            print("NewClassFailed")
+            print("GameClassSuccessed")
             }
         })
         
