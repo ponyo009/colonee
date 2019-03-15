@@ -132,6 +132,7 @@
                         <outlet property="gamename" destination="y7h-X7-3Ze" id="0d2-N9-g36"/>
                         <outlet property="imageView" destination="f7P-jM-eQn" id="sxL-hA-8Oe"/>
                         <outlet property="username" destination="6kB-lc-AY8" id="IHG-sN-bLg"/>
+                        <segue destination="who-2N-KaB" kind="showDetail" identifier="ToSwipe" id="nVF-Or-cfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-5T-nvo" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -105,7 +105,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
        
         let obj = NCMBObject(className: "Profileclass")
         
-        //print(obj?.objectId)
         obj?.setObject(NicknameTextField.text , forKey: "nickname")
         obj?.setObject(IntroduceTextField.text , forKey: "introduce")
         obj?.setObject(user, forKey: "User")
@@ -115,6 +114,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             print(err?.localizedDescription ?? "");
         } else {
             print("ProfileSaved");
+            self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
             }
         })
         

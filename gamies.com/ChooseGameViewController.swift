@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import NCMB
 class ChooseGameViewController: UIViewController {
 
     @IBOutlet weak var Game0: UIView!
@@ -22,6 +22,10 @@ class ChooseGameViewController: UIViewController {
     let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
     var tagnum = Int()
     
+    
+    let user = NCMBUser.current()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +39,22 @@ class ChooseGameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func ButtonTapped(_ sender: UIButton) {
-         tagnum = sender.tag
+        tagnum = sender.tag
+        
+        let subobj = NCMBObject(className: "Gameclass")
+        subobj?.setObject(GameNames[tagnum], forKey: "GameName")
+        
+        let obj = NCMBObject(className: "UserClass")
+        obj?.setObject(user?.userName, forKey: "userName")
+        obj?.setObject(subobj, forKey: "Games")
+        obj?.saveInBackground({(error) in if
+            (error) != nil{
+            print(error)
+        }else{
+            print("NewClassFailed")
+            }
+        })
+        
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)
     }
     
