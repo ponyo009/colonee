@@ -18,23 +18,28 @@ class ChooseGameViewController: UIViewController {
     @IBOutlet weak var Game5: UIView!
 
     
-    var Games = [UIView]()
     let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
     var tagnum = Int()
-    
-    
+    var objId = String()
+    var obj = NCMBObject()
     let user = NCMBUser.current()
     
-    
     override func viewDidLoad() {
+        
+        let query = NCMBQuery(className: "Userclass")
+        query?.whereKey("userName", equalTo: user?.userName)
+        query?.findObjectsInBackground({(objects,error) in
+            if(error != nil || objects == nil){
+                print(error!)
+                print("Newuser")
+            }else{
+                //ログイン中のユーザーのobjectIdを取得
+                self.objId = (self.user?.objectId)!
+                print(objects!)
+            }
+        })
+        
         super.viewDidLoad()
-
-        Games.append(Game0)
-        Games.append(Game1)
-        Games.append(Game2)
-        Games.append(Game3)
-        Games.append(Game4)
-        Games.append(Game5)
 
         // Do any additional setup after loading the view.
     }
@@ -43,6 +48,7 @@ class ChooseGameViewController: UIViewController {
         
         let subobj = NCMBObject(className: "Gameclass")
         subobj?.setObject(GameNames[tagnum], forKey: "GameName")
+        let GameclassObjId = subobj?.objectId
         subobj?.save(nil)
         
         let obj = NCMBObject(className: "Userclass")
@@ -53,6 +59,7 @@ class ChooseGameViewController: UIViewController {
             print(error)
         }else{
             print("GameClassSuccessed")
+            self.objId = (obj?.objectId)!
             }
         })
         

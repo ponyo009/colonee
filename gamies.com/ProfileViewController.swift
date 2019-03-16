@@ -113,7 +113,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("searchFailed")
             }else{
                 print("ここから")
-                print(objects)
+                print(objects!)
                 print("ここまで")
             }
         })
