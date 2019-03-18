@@ -58,7 +58,7 @@ class ChooseGameViewController: UIViewController {
             (error) != nil{
             print(error)
         }else{
-            print("GameClassSuccessed")
+            print("GameClassSaved")
             self.objId = (obj?.objectId)!
             }
         })
@@ -70,6 +70,8 @@ class ChooseGameViewController: UIViewController {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
             vc.GameName = GameNames[tagnum]
+            let id = segue.destination as! ProfileViewController
+            id.objId = objId
     }
 
 }

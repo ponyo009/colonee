@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     let user = NCMBUser.current()
     
+    var objId = String()
+    
     @IBOutlet weak var gamename: UILabel!
     var GameName = ""
 
@@ -103,20 +105,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func DecideButtonTapped(_ sender: Any) {
         //let obj = NCMBObject(className: "Userclass")
        
-        //ゲームタイトルが存在するかどうか検索
-        let searchgame = NCMBQuery(className: "Gameclass")
-        //検索の条件
-        searchgame?.whereKey("GameName", equalTo: GameName)
-        //検索実行
-        searchgame?.findObjectsInBackground({(objects,error)in
-            if (error != nil){
-                print("searchFailed")
-            }else{
-                print("ここから")
-                print(objects!)
-                print("ここまで")
-            }
-        })
+       
         
         let obj = NCMBObject(className: "Profileclass")
         
@@ -126,7 +115,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         obj?.save(nil)
         
         
-        let gameobj = NCMBObject(className: "Gameclass")
+        let gameobj = NCMBObject(className: "Gameclass", objectId: objId)
         gameobj?.setObject(obj, forKey: "Profile")
         gameobj?.saveInBackground({ (err) in
             if err != nil {
