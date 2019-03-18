@@ -48,19 +48,16 @@ class ChooseGameViewController: UIViewController {
         
         let subobj = NCMBObject(className: "Gameclass")
         subobj?.setObject(GameNames[tagnum], forKey: "GameName")
-        let GameclassObjId = subobj?.objectId
+        self.objId = subobj!.objectId
         subobj?.save(nil)
         
-        let obj = NCMBObject(className: "Userclass")
-        obj?.setObject(user?.userName, forKey: "userName")
+        let obj = NCMBObject(className: "user", objectId: user?.objectId)
         obj?.setObject(subobj, forKey: "Games")
         obj?.saveInBackground({(error) in if
             (error) != nil{
             print(error)
         }else{
-            print("GameClassSaved")
-            self.objId = (obj?.objectId)!
-            }
+            print("GamesSaved")            }
         })
         
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)

@@ -107,16 +107,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
        
        
         
-        let obj = NCMBObject(className: "Profileclass")
-        
-        obj?.setObject(NicknameTextField.text , forKey: "nickname")
-        obj?.setObject(IntroduceTextField.text , forKey: "introduce")
-        obj?.setObject(user, forKey: "User")
-        obj?.save(nil)
+        let profile = NCMBObject(className: "Profileclass")
+        profile?.setObject(NicknameTextField.text , forKey: "nickname")
+        profile?.setObject(IntroduceTextField.text , forKey: "introduce")
+        profile?.setObject(user, forKey: "User")
+        profile?.save(nil)
         
         
         let gameobj = NCMBObject(className: "Gameclass", objectId: objId)
-        gameobj?.setObject(obj, forKey: "Profile")
+        gameobj?.setObject(profile, forKey: "Profile")
         gameobj?.saveInBackground({ (err) in
             if err != nil {
                 print("SaveProfileFailed")
