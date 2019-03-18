@@ -7,17 +7,7 @@ target 'gamies.com' do
  pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git'
 end
 
-
   # Pods for gamies.com
-
-
-pod 'JSQMessagesViewController'
-pod 'Firebase'
-pod 'Firebase/Database'
-pod 'Firebase/Auth'
-pod 'FBSDKCoreKit'
-pod 'FBSDKShareKit'
-pod 'FBSDKLoginKit'
 
   target 'gamies.comTests' do
     inherit! :search_paths

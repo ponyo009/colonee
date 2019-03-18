@@ -26,19 +26,6 @@ class ChooseGameViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        let query = NCMBQuery(className: "Userclass")
-        query?.whereKey("userName", equalTo: user?.userName)
-        query?.findObjectsInBackground({(objects,error) in
-            if(error != nil || objects == nil){
-                print(error!)
-                print("Newuser")
-            }else{
-                //ログイン中のユーザーのobjectIdを取得
-                self.objId = (self.user?.objectId)!
-                print(objects!)
-            }
-        })
-        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -48,8 +35,9 @@ class ChooseGameViewController: UIViewController {
         
         let subobj = NCMBObject(className: "Gameclass")
         subobj?.setObject(GameNames[tagnum], forKey: "GameName")
-        self.objId = subobj!.objectId
         subobj?.save(nil)
+        objId = (subobj?.objectId)!
+
         
         let obj = NCMBObject(className: "user", objectId: user?.objectId)
         obj?.setObject(subobj, forKey: "Games")

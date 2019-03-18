@@ -110,7 +110,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let profile = NCMBObject(className: "Profileclass")
         profile?.setObject(NicknameTextField.text , forKey: "nickname")
         profile?.setObject(IntroduceTextField.text , forKey: "introduce")
-        profile?.setObject(user, forKey: "User")
         profile?.save(nil)
         
         
