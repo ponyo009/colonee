@@ -140,6 +140,21 @@
             <point key="canvasLocation" x="367.19999999999999" y="393.55322338830587"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="Oq4-E3-Ga9">
+            <objects>
+                <viewController id="CtT-G9-CLv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gam-3f-VVh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SHz-G7-AfS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="el0-eS-hnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="1277"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
