@@ -1,8 +1,14 @@
 PODS:
   - NCMB (3.0.1)
+  - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
   - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`)
+  - TextFieldEffects
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TextFieldEffects
 
 EXTERNAL SOURCES:
   NCMB:
@@ -15,7 +21,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   NCMB: 470e5d51a643b0b77487792c179c1454ee0a55ae
+  TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: fe0df2cf9595df1b2ad2b678681890a367bbca56
+PODFILE CHECKSUM: 994a4aa58e4ed0340a4c458d7f5459b919ead5b8
 
 COCOAPODS: 1.7.0.beta.2
