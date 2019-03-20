@@ -9,17 +9,27 @@
 import UIKit
 
 class ProtectedViewController: UIViewController {
-
+    
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let image = UIImage(named: "文字ロゴ")
+        
+        // Image Viewに画像を設定
+        imageView.image = image
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.performSegue(withIdentifier: "loginView", sender: self)
+        self.performSegue(withIdentifier: "LoginView", sender: self)
     }
     
+    
+ 
     
     /*
     // MARK: - Navigation

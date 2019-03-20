@@ -770,25 +770,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="protected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5H-mL-9Mv">
-                                <rect key="frame" x="63" y="91" width="248" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="41"/>
-                                <color key="textColor" red="0.4585284362" green="0.52855721769999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfn-C1-4VJ">
+                                <rect key="frame" x="98" y="311" width="178" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="FTd-EQ-mXs"/>
                     </view>
                     <navigationItem key="navigationItem" id="XLb-qf-buC"/>
                     <connections>
-                        <segue destination="IuG-4G-hGA" kind="showDetail" identifier="loginView" id="iPX-2J-I1g"/>
+                        <outlet property="imageView" destination="nfn-C1-4VJ" id="1ep-r7-tBz"/>
+                        <segue destination="IuG-4G-hGA" kind="presentation" identifier="LoginView" id="iov-F7-cBf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76u-j4-pUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360.80000000000001" y="-398.05097451274366"/>
+            <point key="canvasLocation" x="367" y="-385"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ZDx-oy-6gi">
@@ -910,6 +908,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Tqn-Zc-gq8"/>
-        <segue reference="tgP-lf-EMP"/>
+        <segue reference="E3E-Mf-7zU"/>
     </inferredMetricsTieBreakers>
 </document>
