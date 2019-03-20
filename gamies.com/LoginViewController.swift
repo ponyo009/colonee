@@ -14,10 +14,16 @@ class LoginViewController: UIViewController {
 
    
     @IBOutlet weak var userEmailTextField: UITextField!
+    
     @IBOutlet weak var userPasswordField: UITextField!
+    
     @IBOutlet weak var LoginFailedMessage: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        view.backgroundColor = UIColor.init(red: 246/255, green: 213/255, blue: 128/255, alpha: 100/100)
+
 
         // Do any additional setup after loading the view.
     }

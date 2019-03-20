@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B81509B2F05F17E058955FD /* Pods_gamies_com.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E950BE1023717538C91DC54 /* Pods_gamies_com.framework */; };
+		80C980D0C8D27664299E43E9 /* Pods_gamies_comTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFFD5A78D2DEE0453E96D25 /* Pods_gamies_comTests.framework */; };
+		B771ADFDE14ABD19A66C4008 /* Pods_gamies_comUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F322AFF7019DE1C97DE0A0 /* Pods_gamies_comUITests.framework */; };
 		E57831F822335C480013E869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F722335C480013E869 /* AppDelegate.swift */; };
 		E57831FA22335C480013E869 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F922335C480013E869 /* ViewController.swift */; };
 		E57831FD22335C480013E869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57831FB22335C480013E869 /* Main.storyboard */; };
@@ -46,8 +49,11 @@
 		340B5F94D3930BDA7519BAFA /* Pods-gamies.com.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamies.com.debug.xcconfig"; path = "Target Support Files/Pods-gamies.com/Pods-gamies.com.debug.xcconfig"; sourceTree = "<group>"; };
 		341EBD7E41AAC95990511E0B /* Pods-gamies.com.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamies.com.release.xcconfig"; path = "Target Support Files/Pods-gamies.com/Pods-gamies.com.release.xcconfig"; sourceTree = "<group>"; };
 		43AE7B8134F83003BD00CC5B /* Pods-gamies.comUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamies.comUITests.debug.xcconfig"; path = "Target Support Files/Pods-gamies.comUITests/Pods-gamies.comUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5BFFD5A78D2DEE0453E96D25 /* Pods_gamies_comTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamies_comTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77314F7C79D4083343FE0A69 /* Pods-gamies.comTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamies.comTests.debug.xcconfig"; path = "Target Support Files/Pods-gamies.comTests/Pods-gamies.comTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8125BDC723263355736DBA83 /* Pods-gamies.comTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamies.comTests.release.xcconfig"; path = "Target Support Files/Pods-gamies.comTests/Pods-gamies.comTests.release.xcconfig"; sourceTree = "<group>"; };
+		82F322AFF7019DE1C97DE0A0 /* Pods_gamies_comUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamies_comUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E950BE1023717538C91DC54 /* Pods_gamies_com.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamies_com.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5027C1E22389E9D00816A56 /* gamies.com-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gamies.com-Bridging-Header.h"; sourceTree = "<group>"; };
 		E57831F422335C480013E869 /* gamies.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamies.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57831F722335C480013E869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9BA18E6223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh in Frameworks */,
+				6B81509B2F05F17E058955FD /* Pods_gamies_com.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80C980D0C8D27664299E43E9 /* Pods_gamies_comTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B771ADFDE14ABD19A66C4008 /* Pods_gamies_comUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				E9BA18E5223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh */,
+				8E950BE1023717538C91DC54 /* Pods_gamies_com.framework */,
+				5BFFD5A78D2DEE0453E96D25 /* Pods_gamies_comTests.framework */,
+				82F322AFF7019DE1C97DE0A0 /* Pods_gamies_comUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -361,16 +373,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gamies.com/Pods-gamies.com-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/NCMB/NCMB.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-gamies.com/Pods-gamies.com-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NCMB.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-gamies.com/Pods-gamies.com-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
