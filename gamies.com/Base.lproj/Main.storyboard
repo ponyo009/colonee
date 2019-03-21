@@ -10,13 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--userProfile-->
         <scene sceneID="hGv-uF-JxB">
             <objects>
-                <viewController id="who-2N-KaB" sceneMemberID="viewController">
+                <viewController id="who-2N-KaB" userLabel="userProfile" customClass="UserProfileViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zhM-8Z-eRU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbA-Jw-0hc">
+                                <rect key="frame" x="143" y="74" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="V6w-p1-xlw"/>
                     </view>
@@ -339,7 +348,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2906" y="394"/>
+            <point key="canvasLocation" x="3602" y="-292"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="A8G-OK-Uci">
@@ -393,7 +402,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1153"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">この規約は、お客様が、株式会社Aupla（以下「当社」）が提供する「gamies」サービス（以下「本サービス」）をご利用頂く際の取扱いにつき定めるものです。本規約に同意した上で本サービスをご利用ください。
+                                        <string key="text">この規約は、お客様が、株式会社Aupla（以下「当社」）が提供する「gamies」サービス（以下「本サービス」）をご利用頂く際の取扱いにつき定めるものです。本規約に同意した上で本サービスをご利用ください。
 
 第1条（本規約への同意）
 １　利用者は、本利用規約に同意頂いた上で、本サービスを利用できるものとします。
@@ -475,7 +484,7 @@
 ２０●●年●月●日　施行
 
 
-</mutableString>
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -796,16 +805,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufZ-Gf-Z6C">
-                                <rect key="frame" x="144.5" y="390" width="86" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="ログイン">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginbutton:" destination="IuG-4G-hGA" eventType="touchUpInside" id="sk8-jV-8Xv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pW3-G9-JUY">
                                 <rect key="frame" x="144.5" y="436" width="86" height="73"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -850,6 +849,16 @@
                                 <state key="normal" title="利用規約"/>
                                 <connections>
                                     <segue destination="tHM-kk-Vd9" kind="presentation" id="BoU-m9-19u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufZ-Gf-Z6C">
+                                <rect key="frame" x="144" y="390" width="86" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="ログイン">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginbutton:" destination="IuG-4G-hGA" eventType="touchUpInside" id="sk8-jV-8Xv"/>
                                 </connections>
                             </button>
                         </subviews>

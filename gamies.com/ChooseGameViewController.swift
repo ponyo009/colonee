@@ -51,6 +51,7 @@ class ChooseGameViewController: UIViewController {
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)
     }
     
+    //選択されたゲーム名とそのobjectidを渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController

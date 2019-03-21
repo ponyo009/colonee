@@ -48,12 +48,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
-        print(gamename.text)
+        print("洗濯されたゲーム：" + gamename.text!)
         
         imageView.image = UIImage(named: "default.png")
         
         //現在ログイン中のユーザーのuserNameを表示
-        print (user)
         username.text = user?.userName
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -88,7 +87,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 // 保存失敗時の処理
                 print(error)
             } else {
-                print("btnupload successed")
+                print("imageupload successed")
                 // 保存成功時の処理
             }
         })
