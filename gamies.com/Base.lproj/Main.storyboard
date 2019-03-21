@@ -449,9 +449,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Urh-K9-aRw">
                                 <rect key="frame" x="118" y="439" width="139" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="I have my accout"/>
+                                <state key="normal" title="ログイン画面"/>
                                 <connections>
                                     <action selector="dismiss:" destination="Pee-0p-LxU" eventType="touchUpInside" id="VpE-hw-35j"/>
+                                    <segue destination="IuG-4G-hGA" kind="modal" id="DuQ-Fd-nLz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Y7A-2S-NSw">
@@ -503,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnl-tT-HMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1494.375" y="-1227.28"/>
+            <point key="canvasLocation" x="1862" y="-1227"/>
         </scene>
         <!--ChooseGame-->
         <scene sceneID="1au-O6-Xkv">
@@ -672,7 +673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76u-j4-pUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="229.375" y="-427.99166666666662"/>
+            <point key="canvasLocation" x="7" y="-429"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ZDx-oy-6gi">
@@ -764,7 +765,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTl-ng-0mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271.25" y="-442.44333333333327"/>
+            <point key="canvasLocation" x="-740" y="-429"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9CR-3H-9Mu">
@@ -782,7 +783,7 @@
                                         <rect key="frame" x="0.0" y="57" width="375" height="553"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">この規約は、お客様が、株式会社Aupla（以下「当社」）が提供する「gamies」サービス（以下「本サービス」）をご利用頂く際の取扱いにつき定めるものです。本規約に同意した上で本サービスをご利用ください。
+                                        <string key="text">この規約は、お客様が、株式会社Aupla（以下「当社」）が提供する「gamies」サービス（以下「本サービス」）をご利用頂く際の取扱いにつき定めるものです。本規約に同意した上で本サービスをご利用ください。
 
 第1条（本規約への同意）
 １　利用者は、本利用規約に同意頂いた上で、本サービスを利用できるものとします。
@@ -864,7 +865,7 @@
 ２０●●年●月●日　施行
 
 
-</mutableString>
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -909,7 +910,8 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="DuQ-Fd-nLz"/>
         <segue reference="Lh0-9m-M3o"/>
-        <segue reference="y0A-B1-Rm4"/>
+        <segue reference="E3E-Mf-7zU"/>
     </inferredMetricsTieBreakers>
 </document>
