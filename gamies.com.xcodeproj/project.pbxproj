@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		397FE30C2834D6478487FC15 /* Pods_gamies_comUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AED1A915F74A26BAC708BDA /* Pods_gamies_comUITests.framework */; };
 		ACEC7B325F0B0F7032990D25 /* Pods_gamies_comTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C2A0EC00FEAC61638A5571 /* Pods_gamies_comTests.framework */; };
+		E55DF26822437EB8004ECF9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55DF26722437EB8004ECF9D /* GoogleService-Info.plist */; };
 		E57831F822335C480013E869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F722335C480013E869 /* AppDelegate.swift */; };
 		E57831FA22335C480013E869 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F922335C480013E869 /* ViewController.swift */; };
 		E57831FD22335C480013E869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57831FB22335C480013E869 /* Main.storyboard */; };
@@ -19,7 +20,6 @@
 		E57832262233D25B0013E869 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832252233D25B0013E869 /* ProtectedViewController.swift */; };
 		E57832282233E46B0013E869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832272233E46B0013E869 /* LoginViewController.swift */; };
 		E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96269FF2237A80300E3D980 /* WelcomeViewController.swift */; };
-		E963B18E224358A900927AD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9B312B62243397900813580 /* GoogleService-Info.plist */; };
 		E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B312B4224326EA00813580 /* UserProfileViewController.swift */; };
 		E9BA18E6223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BA18E5223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh */; };
 		E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308722336C3300CCF153 /* ListViewController.swift */; };
@@ -57,6 +57,7 @@
 		C9C2A0EC00FEAC61638A5571 /* Pods_gamies_comTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamies_comTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3634EA708EBDACB1C9EF7A1 /* Pods_gamies_com.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamies_com.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5027C1E22389E9D00816A56 /* gamies.com-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gamies.com-Bridging-Header.h"; sourceTree = "<group>"; };
+		E55DF26722437EB8004ECF9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E57831F422335C480013E869 /* gamies.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamies.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57831F722335C480013E869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E57831F922335C480013E869 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		E57832272233E46B0013E869 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E96269FF2237A80300E3D980 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E9B312B4224326EA00813580 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		E9B312B62243397900813580 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9BA18E5223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "Pods-gamies.com-frameworks.sh"; path = "Pods/Target Support Files/Pods-gamies.com/Pods-gamies.com-frameworks.sh"; sourceTree = "<group>"; };
 		E9F6308722336C3300CCF153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E9F63089223387E400CCF153 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +153,7 @@
 				E57831F922335C480013E869 /* ViewController.swift */,
 				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
 				E57831FB22335C480013E869 /* Main.storyboard */,
+				E55DF26722437EB8004ECF9D /* GoogleService-Info.plist */,
 				E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
@@ -162,7 +163,6 @@
 				E57832252233D25B0013E869 /* ProtectedViewController.swift */,
 				E57832272233E46B0013E869 /* LoginViewController.swift */,
 				E9F6308D223502FF00CCF153 /* ProfileViewController.swift */,
-				E9B312B62243397900813580 /* GoogleService-Info.plist */,
 			);
 			path = gamies.com;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E578320222335C4A0013E869 /* LaunchScreen.storyboard in Resources */,
-				E963B18E224358A900927AD8 /* GoogleService-Info.plist in Resources */,
+				E55DF26822437EB8004ECF9D /* GoogleService-Info.plist in Resources */,
 				E57831FF22335C4A0013E869 /* Assets.xcassets in Resources */,
 				E57831FD22335C480013E869 /* Main.storyboard in Resources */,
 			);
