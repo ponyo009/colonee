@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let user = Auth.auth().currentUser
     var ref: DatabaseReference!
     var objId = String()
+    let db = Firestore.firestore()
     
     @IBOutlet weak var gamename: UILabel!
     var GameName = ""
@@ -70,12 +71,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
 
     @IBAction func btnUpload(_ sender: Any) {
-        let imageData = self.imageView.image!.jpegData(compressionQuality: 0.80)
-        let photoData:Data = NSData(data: imageData!) as Data
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-HH-mm-ss"
-        let fileName = formatter.string(from: Date()) + ".jpg"
     }
     
 
@@ -87,12 +83,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func DecideButtonTapped(_ sender: Any) {
-        //let obj = NCMBObject(className: "Userclass")
+      
        
-        ref = Database.database().reference()
+         db.collection("users").document((user?.uid)!).collection("Games").document(GameName).setData([
+            "nickname": NicknameTextField.text!,
+            "introduce": IntroduceTextField.text!
+            ])
         
-        ref.setValue(NicknameTextField.text!, forKey: "nickname")
-        ref.setValue(IntroduceTextField.text!, forKey: "introduce")
+        print("Profile Saved")
         
         self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
 

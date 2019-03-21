@@ -20,13 +20,14 @@ class ChooseGameViewController: UIViewController {
     @IBOutlet weak var Game4: UIView!
     @IBOutlet weak var Game5: UIView!
 
-    
-    var ref: DatabaseReference!
     let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
+
     var tagnum = Int()
-    var objId = String()
     let user = Auth.auth().currentUser
-    
+    var docID: String!
+    var ref: DocumentReference!
+    let db = Firestore.firestore()
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -36,14 +37,9 @@ class ChooseGameViewController: UIViewController {
     @IBAction func ButtonTapped(_ sender: UIButton) {
         
         tagnum = sender.tag
-        ref = Database.database().reference().child("GameName")
-    
-        self.ref.setValue(GameNames[tagnum])
+        
         print("GameName Saved")
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)
-
-            
-       
     }
     
     //選択されたゲーム名とそのobjectidを渡す
@@ -51,8 +47,6 @@ class ChooseGameViewController: UIViewController {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
             vc.GameName = GameNames[tagnum]
-            let id = segue.destination as! ProfileViewController
-            id.objId = objId
     }
 
 }
