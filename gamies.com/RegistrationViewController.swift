@@ -17,14 +17,13 @@ class RegistrationViewController: UIViewController {
     
     var ref: DocumentReference!
     let user = Auth.auth().currentUser!
+    let db = Firestore.firestore()
     
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var SignUpFailedMessage: UILabel!
     
-    let db = Firestore.firestore()
-    let user = Auth.auth().currentUser
-    var docID: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,23 +54,7 @@ class RegistrationViewController: UIViewController {
                 
                 self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)
                 print("SignUp!")
-                
-                var ref: DocumentReference!
-                
-                ref = self.db.collection("users").addDocument(data: [
-                    "name": self.user?.displayName as Any,
-                    "email": self.user?.email as Any,
-                    "UID": self.user?.uid as Any
-                    ]) { err in
-                        if let err = err {
-                            print("登録失敗")
-                            print(err)
-                        } else {
-                            print("Document added with ID: \(ref!.documentID)")
-                            self.docID = ref!.documentID
-                        }
-                }
-                // 新規登録成功時の処理
+            
             }}
     }
     
