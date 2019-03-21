@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		397FE30C2834D6478487FC15 /* Pods_gamies_comUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AED1A915F74A26BAC708BDA /* Pods_gamies_comUITests.framework */; };
 		ACEC7B325F0B0F7032990D25 /* Pods_gamies_comTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C2A0EC00FEAC61638A5571 /* Pods_gamies_comTests.framework */; };
+		E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */; };
 		E55DF26822437EB8004ECF9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55DF26722437EB8004ECF9D /* GoogleService-Info.plist */; };
 		E57831F822335C480013E869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F722335C480013E869 /* AppDelegate.swift */; };
 		E57831FA22335C480013E869 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F922335C480013E869 /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		C9C2A0EC00FEAC61638A5571 /* Pods_gamies_comTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamies_comTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3634EA708EBDACB1C9EF7A1 /* Pods_gamies_com.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamies_com.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5027C1E22389E9D00816A56 /* gamies.com-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gamies.com-Bridging-Header.h"; sourceTree = "<group>"; };
+		E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUsersViewController.swift; sourceTree = "<group>"; };
 		E55DF26722437EB8004ECF9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E57831F422335C480013E869 /* gamies.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamies.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57831F722335C480013E869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				E57832252233D25B0013E869 /* ProtectedViewController.swift */,
 				E57832272233E46B0013E869 /* LoginViewController.swift */,
 				E9F6308D223502FF00CCF153 /* ProfileViewController.swift */,
+				E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */,
 			);
 			path = gamies.com;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */,
 				E57832282233E46B0013E869 /* LoginViewController.swift in Sources */,
 				E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */,
+				E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */,
 				E57831FA22335C480013E869 /* ViewController.swift in Sources */,
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
 				E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */,
