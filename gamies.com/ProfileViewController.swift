@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
          db.collection("users").document((user?.uid)!).collection("Games").document(GameName).setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
-            ])
+            ],options: SetOptions.merge())
         
         print("Profile Saved")
         
