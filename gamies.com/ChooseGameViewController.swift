@@ -38,7 +38,10 @@ class ChooseGameViewController: UIViewController {
         tagnum = sender.tag
         var ref: DocumentReference!
         
-        ref = db.collection("games").addDocument(data: <#T##[String : Any]#>)
+        ref = db.collection("games").addDocument(data: [
+            "gamename": GameNames[tagnum],
+            "UID": user?.uid as Any
+            ])
         
        
         
