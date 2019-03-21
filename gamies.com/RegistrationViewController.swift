@@ -16,7 +16,7 @@ import FirebaseDatabase
 class RegistrationViewController: UIViewController {
     
     var ref: DocumentReference!
-    let user = Auth.auth().currentUser!
+    var user = Auth.auth().currentUser!
     let db = Firestore.firestore()
     
     @IBOutlet weak var userEmailTextField: UITextField!
@@ -47,6 +47,7 @@ class RegistrationViewController: UIViewController {
             }else{
                
                 let db = Firestore.firestore()
+                self.user = Auth.auth().currentUser!
                 self.ref = db.collection("users").addDocument(data: [
                     "name": self.user.displayName as Any,
                     "email": self.user.email as Any,
