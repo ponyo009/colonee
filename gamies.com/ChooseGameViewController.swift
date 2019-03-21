@@ -21,12 +21,12 @@ class ChooseGameViewController: UIViewController {
     @IBOutlet weak var Game5: UIView!
 
     
-    var ref: DatabaseReference!
+    let db = Firestore.firestore()
     let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
     var tagnum = Int()
     var objId = String()
     let user = Auth.auth().currentUser
-    
+    var docID: String!
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -36,10 +36,17 @@ class ChooseGameViewController: UIViewController {
     @IBAction func ButtonTapped(_ sender: UIButton) {
         
         tagnum = sender.tag
-        ref = Database.database().reference().child("GameName")
-    
-        self.ref.setValue(GameNames[tagnum])
+        var ref: DocumentReference!
+        
+       
+        
+        //ref = db.collection("users").document(docID).collection("Games").addDocument(data:[
+          //  "gamename": GameNames[tagnum]]
+           // )
+        
+       
         print("GameName Saved")
+        
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)
 
             
