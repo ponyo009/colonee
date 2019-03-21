@@ -12,9 +12,6 @@ class WelcomeViewController: UIViewController {
     //自動遷移を実装したい
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            // 0.5秒後に実行したい処理
-            self.performSegue(withIdentifier: "ChooseGame", sender: (Any).self)
         }
         // Do any additional setup after loading the view.
     }
@@ -31,4 +28,4 @@ class WelcomeViewController: UIViewController {
     }
     */
 
-}
+

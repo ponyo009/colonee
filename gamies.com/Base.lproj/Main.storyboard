@@ -487,24 +487,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome gamies !!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dht-8t-fcA">
-                                <rect key="frame" x="12" y="265" width="350" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ようこそ Gamiesへ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dht-8t-fcA">
+                                <rect key="frame" x="55" y="65" width="264" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NUo-Ec-uaT">
+                                <rect key="frame" x="126" y="588" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="早速始める"/>
+                                <connections>
+                                    <segue destination="uiQ-sC-9om" kind="modal" id="FEs-Vn-5fU"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" id="mij-CC-QVs">
+                                <rect key="frame" x="67" y="419" width="240" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">たくさんのゲーム好きが、
+あなたのことを待っています！！</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" id="XcL-H3-AXf">
+                                <rect key="frame" x="40" y="200" width="295" height="143"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Gameisは、あなたの好きなゲームを通して 繋がりたい人と繋がることができる
+よりゲームが楽しくなるサービスです。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="9gi-fV-hR3"/>
-                    <connections>
-                        <segue destination="uiQ-sC-9om" kind="modal" identifier="ChooseGame" id="Lh0-9m-M3o"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnl-tT-HMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="-1227"/>
+            <point key="canvasLocation" x="1861.5999999999999" y="-1227.4362818590705"/>
         </scene>
         <!--ChooseGame-->
         <scene sceneID="1au-O6-Xkv">
@@ -648,7 +672,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j62-JU-sqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="umt-iv-2T7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1399.375" y="-427.99166666666662"/>
+            <point key="canvasLocation" x="1588" y="-430"/>
         </scene>
         <!--Protected View Controller-->
         <scene sceneID="O2I-Xj-foJ">
@@ -911,7 +935,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iov-F7-cBf"/>
-        <segue reference="Tqn-Zc-gq8"/>
-        <segue reference="y0A-B1-Rm4"/>
+        <segue reference="FEs-Vn-5fU"/>
+        <segue reference="E3E-Mf-7zU"/>
     </inferredMetricsTieBreakers>
 </document>
