@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import NCMB
-
+import Firebase
+import FirebaseUI
 
 class LoginViewController: UIViewController {
 
@@ -29,20 +29,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginbutton(_ sender: UIButton) {
-        do{
-            try NCMBUser.logIn(withUsername: userEmailTextField.text, password: userPasswordField.text)
-            performSegue(withIdentifier: "ToChooseGame", sender: (Any).self)
-        }catch{
-            let errors = error
-            print (errors)
-            performSegue(withIdentifier: "ToRegister", sender: (Any).self)
-        }
-        
-        
-        
+        Auth.auth().signIn(withEmail: userEmailTextField.text!, password: userPasswordField.text!) { (user, error) in
+            if error != nil{
+                self.LoginFailedMessage.alpha = 1
+            }else{
+            self.performSegue(withIdentifier: "ToRegister", sender: (Any).self)
+            }
     }
 }
-
+}
         
         //  NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
         //     if error != nil {

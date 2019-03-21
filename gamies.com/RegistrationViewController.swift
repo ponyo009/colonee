@@ -7,17 +7,17 @@
 //
 
 import UIKit
-import NCMB
+import Firebase
+import FirebaseUI
 
 class RegistrationViewController: UIViewController {
     
 
-    let user = NCMBUser()
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var SignUpFailedMessage: UILabel!
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,9 +31,8 @@ class RegistrationViewController: UIViewController {
             SignUpFailedMessage.alpha = 1
         }
         
-        user.userName = userEmailTextField.text
-        user.password = userPasswordTextField.text
-        user.signUpInBackground { (error) in
+        //新規ユーザー登録
+        Auth.auth().createUser(withEmail: userEmailTextField.text!, password: userPasswordTextField.text!) { (authResult, error) in
             if error != nil {
                 self.SignUpFailedMessage.alpha = 1
                 print("SignUpFailed")
@@ -42,15 +41,14 @@ class RegistrationViewController: UIViewController {
                 self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)
                 print("SignUp!")
                 // 新規登録成功時の処理
-            }
-        }
+            }}
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
+
     /*
     // MARK: - Navigation
 

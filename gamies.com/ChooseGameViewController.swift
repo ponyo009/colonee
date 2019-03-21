@@ -7,7 +7,10 @@
 //
 
 import UIKit
-import NCMB
+import Firebase
+import FirebaseDatabase
+import FirebaseUI
+
 class ChooseGameViewController: UIViewController {
 
     @IBOutlet weak var Game0: UIView!
@@ -18,11 +21,11 @@ class ChooseGameViewController: UIViewController {
     @IBOutlet weak var Game5: UIView!
 
     
+    var ref: DatabaseReference!
     let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
     var tagnum = Int()
     var objId = String()
-    var obj = NCMBObject()
-    let user = NCMBUser.current()
+    let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         
@@ -31,24 +34,15 @@ class ChooseGameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func ButtonTapped(_ sender: UIButton) {
+        
         tagnum = sender.tag
+        ref = Database.database().reference()
         
-        let subobj = NCMBObject(className: "Gameclass")
-        subobj?.setObject(GameNames[tagnum], forKey: "GameName")
-        subobj?.save(nil)
-        objId = (subobj?.objectId)!
-
-        
-        let obj = NCMBObject(className: "user", objectId: user?.objectId)
-        obj?.setObject(subobj, forKey: "Games")
-        obj?.saveInBackground({(error) in if
-            (error) != nil{
-            print(error)
-        }else{
-            print("GamesSaved")            }
-        })
-        
+        self.ref.setValue(GameNames[tagnum], forKey: "GameName")
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)
+
+            
+       
     }
     
     //選択されたゲーム名とそのobjectidを渡す

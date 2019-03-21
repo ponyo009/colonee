@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import NCMB
+import Firebase
+import FirebaseDatabase
+import FirebaseUI
 
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    let applicationkey = "6592f551af5bd3d036a6d2e256c3f355ee613b1fb786b16c6cd61fffdcc24fdf"
-    let clientkey  = "a1718a69a8664ce4cbefc668d1a3017915ab1a923f4c98dd82231d400c5fd101"
-    
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
         // 選択した写真を取得
@@ -27,8 +24,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     }
     
-    let user = NCMBUser.current()
-    
+    let user = Auth.auth().currentUser
+    var ref: DatabaseReference!
     var objId = String()
     
     @IBOutlet weak var gamename: UILabel!
@@ -53,7 +50,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageView.image = UIImage(named: "default.png")
         
         //現在ログイン中のユーザーのuserNameを表示
-        username.text = user?.userName
+        username.text = user?.displayName
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -79,18 +76,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-dd-HH-mm-ss"
         let fileName = formatter.string(from: Date()) + ".jpg"
-        // データとファイル名でNCMBFileを作成
-        let file = NCMBFile.file(withName: fileName, data: photoData) as! NCMBFile
-        // 保存処理
-        file.saveInBackground({ (error) in
-            if error != nil {
-                // 保存失敗時の処理
-                print(error)
-            } else {
-                print("imageupload successed")
-                // 保存成功時の処理
-            }
-        })
     }
     
 
@@ -104,31 +89,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func DecideButtonTapped(_ sender: Any) {
         //let obj = NCMBObject(className: "Userclass")
        
-       
+        ref = Database.database().reference()
         
-        let profile = NCMBObject(className: "Profileclass")
-        profile?.setObject(NicknameTextField.text , forKey: "nickname")
-        profile?.setObject(IntroduceTextField.text , forKey: "introduce")
-        profile?.save(nil)
+        ref.setValue(NicknameTextField.text!, forKey: "nickname")
+        ref.setValue(IntroduceTextField.text!, forKey: "introduce")
+        
+        self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
+
         
         
-        let gameobj = NCMBObject(className: "Gameclass", objectId: objId)
-        gameobj?.setObject(profile, forKey: "Profile")
-        gameobj?.saveInBackground({ (err) in
-            if err != nil {
-                print("SaveProfileFailed")
-                print(err?.localizedDescription ?? "");
-            } else {
-                print("ProfileSaved");
-                self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
-            }
-        })
+        }
     }
     
     
 
         // Do any additional setup after loading the view.
-    }
+
     
     
     

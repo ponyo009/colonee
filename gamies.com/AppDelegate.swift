@@ -7,26 +7,17 @@
 //
 
 import UIKit
-import NCMB
-
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    let applicationkey = "6592f551af5bd3d036a6d2e256c3f355ee613b1fb786b16c6cd61fffdcc24fdf"
-    let clientkey  = "a1718a69a8664ce4cbefc668d1a3017915ab1a923f4c98dd82231d400c5fd101"
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        NCMB.setApplicationKey(applicationkey, clientKey: clientkey)
-        // Override point for customization after application launch.
-        //▼▼▼起動時に処理される▼▼▼
-        
-        //▲▲▲起動時に処理される▲▲▲
-        return true
-        
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
+        -> Bool {
+            FirebaseApp.configure()
+            return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
