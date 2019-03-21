@@ -183,6 +183,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Core
+  - Firebase/Firestore
   - FirebaseUI
   - TextFieldEffects
 
@@ -247,6 +248,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 99e89fb4d0bf99843c3ecca6896503b52fbc7c04
+PODFILE CHECKSUM: 543a92fe3a8dddcbd57ddc6b8109b51d05627b9b
 
 COCOAPODS: 1.6.1

@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
             if error != nil{
                 self.LoginFailedMessage.alpha = 1
             }else{
-            self.performSegue(withIdentifier: "ToRegister", sender: (Any).self)
+            self.performSegue(withIdentifier: "ToChooseGame", sender: (Any).self)
             }
     }
 }

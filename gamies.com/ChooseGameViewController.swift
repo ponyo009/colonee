@@ -36,9 +36,10 @@ class ChooseGameViewController: UIViewController {
     @IBAction func ButtonTapped(_ sender: UIButton) {
         
         tagnum = sender.tag
-        ref = Database.database().reference()
-        
-        self.ref.setValue(GameNames[tagnum], forKey: "GameName")
+        ref = Database.database().reference().child("GameName")
+    
+        self.ref.setValue(GameNames[tagnum])
+        print("GameName Saved")
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)
 
             
