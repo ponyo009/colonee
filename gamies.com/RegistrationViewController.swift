@@ -9,11 +9,15 @@
 import UIKit
 import Firebase
 import FirebaseUI
+import FirebaseDatabase
+
 
 
 class RegistrationViewController: UIViewController {
     
-
+    var ref: DocumentReference!
+    let user = Auth.auth().currentUser!
+    
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var SignUpFailedMessage: UILabel!
@@ -39,6 +43,13 @@ class RegistrationViewController: UIViewController {
                 print("SignUpFailed")
                 // 新規登録失敗時の処理
             }else{
+               
+                let db = Firestore.firestore()
+                self.ref = db.collection("users").addDocument(data: [
+                    "name": self.user.displayName as Any,
+                    "email": self.user.email as Any,
+                    "UID": self.user.uid])
+                
                 self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)
                 print("SignUp!")
                 // 新規登録成功時の処理
