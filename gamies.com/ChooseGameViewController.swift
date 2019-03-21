@@ -37,10 +37,6 @@ class ChooseGameViewController: UIViewController {
     @IBAction func ButtonTapped(_ sender: UIButton) {
         
         tagnum = sender.tag
-
-        ref = db.collection("games").addDocument(data: [
-            "gamename": GameNames[tagnum],
-            "UID": user?.uid as Any])
         
         print("GameName Saved")
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)

@@ -15,7 +15,7 @@ import FirebaseDatabase
 
 class RegistrationViewController: UIViewController {
     
-    var ref: DocumentReference!
+    var ref: DatabaseReference?
     var user = Auth.auth().currentUser!
     let db = Firestore.firestore()
     
@@ -48,10 +48,10 @@ class RegistrationViewController: UIViewController {
                
                 let db = Firestore.firestore()
                 self.user = Auth.auth().currentUser!
-                self.ref = db.collection("users").addDocument(data: [
-                    "name": self.user.displayName as Any,
+                db.collection("users").document(self.user.uid).setData([
+                    "username": self.user.displayName as Any,
                     "email": self.user.email as Any,
-                    "UID": self.user.uid])
+                    ])
                 
                 self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)
                 print("SignUp!")
