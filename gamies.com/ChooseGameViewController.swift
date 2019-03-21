@@ -21,11 +21,15 @@ class ChooseGameViewController: UIViewController {
     @IBOutlet weak var Game5: UIView!
 
     
+<<<<<<< HEAD
     var ref: DocumentReference!
+=======
+    let db = Firestore.firestore()
+>>>>>>> akira
     let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
     var tagnum = Int()
     let user = Auth.auth().currentUser
-    
+    var docID: String!
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -35,11 +39,27 @@ class ChooseGameViewController: UIViewController {
     @IBAction func ButtonTapped(_ sender: UIButton) {
         
         tagnum = sender.tag
+<<<<<<< HEAD
         var db = Firestore.firestore()
         ref = db.collection("games").addDocument(data: ["gamename": GameNames[tagnum]])
+=======
+        var ref: DocumentReference!
+        
+        ref = db.collection("games").addDocument(data: [
+            "gamename": GameNames[tagnum],
+            "UID": user?.uid as Any
+            ])
+        
+       
+        
+        //ref = db.collection("users").document(docID).collection("Games").addDocument(data:[
+          //  "gamename": GameNames[tagnum]]
+           // )
+>>>>>>> akira
         
        
         print("GameName Saved")
+        
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)
 
             
