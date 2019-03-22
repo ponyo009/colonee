@@ -12,6 +12,7 @@
         <!--userProfile-->
         <scene sceneID="hGv-uF-JxB">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H7Y-Tg-sYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="who-2N-KaB" userLabel="userProfile" customClass="UserProfileViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zhM-8Z-eRU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -28,7 +29,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H7Y-Tg-sYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1012" y="437"/>
         </scene>
@@ -557,16 +557,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FGO" id="SqX-BH-0mh" userLabel="0">
-                                        <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
+                                        <rect key="frame" x="0.0" y="-2" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="0" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uEu-Py-3gQ">
-                                        <rect key="frame" x="0.0" y="-1" width="140" height="130"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HJw-U4-fuE">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="XjO-gm-wNh"/>
-                                            <action selector="GameButton:" destination="umt-iv-2T7" eventType="touchUpInside" id="MDJ-Or-feg"/>
-                                            <action selector="fgo:" destination="umt-iv-2T7" eventType="touchUpInside" id="HMd-7i-qcC"/>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="4hx-Kj-gkb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -580,14 +578,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ySZ-ZB-VHr">
-                                        <rect key="frame" x="-8" y="-1" width="140" height="130"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LMC-m3-ewr">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds " value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="xto-Nn-dm6"/>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="kmJ-gF-kie"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -665,12 +660,22 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好きなゲームを選んでください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tFt-as-qkG">
-                                <rect key="frame" x="-6" y="75" width="386" height="66"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="0" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uEu-Py-3gQ">
+                                <rect key="frame" x="-17" y="-75" width="140" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <connections>
+                                    <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="XjO-gm-wNh"/>
+                                    <action selector="GameButton:" destination="umt-iv-2T7" eventType="touchUpInside" id="MDJ-Or-feg"/>
+                                    <action selector="fgo:" destination="umt-iv-2T7" eventType="touchUpInside" id="HMd-7i-qcC"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="好きなゲームを選んでください" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="Q5U-gM-lB3">
+                                <rect key="frame" x="16" y="63" width="334" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -682,6 +687,7 @@
                         <outlet property="Game3" destination="Rps-Di-QiA" id="OHf-40-7Vp"/>
                         <outlet property="Game4" destination="wPF-NX-aVM" id="gZ9-Ig-nsF"/>
                         <outlet property="Game5" destination="JIm-t2-QzI" id="26h-E4-Jo2"/>
+                        <outlet property="GameButton0" destination="HJw-U4-fuE" id="fxg-7B-eQE"/>
                         <segue destination="jS6-rb-dIb" kind="modal" identifier="ToProfile" id="f3n-w3-xSo"/>
                     </connections>
                 </viewController>
@@ -721,43 +727,19 @@
         <scene sceneID="ZDx-oy-6gi">
             <objects>
                 <viewController id="IuG-4G-hGA" customClass="LoginViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kZD-LR-ChR" customClass="HoshiTextField" customModule="TextFieldEffects">
+                    <view key="view" contentMode="scaleToFill" id="tj3-Jl-FCS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pW3-G9-JUY">
-                                <rect key="frame" x="98" y="424" width="171" height="73"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="greate see you again!" textAlignment="center" minimumFontSize="17" id="RyU-fT-6mo">
+                                <rect key="frame" x="54" y="89" width="267" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="新規登録はこちら">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Pee-0p-LxU" kind="modal" id="E3E-Mf-7zU"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops Login Failed..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="54q-i9-86I">
-                                <rect key="frame" x="76" y="317" width="222" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="1" green="0.29672170949999999" blue="0.2970874148" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ufZ-Gf-Z6C">
-                                <rect key="frame" x="68" y="390" width="230" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.77647058823529413" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="ログイン">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginbutton:" destination="IuG-4G-hGA" eventType="touchUpInside" id="sk8-jV-8Xv"/>
-                                </connections>
-                            </button>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" id="7MT-oi-dxj" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="64" y="205" width="239" height="39"/>
+                                <rect key="frame" x="68" y="249" width="239" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -781,15 +763,8 @@
                                     <action selector="email:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="5lK-Zv-odB"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="greate see you again!" textAlignment="center" minimumFontSize="17" id="RyU-fT-6mo">
-                                <rect key="frame" x="56" y="78" width="267" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" id="BM6-EF-yuz" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="64" y="271" width="239" height="38"/>
+                                <rect key="frame" x="68" y="314" width="239" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.94999999999999996"/>
                                 <nil key="textColor"/>
@@ -810,12 +785,35 @@
                                     <action selector="Emailaddress:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="eW7-CQ-W4Y"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ufZ-Gf-Z6C">
+                                <rect key="frame" x="68" y="390" width="230" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.77647058823529413" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="ログイン">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginbutton:" destination="IuG-4G-hGA" eventType="touchUpInside" id="sk8-jV-8Xv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pW3-G9-JUY">
+                                <rect key="frame" x="98" y="437" width="171" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="新規登録はこちら">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Pee-0p-LxU" kind="modal" id="E3E-Mf-7zU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="YvZ-Dj-hNh"/>
                     <connections>
-                        <outlet property="LoginFailedMessage" destination="54q-i9-86I" id="ckS-Of-sgY"/>
                         <outlet property="userEmailTextField" destination="7MT-oi-dxj" id="l4h-jK-tuL"/>
                         <outlet property="userPasswordField" destination="BM6-EF-yuz" id="gye-67-1r1"/>
                         <segue destination="Pee-0p-LxU" kind="modal" identifier="ToRegister" id="tgP-lf-EMP"/>
@@ -988,7 +986,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="DuQ-Fd-nLz"/>
-        <segue reference="FEs-Vn-5fU"/>
+        <segue reference="Tqn-Zc-gq8"/>
         <segue reference="tgP-lf-EMP"/>
     </inferredMetricsTieBreakers>
 </document>

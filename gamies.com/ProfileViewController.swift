@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
-        print("洗濯されたゲーム：" + gamename.text!)
+        print("選択されたゲーム：" + gamename.text!)
         
         imageView.image = UIImage(named: "default.png")
         
@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
          db.collection("users").document((user?.uid)!).collection("Games").document(GameName).setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
-            ],options: SetOptions.merge())
+        ])
         
         print("Profile Saved")
         
