@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="fEl-iL-qie">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -145,7 +145,7 @@
                         <outlet property="gamename" destination="y7h-X7-3Ze" id="0d2-N9-g36"/>
                         <outlet property="imageView" destination="f7P-jM-eQn" id="sxL-hA-8Oe"/>
                         <outlet property="username" destination="6kB-lc-AY8" id="IHG-sN-bLg"/>
-                        <segue destination="who-2N-KaB" kind="modal" identifier="ToSwipe" id="nVF-Or-cfb"/>
+                        <segue destination="who-2N-KaB" kind="modal" identifier="ToSwipeFromRegister" id="nVF-Or-cfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-5T-nvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -686,6 +686,7 @@
                         <outlet property="Game4" destination="wPF-NX-aVM" id="gZ9-Ig-nsF"/>
                         <outlet property="Game5" destination="JIm-t2-QzI" id="26h-E4-Jo2"/>
                         <segue destination="jS6-rb-dIb" kind="modal" identifier="ToProfile" id="f3n-w3-xSo"/>
+                        <segue destination="who-2N-KaB" kind="modal" identifier="ToSwipe" id="c2R-cg-qz3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j62-JU-sqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -982,5 +983,6 @@
         <segue reference="iov-F7-cBf"/>
         <segue reference="Tqn-Zc-gq8"/>
         <segue reference="tgP-lf-EMP"/>
+        <segue reference="c2R-cg-qz3"/>
     </inferredMetricsTieBreakers>
 </document>
