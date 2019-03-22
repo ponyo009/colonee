@@ -12,7 +12,6 @@
         <!--userProfile-->
         <scene sceneID="hGv-uF-JxB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H7Y-Tg-sYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="who-2N-KaB" userLabel="userProfile" customClass="UserProfileViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zhM-8Z-eRU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -29,6 +28,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H7Y-Tg-sYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1012" y="437"/>
         </scene>
@@ -343,7 +343,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2251.25" y="-324.60666666666663"/>
+            <point key="canvasLocation" x="2137" y="437"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="A8G-OK-Uci">
@@ -378,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOz-sz-lsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2271.25" y="437.99666666666661"/>
+            <point key="canvasLocation" x="3260" y="437"/>
         </scene>
         <!--Registration-->
         <scene sceneID="PAp-IN-EAD">

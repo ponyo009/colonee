@@ -12,22 +12,13 @@ import FirebaseDatabase
 import FirebaseUI
 import FirebaseStorage
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
-        // 選択した写真を取得
-        let image = info[.originalImage] as! UIImage
-        // ImageViewに表示する
-        self.imageView.image = image
-        // 写真を選ぶビューを消す
-        self.dismiss(animated: true)
-
-    }
+class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let user = Auth.auth().currentUser
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     let storage = Storage.storage()
+    var image: UIImage!
     
     @IBOutlet weak var gamename: UILabel!
     var GameName = ""
@@ -44,6 +35,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            
+            // 選択した写真を取得
+            image = info[.originalImage] as? UIImage
+            // ImageViewに表示する
+            self.imageView.image = image
+            // 写真を選ぶビューを消す
+            self.dismiss(animated: true)
+        
         //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
         print("選択されたゲーム：" + gamename.text!)
@@ -53,7 +53,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //現在ログイン中のユーザーのuserNameを表示
         username.text = user?.displayName
         // Do any additional setup after loading the view, typically from a nib.
-    }
+        }}
+    
+    
     
     @IBAction func btnSelect(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -74,9 +76,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let storageref = storage.reference()
         let usericonref = storageref.child("usericon")
-        let usericonimage = UIImage.jpegData(imageView.image!)
-        print (usericonimage)
-        //usericonref.putData(usericonimage)
+        let usericonimage = image?.jpegData(compressionQuality: 0.9)
+    
+        usericonref.putData(usericonimage!)
     }
     
 
