@@ -75,7 +75,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let storageref = storage.reference()
         let usericonref = storageref.child("usericon")
         let usericonimage = UIImage.jpegData(imageView.image!)
-        usericonref.putData(usericonimage)
+        print (usericonimage)
+        //usericonref.putData(usericonimage)
     }
     
 
