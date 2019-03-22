@@ -76,11 +76,23 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
 
     @IBAction func btnUpload(_ sender: Any) {
         
+        let UID = user?.uid
+        
+        
         let storageref = storage.reference()
-        let usericonref = storageref.child("usericon")
-        let usericonimage = image?.jpegData(compressionQuality: 0.9)
+        //userID下のGameNameに画像を保存
+        let usericonref = storageref.child((UID)!).child(GameName)
+        let metadata = StorageMetadata()
+        metadata.contentType = "\(GameName)"
+        let usericonimage = image?.jpegData(compressionQuality: 0.3)
     
-        usericonref.putData(usericonimage!)
+        usericonref.putData(usericonimage!, metadata: metadata){metadata, error in
+            if let error = error{
+                print(error)
+            }else{
+                print("usericonimage saved")
+            }
+        }
     }
     
 
