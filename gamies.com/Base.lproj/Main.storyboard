@@ -560,11 +560,11 @@
                                         <rect key="frame" x="0.0" y="-2" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HJw-U4-fuE">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="130"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p5P-v8-p5Z">
+                                        <rect key="frame" x="0.0" y="-2" width="140" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="4hx-Kj-gkb"/>
+                                            <action selector="ButtonTapped:" destination="uiQ-sC-9om" eventType="touchUpInside" id="3Uv-cS-BXK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -678,7 +678,6 @@
                         <outlet property="Game3" destination="Rps-Di-QiA" id="OHf-40-7Vp"/>
                         <outlet property="Game4" destination="wPF-NX-aVM" id="gZ9-Ig-nsF"/>
                         <outlet property="Game5" destination="JIm-t2-QzI" id="26h-E4-Jo2"/>
-                        <outlet property="GameButton0" destination="HJw-U4-fuE" id="fxg-7B-eQE"/>
                         <segue destination="jS6-rb-dIb" kind="modal" identifier="ToProfile" id="f3n-w3-xSo"/>
                     </connections>
                 </viewController>

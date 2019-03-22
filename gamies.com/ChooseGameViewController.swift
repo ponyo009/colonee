@@ -36,7 +36,6 @@ class ChooseGameViewController: UIViewController {
 
     override func viewDidLoad() {
         
-        GameButton0.layer.borderWidth = 0.5
         
         super.viewDidLoad()
 
