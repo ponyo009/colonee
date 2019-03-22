@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseUI
-
+import FirebaseStorage
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -26,8 +26,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     let user = Auth.auth().currentUser
     var ref: DatabaseReference!
-    var objId = String()
     let db = Firestore.firestore()
+    let storage = Storage.storage()
     
     @IBOutlet weak var gamename: UILabel!
     var GameName = ""
@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
-        print("洗濯されたゲーム：" + gamename.text!)
+        print("選択されたゲーム：" + gamename.text!)
         
         imageView.image = UIImage(named: "default.png")
         
@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             pickerView.delegate = self
             // 表示
             self.present(pickerView, animated: true)
-
+            
         }
     }
     
@@ -72,6 +72,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBAction func btnUpload(_ sender: Any) {
         
+        let storageref = storage.reference()
+        let usericonref = storageref.child("usericon")
+        let usericonimage = UIImage.jpegData(imageView.image!)
+        usericonref.putData(usericonimage)
     }
     
 
@@ -88,7 +92,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
          db.collection("users").document((user?.uid)!).collection("Games").document(GameName).setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
-            ],options: SetOptions.merge())
+            ])
         
         print("Profile Saved")
         
