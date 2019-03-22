@@ -43,35 +43,31 @@ class ChooseGameViewController: UIViewController {
         //ボタンのtagの数字を取得
         tagnum = sender.tag
         
+    //DBからuserのProfileデータを取得して遷移
         
-        //DBからuserのProfileデータを取得
         let UID = user?.uid
+        //選択されたゲーム名のドキュメントへの参照
         let docref = db.collection("users").document(UID!).collection("Games").document(GameNames[tagnum
             ])
-        
+        //ドキュメント内容の取得
         docref.getDocument { (document, error) in
             if let document = document, document.exists {
+                //取得できた場合、スワイプへ
                 let document_array = document.data()
                 self.nickname = document_array!["nickname"] as? String
                 self.introduce = document_array!["introduce"] as? String
+                
                 self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
             } else {
+                //取得できなかった場合、profile登録画面へ
                 print("Document does not exist")
                 self.performSegue(withIdentifier: "ToProfile", sender: (Any).self)
+            
             }
         }
-        
-        //取得したらProfileデータをUserProfileControllerへ渡して画面遷移
-        
-        
-        //取得できなかった場合はregisterへ
-        
-        
-       // print("GameName Saved")
-       // performSegue(withIdentifier: "ToProfile", sender: (Any).self)
     }
     
-    //選択されたゲーム名を渡す
+    //選択されたゲーム名をregisterへ、nicnameとintroduceをprofileへ渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
@@ -80,6 +76,7 @@ class ChooseGameViewController: UIViewController {
             let vc2 = segue.destination as! UserProfileViewController
             vc2.nickname = nickname
             vc2.introduce = introduce
+            vc2.GameName = GameNames[tagnum]
         }
 
 }

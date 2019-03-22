@@ -20,14 +20,24 @@ class UserProfileViewController: UIViewController {
     let db = Firestore.firestore()
     let storage = Storage.storage()
     
+    //ChooseGameからの受け入れ先
     var nickname = ""
     var introduce = ""
+    var GameName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(nickname)
         print(introduce)
         let UID = user!.uid
+        
+        //imageViewの初期化
+        iconimage.image = UIImage(named: "default.png")
+        
+    //userimageiconの取得
+        let ref = storage.reference().child(UID).child(GameName)
+        iconimage.sd_setImage(with: ref)
+        
       //  let ref = storage.reference().child(UID).child("\(GameName)")
         
 
