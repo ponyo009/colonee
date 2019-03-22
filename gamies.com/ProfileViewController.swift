@@ -13,6 +13,15 @@ import FirebaseUI
 import FirebaseStorage
 
 class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    
+    // 選択した写真を取得
+    image = info[.originalImage] as? UIImage
+    // ImageViewに表示する
+    self.imageView.image = image
+    // 写真を選ぶビューを消す
+    self.dismiss(animated: true)
+    }
     
     let user = Auth.auth().currentUser
     var ref: DatabaseReference!
@@ -35,14 +44,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            
-            // 選択した写真を取得
-            image = info[.originalImage] as? UIImage
-            // ImageViewに表示する
-            self.imageView.image = image
-            // 写真を選ぶビューを消す
-            self.dismiss(animated: true)
+        
         
         //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
@@ -53,7 +55,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         //現在ログイン中のユーザーのuserNameを表示
         username.text = user?.displayName
         // Do any additional setup after loading the view, typically from a nib.
-        }}
+        }
     
     
     
@@ -104,7 +106,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         
         }
-    }
+}
     
     
 
