@@ -17,10 +17,7 @@ class ProtectedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let image = UIImage(named: "文字ロゴ")
-        
-        // Image Viewに画像を設定
-        imageView.image = image
+    
 
     }
     
