@@ -300,7 +300,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good" id="zZS-TM-Faq">
-                                        <rect key="frame" x="123" y="164" width="128" height="128"/>
+                                        <rect key="frame" x="123" y="179" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -693,13 +693,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ロゴはる" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="VGC-Ro-QSZ">
-                                <rect key="frame" x="139" y="129" width="97" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamiesくん" id="2NR-RR-ZKh">
+                                <rect key="frame" x="16" y="260" width="279" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -710,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76u-j4-pUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="-429"/>
+            <point key="canvasLocation" x="5.5999999999999996" y="-429.53523238380814"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ZDx-oy-6gi">
@@ -962,6 +959,7 @@
     <resources>
         <image name="FGO" width="300" height="300"/>
         <image name="bad" width="256" height="256"/>
+        <image name="gamiesくん" width="159.1199951171875" height="97.199996948242188"/>
         <image name="good" width="256" height="256"/>
         <image name="idol" width="1024" height="1024"/>
         <image name="kouyakoudou" width="512" height="512"/>
@@ -974,7 +972,7 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DuQ-Fd-nLz"/>
+        <segue reference="iov-F7-cBf"/>
         <segue reference="Tqn-Zc-gq8"/>
         <segue reference="tgP-lf-EMP"/>
     </inferredMetricsTieBreakers>
