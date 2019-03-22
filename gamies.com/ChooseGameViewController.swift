@@ -30,9 +30,9 @@ class ChooseGameViewController: UIViewController {
 
     var tagnum = Int()
     let user = Auth.auth().currentUser
-    var docID: String!
     var ref: DocumentReference!
     let db = Firestore.firestore()
+    let storage = Storage.storage()
 
     override func viewDidLoad() {
         
@@ -42,14 +42,33 @@ class ChooseGameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func ButtonTapped(_ sender: UIButton) {
-        
+        //ボタンのtagの数字を取得
         tagnum = sender.tag
+        
+        //DBからuserのProfileデータを取得
+        let UID = user?.uid
+        let docref = db.collection("users").document(UID!).collection("Games").document(GameNames[tagnum
+            ])
+        
+        docref.getDocument { (document, error ) in
+            if let error = error{
+                print(error)
+                self.performSegue(withIdentifier: "TpProfile", sender: (Any).self)
+            }else{
+                print(document)
+            }
+        }
+        //取得したらProfileデータをUserProfileControllerへ渡して画面遷移
+        
+        
+        //取得できなかった場合はregisterへ
+        
         
         print("GameName Saved")
         performSegue(withIdentifier: "ToProfile", sender: (Any).self)
     }
     
-    //選択されたゲーム名とそのobjectidを渡す
+    //選択されたゲーム名を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController

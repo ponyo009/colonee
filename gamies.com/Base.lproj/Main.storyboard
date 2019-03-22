@@ -24,9 +24,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XqW-tE-w3o">
+                                <rect key="frame" x="67" y="167" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="iconimage" destination="XqW-tE-w3o" id="ZfX-zO-16s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7Y-Tg-sYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -974,7 +981,7 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DuQ-Fd-nLz"/>
+        <segue reference="iov-F7-cBf"/>
         <segue reference="Tqn-Zc-gq8"/>
         <segue reference="tgP-lf-EMP"/>
     </inferredMetricsTieBreakers>

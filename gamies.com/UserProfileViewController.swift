@@ -7,11 +7,26 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
+import FirebaseDatabase
+
 
 class UserProfileViewController: UIViewController {
 
+    @IBOutlet weak var iconimage: UIImageView!
+    
+    let user = Auth.auth().currentUser
+    let db = Firestore.firestore()
+    let storage = Storage.storage()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let UID = user!.uid
+      //  let ref = storage.reference().child(UID).child("\(GameName)")
+        
 
         // Do any additional setup after loading the view.
     }
