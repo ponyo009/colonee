@@ -12,7 +12,13 @@ import FirebaseDatabase
 import FirebaseUI
 
 class ChooseGameViewController: UIViewController {
-
+    
+    
+   
+    @IBOutlet weak var GameButton0: UIButton!
+    
+    
+    
     @IBOutlet weak var Game0: UIView!
     @IBOutlet weak var Game1: UIView!
     @IBOutlet weak var Game2: UIView!
@@ -29,6 +35,8 @@ class ChooseGameViewController: UIViewController {
     let db = Firestore.firestore()
 
     override func viewDidLoad() {
+        
+        GameButton0.layer.borderWidth = 0.5
         
         super.viewDidLoad()
 
