@@ -34,6 +34,8 @@ class ChooseGameViewController: UIViewController {
     let db = Firestore.firestore()
     let storage = Storage.storage()
 
+    var introduce: String!
+    var nickname: String!
     override func viewDidLoad() {
         
         
@@ -50,22 +52,26 @@ class ChooseGameViewController: UIViewController {
         let docref = db.collection("users").document(UID!).collection("Games").document(GameNames[tagnum
             ])
         
-        docref.getDocument { (document, error ) in
-            if let error = error{
-                print(error)
-                self.performSegue(withIdentifier: "TpProfile", sender: (Any).self)
-            }else{
-                print(document)
+        docref.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+                self.introduce = dataDescription
+                
+            } else {
+                print("Document does not exist")
+                self.performSegue(withIdentifier: "ToProfile", sender: (Any).self)
             }
         }
+        
         //取得したらProfileデータをUserProfileControllerへ渡して画面遷移
         
         
         //取得できなかった場合はregisterへ
         
         
-        print("GameName Saved")
-        performSegue(withIdentifier: "ToProfile", sender: (Any).self)
+       // print("GameName Saved")
+       // performSegue(withIdentifier: "ToProfile", sender: (Any).self)
     }
     
     //選択されたゲーム名を渡す
