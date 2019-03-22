@@ -14,10 +14,6 @@ import FirebaseUI
 class ChooseGameViewController: UIViewController {
     
     
-   
-    @IBOutlet weak var GameButton0: UIButton!
-    
-    
     
     @IBOutlet weak var Game0: UIView!
     @IBOutlet weak var Game1: UIView!
@@ -47,6 +43,7 @@ class ChooseGameViewController: UIViewController {
         //ボタンのtagの数字を取得
         tagnum = sender.tag
         
+        
         //DBからuserのProfileデータを取得
         let UID = user?.uid
         let docref = db.collection("users").document(UID!).collection("Games").document(GameNames[tagnum
@@ -54,10 +51,10 @@ class ChooseGameViewController: UIViewController {
         
         docref.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-                self.introduce = dataDescription
-                
+                let document_array = document.data()
+                self.nickname = document_array!["nickname"] as? String
+                self.introduce = document_array!["introduce"] as? String
+                self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
             } else {
                 print("Document does not exist")
                 self.performSegue(withIdentifier: "ToProfile", sender: (Any).self)
@@ -79,7 +76,11 @@ class ChooseGameViewController: UIViewController {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
             vc.GameName = GameNames[tagnum]
-    }
+        }else if (segue.identifier == "ToSwipe"){
+            let vc2 = segue.destination as! UserProfileViewController
+            vc2.nickname = nickname
+            vc2.introduce = introduce
+        }
 
 }
 }

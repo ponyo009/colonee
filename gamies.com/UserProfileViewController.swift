@@ -20,10 +20,13 @@ class UserProfileViewController: UIViewController {
     let db = Firestore.firestore()
     let storage = Storage.storage()
     
+    var nickname = ""
+    var introduce = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(nickname)
+        print(introduce)
         let UID = user!.uid
       //  let ref = storage.reference().child(UID).child("\(GameName)")
         
