@@ -15,7 +15,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
-    var callNumber:Int = 0
+    var cellNumber:Int = 0
     
     var MatcherImageView = UIImageView()
     var MatcherNameLabel = UILabel()
@@ -35,7 +35,9 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         tableView.reloadData()
         
-    
+        print(MatcherImageArray)
+        print(MatcherNameArray)
+        
     }
     
     
@@ -57,9 +59,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         MatcherImageView = cell.viewWithTag(1) as! UIImageView
         
-        MatcherNameLabel =
-            cell.viewWithTag(2) as!
-            UILabel
+        MatcherNameLabel = cell.viewWithTag(2) as! UILabel
         
         MatcherImageView.image = UIImage(named: MatcherImageArray[indexPath.row])
         
@@ -71,7 +71,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        callNumber = indexPath.row
+        cellNumber = indexPath.row
         MatcherName = MatcherNameArray[indexPath.row]
         
         //pushで画面遷移
@@ -88,7 +88,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             
             let chatVC:ChatViewController = segue.destination as! ChatViewController
             
-            chatVC.callNumber = callNumber
+            chatVC.callNumber = cellNumber
             chatVC.MatcherName = MatcherName
             
             
