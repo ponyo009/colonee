@@ -118,7 +118,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         print("Profile Saved")
         
-        self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
+        self.performSegue(withIdentifier: "ToSwipeFromRegister", sender: (Any).self)
 
         
         
