@@ -21,6 +21,7 @@
 		E57832262233D25B0013E869 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832252233D25B0013E869 /* ProtectedViewController.swift */; };
 		E57832282233E46B0013E869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832272233E46B0013E869 /* LoginViewController.swift */; };
 		E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96269FF2237A80300E3D980 /* WelcomeViewController.swift */; };
+		E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E79412245EB300032BA7D /* SwipeViewController.swift */; };
 		E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B312B4224326EA00813580 /* UserProfileViewController.swift */; };
 		E9BA18E6223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BA18E5223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh */; };
 		E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308722336C3300CCF153 /* ListViewController.swift */; };
@@ -76,6 +77,7 @@
 		E57832252233D25B0013E869 /* ProtectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
 		E57832272233E46B0013E869 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E96269FF2237A80300E3D980 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		E96E79412245EB300032BA7D /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		E9B312B4224326EA00813580 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E9BA18E5223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "Pods-gamies.com-frameworks.sh"; path = "Pods/Target Support Files/Pods-gamies.com/Pods-gamies.com-frameworks.sh"; sourceTree = "<group>"; };
 		E9F6308722336C3300CCF153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				E57831F722335C480013E869 /* AppDelegate.swift */,
 				E96269FF2237A80300E3D980 /* WelcomeViewController.swift */,
+				E96E79412245EB300032BA7D /* SwipeViewController.swift */,
 				E57831F922335C480013E869 /* ViewController.swift */,
 				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
 				E57831FB22335C480013E869 /* Main.storyboard */,
@@ -510,6 +513,7 @@
 				E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */,
 				E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */,
 				E57832262233D25B0013E869 /* ProtectedViewController.swift in Sources */,
+				E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

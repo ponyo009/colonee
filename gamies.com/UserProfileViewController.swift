@@ -44,6 +44,17 @@ class UserProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func next(_ sender: UIButton) {
+        performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ToSwipe"){
+            let vc = segue.destination as! SwipeViewController
+            vc.GameName = GameName
+        }
+    }
 
     /*
     // MARK: - Navigation

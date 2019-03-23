@@ -56,7 +56,7 @@ class ChooseGameViewController: UIViewController {
                 let document_array = document.data()
                 self.nickname = document_array!["nickname"] as? String
                 self.introduce = document_array!["introduce"] as? String
-                self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
+                self.performSegue(withIdentifier: "ToUserProfile", sender: (Any).self)
             } else {
                 //取得できなかった場合、profile登録画面へ
                 print("Document does not exist")
@@ -70,7 +70,7 @@ class ChooseGameViewController: UIViewController {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
             vc.GameName = GameNames[tagnum]
-        }else if (segue.identifier == "ToSwipe"){
+        }else if (segue.identifier == "ToUserProfile"){
             let vc2 = segue.destination as! UserProfileViewController
             vc2.nickname = nickname
             vc2.introduce = introduce

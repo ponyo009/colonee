@@ -42,6 +42,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6K7-8Y-Xhe">
+                                <rect key="frame" x="261" y="590" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="next:" destination="who-2N-KaB" eventType="touchUpInside" id="qKk-kl-289"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -49,6 +57,7 @@
                         <outlet property="iconimage" destination="XqW-tE-w3o" id="ZfX-zO-16s"/>
                         <outlet property="user_introduce" destination="Bxf-5g-kGN" id="ch6-Uy-ftx"/>
                         <outlet property="user_nickname" destination="66K-1r-eGk" id="iwB-OD-dq6"/>
+                        <segue destination="CtT-G9-CLv" kind="modal" identifier="ToSwipe" id="daW-nl-pdT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7Y-Tg-sYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="229.5" y="437.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Swipe View Controller-->
         <scene sceneID="Oq4-E3-Ga9">
             <objects>
-                <viewController id="CtT-G9-CLv" sceneMemberID="viewController">
+                <viewController id="CtT-G9-CLv" customClass="SwipeViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gam-3f-VVh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="el0-eS-hnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223.75" y="1419.5983333333331"/>
+            <point key="canvasLocation" x="1790" y="437"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -366,7 +375,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2137" y="437"/>
+            <point key="canvasLocation" x="3260" y="-216"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="A8G-OK-Uci">
@@ -702,7 +711,7 @@
                         <outlet property="Game4" destination="wPF-NX-aVM" id="gZ9-Ig-nsF"/>
                         <outlet property="Game5" destination="JIm-t2-QzI" id="26h-E4-Jo2"/>
                         <segue destination="jS6-rb-dIb" kind="modal" identifier="ToProfile" id="f3n-w3-xSo"/>
-                        <segue destination="who-2N-KaB" kind="modal" identifier="ToSwipe" id="c2R-cg-qz3"/>
+                        <segue destination="who-2N-KaB" kind="modal" identifier="ToUserProfile" id="c2R-cg-qz3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j62-JU-sqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -999,6 +1008,6 @@
         <segue reference="DuQ-Fd-nLz"/>
         <segue reference="Tqn-Zc-gq8"/>
         <segue reference="tgP-lf-EMP"/>
-        <segue reference="nVF-Or-cfb"/>
+        <segue reference="c2R-cg-qz3"/>
     </inferredMetricsTieBreakers>
 </document>
