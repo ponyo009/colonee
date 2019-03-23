@@ -14,6 +14,8 @@ import FirebaseDatabase
 
 class UserProfileViewController: UIViewController {
 
+    @IBOutlet weak var user_nickname: UILabel!
+    @IBOutlet weak var user_introduce: UILabel!
     @IBOutlet weak var iconimage: UIImageView!
     
     let user = Auth.auth().currentUser
@@ -37,6 +39,9 @@ class UserProfileViewController: UIViewController {
     //userimageiconの取得
         let ref = storage.reference().child(UID).child(GameName)
         iconimage.sd_setImage(with: ref)
+        
+        user_nickname.text = nickname
+        user_introduce.text = introduce
 
         // Do any additional setup after loading the view.
     }
