@@ -111,6 +111,11 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             "introduce": IntroduceTextField.text!
             ])
         
+        db.collection(GameName).document((user?.uid)!).setData([
+            "nickname": NicknameTextField.text!,
+            "introduce": IntroduceTextField.text!
+            ])
+        
         print("Profile Saved")
         
         self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
