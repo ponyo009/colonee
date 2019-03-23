@@ -40,7 +40,7 @@ class ChooseGameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func ButtonTapped(_ sender: UIButton) {
-        //ボタンのtagの数字を取得
+    //ボタンのtagの数字を取得
         tagnum = sender.tag
         
     //DBからuserのProfileデータを取得して遷移
@@ -56,13 +56,11 @@ class ChooseGameViewController: UIViewController {
                 let document_array = document.data()
                 self.nickname = document_array!["nickname"] as? String
                 self.introduce = document_array!["introduce"] as? String
-                
                 self.performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
             } else {
                 //取得できなかった場合、profile登録画面へ
                 print("Document does not exist")
                 self.performSegue(withIdentifier: "ToProfile", sender: (Any).self)
-            
             }
         }
     }
