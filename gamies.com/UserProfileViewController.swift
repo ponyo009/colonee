@@ -29,8 +29,6 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(nickname)
-        print(introduce)
         let UID = user!.uid
         
         //imageViewの初期化

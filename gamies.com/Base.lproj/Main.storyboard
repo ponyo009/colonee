@@ -47,7 +47,6 @@
                     </view>
                     <connections>
                         <outlet property="iconimage" destination="XqW-tE-w3o" id="ZfX-zO-16s"/>
-                        <outlet property="nickname" destination="66K-1r-eGk" id="smz-2C-BPW"/>
                         <outlet property="user_introduce" destination="Bxf-5g-kGN" id="ch6-Uy-ftx"/>
                         <outlet property="user_nickname" destination="66K-1r-eGk" id="iwB-OD-dq6"/>
                     </connections>
