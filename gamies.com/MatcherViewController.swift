@@ -23,9 +23,9 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var MatcherName = String()
     
     var MatcherImageArray =
-        ["mai.jpeg"]
+        ["mai.jpg","sumire.jpeg"]
     
-    var MatcherNameArray = ["まい"]
+    var MatcherNameArray = ["まい","すみれ"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +88,8 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             
             let chatVC:ChatViewController = segue.destination as! ChatViewController
             
-            chatVC.callNumber = cellNumber
+            chatVC.cellNumber = cellNumber
+            
             chatVC.MatcherName = MatcherName
             
             
