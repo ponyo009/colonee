@@ -8,6 +8,7 @@ target 'gamies.com' do
 pod 'Firebase/Core'
 pod 'FirebaseUI'
 pod 'Firebase/Firestore'
+pod 'JSQMessagesViewController'
 end
 
 

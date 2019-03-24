@@ -7,17 +7,23 @@
 //
 
 import UIKit
+import JSQMessagesViewController
+import Firebase
+import FirebaseUI
 
-class ChatViewController: UIViewController {
+class ChatViewController: JSQMessagesViewController {
     
-    var callNumber:Int = 0
+    var cellNumber:Int = 0
     
     var MatcherName = String()
-
+    
+    var messages:[JSQMessage]! = [JSQMessage]()
+    
+    var incommigBubble :JSQMessagesBubbleImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
