@@ -17,16 +17,24 @@ class SwipeViewController: UIViewController {
     let db = Firestore.firestore()
     
     var GameName = ""
+    var document_data: Dictionary<String,String>!
+    
+    //ユーザーの情報を一括にまとめるためのカード素材
+    let UserCard = UIView()
+    let userIconImage = UIImageView()
+    let usernickname = UILabel()
+    let userintroduce = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // DBから<GameName>に格納されているuserの情報をすべて取得
         db.collection(GameName).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
+                    self.document_data = document.data() as! Dictionary<String, String>
                     
                 }
             }
