@@ -23,7 +23,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var MatcherName = String()
     
     var MatcherImageArray =
-        ["mai.jpg","sumire.jpeg"]
+        ["mai.jpeg","sumire.jpeg"]
     
     var MatcherNameArray = ["まい","すみれ"]
     
@@ -76,7 +76,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         //pushで画面遷移
         
-        performSegue(withIdentifier: "chat", sender: nil)
+        performSegue(withIdentifier: "segue", sender: nil)
         
         
     }
@@ -84,12 +84,12 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     override func prepare(for segue: UIStoryboardSegue, sender:Any?){
         
-        if (segue.identifier == "chat"){
+        if (segue.identifier == "segue"){
             
             let chatVC:ChatViewController = segue.destination as! ChatViewController
             
             chatVC.cellNumber = cellNumber
-            
+
             chatVC.MatcherName = MatcherName
             
             

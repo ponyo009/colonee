@@ -19,12 +19,15 @@ class ChatViewController: JSQMessagesViewController {
     
     var messages:[JSQMessage]! = [JSQMessage]()
     
-    var incommigBubble :JSQMessagesBubbleImage!
+    var incommingBubble :JSQMessagesBubbleImage!
+    var outcommingBubble :JSQMessagesBubbleImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
+    
     
 
     /*
