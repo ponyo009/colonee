@@ -13,6 +13,8 @@ import FirebaseUI
 
 class ChatViewController: JSQMessagesViewController {
     
+    let userID = Auth.auth().currentUser?.uid
+    
     var cellNumber:Int = 0
     
     var MatcherName = String()
