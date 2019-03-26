@@ -21,11 +21,52 @@ class SwipeViewController: UIViewController {
     var data_volume: Int!
     var document_number = 0
     
-    //ユーザーの情報を一括にまとめるためのカード素材
-    let UserCard = UIView()
-    let userIconImage = UIImageView()
-    let usernickname = UILabel()
-    let userintroduce = UILabel()
+    var document_ID: String!
+    
+    //ユーザー情報のカード情報
+    let cardFrame = CGRect.init(x:16, y:73, width:343, height:415)
+    let iconImageFrame = CGRect.init(x:51, y:29, width:240, height:128)
+    let usernickname = CGRect.init(x:8, y:165, width:320, height:41)
+    let userintroduction = CGRect.init(x:8, y:214, width:320, height:167)
+    
+    //UIView作成
+    func CreateUIView(){
+        let UserCard = UIView.init(frame: self.cardFrame)
+        UserCard.tag += 1
+    }
+    
+    //imageview作成と画像取得
+    func CreateIconImageView() {
+        let userIconImage = UIImageView.init(frame:self.iconImageFrame )
+        var storageref = storage.reference().child(/*useridが必要*/document_ID).child(GameName)
+        userIconImage.sd_setImage(with: storageref)
+        userIconImage.tag += 1
+    }
+    
+    //nicknameラベル
+    func CreateNickNameLabel(){
+        let userNickName = UILabel.init(frame: usernickname)
+        var nicknameref = db.collection(GameName).document(document_ID)
+        nicknameref.getDocument{(document,error) in
+            if let document = document, document.exists{
+                let document_array = document.data()
+                userNickName.text = document_array!["nickname"] as? String
+                userNickName.tag += 1
+            }
+        }
+    }
+    //introduceラベル
+    func CreateIntroduceLabel(){
+        let userIntroduction = UILabel.init(frame: userintroduction)
+        var introductionref = db.collection(GameName).document(document_ID)
+        introductionref.getDocument{(document,error) in
+            if let document = document, document.exists{
+                let document_array = document.data()
+                userIntroduction.text = document_array!["introduce"] as? String
+                userIntroduction.tag += 1
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +83,14 @@ class SwipeViewController: UIViewController {
                 //それぞれのドキュメントの内容をdocumet_dataに代入
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
+                    self.document_ID = document.documentID
                     self.document_data = (document.data() as? Dictionary<String, String>)!
                     
-                    //data_number分のカードの作成
-                    
+                    //data_volume分のカードの作成
+                    self.CreateUIView()
+                    self.CreateIconImageView()
+                    self.CreateNickNameLabel()
+                    self.CreateIntroduceLabel()
                     
                 }
                 
