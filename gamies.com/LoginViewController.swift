@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userPasswordField: UITextField!
     
     @IBOutlet weak var LoginFailedMessage: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
