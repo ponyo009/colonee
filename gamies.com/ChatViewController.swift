@@ -28,13 +28,30 @@ class ChatViewController: JSQMessagesViewController {
     
     var incommingBubble :JSQMessagesBubbleImage!
     var outcommingBubble :JSQMessagesBubbleImage!
+    var incomingAvata:JSQMessagesAvatarImage!
+    var outcomingAvata:JSQMessagesAvatarImage!
+    
+    var userNameLabelText = String()
+    
+    var backgroundImageView = UIImageView()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
+        
+        backgroundImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        
 
-
+        //背景画像を反映
+        
+        //チャットをスタートさせる
+        
+        //情報をリアルタイムで取得する
+        
+        
     }
     
     

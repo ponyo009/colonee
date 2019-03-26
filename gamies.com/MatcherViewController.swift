@@ -85,7 +85,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         //pushで画面遷移
         
-        performSegue(withIdentifier: "ToChat", sender: (Any).self)
+        performSegue(withIdentifier: "segue", sender: (Any).self)
     }
     
     
