@@ -34,7 +34,7 @@ class SwipeViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    self.document_data = document.data() as! Dictionary<String, String>
+                    self.document_data = document.data() as? Dictionary<String, String>
                     
                 }
             }
