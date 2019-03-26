@@ -38,6 +38,8 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         print(MatcherImageArray)
         print(MatcherNameArray)
         
+    
+    
     }
     
     
@@ -50,7 +52,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MatcherNameArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -69,6 +71,8 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
     }
     
+
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         cellNumber = indexPath.row
@@ -76,9 +80,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         //pushで画面遷移
         
-        performSegue(withIdentifier: "segue", sender: nil)
-        
-        
+        performSegue(withIdentifier: "ToChat", sender: (Any).self)
     }
     
     

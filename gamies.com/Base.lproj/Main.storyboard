@@ -239,8 +239,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="マッチ" id="uun-uF-oxU"/>
                     <connections>
-                        <outlet property="tableView" destination="pij-js-ZE2" id="Cg3-su-BAi"/>
-                        <segue destination="QTL-LS-yjk" kind="push" identifier="segue" id="9XD-Th-k0N"/>
+                        <outlet property="tableView" destination="pij-js-ZE2" id="FI3-WG-d5O"/>
+                        <segue destination="QTL-LS-yjk" kind="modal" identifier="ToChat" id="mgI-f8-QCy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="el0-eS-hnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
