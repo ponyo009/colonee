@@ -13,6 +13,11 @@ import FirebaseUI
 
 class ChatViewController: JSQMessagesViewController {
     
+    func setup() {
+        self.senderId = "1234"
+        self.senderDisplayName = "TEST"
+    }
+    
     let userID = Auth.auth().currentUser?.uid
     
     var cellNumber:Int = 0
@@ -26,6 +31,9 @@ class ChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setup()
+
 
     }
     

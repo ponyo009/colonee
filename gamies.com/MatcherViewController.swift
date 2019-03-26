@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseUI
 
+
+
 class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     
@@ -70,6 +72,8 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("MatcherNameLabel.text")
         
         cellNumber = indexPath.row
         MatcherName = MatcherNameArray[indexPath.row]
