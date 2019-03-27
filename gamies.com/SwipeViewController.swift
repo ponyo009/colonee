@@ -24,26 +24,30 @@ class SwipeViewController: UIViewController {
     var document_ID: String!
     
     //ユーザーカード位置
-    let cardFrame = CGRect.init(x:16, y:73, width:343, height:415)
-    let iconImageFrame = CGRect.init(x:51, y:29, width:240, height:128)
-    let usernicknameframe = CGRect.init(x:8, y:165, width:320, height:41)
-    let userintroductionframe = CGRect.init(x:8, y:214, width:320, height:167)
+    var cardFrame = CGRect(x:16, y:73, width:50, height:50)
+    let iconImageFrame = CGRect(x:51, y:29, width:240, height:128)
+    let usernicknameframe = CGRect(x:8, y:165, width:320, height:41)
+    let userintroductionframe = CGRect(x:8, y:214, width:320, height:167)
+    
+    //ユーザーカード
+    var UserCard: UIView!
+    var UserIconImage: UIImageView!
     
     //UIView作成
     func CreateUIView(){
-        var UserCard = UIView.init(frame: self.cardFrame)
+        UserCard = UIView(frame: cardFrame)
         UserCard.tag += 1
-        UserCard.backgroundColor = UIColor.darkGray
+        UserCard.backgroundColor = UIColor.blue
+        UserCard.addSubview(view)
     }
-    
     //imageview作成と画像取得
     func CreateIconImageView() {
-        var userIconImage = UIImageView.init(frame:self.iconImageFrame )
+        UserIconImage = UIImageView(frame:self.iconImageFrame )
         var storageref = storage.reference().child(/*useridが必要？*/document_ID).child(GameName)
-        userIconImage.sd_setImage(with: storageref)
-        userIconImage.tag += 1
+        UserIconImage.sd_setImage(with: storageref)
+        UserIconImage.tag += 1
+        UserIconImage.addSubview(UserCard)
     }
-    
     //nicknameラベル
     func CreateNickNameLabel(){
         var userNickName = UILabel.init(frame: usernicknameframe)
@@ -68,7 +72,6 @@ class SwipeViewController: UIViewController {
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,7 +90,8 @@ class SwipeViewController: UIViewController {
                     self.document_ID = document.documentID
                     self.document_data = (document.data() as? Dictionary<String, String>)!
                     
-                    //data_volume分のカードの作成
+                    self.CreateUIView()
+                   /* //data_volume分のカードの作成
                     self.CreateUIView()
                     print("a")
                     self.CreateIconImageView()
@@ -96,7 +100,8 @@ class SwipeViewController: UIViewController {
                     print("c")
                     self.CreateIntroduceLabel()
                     print("d")
-                    
+                    */
+ 
                 }
                 
                 
