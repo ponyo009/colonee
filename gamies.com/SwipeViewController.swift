@@ -26,7 +26,7 @@ class SwipeViewController: UIViewController {
     var document_ID: String!
     
     //ユーザーカード位置
-    var cardFrame = CGRect(x:16, y:73, width:50, height:50)
+    var cardFrame = CGRect(x:16, y:73, width:350, height:370)
     let iconImageFrame = CGRect(x:51, y:29, width:240, height:128)
     let usernicknameframe = CGRect(x:8, y:165, width:320, height:41)
     let userintroductionframe = CGRect(x:8, y:214, width:320, height:167)
@@ -39,8 +39,8 @@ class SwipeViewController: UIViewController {
     func CreateUIView(){
         UserCard = UIView(frame: cardFrame)
         UserCard.tag += 1
-        UserCard.backgroundColor = UIColor.blue
-       // UserCard.addSubview(view)
+        UserCard.backgroundColor = UIColor.white
+        view.addSubview(UserCard)
     }
     //imageview作成と画像取得
     func CreateIconImageView() {
@@ -48,29 +48,33 @@ class SwipeViewController: UIViewController {
         var storageref = storage.reference().child(/*useridが必要？*/document_ID).child(GameName)
         UserIconImage.sd_setImage(with: storageref)
         UserIconImage.tag += 1
-        UserIconImage.addSubview(UserCard)
+        UserCard.addSubview(UserIconImage)
     }
     //nicknameラベル
     func CreateNickNameLabel(){
         var userNickName = UILabel.init(frame: usernicknameframe)
+        userNickName.backgroundColor = UIColor.white
         var nicknameref = db.collection(GameName).document(document_ID)
         nicknameref.getDocument{(document,error) in
             if let document = document, document.exists{
                 let document_array = document.data()
                 userNickName.text = document_array!["nickname"] as? String
                 userNickName.tag += 1
+                self.UserCard.addSubview(userNickName)
             }
         }
     }
     //introduceラベル
     func CreateIntroduceLabel(){
         var userIntroduction = UILabel.init(frame: userintroductionframe)
+        userIntroduction.backgroundColor = UIColor.white
         var introductionref = db.collection(GameName).document(document_ID)
         introductionref.getDocument{(document,error) in
             if let document = document, document.exists{
                 let document_array = document.data()
                 userIntroduction.text = document_array!["introduce"] as? String
                 userIntroduction.tag += 1
+                self.UserCard.addSubview(userIntroduction)
             }
         }
     }
@@ -92,18 +96,12 @@ class SwipeViewController: UIViewController {
                     self.document_ID = document.documentID
                     self.document_data = (document.data() as? Dictionary<String, String>)!
                     
+                //data_volume分のカードの作成
                     self.CreateUIView()
-                   /* //data_volume分のカードの作成
-                    self.CreateUIView()
-                    print("a")
                     self.CreateIconImageView()
-                    print("b")
                     self.CreateNickNameLabel()
-                    print("c")
                     self.CreateIntroduceLabel()
-                    print("d")
-                    */
- 
+                    
                 }
                 
                 
