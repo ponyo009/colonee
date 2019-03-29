@@ -14,7 +14,7 @@ import FirebaseUI
 
 class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
-    
+    var GameName = ""
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -96,7 +96,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             let chatVC:ChatViewController = segue.destination as! ChatViewController
             
             chatVC.cellNumber = cellNumber
-
+            chatVC.GameName = GameName
             chatVC.MatcherName = MatcherName
             
             

@@ -13,16 +13,22 @@ import FirebaseUI
 
 class ChatViewController: JSQMessagesViewController {
     
-  /* 下のsetupは、ユーザー情報を前のページから引き継いでいれば記載しなくてもいいみたいなんだけど
-   引き継ぎかたがわからなくて暫定的に記載してる */
+    var GameName = ""
+    
+    //userとuseridの定義
+    let user = Auth.auth().currentUser
+    var userID = Auth.auth().currentUser?.uid
+    //usernicknameの取得
+    let docref = Firestore.firestore()
+    var usernickname: String
     
     func setup() {
-        self.senderId = "1234"
-        self.senderDisplayName = "TEST"
+        self.senderId = user?.uid
+        self.senderDisplayName = usernickname
     }
     
     
-    var userID = Auth.auth().currentUser?.uid
+    
     
     var cellNumber:Int = 0
     
@@ -46,7 +52,18 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //usernicknameの取得
+        docref.collection(GameName).document(userID!).getDocument { (document, error) in
+            if let document = document, document.exists {
+                //取得できた場合
+                let document_array = document.data()
+                self.usernickname = (document_array!["nickname"] as? String)!
+            } else {
+                //取得できなかった場合
+                print("Document does not exist")
+            }
+        }
+        //senderへの登録
         self.setup()
         
         backgroundImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
@@ -131,8 +148,11 @@ class ChatViewController: JSQMessagesViewController {
 }
    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = super.collectionView(CollectionView, cellForItemAt: indexPath as IndexPath) as? JSQMessagesCollectionViewCell
-        if messages[IndexPath.row].sen
+        let indexpaths = [indexPath.row]
+        let cell = super.collectionView( cellForItemAt: indexPath as IndexPath) as? JSQMessagesCollectionViewCell
+        if messages![indexpaths].senderId == senderId {
+            
+        }
     }
     
     }
