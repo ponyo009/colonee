@@ -12,6 +12,8 @@ import Firebase
 
 class SwipeViewController: UIViewController {
 
+    @IBOutlet weak var ToMatcher: UIButton!
+    
     let UID = Auth.auth().currentUser?.uid
     let storage = Storage.storage()
     let db = Firestore.firestore()
@@ -112,6 +114,12 @@ class SwipeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ToMatcher"){
+            let vc = segue.destination as! MatcherViewController
+            vc.GameName = GameName
+        }
+    }
 
     /*
     // MARK: - Navigation
