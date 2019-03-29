@@ -129,13 +129,13 @@ class ChatViewController: JSQMessagesViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
 }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) {
-        let cell = super.collectionView(CollectionView, cellForItemAt, cellForItemAt: IndexPath as IndexPath) as? JSQMessagesCollectionViewCell
+   
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(CollectionView, cellForItemAt: indexPath as IndexPath) as? JSQMessagesCollectionViewCell
+        if messages[IndexPath.row].sen
     }
-    if messages[indexPath.row].senderId == senderId{
-        cell?.textView.textColor = UIcolor.white
+    
     }
         
-    }
 
 
