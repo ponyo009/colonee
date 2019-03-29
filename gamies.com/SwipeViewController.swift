@@ -12,7 +12,7 @@ import Firebase
 
 class SwipeViewController: UIViewController {
 
-    @IBOutlet weak var ToMatcher: UIButton!
+
     
     let UID = Auth.auth().currentUser?.uid
     let storage = Storage.storage()
@@ -25,29 +25,34 @@ class SwipeViewController: UIViewController {
     
     var document_ID: String!
     
-    //ユーザー情報のカード情報
-    let cardFrame = CGRect.init(x:16, y:73, width:343, height:415)
-    let iconImageFrame = CGRect.init(x:51, y:29, width:240, height:128)
-    let usernickname = CGRect.init(x:8, y:165, width:320, height:41)
-    let userintroduction = CGRect.init(x:8, y:214, width:320, height:167)
+    //ユーザーカード位置
+    var cardFrame = CGRect(x:16, y:73, width:50, height:50)
+    let iconImageFrame = CGRect(x:51, y:29, width:240, height:128)
+    let usernicknameframe = CGRect(x:8, y:165, width:320, height:41)
+    let userintroductionframe = CGRect(x:8, y:214, width:320, height:167)
+    
+    //ユーザーカード
+    var UserCard: UIView!
+    var UserIconImage: UIImageView!
     
     //UIView作成
     func CreateUIView(){
-        let UserCard = UIView.init(frame: self.cardFrame)
+        UserCard = UIView(frame: cardFrame)
         UserCard.tag += 1
+        UserCard.backgroundColor = UIColor.blue
+       // UserCard.addSubview(view)
     }
-    
     //imageview作成と画像取得
     func CreateIconImageView() {
-        let userIconImage = UIImageView.init(frame:self.iconImageFrame )
-        var storageref = storage.reference().child(/*useridが必要*/document_ID).child(GameName)
-        userIconImage.sd_setImage(with: storageref)
-        userIconImage.tag += 1
+        UserIconImage = UIImageView(frame:self.iconImageFrame )
+        var storageref = storage.reference().child(/*useridが必要？*/document_ID).child(GameName)
+        UserIconImage.sd_setImage(with: storageref)
+        UserIconImage.tag += 1
+        UserIconImage.addSubview(UserCard)
     }
-    
     //nicknameラベル
     func CreateNickNameLabel(){
-        let userNickName = UILabel.init(frame: usernickname)
+        var userNickName = UILabel.init(frame: usernicknameframe)
         var nicknameref = db.collection(GameName).document(document_ID)
         nicknameref.getDocument{(document,error) in
             if let document = document, document.exists{
@@ -59,7 +64,7 @@ class SwipeViewController: UIViewController {
     }
     //introduceラベル
     func CreateIntroduceLabel(){
-        let userIntroduction = UILabel.init(frame: userintroduction)
+        var userIntroduction = UILabel.init(frame: userintroductionframe)
         var introductionref = db.collection(GameName).document(document_ID)
         introductionref.getDocument{(document,error) in
             if let document = document, document.exists{
@@ -69,7 +74,6 @@ class SwipeViewController: UIViewController {
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,12 +92,18 @@ class SwipeViewController: UIViewController {
                     self.document_ID = document.documentID
                     self.document_data = (document.data() as? Dictionary<String, String>)!
                     
-                    //data_volume分のカードの作成
                     self.CreateUIView()
+                   /* //data_volume分のカードの作成
+                    self.CreateUIView()
+                    print("a")
                     self.CreateIconImageView()
+                    print("b")
                     self.CreateNickNameLabel()
+                    print("c")
                     self.CreateIntroduceLabel()
-                    
+                    print("d")
+                    */
+ 
                 }
                 
                 
@@ -102,6 +112,11 @@ class SwipeViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view.
+    }
+    
+
+    @IBAction func ToMatch(_ sender: UIButton) {
+        performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

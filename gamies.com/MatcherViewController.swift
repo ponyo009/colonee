@@ -78,20 +78,20 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("MatcherNameLabel.text")
+        print(MatcherNameLabel.text)
         
         cellNumber = indexPath.row
         MatcherName = MatcherNameArray[indexPath.row]
         
         //pushで画面遷移
         
-        performSegue(withIdentifier: "segue", sender: (Any).self)
+        performSegue(withIdentifier: "ToChat", sender: (Any).self)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender:Any?){
         
-        if (segue.identifier == "segue"){
+        if (segue.identifier == "ToChat"){
             
             let chatVC:ChatViewController = segue.destination as! ChatViewController
             

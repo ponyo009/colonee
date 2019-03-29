@@ -152,8 +152,7 @@ class ChatViewController: JSQMessagesViewController {
         if messages![indexPath.row].senderId == senderId {
             
         }
-        
-        
+        return cell!
     }
     
     }

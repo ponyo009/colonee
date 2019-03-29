@@ -52,11 +52,11 @@ class ChooseGameViewController: UIViewController {
         //ドキュメント内容の取得
         docref.getDocument { (document, error) in
             if let document = document, document.exists {
-                //取得できた場合、スワイプへ
+                //取得できた場合、UserProfileへ
                 let document_array = document.data()
                 self.nickname = document_array!["nickname"] as? String
                 self.introduce = document_array!["introduce"] as? String
-                self.performSegue(withIdentifier: "ToProfile", sender: (Any).self)
+                self.performSegue(withIdentifier: "ToUserProfile", sender: (Any).self)
             } else {
                 //取得できなかった場合、profile登録画面へ
                 print("Document does not exist")
@@ -65,7 +65,7 @@ class ChooseGameViewController: UIViewController {
         }
     }
     
-    //選択されたゲーム名をregisterへ、nicnameとintroduceをprofileへ渡す
+    //選択されたゲーム名をregisterへ、nicnameとintroduceをUserProfileへ渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
