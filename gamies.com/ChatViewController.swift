@@ -148,11 +148,11 @@ class ChatViewController: JSQMessagesViewController {
 }
    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let indexpaths = [indexPath.row]
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath as IndexPath) as? JSQMessagesCollectionViewCell
         if messages![indexPath.row].senderId == senderId {
             
         }
+        return cell!
     }
     
     }

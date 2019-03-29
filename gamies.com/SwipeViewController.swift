@@ -12,7 +12,7 @@ import Firebase
 
 class SwipeViewController: UIViewController {
 
-    @IBOutlet weak var ToMatcher: UIButton!
+
     
     let UID = Auth.auth().currentUser?.uid
     let storage = Storage.storage()
@@ -40,7 +40,7 @@ class SwipeViewController: UIViewController {
         UserCard = UIView(frame: cardFrame)
         UserCard.tag += 1
         UserCard.backgroundColor = UIColor.blue
-        UserCard.addSubview(view)
+       // UserCard.addSubview(view)
     }
     //imageview作成と画像取得
     func CreateIconImageView() {
@@ -112,6 +112,11 @@ class SwipeViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view.
+    }
+    
+
+    @IBAction func ToMatch(_ sender: UIButton) {
+        performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
