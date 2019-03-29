@@ -20,7 +20,7 @@ class ChatViewController: JSQMessagesViewController {
     var userID = Auth.auth().currentUser?.uid
     //usernicknameの取得
     let docref = Firestore.firestore()
-    var usernickname: String
+    var usernickname: String!
     
     func setup() {
         self.senderId = user?.uid
@@ -149,8 +149,8 @@ class ChatViewController: JSQMessagesViewController {
    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let indexpaths = [indexPath.row]
-        let cell = super.collectionView( cellForItemAt: indexPath as IndexPath) as? JSQMessagesCollectionViewCell
-        if messages![indexpaths].senderId == senderId {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath as IndexPath) as? JSQMessagesCollectionViewCell
+        if messages![indexPath.row].senderId == senderId {
             
         }
     }
