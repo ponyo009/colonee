@@ -19,21 +19,27 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var LoginFailedMessage: UILabel!
     
+    let userdefaults_email = UserDefaults.standard.object(forKey: "userEmail")
+    let userdefaults_pass = UserDefaults.standard.object(forKey: "userPassword")
+    //UserDefaultsの定義
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
-
+        userEmailTextField.text = userdefaults_email as? String
+        userPasswordField.text = userdefaults_pass as? String
 
         // Do any additional setup after loading the view.
     }
+   
     
     @IBAction func loginbutton(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: userEmailTextField.text!, password: userPasswordField.text!) { (user, error) in
             if error != nil{
                 self.LoginFailedMessage.alpha = 1
             }else{
+            
             self.performSegue(withIdentifier: "ToChooseGame", sender: (Any).self)
             }
     }

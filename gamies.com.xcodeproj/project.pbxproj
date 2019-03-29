@@ -707,14 +707,15 @@
 			baseConfigurationReference = 340B5F94D3930BDA7519BAFA /* Pods-gamies.com.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ka.95.hanahana@icloud.com (RA4SA735DN)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZD57RY62TR;
 				INFOPLIST_FILE = gamies.com/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kazuya-hanakawa.gamies-com";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gamies.kazuya-hanakawa.gamies";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -726,14 +727,15 @@
 			baseConfigurationReference = 341EBD7E41AAC95990511E0B /* Pods-gamies.com.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ka.95.hanahana@icloud.com (RA4SA735DN)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZD57RY62TR;
 				INFOPLIST_FILE = gamies.com/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kazuya-hanakawa.gamies-com";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gamies.kazuya-hanakawa.gamies";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
