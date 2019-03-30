@@ -32,7 +32,11 @@ class RegistrationViewController: UIViewController {
 
 
     @IBAction func confirmButtonTapped(_ sender: Any) {
-        //let obj = NCMBObject(className: "Userclass"
+        
+        //UserDefaultsのための定義
+        let userEmail = userEmailTextField
+        let userPassword = userPasswordTextField
+
         //入力されたのが有効なアドレスとパスワードかどうかの確認
         if (userEmailTextField.text?.isEmpty)! || (userPasswordTextField.text?.isEmpty)! {
             SignUpFailedMessage.alpha = 1
@@ -43,6 +47,10 @@ class RegistrationViewController: UIViewController {
             if error != nil {
                 self.SignUpFailedMessage.alpha = 1
                 print("SignUpFailed")
+                
+                UserDefaults.standard.set(userEmail, forKey:"userEamil")
+                UserDefaults.standard.set(userPassword, forKey:"userPassword")
+                
                 // 新規登録失敗時の処理
             }else{
                
