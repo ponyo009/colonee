@@ -39,8 +39,11 @@ class LoginViewController: UIViewController {
             if error != nil{
                 self.LoginFailedMessage.alpha = 1
             }else{
-            
-            self.performSegue(withIdentifier: "ToChooseGame", sender: (Any).self)
+                //UserDefaultsにアドレスとパスを保存
+                UserDefaults.standard.set(self.userEmailTextField.text, forKey: "userEmail")
+                UserDefaults.standard.set(self.userPasswordField.text, forKey: "userPassword")
+                
+                self.performSegue(withIdentifier: "ToChooseGame", sender: (Any).self)
             }
     }
 }
