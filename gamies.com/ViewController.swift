@@ -98,7 +98,7 @@ class ViewController: UIViewController {
             
         
             //元に戻る
-            UIView.animate(withDuration: 0.2, animations:{
+            UIView.animate(withDuration: 0.1, animations:{
                 self.resetCard()
                 self.people[self.selectedCardCount].center = self.centerOfCard
                 self.people[self.selectedCardCount].transform = .identity
