@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginbutton(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: userEmailTextField.text!, password: userPasswordField.text!) { (user, error) in
-            if error != nil{
+            if user == nil{
                 self.LoginFailedMessage.alpha = 1
             }else{
                 //UserDefaultsにアドレスとパスを保存
