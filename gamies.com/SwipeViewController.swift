@@ -25,6 +25,8 @@ class SwipeViewController: UIViewController {
     
     var document_ID: String!
     
+    var centerOfCard: CGPoint!
+    
     //ユーザーカード位置
     var cardFrame = CGRect(x:16, y:73, width:350, height:370)
     let iconImageFrame = CGRect(x:51, y:29, width:240, height:128)
@@ -41,6 +43,8 @@ class SwipeViewController: UIViewController {
         UserCard.tag += 1
         UserCard.backgroundColor = UIColor.white
         view.addSubview(UserCard)
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panAction))
+        UserCard.addGestureRecognizer(panGesture)
     }
     //imageview作成と画像取得
     func CreateIconImageView() {
@@ -78,9 +82,58 @@ class SwipeViewController: UIViewController {
             }
         }
     }
-    //Pangesture追加
     
-     //   var panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panView(sender:)))
+    func resetCard() {
+        UserCard.center = self.centerOfCard
+        UserCard.transform = .identity
+    }
+    //Pangestureじのアクション
+    @objc func panAction(_ sender: UIPanGestureRecognizer){
+        
+        let card = sender.view
+        let point = sender.translation(in: view)
+        
+        card?.center = CGPoint(x: (card?.center.x)! + point.x, y: (card?.center.y)! + point.y)
+        UserCard.center = CGPoint(x: (card?.center.x)! + point.x, y: card!.center.y + point.y)
+        //角度を変える
+        let xFromCenter = card!.center.x - view.center.x
+        card!.transform = CGAffineTransform(rotationAngle: xFromCenter / (view.frame.width / 2 ) * 0.785)
+        UserCard.transform = CGAffineTransform(rotationAngle: xFromCenter / (view.frame.width / 2 ) * 0.785)
+        
+        
+        if sender.state == UIGestureRecognizer.State.ended {
+            //左に大きくスワイプ
+            if card!.center.x < 75 {
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.resetCard()
+                    self.UserCard.center = CGPoint(x: self.UserCard.center.x - 350, y: self.UserCard.center.y)
+                })
+                /* likeimageView.alpha = 0
+                selectedCardCount += 1
+                if selectedCardCount >= people.count{
+                    performSegue(withIdentifier: "PushList", sender: self)
+                }*/
+                return
+                //右に大きくスワイプ
+            } else if card!.center.x > self.view.frame.width - 75 {
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.resetCard()
+                    self.UserCard.center = CGPoint(x: self.UserCard.center.x + 350, y: self.UserCard.center.y)
+                })
+               /* likeimageView.alpha = 0
+                likedName.append(name[selectedCardCount])
+                selectedCardCount += 1
+                if selectedCardCount >= people.count{
+                    performSegue(withIdentifier: "PushList", sender: self)
+                }
+                */
+                return
+            }
+        }
+    }
+    
+   
+
     
     
     override func viewDidLoad() {
@@ -103,6 +156,7 @@ class SwipeViewController: UIViewController {
                     
                 //data_volume分のカードの作成
                     self.CreateUIView()
+                    self.centerOfCard = self.UserCard.center
                     self.CreateIconImageView()
                     self.CreateNickNameLabel()
                     self.CreateIntroduceLabel()
