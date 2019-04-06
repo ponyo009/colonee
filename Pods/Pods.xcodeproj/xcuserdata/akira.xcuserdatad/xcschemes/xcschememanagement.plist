@@ -196,7 +196,7 @@
 		<key>JSQMessagesViewController.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>39</integer>
+			<integer>40</integer>
 		</dict>
 		<key>JSQSystemSoundPlayer.xcscheme</key>
 		<dict>
@@ -208,7 +208,7 @@
 		<key>JSQSystemSoundPlayer.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>40</integer>
+			<integer>41</integer>
 		</dict>
 		<key>Pods-gamies.com.xcscheme</key>
 		<dict>

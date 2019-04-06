@@ -46,6 +46,7 @@ class ChooseGameViewController: UIViewController {
     //DBからuserのProfileデータを取得して遷移
         
         let UID = user?.uid
+        print (UID)
         //選択されたゲーム名のドキュメントへの参照
         let docref = db.collection("users").document(UID!).collection("Games").document(GameNames[tagnum
             ])

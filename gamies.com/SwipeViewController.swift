@@ -45,7 +45,7 @@ class SwipeViewController: UIViewController {
     //imageview作成と画像取得
     func CreateIconImageView() {
         UserIconImage = UIImageView(frame:self.iconImageFrame )
-        var storageref = storage.reference().child(/*useridが必要？*/document_ID).child(GameName)
+        var storageref = storage.reference().child(document_ID).child(GameName)
         UserIconImage.sd_setImage(with: storageref)
         UserIconImage.tag += 1
         UserCard.addSubview(UserIconImage)
@@ -78,6 +78,11 @@ class SwipeViewController: UIViewController {
             }
         }
     }
+    //Pangesture追加
+    
+     //   var panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panView(sender:)))
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
