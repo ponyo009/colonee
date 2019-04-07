@@ -20,12 +20,12 @@ class SwipeViewController: UIViewController {
     
     var GameName = ""
     var document_data: Dictionary<String,String>!
-    var data_volume: Int!
     var document_number = 0
-    
     var document_ID: String!
     
-    var centerOfCard: CGPoint!
+    //データ数とスワイプカウンター
+    var data_volume: Int!
+    var swipe_counter = 0
     
     //ユーザーカード位置
     var cardFrame = CGRect(x:16, y:73, width:350, height:370)
@@ -37,6 +37,12 @@ class SwipeViewController: UIViewController {
     var UserCard: UIView!
     var UserIconImage: UIImageView!
     var tagnum = 1
+    var centerOfCard: CGPoint!
+    
+    //like処理用
+    var NickName: String!
+    var NickNames = [String]()
+    var LikedName = [String]()
     
     //UIView作成
     func CreateUIView(){
@@ -44,7 +50,8 @@ class SwipeViewController: UIViewController {
         UserCard.tag = tagnum
         UserCard.backgroundColor = UIColor.white
         view.addSubview(UserCard)
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panAction))
+        UserCard = self.view.viewWithTag(tagnum)
+         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panAction))
         UserCard.addGestureRecognizer(panGesture)
     }
     //imageview作成と画像取得
@@ -69,7 +76,7 @@ class SwipeViewController: UIViewController {
             if let document = document, document.exists{
                 let document_array = document.data()
                 userNickName.text = document_array!["nickname"] as? String
-               
+                //なんでこれで代入できないのかわからない self.NickName = userNickName.text
             }
         }
     }
@@ -93,9 +100,10 @@ class SwipeViewController: UIViewController {
         UserCard.center = self.centerOfCard
         UserCard.transform = .identity
     }
-    //Pangestureじのアクション
+    //Pangestureのアクション *１番上のカードしかリセットされない
     @objc func panAction(_ sender: UIPanGestureRecognizer){
         
+        centerOfCard = UserCard.center
         let card = sender.view
         let point = sender.translation(in: view)
         
@@ -115,6 +123,11 @@ class SwipeViewController: UIViewController {
                     self.UserCard.center = CGPoint(x: self.UserCard.center.x - 350, y: self.UserCard.center.y)
                 })
                 self.UserCard.removeFromSuperview()
+                swipe_counter += 1
+                if swipe_counter >= data_volume{
+                    performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
+                }
+                
                 /* likeimageView.alpha = 0
                 selectedCardCount += 1
                 if selectedCardCount >= people.count{
@@ -127,6 +140,13 @@ class SwipeViewController: UIViewController {
                     self.resetCard()
                     self.UserCard.center = CGPoint(x: self.UserCard.center.x + 350, y: self.UserCard.center.y)
                 })
+                self.UserCard.removeFromSuperview()
+                LikedName.append(NickNames[swipe_counter])
+                swipe_counter += 1
+                if swipe_counter >= data_volume{
+                    performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
+                }
+                
                /* likeimageView.alpha = 0
                 likedName.append(name[selectedCardCount])
                 selectedCardCount += 1
@@ -137,6 +157,11 @@ class SwipeViewController: UIViewController {
                 return
             }
         }
+        UIView.animate(withDuration: 0.1, animations:{
+            self.resetCard()
+            self.UserCard.center = self.centerOfCard
+            self.UserCard.transform = .identity
+        })
     }
     
    
@@ -163,14 +188,13 @@ class SwipeViewController: UIViewController {
                     
                 //data_volume分のカードの作成
                     self.CreateUIView()
-                    self.centerOfCard = self.UserCard.center
                     self.CreateIconImageView()
                     self.CreateNickNameLabel()
                     self.CreateIntroduceLabel()
                     self.tagnum += 1
-                    
+                    self.NickNames.append(self.NickName)
                 }
-                
+                print (self.NickNames)
                 
                 
             }
