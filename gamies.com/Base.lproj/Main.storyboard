@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fEl-iL-qie">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="who-2N-KaB" userLabel="userProfile" customClass="UserProfileViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zhM-8Z-eRU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbA-Jw-0hc">
@@ -71,7 +71,7 @@
             <objects>
                 <viewController id="Y6y-zM-9Hz" customClass="SwipeViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TKW-7s-2Bw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCE-5e-OQf">
@@ -99,7 +99,7 @@
             <objects>
                 <viewController title="Profile" id="jS6-rb-dIb" customClass="ProfileViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k4Q-Lc-wRC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o4d-DK-S9F">
@@ -222,11 +222,11 @@
             <objects>
                 <viewController id="CtT-G9-CLv" customClass="MatcherViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gam-3f-VVh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9C5-i0-JYV">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pij-js-ZE2">
@@ -238,7 +238,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ym1-j7-Hyc" id="oey-ay-w5e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wdn-MD-0KS">
@@ -276,7 +276,7 @@
             <objects>
                 <viewController id="QTL-LS-yjk" customClass="ChatViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8AT-s8-wHV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="exH-dY-a1c"/>
@@ -292,7 +292,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gct-OI-F38" userLabel="Person4">
@@ -479,7 +479,7 @@
             <objects>
                 <viewController id="m4i-R2-CpJ" customClass="ListViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ej-ZL-QlB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gCJ-7s-Wfv">
@@ -491,7 +491,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uhp-i0-x1F" id="PYM-LF-F5l">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -515,12 +515,15 @@
             <objects>
                 <viewController title="Registration" id="Pee-0p-LxU" customClass="RegistrationViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UIe-3W-gzC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-9w-qkt" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="65" y="196" width="261" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-9w-qkt" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="62.5" y="215" width="250" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="T1X-in-uTf"/>
+                                    <constraint firstAttribute="height" constant="39" id="ijX-k2-3bd"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -547,31 +550,22 @@
                                 <color key="textColor" red="1" green="0.29672170945472731" blue="0.29708741476483225" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urh-K9-aRw">
-                                <rect key="frame" x="118" y="423" width="139" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ログインはこちら">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismiss:" destination="Pee-0p-LxU" eventType="touchUpInside" id="VpE-hw-35j"/>
-                                    <segue destination="IuG-4G-hGA" kind="modal" id="DuQ-Fd-nLz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-2S-NSw">
-                                <rect key="frame" x="156" y="598" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-2S-NSw">
+                                <rect key="frame" x="156.5" y="565" width="62" height="30"/>
                                 <state key="normal" title="利用規約"/>
                                 <connections>
                                     <segue destination="RdA-2y-kGz" kind="modal" id="gBB-9o-BoA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-ly-mkX">
-                                <rect key="frame" x="65" y="377" width="261" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.77647058823529413" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-ly-mkX">
+                                <rect key="frame" x="112.5" y="375" width="150" height="39"/>
+                                <color key="backgroundColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="INS-hf-bma"/>
+                                    <constraint firstAttribute="width" constant="150" id="dF3-Uy-dwI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="登録する">
+                                <state key="normal" title="登録">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -579,16 +573,12 @@
                                     <action selector="confrm:" destination="wRm-d6-wmr" eventType="touchUpInside" id="kv9-Jp-Nfa"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Gamiesでは たくさんのゲーム仲間と繋がることができます！" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-V6-RuF">
-                                <rect key="frame" x="8" y="76" width="359" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XX7-r1-36e" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="65" y="263" width="261" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XX7-r1-36e" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="62.5" y="275" width="250" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="PGF-3k-bf8"/>
+                                    <constraint firstAttribute="width" constant="250" id="h0h-yU-Iab"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -607,8 +597,38 @@
                                     <action selector="Emailaddress:" destination="wRm-d6-wmr" eventType="editingDidEnd" id="io9-R8-Dgk"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gamiesでは たくさんのゲーム仲間と つながることができます！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqc-PM-HWW">
+                                <rect key="frame" x="59.5" y="80" width="256.5" height="75.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urh-K9-aRw">
+                                <rect key="frame" x="126" y="425" width="123" height="30"/>
+                                <state key="normal" title="ログインはこちら">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="Pee-0p-LxU" eventType="touchUpInside" id="VpE-hw-35j"/>
+                                    <segue destination="IuG-4G-hGA" kind="modal" id="DuQ-Fd-nLz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Urh-K9-aRw" firstAttribute="top" secondItem="mh0-ly-mkX" secondAttribute="top" constant="50" id="2ga-2O-ey7"/>
+                            <constraint firstItem="Y7A-2S-NSw" firstAttribute="centerX" secondItem="UIe-3W-gzC" secondAttribute="centerX" id="8dy-zf-olb"/>
+                            <constraint firstItem="XX7-r1-36e" firstAttribute="centerX" secondItem="UIe-3W-gzC" secondAttribute="centerX" id="D8K-ot-tc9"/>
+                            <constraint firstItem="Urh-K9-aRw" firstAttribute="centerX" secondItem="UIe-3W-gzC" secondAttribute="centerX" id="Jl9-Rk-doj"/>
+                            <constraint firstItem="hmv-9w-qkt" firstAttribute="centerX" secondItem="UIe-3W-gzC" secondAttribute="centerX" id="O8Q-h2-1py"/>
+                            <constraint firstItem="XX7-r1-36e" firstAttribute="top" secondItem="hmv-9w-qkt" secondAttribute="top" constant="60" id="Red-fT-nix"/>
+                            <constraint firstItem="hmv-9w-qkt" firstAttribute="top" secondItem="Xqc-PM-HWW" secondAttribute="top" constant="135" id="cVp-gL-k5n"/>
+                            <constraint firstItem="mh0-ly-mkX" firstAttribute="top" secondItem="XX7-r1-36e" secondAttribute="top" constant="100" id="iYJ-FK-Ozx"/>
+                            <constraint firstItem="Xqc-PM-HWW" firstAttribute="top" secondItem="KgP-f7-lL9" secondAttribute="top" constant="60" id="j5j-TH-3L7"/>
+                            <constraint firstItem="mh0-ly-mkX" firstAttribute="centerX" secondItem="UIe-3W-gzC" secondAttribute="centerX" id="ook-cy-dcU"/>
+                            <constraint firstItem="KgP-f7-lL9" firstAttribute="bottom" secondItem="Y7A-2S-NSw" secondAttribute="bottom" constant="72" id="uIk-yw-qu8"/>
+                            <constraint firstItem="Xqc-PM-HWW" firstAttribute="centerX" secondItem="UIe-3W-gzC" secondAttribute="centerX" id="uu6-zI-bfW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KgP-f7-lL9"/>
                     </view>
                     <navigationItem key="navigationItem" id="NOV-dX-Ypb"/>
@@ -622,14 +642,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbT-uC-gqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wRm-d6-wmr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1163.616" y="-1262.344827586207"/>
+            <point key="canvasLocation" x="1162.3188405797102" y="-1263.5869565217392"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="jhE-4h-Q3M">
             <objects>
                 <viewController id="0Yw-Zm-3xt" customClass="WelcomeViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TwF-SM-5zd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ようこそ Gamiesへ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-8t-fcA">
@@ -681,7 +701,7 @@
             <objects>
                 <viewController title="ChooseGame" id="uiQ-sC-9om" customClass="ChooseGameViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="2" contentMode="scaleToFill" id="WvE-JJ-zQr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKB-TG-bao" userLabel="Fate Grand Order">
@@ -824,7 +844,7 @@
             <objects>
                 <viewController id="fEl-iL-qie" customClass="ProtectedViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fvF-sG-Hz5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gamiesくん" translatesAutoresizingMaskIntoConstraints="NO" id="2NR-RR-ZKh">
@@ -849,13 +869,14 @@
             <objects>
                 <viewController id="IuG-4G-hGA" customClass="LoginViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tj3-Jl-FCS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufZ-Gf-Z6C">
-                                <rect key="frame" x="132" y="370" width="150" height="33"/>
+                                <rect key="frame" x="112.5" y="370" width="150" height="39"/>
                                 <color key="backgroundColor" red="1" green="0.77647058823529413" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="OeV-lv-D7j"/>
                                     <constraint firstAttribute="width" constant="150" id="nex-Pd-acD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -868,7 +889,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pW3-G9-JUY">
-                                <rect key="frame" x="145.66666666666666" y="420" width="122.99999999999997" height="30"/>
+                                <rect key="frame" x="126" y="420" width="123" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="新規登録はこちら">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -878,13 +899,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="great see you again!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81x-4t-ouY">
-                                <rect key="frame" x="78" y="90" width="258" height="36"/>
+                                <rect key="frame" x="58.5" y="90" width="258" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BM6-EF-yuz" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="82" y="270" width="250" height="39"/>
+                                <rect key="frame" x="62.5" y="270" width="250" height="39"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.94999999999999996"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="JgR-mz-Zm8"/>
@@ -909,7 +930,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7MT-oi-dxj" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="82" y="210" width="250" height="39"/>
+                                <rect key="frame" x="62.5" y="210" width="250" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="5T9-S9-MTQ"/>
                                     <constraint firstAttribute="width" constant="250" id="mF3-fF-lZe"/>
@@ -979,7 +1000,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vPu-To-c6H" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lZA-x4-BHl">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -996,7 +1017,7 @@
             <objects>
                 <viewController id="RdA-2y-kGz" customClass="TermsOfUsersViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="kDS-BU-flC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Q7-ZW-Dbo">
@@ -1125,7 +1146,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hPg-eA-EFE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PEZ-HA-ksN">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1154,7 +1175,7 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iov-F7-cBf"/>
+        <segue reference="DuQ-Fd-nLz"/>
         <segue reference="kO5-d8-E8e"/>
         <segue reference="E3E-Mf-7zU"/>
         <segue reference="r57-TB-Y0w"/>
