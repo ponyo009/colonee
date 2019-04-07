@@ -36,11 +36,12 @@ class SwipeViewController: UIViewController {
     //ユーザーカード
     var UserCard: UIView!
     var UserIconImage: UIImageView!
+    var tagnum = 1
     
     //UIView作成
     func CreateUIView(){
         UserCard = UIView(frame: cardFrame)
-        UserCard.tag += 1
+        UserCard.tag = tagnum
         UserCard.backgroundColor = UIColor.white
         view.addSubview(UserCard)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panAction))
@@ -51,38 +52,43 @@ class SwipeViewController: UIViewController {
         UserIconImage = UIImageView(frame:self.iconImageFrame )
         var storageref = storage.reference().child(document_ID).child(GameName)
         UserIconImage.sd_setImage(with: storageref)
-        UserIconImage.tag += 1
+        UserIconImage.tag = tagnum
         UserCard.addSubview(UserIconImage)
     }
     //nicknameラベル
     func CreateNickNameLabel(){
         var userNickName = UILabel.init(frame: usernicknameframe)
+        userNickName.tag = tagnum
         userNickName.backgroundColor = UIColor.white
+       //特定のtagnumのUILabelを指定
+        UserCard.addSubview(userNickName)
+        userNickName = userNickName.viewWithTag(tagnum) as! UILabel
+        
         var nicknameref = db.collection(GameName).document(document_ID)
         nicknameref.getDocument{(document,error) in
             if let document = document, document.exists{
                 let document_array = document.data()
                 userNickName.text = document_array!["nickname"] as? String
-                userNickName.tag += 1
-                self.UserCard.addSubview(userNickName)
+               
             }
         }
     }
     //introduceラベル
     func CreateIntroduceLabel(){
         var userIntroduction = UILabel.init(frame: userintroductionframe)
+        userIntroduction.tag = tagnum
         userIntroduction.backgroundColor = UIColor.white
+        UserCard.addSubview(userIntroduction)
+        userIntroduction = userIntroduction.viewWithTag(tagnum) as! UILabel
         var introductionref = db.collection(GameName).document(document_ID)
         introductionref.getDocument{(document,error) in
             if let document = document, document.exists{
                 let document_array = document.data()
                 userIntroduction.text = document_array!["introduce"] as? String
-                userIntroduction.tag += 1
-                self.UserCard.addSubview(userIntroduction)
             }
         }
     }
-    
+    //Usercardを元の位置に
     func resetCard() {
         UserCard.center = self.centerOfCard
         UserCard.transform = .identity
@@ -108,6 +114,7 @@ class SwipeViewController: UIViewController {
                     self.resetCard()
                     self.UserCard.center = CGPoint(x: self.UserCard.center.x - 350, y: self.UserCard.center.y)
                 })
+                self.UserCard.removeFromSuperview()
                 /* likeimageView.alpha = 0
                 selectedCardCount += 1
                 if selectedCardCount >= people.count{
@@ -145,7 +152,7 @@ class SwipeViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 //ドキュメント数の取得
-                self.data_volume = querySnapshot?.count
+                self.data_volume = querySnapshot!.count
                 print(self.data_volume)
                 
                 //それぞれのドキュメントの内容をdocumet_dataに代入
@@ -160,6 +167,7 @@ class SwipeViewController: UIViewController {
                     self.CreateIconImageView()
                     self.CreateNickNameLabel()
                     self.CreateIntroduceLabel()
+                    self.tagnum += 1
                     
                 }
                 
