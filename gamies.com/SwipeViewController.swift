@@ -22,10 +22,11 @@ class SwipeViewController: UIViewController {
     var document_data: Dictionary<String,String>!
     var document_number = 0
     var document_ID: String!
+    var document_nickname: String!
     
     //データ数とスワイプカウンター
     var data_volume: Int!
-    var swipe_counter = 0
+    var swipe_counter = 1
     
     //ユーザーカード位置
     var cardFrame = CGRect(x:16, y:73, width:350, height:370)
@@ -41,7 +42,9 @@ class SwipeViewController: UIViewController {
     
     //like処理用
     var NickNames: [String] = []
-    var LikedName: Array<String> = []
+    var LikedNames: Array<String> = []
+    var UserIDs: [String] = []
+    var LikedUID: [String] = []
     
     //UIView作成
     func CreateUIView(){
@@ -75,7 +78,7 @@ class SwipeViewController: UIViewController {
             if let document = document, document.exists{
                 let document_array = document.data()
                 userNickName.text = document_array!["nickname"] as? String
-                self.NickNames.append(userNickName.text!)
+                //self.NickNames.append(userNickName.text!)
             }
         }
     }
@@ -115,7 +118,7 @@ class SwipeViewController: UIViewController {
         
         
         if sender.state == UIGestureRecognizer.State.ended {
-            //左に大きくスワイプ
+            //左に大きくスワイプ(Bad)
             if card!.center.x < 75 {
                 UIView.animate(withDuration: 0.1, animations: {
                     self.resetCard()
@@ -123,7 +126,7 @@ class SwipeViewController: UIViewController {
                 })
                 self.UserCard.removeFromSuperview()
                 swipe_counter += 1
-                if swipe_counter >= data_volume{
+                if swipe_counter > data_volume{
                     performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
                 }
                 
@@ -133,16 +136,17 @@ class SwipeViewController: UIViewController {
                     performSegue(withIdentifier: "PushList", sender: self)
                 }*/
                 return
-                //右に大きくスワイプ
+                //右に大きくスワイプ(Like)
             } else if card!.center.x > self.view.frame.width - 75 {
                 UIView.animate(withDuration: 0.1, animations: {
                     self.resetCard()
                     self.UserCard.center = CGPoint(x: self.UserCard.center.x + 350, y: self.UserCard.center.y)
                 })
                 self.UserCard.removeFromSuperview()
-                LikedName.append(NickNames[swipe_counter])
+                LikedNames.append(NickNames[data_volume - swipe_counter])
+                db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
                 swipe_counter += 1
-                if swipe_counter >= data_volume{
+                if swipe_counter > data_volume{
                     performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
                 }
                 
@@ -184,18 +188,16 @@ class SwipeViewController: UIViewController {
                     print("\(document.documentID) => \(document.data())")
                     self.document_ID = document.documentID
                     self.document_data = (document.data() as? Dictionary<String, String>)!
-                    
+                    self.document_nickname = self.document_data["nickname"]
+                    self.NickNames.append(self.document_nickname)
+                    self.UserIDs.append(self.document_ID)
                 //data_volume分のカードの作成
                     self.CreateUIView()
                     self.CreateIconImageView()
                     self.CreateNickNameLabel()
-                    print (self.NickNames)
                     self.CreateIntroduceLabel()
                     self.tagnum += 1
                 }
-                
-                
-                
             }
         }
         
