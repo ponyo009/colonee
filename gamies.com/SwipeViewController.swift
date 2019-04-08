@@ -40,9 +40,8 @@ class SwipeViewController: UIViewController {
     var centerOfCard: CGPoint!
     
     //like処理用
-    var NickName: String!
-    var NickNames = [String]()
-    var LikedName = [String]()
+    var NickNames: [String] = []
+    var LikedName: Array<String> = []
     
     //UIView作成
     func CreateUIView(){
@@ -76,7 +75,7 @@ class SwipeViewController: UIViewController {
             if let document = document, document.exists{
                 let document_array = document.data()
                 userNickName.text = document_array!["nickname"] as? String
-                //なんでこれで代入できないのかわからない self.NickName = userNickName.text
+                self.NickNames.append(userNickName.text!)
             }
         }
     }
@@ -190,11 +189,11 @@ class SwipeViewController: UIViewController {
                     self.CreateUIView()
                     self.CreateIconImageView()
                     self.CreateNickNameLabel()
+                    print (self.NickNames)
                     self.CreateIntroduceLabel()
                     self.tagnum += 1
-                    self.NickNames.append(self.NickName)
                 }
-                print (self.NickNames)
+                
                 
                 
             }
