@@ -42,9 +42,10 @@ class SwipeViewController: UIViewController {
     
     //like処理用
     var NickNames: [String] = []
-    var LikedNames: Array<String> = []
+    var LikedNames: [String] = []
     var UserIDs: [String] = []
-    var LikedUID: [String] = []
+    var LikedUIDs: [String] = []
+    var LikedUserInfos: [String:String] = [ : ]
     
     //UIView作成
     func CreateUIView(){
@@ -78,7 +79,6 @@ class SwipeViewController: UIViewController {
             if let document = document, document.exists{
                 let document_array = document.data()
                 userNickName.text = document_array!["nickname"] as? String
-                //self.NickNames.append(userNickName.text!)
             }
         }
     }
@@ -144,6 +144,8 @@ class SwipeViewController: UIViewController {
                 })
                 self.UserCard.removeFromSuperview()
                 LikedNames.append(NickNames[data_volume - swipe_counter])
+                LikedUIDs.append(UserIDs[data_volume - swipe_counter])
+                LikedUserInfos.updateValue(UserIDs[data_volume - swipe_counter], forKey: NickNames[data_volume - swipe_counter])
                 db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
                 swipe_counter += 1
                 if swipe_counter > data_volume{
@@ -174,14 +176,13 @@ class SwipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // DBから<GameName>に格納されているuserの情報をすべて取得(自分のデータも持ってきてしまう)
+        // DBから<GameName>に格納されているuserの情報をすべて取得
         db.collection(GameName).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 //ドキュメント数の取得
                 self.data_volume = querySnapshot!.count - 1
-                print(self.data_volume)
                 
                 //それぞれのドキュメントの内容をdocumet_dataに代入
                 for document in querySnapshot!.documents {
@@ -215,6 +216,9 @@ class SwipeViewController: UIViewController {
         if (segue.identifier == "ToMatcher"){
             let vc = segue.destination as! MatcherViewController
             vc.GameName = GameName
+            vc.LikedNames = LikedNames
+            vc.LikedUIDs = LikedUIDs
+            vc.LikedUserInfos = LikedUserInfos
         }
     }
 
