@@ -180,23 +180,25 @@ class SwipeViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 //ドキュメント数の取得
-                self.data_volume = querySnapshot!.count
+                self.data_volume = querySnapshot!.count - 1
                 print(self.data_volume)
                 
                 //それぞれのドキュメントの内容をdocumet_dataに代入
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     self.document_ID = document.documentID
-                    self.document_data = (document.data() as? Dictionary<String, String>)!
-                    self.document_nickname = self.document_data["nickname"]
-                    self.NickNames.append(self.document_nickname)
-                    self.UserIDs.append(self.document_ID)
+                    if self.document_ID != self.UID{
+                        self.document_data = (document.data() as? Dictionçary<String, String>)!
+                        self.document_nickname = self.document_data["nickname"]
+                        self.NickNames.append(self.document_nickname)
+                        self.UserIDs.append(self.document_ID)
                 //data_volume分のカードの作成
-                    self.CreateUIView()
-                    self.CreateIconImageView()
-                    self.CreateNickNameLabel()
-                    self.CreateIntroduceLabel()
-                    self.tagnum += 1
+                        self.CreateUIView()
+                        self.CreateIconImageView()
+                        self.CreateNickNameLabel()
+                        self.CreateIntroduceLabel()
+                        self.tagnum += 1
+                    }else{}
                 }
             }
         }
