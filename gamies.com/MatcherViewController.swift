@@ -40,7 +40,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     var MatcherName = String()
     
-    //Dictionary検索用
+    //Dictionary(LikedUserInfos)検索用
     func findKeyForValue(value: String, dictionary: [String : String]) ->String?{
         for (key, array) in dictionary{
             if (array.contains(value)){
@@ -65,7 +65,6 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         print ("LikedNames", LikedNames)
         
         for LikedUID in LikedUIDs {
-            print ("LikedUID: ", LikedUID)
         //GameNameから、LikedUIDsの"Liked"に自分のID(UID)が存在する(exists)かどうか検索
             let storageref = storage.reference().child(LikedUID).child(GameName)
             let placeholderimage = UIImage(named: GameName)
@@ -73,18 +72,18 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             likedref.getDocument{ (document, error) in
                 if let document = document, document.exists{
                 //存在した場合
-                    print ("yes_counter: ", self.isMatch_count)
                     self.MatcherImage.sd_setImage(with: storageref, placeholderImage: placeholderimage)
+                    //print("MatcherImage: ", self.MatcherImage)
                     self.MatchedUIDs.append(LikedUID)
                     self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
                     self.MatcherImageArray.append(self.MatcherImage)
                     print("MatchedUIDs: ", self.MatchedUIDs)
                     print("MatchedNames: ", self.MatchedNames)
+                    print("ImageArray: ", self.MatcherImageArray)
                     self.isMatch_count += 1
                 } else {
                     //存在しない場合
-                    print ("not_counter: ", self.isMatch_count)
-                    print ("LikedName ",self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!,"didn't match")
+                    print ("LikedName:",self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!,"didn't match")
                     self.isMatch_count += 1
                 }
             }
@@ -94,7 +93,6 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         tableView.reloadData()
         
-        print("ImageArray: ", MatcherImageArray)
         //print(LikedNames)
         //print(LikedUIDs)
         
