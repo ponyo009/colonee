@@ -188,7 +188,7 @@ class SwipeViewController: UIViewController {
                     print("\(document.documentID) => \(document.data())")
                     self.document_ID = document.documentID
                     if self.document_ID != self.UID{
-                        self.document_data = (document.data() as? Dictionçary<String, String>)!
+                        self.document_data = (document.data() as? Dictionary<String, String>)!
                         self.document_nickname = self.document_data["nickname"]
                         self.NickNames.append(self.document_nickname)
                         self.UserIDs.append(self.document_ID)
