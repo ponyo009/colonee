@@ -34,6 +34,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     var cellNumber:Int = 0
+    var MatcherUID:String?
     
     var MatcherImageView = UIImageView()
     var MatcherNameLabel = UILabel()
@@ -72,6 +73,9 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             likedref.getDocument{ (document, error) in
                 if let document = document, document.exists{
                 //存在した場合
+                    let matchedref = self.db.collection(self.GameName).document(self.UID!).collection("Liked").document(LikedUID)
+                    matchedref.setData(["matched": true])
+                   
                     self.MatcherImage.sd_setImage(with: storageref, placeholderImage: placeholderimage)
                     //print("MatcherImage: ", self.MatcherImage)
                     self.MatchedUIDs.append(LikedUID)
@@ -79,13 +83,12 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     self.MatcherImageArray.append(self.MatcherImage)
                    // print("MatchedUIDs: ", self.MatchedUIDs)
                     //print("MatchedNames: ", self.MatchedNames)
-                    print("ImageArray: ", self.MatcherImageArray)
+                    //print("ImageArray: ", self.MatcherImageArray)
                     self.isMatch_count += 1
                     if self.isMatch_count >= self.LikedUIDs.count{
-                        print("MatchedNames: ",self.MatchedNames)
+                        //print("MatchedNames: ",self.MatchedNames)
                         self.tableView.delegate = self
                         self.tableView.dataSource = self
-                        
                         self.tableView.reloadData()
                     }
                 } else {
@@ -133,11 +136,11 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         MatcherNameLabel = cell.viewWithTag(2) as! UILabel
         
-        MatcherImageView = MatcherImageArray[indexPath.row]
+        MatcherImageView.image = MatcherImageArray[indexPath.row].image
         
         MatcherNameLabel.text = MatchedNames[indexPath.row]
-        print ("matcheernamelabel.text: ", MatcherNameLabel.text)
-        print ("MatcherImageView: ",MatcherImageView)
+        //print ("matcheernamelabel.text: ", MatcherNameLabel.text)
+        //print ("MatcherImageView: ",MatcherImageView)
         return cell
         
     }
@@ -146,13 +149,11 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //print(MatcherNameLabel.text)
-        
         cellNumber = indexPath.row
         MatcherName = MatchedNames[indexPath.row]
-        
+        MatcherUID = MatchedUIDs[indexPath.row]
+        //print(MatcherNameLabel.text)
         //pushで画面遷移
-        
         performSegue(withIdentifier: "ToChat", sender: (Any).self)
     }
     
@@ -166,6 +167,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             chatVC.cellNumber = cellNumber
             chatVC.GameName = GameName
             chatVC.MatcherName = MatcherName
+            chatVC.MatcherUID = MatcherUID!
             
             
         }

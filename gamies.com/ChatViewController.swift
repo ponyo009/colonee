@@ -14,16 +14,16 @@ import FirebaseUI
 class ChatViewController: JSQMessagesViewController {
     
     var GameName = ""
-    
+    var MatcherUID = ""
     //userとuseridの定義
     let user = Auth.auth().currentUser
-    var userID = Auth.auth().currentUser?.uid
+    var UID = Auth.auth().currentUser?.uid
     //usernicknameの取得
-    let docref = Firestore.firestore()
+    let db = Firestore.firestore()
     var usernickname: String!
     
     func setup() {
-        self.senderId = user?.uid
+        self.senderId = UID
         self.senderDisplayName = usernickname
     }
     
@@ -44,8 +44,6 @@ class ChatViewController: JSQMessagesViewController {
     var incomingAvata:JSQMessagesAvatarImage!
     var outgoingAvata:JSQMessagesAvatarImage!
     
-    var MatcherNameTitle = String()
-    
     var backgroundImageView = UIImageView()
 
     
@@ -53,18 +51,20 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
         
         //usernicknameの取得
-        docref.collection(GameName).document(userID!).getDocument { (document, error) in
+        db.collection(GameName).document(UID!).getDocument { (document, error) in
             if let document = document, document.exists {
-                //取得できた場合
+            //取得できた場合
                 let document_array = document.data()
+                print("docarray: ", document_array)
                 self.usernickname = (document_array!["nickname"] as? String)!
+                //senderへの登録
+                self.setup()
             } else {
                 //取得できなかった場合
                 print("Document does not exist")
             }
         }
-        //senderへの登録
-        self.setup()
+        
         
         backgroundImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         
@@ -73,7 +73,7 @@ class ChatViewController: JSQMessagesViewController {
         
         //Matcherの名前を反映させる
    
-        self.title = MatcherNameTitle
+        self.title = MatcherName
         
         //チャットをスタートさせる
         chatStart()
@@ -98,7 +98,7 @@ class ChatViewController: JSQMessagesViewController {
          Firebaseへ送信するIDと名前の設定 */
         
         if UserDefaults.standard.object(forKey: "nickname") != nil{
-            self.userID = Auth.auth().currentUser?.uid
+            self.UID = Auth.auth().currentUser?.uid
             self.senderDisplayName = UserDefaults.standard.object(forKey: "nickname") as? String
             
         }
