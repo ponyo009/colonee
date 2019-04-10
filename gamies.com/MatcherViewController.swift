@@ -61,8 +61,8 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 
     //マッチング処理
-        print ("LikedUIDs", LikedUIDs)
-        print ("LikedNames", LikedNames)
+        //print ("LikedUIDs", LikedUIDs)
+        //print ("LikedNames", LikedNames)
         
         for LikedUID in LikedUIDs {
         //GameNameから、LikedUIDsの"Liked"に自分のID(UID)が存在する(exists)かどうか検索
@@ -77,21 +77,32 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     self.MatchedUIDs.append(LikedUID)
                     self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
                     self.MatcherImageArray.append(self.MatcherImage)
-                    print("MatchedUIDs: ", self.MatchedUIDs)
-                    print("MatchedNames: ", self.MatchedNames)
+                   // print("MatchedUIDs: ", self.MatchedUIDs)
+                    //print("MatchedNames: ", self.MatchedNames)
                     print("ImageArray: ", self.MatcherImageArray)
                     self.isMatch_count += 1
+                    if self.isMatch_count >= self.LikedUIDs.count{
+                        print("MatchedNames: ",self.MatchedNames)
+                        self.tableView.delegate = self
+                        self.tableView.dataSource = self
+                        
+                        self.tableView.reloadData()
+                    }
                 } else {
                     //存在しない場合
-                    print ("LikedName:",self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!,"didn't match")
+                    print (self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!,"didn't match")
                     self.isMatch_count += 1
+                    if self.isMatch_count >= self.LikedUIDs.count{
+                        print("MatchedNames: ",self.MatchedNames)
+                        self.tableView.delegate = self
+                        self.tableView.dataSource = self
+                        
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.reloadData()
+       
         
         //print(LikedNames)
         //print(LikedUIDs)
@@ -107,6 +118,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return 1
     }
     
+    //セルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MatchedNames.count
     }
@@ -125,6 +137,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         MatcherNameLabel.text = MatchedNames[indexPath.row]
         print ("matcheernamelabel.text: ", MatcherNameLabel.text)
+        print ("MatcherImageView: ",MatcherImageView)
         return cell
         
     }
