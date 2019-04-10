@@ -60,7 +60,7 @@ class SwipeViewController: UIViewController {
     //imageview作成と画像取得
     func CreateIconImageView() {
         UserIconImage = UIImageView(frame:self.iconImageFrame )
-        var storageref = storage.reference().child(document_ID).child(GameName)
+        let storageref = storage.reference().child(document_ID).child(GameName)
         UserIconImage.sd_setImage(with: storageref)
         UserIconImage.tag = tagnum
         UserCard.addSubview(UserIconImage)
@@ -74,7 +74,7 @@ class SwipeViewController: UIViewController {
         UserCard.addSubview(userNickName)
         userNickName = userNickName.viewWithTag(tagnum) as! UILabel
         
-        var nicknameref = db.collection(GameName).document(document_ID)
+        let nicknameref = db.collection(GameName).document(document_ID)
         nicknameref.getDocument{(document,error) in
             if let document = document, document.exists{
                 let document_array = document.data()
@@ -125,6 +125,7 @@ class SwipeViewController: UIViewController {
                     self.UserCard.center = CGPoint(x: self.UserCard.center.x - 350, y: self.UserCard.center.y)
                 })
                 self.UserCard.removeFromSuperview()
+                db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": false])
                 swipe_counter += 1
                 if swipe_counter > data_volume{
                     performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
