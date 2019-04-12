@@ -18,6 +18,7 @@ class SwipeViewController: UIViewController {
     let storage = Storage.storage()
     let db = Firestore.firestore()
     
+    var UserOwnNickName = ""
     var GameName = ""
     var document_data: Dictionary<String,String>!
     var document_number = 0
@@ -208,7 +209,9 @@ class SwipeViewController: UIViewController {
                         self.CreateNickNameLabel()
                         self.CreateIntroduceLabel()
                         self.tagnum += 1
-                    }else{}
+                    }else{
+                        self.UserOwnNickName = self.document_data["nickname"]!
+                    }
                 }
             }
         }
@@ -229,6 +232,7 @@ class SwipeViewController: UIViewController {
             vc.LikedUIDs = LikedUIDs
             vc.LikedImages = LikedImages
             vc.LikedUserInfos = LikedUserInfos
+            vc.UserOwnNickName = UserOwnNickName
         }
     }
 

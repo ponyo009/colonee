@@ -12,7 +12,9 @@ import Firebase
 import FirebaseUI
 
 class ChatViewController: JSQMessagesViewController {
-    
+
+//MatcherViewから受け取り
+    var UserOwnNickName = ""
     var GameName = ""
     var MatcherUID = ""
     //userとuseridの定義
@@ -24,7 +26,7 @@ class ChatViewController: JSQMessagesViewController {
     
     func setup() {
         self.senderId = UID
-        self.senderDisplayName = usernickname
+        self.senderDisplayName = UserOwnNickName
     }
     
     
@@ -49,7 +51,9 @@ class ChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     
         
+/* たぶんここいらない
         //usernicknameの取得
         db.collection(GameName).document(UID!).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -64,7 +68,7 @@ class ChatViewController: JSQMessagesViewController {
                 print("Document does not exist")
             }
         }
-        
+ */
         
         backgroundImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         
@@ -72,7 +76,6 @@ class ChatViewController: JSQMessagesViewController {
         //背景画像を反映
         
         //Matcherの名前を反映させる
-   
         self.title = MatcherName
         
         //チャットをスタートさせる
@@ -90,16 +93,13 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     func chatStart(){
-    
-        
-        automaticallyAdjustsScrollViewInsets = true
-        
+       automaticallyAdjustsScrollViewInsets = true
         /* のろせここ頼む
          Firebaseへ送信するIDと名前の設定 */
         
         if UserDefaults.standard.object(forKey: "nickname") != nil{
             self.UID = Auth.auth().currentUser?.uid
-            self.senderDisplayName = UserDefaults.standard.object(forKey: "nickname") as? String
+            self.usernickname = UserOwnNickName
             
         }
         
@@ -124,10 +124,32 @@ class ChatViewController: JSQMessagesViewController {
     
     func getInfo(){
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+       
+        let chatref = db.collection(GameName).document(UID!).collection("Liked").document(MatcherUID).collection("Chat")
+        //リアルタイム更新用
+       
+        chatref.addSnapshotListener {(snapshot, error) in
+            guard let chat_value = snapshot else {
+                print ("snapshot is nil")
+                return
+            }
+            chat_value.documentChanges.forEach { change in
+                //更新内容が追加だったとき
+                if change.type == .added {
+                    //追加されたデータを表示
+                    let chatData = change.document.data() as Dictionary
+                    let body = chatData["body"] as! String
+                    let senderId = chatData["userID"] as! String
+                    let nickname = chatData["nickname"] as! String
+                    let message =  JSQMessage(senderId:senderId,displayName: nickname,text: body)
+                    self.messages.append(message!)
+                    self.finishReceivingMessage()
+                }
+            }
+                }
         
-        let firebase = Database.database().reference(fromURL: "https://gamies-2f1a4.firebaseio.com/").child(String(cellNumber)).child("message")
-
-        firebase.observe(.childAdded, with:{
+        
+       /* firebase.observe(.childAdded, with:{
             (snapshot) in
             
             if let dictionary = snapshot.value as? [String:AnyObject]{
@@ -142,7 +164,7 @@ class ChatViewController: JSQMessagesViewController {
                 self.finishReceivingMessage()
                 
             }
-        })
+        })*/
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
 }

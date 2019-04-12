@@ -17,6 +17,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     let UID = Auth.auth().currentUser?.uid
     
     //SwipeViewから受け取り
+    var UserOwnNickName = ""
     var GameName = ""
     var LikedNames = [String]()
     var LikedUIDs = [String]()
@@ -53,7 +54,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     }
     
     //プロフィール画像用
-    //var MatcherImage = UIImageView()
+    var MatcherImage = UIImage()
     var MatcherImageArray = [UIImage]()
     
     override func viewDidLoad() {
@@ -127,15 +128,11 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         MatcherImageView = cell.viewWithTag(1) as! UIImageView
-        
         MatcherNameLabel = cell.viewWithTag(2) as! UILabel
-        
         MatcherImageView.image = MatcherImageArray[indexPath.row]
-        
         MatcherNameLabel.text = MatchedNames[indexPath.row]
         //print ("matcheernamelabel.text: ", MatcherNameLabel.text)
         //print ("MatcherImageView: ",MatcherImageView)
@@ -150,6 +147,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         cellNumber = indexPath.row
         MatcherName = MatchedNames[indexPath.row]
         MatcherUID = MatchedUIDs[indexPath.row]
+        MatcherImage = MatcherImageArray[indexPath.row]
         //print(MatcherNameLabel.text)
         //pushで画面遷移
         performSegue(withIdentifier: "ToChat", sender: (Any).self)
@@ -166,6 +164,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             chatVC.GameName = GameName
             chatVC.MatcherName = MatcherName
             chatVC.MatcherUID = MatcherUID!
+            chatVC.UserOwnNickName = UserOwnNickName
             
             
         }
