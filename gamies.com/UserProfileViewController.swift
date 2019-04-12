@@ -22,7 +22,7 @@ class UserProfileViewController: UIViewController {
     let db = Firestore.firestore()
     let storage = Storage.storage()
     
-    //ChooseGameからの受け入れ先
+    //ChooseGameから受けとり
     var nickname = ""
     var introduce = ""
     var GameName = ""
@@ -38,9 +38,19 @@ class UserProfileViewController: UIViewController {
         let ref = storage.reference().child(UID).child(GameName)
         iconimage.sd_setImage(with: ref)
         
-        user_nickname.text = nickname
-        user_introduce.text = introduce
-
+        if nickname .isEmpty {
+            let userref = db.collection(GameName).document(UID)
+            userref.getDocument {(document, error) in
+                if let document = document {
+                    let document_data = document.data()
+                    self.user_nickname.text = document_data!["nickname"] as? String
+                    self.user_introduce.text = document_data!["introduce"] as? String
+        }else{
+                    self.user_nickname.text = self.nickname
+                    self.user_introduce.text = self.introduce
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
     

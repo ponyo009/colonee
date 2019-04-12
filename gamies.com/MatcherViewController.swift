@@ -68,7 +68,6 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             //print ("LikedUID: ", LikedUID)
         //GameNameから、LikedUIDの"Liked"に自分のID(UID)が存在する(exists)かどうか検索
     
-            //var placeholderimage = UIImage(named: GameName)
             let likedref = db.collection(GameName).document(LikedUID).collection("Liked").document(UID!)
             likedref.getDocument{ (document, error) in
                 if let document = document, document.exists{
@@ -80,7 +79,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     //print("MatcherImage: ", self.MatcherImage.image)
                     self.MatchedUIDs.append(LikedUID)
                     self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
-                    self.MatcherImageArray.append(self.LikedImages[self.isMatch_count])//辞書にして紐づけないとずれる（？）
+                    self.MatcherImageArray.append(self.LikedImages[self.isMatch_count])//辞書にして紐づけないとずれるかも？
                    // print("MatchedUIDs: ", self.MatchedUIDs)
                     //print("MatchedNames: ", self.MatchedNames)
                     //print("ImageArray: ", self.MatcherImageArray)
