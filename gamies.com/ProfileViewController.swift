@@ -81,7 +81,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         let storageref = storage.reference()
         //userID下のGameNameに画像を保存
-        let usericonref = storageref.child((UID)!).child(GameName)
+        let usericonref = storageref.child(UID!).child(GameName)
         let metadata = StorageMetadata()
         metadata.contentType = "\(GameName)"
         let usericonimage = image?.jpegData(compressionQuality: 0.3)

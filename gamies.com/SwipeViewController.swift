@@ -46,6 +46,9 @@ class SwipeViewController: UIViewController {
     var UserIDs: [String] = []
     var LikedUIDs: [String] = []
     var LikedUserInfos: [String:String] = [ : ]
+    var IconImage = UIImage()
+    var IconImages: [UIImage] = []
+    var LikedImages: [UIImage] = []
     
     //UIView作成
     func CreateUIView(){
@@ -63,6 +66,8 @@ class SwipeViewController: UIViewController {
         let storageref = storage.reference().child(document_ID).child(GameName)
         UserIconImage.sd_setImage(with: storageref)
         UserIconImage.tag = tagnum
+        //UserIconImage = self.view.viewWithTag(tagnum) as? UIImageView
+        IconImage = UserIconImage.image! as UIImage
         UserCard.addSubview(UserIconImage)
     }
     //nicknameラベル
@@ -146,11 +151,13 @@ class SwipeViewController: UIViewController {
                 self.UserCard.removeFromSuperview()
                 LikedNames.append(NickNames[data_volume - swipe_counter])
                 LikedUIDs.append(UserIDs[data_volume - swipe_counter])
+                LikedImages.append(IconImages[data_volume - swipe_counter])
                 LikedUserInfos.updateValue(UserIDs[data_volume - swipe_counter], forKey: NickNames[data_volume - swipe_counter])
                 db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
                 swipe_counter += 1
                 if swipe_counter > data_volume{
                     performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
+                    print("LikedImages: ", LikedImages)
                 }
                 
                /* likeimageView.alpha = 0
@@ -197,6 +204,7 @@ class SwipeViewController: UIViewController {
                 //data_volume分のカードの作成
                         self.CreateUIView()
                         self.CreateIconImageView()
+                        self.IconImages.append(self.IconImage)
                         self.CreateNickNameLabel()
                         self.CreateIntroduceLabel()
                         self.tagnum += 1
@@ -219,6 +227,7 @@ class SwipeViewController: UIViewController {
             vc.GameName = GameName
             vc.LikedNames = LikedNames
             vc.LikedUIDs = LikedUIDs
+            vc.LikedImages = LikedImages
             vc.LikedUserInfos = LikedUserInfos
         }
     }

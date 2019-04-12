@@ -20,6 +20,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var GameName = ""
     var LikedNames = [String]()
     var LikedUIDs = [String]()
+    var LikedImages = [UIImage]()
     var LikedUserInfos: [String:String] = [ : ]
     
     //DB参照等
@@ -52,38 +53,36 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     }
     
     //プロフィール画像用
-    var MatcherImage = UIImageView()
-    var MatcherImageArray: [UIImageView] = []
+    //var MatcherImage = UIImageView()
+    var MatcherImageArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     //マッチング処理
-            print ("LikedUIDs", LikedUIDs)
-            //print ("LikedNames", LikedNames)
+        //print ("LikedUIDs: ", LikedUIDs)
+        //print ("LikedNames: ", LikedNames)
         
         for LikedUID in LikedUIDs {
-            print ("LikedUID: ", LikedUID)
+            //print ("LikedUID: ", LikedUID)
         //GameNameから、LikedUIDの"Liked"に自分のID(UID)が存在する(exists)かどうか検索
     
-            //let placeholderimage = UIImage(named: GameName)
+            //var placeholderimage = UIImage(named: GameName)
             let likedref = db.collection(GameName).document(LikedUID).collection("Liked").document(UID!)
             likedref.getDocument{ (document, error) in
                 if let document = document, document.exists{
                 //存在した場合
                     let matchedref = self.db.collection(self.GameName).document(self.UID!).collection("Liked").document(LikedUID)
                     matchedref.setData(["matched": true])
-                   
-                    let storageref = self.storage.reference().child(LikedUID).child(self.GameName)
-                    self.MatcherImage.sd_setImage(with: storageref/*placeholderImage: placeholderimage*/)
-                    print("MatcherImage: ", self.MatcherImage)
-                    
+                    //var storageref = self.storage.reference().child(LikedUID).child(self.GameName)
+                    //self.MatcherImage
+                    //print("MatcherImage: ", self.MatcherImage.image)
                     self.MatchedUIDs.append(LikedUID)
                     self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
-                    self.MatcherImageArray.append(self.MatcherImage)
+                    self.MatcherImageArray.append(self.LikedImages[self.isMatch_count])//辞書にして紐づけないとずれる（？）
                    // print("MatchedUIDs: ", self.MatchedUIDs)
                     //print("MatchedNames: ", self.MatchedNames)
-                    print("ImageArray: ", self.MatcherImageArray)
+                    //print("ImageArray: ", self.MatcherImageArray)
                     self.isMatch_count += 1
                     if self.isMatch_count >= self.LikedUIDs.count{
                         //print("MatchedNames: ",self.MatchedNames)
@@ -135,7 +134,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         MatcherNameLabel = cell.viewWithTag(2) as! UILabel
         
-        MatcherImageView.image = MatcherImageArray[indexPath.row].image
+        MatcherImageView.image = MatcherImageArray[indexPath.row]
         
         MatcherNameLabel.text = MatchedNames[indexPath.row]
         //print ("matcheernamelabel.text: ", MatcherNameLabel.text)
