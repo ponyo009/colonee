@@ -274,7 +274,7 @@
         <!--Title-->
         <scene sceneID="1gS-QB-mk1">
             <objects>
-                <viewController id="QTL-LS-yjk" customClass="ChatViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QTL-LS-yjk" customClass="JSQChatViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8AT-s8-wHV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

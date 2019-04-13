@@ -210,7 +210,9 @@ class SwipeViewController: UIViewController {
                         self.CreateIntroduceLabel()
                         self.tagnum += 1
                     }else{
+                        self.document_data = (document.data() as? Dictionary<String, String>)!
                         self.UserOwnNickName = self.document_data["nickname"]!
+                        //print ("mynickname: ", self.UserOwnNickName)
                     }
                 }
             }

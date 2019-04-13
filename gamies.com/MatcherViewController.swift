@@ -157,9 +157,9 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         if (segue.identifier == "ToChat"){
             
-            let chatVC:ChatViewController = segue.destination as! ChatViewController
+            let chatVC:JSQChatViewController = segue.destination as! JSQChatViewController
             
-            chatVC.cellNumber = cellNumber
+            //chatVC.cellNumber = cellNumber
             chatVC.GameName = GameName
             chatVC.MatcherName = MatcherName
             chatVC.MatcherUID = MatcherUID!

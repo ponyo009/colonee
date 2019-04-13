@@ -23,6 +23,7 @@
 		E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */; };
 		E5F2DAAD2245EB7C0053AF17 /* MatcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */; };
 		E5F2DAAF2245FBA10053AF17 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F2DAAE2245FBA10053AF17 /* ChatViewController.swift */; };
+		E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914EA512261798D0071BE86 /* JSQChatViewController.swift */; };
 		E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96269FF2237A80300E3D980 /* WelcomeViewController.swift */; };
 		E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E79412245EB300032BA7D /* SwipeViewController.swift */; };
 		E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B312B4224326EA00813580 /* UserProfileViewController.swift */; };
@@ -82,6 +83,7 @@
 		E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherViewController.swift; sourceTree = "<group>"; };
 		E5F2DAAE2245FBA10053AF17 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E914EA512261798D0071BE86 /* JSQChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQChatViewController.swift; sourceTree = "<group>"; };
 		E96269FF2237A80300E3D980 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E96E79412245EB300032BA7D /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		E9B312B4224326EA00813580 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				E57831F722335C480013E869 /* AppDelegate.swift */,
 				E96269FF2237A80300E3D980 /* WelcomeViewController.swift */,
+				E914EA512261798D0071BE86 /* JSQChatViewController.swift */,
 				E96E79412245EB300032BA7D /* SwipeViewController.swift */,
 				E57831F922335C480013E869 /* ViewController.swift */,
 				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
@@ -520,6 +523,7 @@
 				E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */,
 				E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */,
 				E57832282233E46B0013E869 /* LoginViewController.swift in Sources */,
+				E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */,
 				E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */,
 				E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */,
 				E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */,

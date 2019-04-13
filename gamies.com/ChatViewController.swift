@@ -51,45 +51,20 @@ class ChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        
-/* たぶんここいらない
-        //usernicknameの取得
-        db.collection(GameName).document(UID!).getDocument { (document, error) in
-            if let document = document, document.exists {
-            //取得できた場合
-                let document_array = document.data()
-                print("docarray: ", document_array)
-                self.usernickname = (document_array!["nickname"] as? String)!
-                //senderへの登録
-                self.setup()
-            } else {
-                //取得できなかった場合
-                print("Document does not exist")
-            }
-        }
- */
         
         backgroundImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        
-
         //背景画像を反映
         
         //Matcherの名前を反映させる
         self.title = MatcherName
-        
         //チャットをスタートさせる
         chatStart()
-        
-        
         //情報をリアルタイムで取得する
         getInfo()
         
        //アバターなし
         self.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
-        
         self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
-        
     }
     
     func chatStart(){
