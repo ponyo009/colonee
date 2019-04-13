@@ -124,6 +124,14 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if ( segue.identifier == "ToSwipeFromRegister"){
+            let vc = segue.destination as! UserProfileViewController
+            vc.nickname = NicknameTextField.text!
+            vc.introduce = IntroduceTextField.text!
+            vc.GameName = GameName
+        }
+    }
  
 }
     

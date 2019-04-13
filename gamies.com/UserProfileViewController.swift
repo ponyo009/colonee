@@ -38,6 +38,10 @@ class UserProfileViewController: UIViewController {
         let ref = storage.reference().child(UID).child(GameName)
         iconimage.sd_setImage(with: ref)
         
+        user_nickname.text = nickname
+        user_introduce.text = introduce
+        
+  /*    //初登録用
         if nickname .isEmpty {
             let userref = db.collection(GameName).document(UID)
             userref.getDocument {(document, error) in
@@ -50,7 +54,7 @@ class UserProfileViewController: UIViewController {
                     self.user_introduce.text = self.introduce
                 }
             }
-        }
+        }*/
         // Do any additional setup after loading the view.
     }
     
