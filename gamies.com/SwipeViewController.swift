@@ -67,6 +67,7 @@ class SwipeViewController: UIViewController {
         let storageref = storage.reference().child(document_ID).child(GameName)
         UserIconImage.sd_setImage(with: storageref)
         UserIconImage.tag = tagnum
+        print ("iconimage", UserIconImage.image)
         //UserIconImage = self.view.viewWithTag(tagnum) as? UIImageView
         IconImage = UserIconImage.image! as UIImage
         UserCard.addSubview(UserIconImage)
