@@ -47,7 +47,7 @@ class SwipeViewController: UIViewController {
     var UserIDs: [String] = []
     var LikedUIDs: [String] = []
     var LikedUserInfos: [String:String] = [ : ]
-    var IconImage = UIImage()
+    var IconImage:UIImage!
     var IconImages: [UIImage] = []
     var LikedImages: [UIImage] = []
     
@@ -69,8 +69,6 @@ class SwipeViewController: UIViewController {
         UserIconImage.tag = tagnum
         print ("icon: ", UserIconImage)
         print ("iconimage: ", UserIconImage.image)
-        //UserIconImage = self.view.viewWithTag(tagnum) as? UIImageView
-        IconImage = UserIconImage.image! as UIImage
         UserCard.addSubview(UserIconImage)
     }
     //nicknameラベル
@@ -154,7 +152,7 @@ class SwipeViewController: UIViewController {
                 self.UserCard.removeFromSuperview()
                 LikedNames.append(NickNames[data_volume - swipe_counter])
                 LikedUIDs.append(UserIDs[data_volume - swipe_counter])
-                LikedImages.append(IconImages[data_volume - swipe_counter])
+               LikedImages.append(IconImages[data_volume - swipe_counter])
                 LikedUserInfos.updateValue(UserIDs[data_volume - swipe_counter], forKey: NickNames[data_volume - swipe_counter])
                 db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
                 swipe_counter += 1
@@ -207,7 +205,7 @@ class SwipeViewController: UIViewController {
                 //data_volume分のカードの作成
                         self.CreateUIView()
                         self.CreateIconImageView()
-                        self.IconImages.append(self.IconImage)
+                        self.IconImages.append(self.UserIconImage.image!)
                         self.CreateNickNameLabel()
                         self.CreateIntroduceLabel()
                         self.tagnum += 1

@@ -23,7 +23,8 @@ class JSQChatViewController: JSQMessagesViewController {
     let user = Auth.auth().currentUser
     var UID = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
-    var chatref: CollectionReference!
+    var UserChatref: CollectionReference!
+    var MatcherChatref: CollectionReference!
     
     //chat関連
     var messages: [JSQMessage] = []
@@ -34,9 +35,10 @@ class JSQChatViewController: JSQMessagesViewController {
         senderDisplayName = UserOwnNickName
         senderId = UID
         
-        chatref = db.collection(GameName).document(UID!).collection("Liked").document(MatcherUID).collection("Chat")
+        UserChatref = db.collection(GameName).document(UID!).collection("Liked").document(MatcherUID).collection("Chat")
+        MatcherChatref = db.collection(GameName).document(MatcherUID).collection("Liked").document(UID!).collection("Chat")
         
-        chatref.addSnapshotListener{(snapshot, err) in
+        UserChatref.addSnapshotListener{(snapshot, err) in
             guard let chat_value = snapshot else {
                 print ("snapshot is nil")
                 return
@@ -100,7 +102,8 @@ class JSQChatViewController: JSQMessagesViewController {
     //sendボタンが押された際
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         inputToolbar.contentView.textView.text = ""
-        chatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName])
+        UserChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName])
+        MatcherChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName])
     }
     /*
     // MARK: - Navigation
