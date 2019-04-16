@@ -212,7 +212,7 @@ class SwipeViewController: UIViewController {
                     }else{
                         self.document_data = (document.data() as? Dictionary<String, String>)!
                         self.UserOwnNickName = self.document_data["nickname"]!
-                        //print ("mynickname: ", self.UserOwnNickName)
+                        print ("mynickname: ", self.UserOwnNickName)
                     }
                 }
             }
