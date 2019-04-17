@@ -49,7 +49,7 @@ class SwipeViewController: UIViewController {
     var LikedUserInfos: [String:String] = [ : ]
     var IconImage:UIImage!
     var IconImages: [UIImage] = []
-    var LikedImages: [UIImage] = []
+    var LikedImages: [String : UIImage] = [:]
     
     //UIView作成
     func CreateUIView(){
@@ -152,7 +152,7 @@ class SwipeViewController: UIViewController {
                 self.UserCard.removeFromSuperview()
                 LikedNames.append(NickNames[data_volume - swipe_counter])
                 LikedUIDs.append(UserIDs[data_volume - swipe_counter])
-               LikedImages.append(IconImages[data_volume - swipe_counter])
+                LikedImages.updateValue(IconImages[data_volume - swipe_counter], forKey: UserIDs[data_volume - swipe_counter])
                 LikedUserInfos.updateValue(UserIDs[data_volume - swipe_counter], forKey: NickNames[data_volume - swipe_counter])
                 db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
                 swipe_counter += 1
@@ -205,9 +205,9 @@ class SwipeViewController: UIViewController {
                 //data_volume分のカードの作成
                         self.CreateUIView()
                         self.CreateIconImageView()
-                        self.IconImages.append(self.UserIconImage.image!)
                         self.CreateNickNameLabel()
                         self.CreateIntroduceLabel()
+                        self.IconImages.append(self.UserIconImage.image!)
                         self.tagnum += 1
                     }else{
                         self.document_data = (document.data() as? Dictionary<String, String>)!

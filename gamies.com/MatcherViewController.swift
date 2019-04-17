@@ -21,7 +21,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var GameName = ""
     var LikedNames = [String]()
     var LikedUIDs = [String]()
-    var LikedImages = [UIImage]()
+    var LikedImages = [String : UIImage]()
     var LikedUserInfos: [String:String] = [ : ]
     
     //DB参照等
@@ -43,7 +43,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     var MatcherName = String()
     
-    //Dictionary(LikedUserInfos)検索用
+    //ValueによるDictionary検索
     func findKeyForValue(value: String, dictionary: [String : String]) ->String?{
         for (key, array) in dictionary{
             if (array.contains(value)){
@@ -79,7 +79,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     //print("MatcherImage: ", self.MatcherImage.image)
                     self.MatchedUIDs.append(LikedUID)
                     self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
-                    self.MatcherImageArray.append(self.LikedImages[self.isMatch_count])//辞書にして紐づけないとずれるかも？
+                    self.MatcherImageArray.append(self.LikedImages["\(LikedUID)"]!)//辞書にして紐づけないとずれるかも？
                    // print("MatchedUIDs: ", self.MatchedUIDs)
                     //print("MatchedNames: ", self.MatchedNames)
                     //print("ImageArray: ", self.MatcherImageArray)
