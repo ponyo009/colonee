@@ -79,7 +79,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     //print("MatcherImage: ", self.MatcherImage.image)
                     self.MatchedUIDs.append(LikedUID)
                     self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
-                    self.MatcherImageArray.append(self.LikedImages["\(LikedUID)"]!)//辞書にして紐づけないとずれるかも？
+                   self.MatcherImageArray.append(self.LikedImages["\(LikedUID)"]!)
                    // print("MatchedUIDs: ", self.MatchedUIDs)
                     //print("MatchedNames: ", self.MatchedNames)
                     //print("ImageArray: ", self.MatcherImageArray)
