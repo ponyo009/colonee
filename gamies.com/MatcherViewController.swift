@@ -43,7 +43,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     var MatcherName = String()
     
-    //ValueによるDictionary検索
+    //ValueによるDictionary検索用
     func findKeyForValue(value: String, dictionary: [String : String]) ->String?{
         for (key, array) in dictionary{
             if (array.contains(value)){
@@ -66,12 +66,12 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         for LikedUID in LikedUIDs {
             //print ("LikedUID: ", LikedUID)
-        //GameNameから、LikedUIDの"Liked"に自分のID(UID)が存在する(exists)かどうか検索
+        //GameNameから、LikedUIDの"Liked"に自分のID(UID)が存在するかどうか検索
     
             let likedref = db.collection(GameName).document(LikedUID).collection("Liked").document(UID!)
             likedref.getDocument{ (document, error) in
                 if let document = document, document.exists{
-                //存在した場合
+                //存在した場合(Match)
                     let matchedref = self.db.collection(self.GameName).document(self.UID!).collection("Liked").document(LikedUID)
                     matchedref.setData(["matched": true])
                     //var storageref = self.storage.reference().child(LikedUID).child(self.GameName)

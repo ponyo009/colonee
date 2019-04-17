@@ -29,7 +29,7 @@ class SwipeViewController: UIViewController {
     var data_volume: Int!
     var swipe_counter = 1
     
-    //ユーザーカード位置
+    //ユーザーカード位置（レスポンシブにしたい）
     var cardFrame = CGRect(x:16, y:73, width:350, height:370)
     let iconImageFrame = CGRect(x:51, y:29, width:240, height:128)
     let usernicknameframe = CGRect(x:8, y:165, width:320, height:41)
@@ -58,10 +58,10 @@ class SwipeViewController: UIViewController {
         UserCard.backgroundColor = UIColor.white
         view.addSubview(UserCard)
         UserCard = self.view.viewWithTag(tagnum)
-         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panAction))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panAction))
         UserCard.addGestureRecognizer(panGesture)
     }
-    //imageview作成と画像取得
+    //imageview作成と画像取得（UserIconImage.imageがnilになる時がある）
     func CreateIconImageView() {
         UserIconImage = UIImageView(frame:self.iconImageFrame )
         let storageref = storage.reference().child(document_ID).child(GameName)
@@ -108,7 +108,7 @@ class SwipeViewController: UIViewController {
         UserCard.center = self.centerOfCard
         UserCard.transform = .identity
     }
-    //Pangestureのアクション *１番上のカードしかリセットされない
+    //Pangestureのアクション *１番手前のカードしかリセットされない
     @objc func panAction(_ sender: UIPanGestureRecognizer){
         
         centerOfCard = UserCard.center
@@ -136,11 +136,8 @@ class SwipeViewController: UIViewController {
                 if swipe_counter > data_volume{
                     performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
                 }
-                
+            //LikeイメージとBadイメージ用
                 /* likeimageView.alpha = 0
-                selectedCardCount += 1
-                if selectedCardCount >= people.count{
-                    performSegue(withIdentifier: "PushList", sender: self)
                 }*/
                 return
                 //右に大きくスワイプ(Like)
@@ -152,7 +149,7 @@ class SwipeViewController: UIViewController {
                 self.UserCard.removeFromSuperview()
                 LikedNames.append(NickNames[data_volume - swipe_counter])
                 LikedUIDs.append(UserIDs[data_volume - swipe_counter])
-               LikedImages.updateValue(IconImages[data_volume - swipe_counter], forKey: UserIDs[data_volume - swipe_counter])
+                LikedImages.updateValue(IconImages[data_volume - swipe_counter], forKey: UserIDs[data_volume - swipe_counter])
                 LikedUserInfos.updateValue(UserIDs[data_volume - swipe_counter], forKey: NickNames[data_volume - swipe_counter])
                 db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
                 swipe_counter += 1
@@ -162,11 +159,7 @@ class SwipeViewController: UIViewController {
                 }
                 
                /* likeimageView.alpha = 0
-                likedName.append(name[selectedCardCount])
-                selectedCardCount += 1
-                if selectedCardCount >= people.count{
-                    performSegue(withIdentifier: "PushList", sender: self)
-                }
+               
                 */
                 return
             }
@@ -185,18 +178,19 @@ class SwipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // DBから<GameName>に格納されているuserの情報をすべて取得
+        // DBから<GameName>に格納されているuserの情報をすべて取得（ゆくゆくは絞る）
         db.collection(GameName).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                //ドキュメント数の取得
+                //ドキュメント数の取得（自分の情報は除くため -1）
                 self.data_volume = querySnapshot!.count - 1
                 
-                //それぞれのドキュメントの内容をdocumet_dataに代入
+                //それぞれのドキュメントの内容を取り出して処理
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     self.document_ID = document.documentID
+                    //自分の情報を除外
                     if self.document_ID != self.UID{
                         self.document_data = (document.data() as? Dictionary<String, String>)!
                         self.document_nickname = self.document_data["nickname"]
@@ -207,7 +201,7 @@ class SwipeViewController: UIViewController {
                         self.CreateIconImageView()
                         self.CreateNickNameLabel()
                         self.CreateIntroduceLabel()
-                        self.IconImages.append(self.UserIconImage.image!)
+                        self.IconImages.append(self.UserIconImage.image!)//エラー吐くとしたらここ
                         self.tagnum += 1
                     }else{
                         self.document_data = (document.data() as? Dictionary<String, String>)!

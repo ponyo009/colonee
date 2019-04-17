@@ -22,6 +22,7 @@ class ChooseGameViewController: UIViewController {
     @IBOutlet weak var Game4: UIView!
     @IBOutlet weak var Game5: UIView!
 
+    //ここにゲームを追加していく感じ？
     let GameNames = ["Fate Grand Order", "アイドルマスター シンデレラガールズ", "荒野行動", "モンスターストライク", "白猫プロジェクト", "Puzzle & Dragons"]
 
     var tagnum = Int()
@@ -46,10 +47,9 @@ class ChooseGameViewController: UIViewController {
     //DBからuserのProfileデータを取得して遷移
         
         let UID = user?.uid
-        print (UID)
+             //print (UID)
         //選択されたゲーム名のドキュメントへの参照
-        let docref = db.collection("users").document(UID!).collection("Games").document(GameNames[tagnum
-            ])
+        let docref = db.collection("users").document(UID!).collection("Games").document(GameNames[tagnum])
         //ドキュメント内容の取得
         docref.getDocument { (document, error) in
             if let document = document, document.exists {

@@ -35,10 +35,12 @@ class JSQChatViewController: JSQMessagesViewController {
         senderDisplayName = UserOwnNickName
         senderId = UID
         
+        //それぞれのChatデータベースへの参照
         UserChatref = db.collection(GameName).document(UID!).collection("Liked").document(MatcherUID).collection("Chat")
         MatcherChatref = db.collection(GameName).document(MatcherUID).collection("Liked").document(UID!).collection("Chat")
         
-        UserChatref.addSnapshotListener{(snapshot, err) in
+        //"date"で降順に表示、リアルタイムで”Chat”から取得
+        UserChatref.order(by: "date", descending: true).limit(to: messages.count + 25).addSnapshotListener{(snapshot, err) in
             guard let chat_value = snapshot else {
                 print ("snapshot is nil")
                 return
@@ -50,6 +52,7 @@ class JSQChatViewController: JSQMessagesViewController {
                     let body = chatData["body"] as! String
                     let senderId = chatData["senderId"] as! String
                     let displayname = chatData["displayname"] as! String
+                    //let date = chatData["date"] as! Int
                     let message =  JSQMessage(senderId: senderId, displayName: displayname, text: body)
                     self.messages.append(message!)
                     self.finishReceivingMessage()
@@ -100,10 +103,12 @@ class JSQChatViewController: JSQMessagesViewController {
     }
     
     //sendボタンが押された際
-    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date) {
         inputToolbar.contentView.textView.text = ""
-        UserChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName])
-        MatcherChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName])
+        let date = Timestamp.self
+        print("Timestamp: ", date)
+        UserChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName, "timestamp": date])
+        MatcherChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName, "timestamp": date])
     }
     /*
     // MARK: - Navigation
