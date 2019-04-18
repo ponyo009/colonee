@@ -73,7 +73,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                 if let document = document, document.exists{
                 //存在した場合(Match)
                     let matchedref = self.db.collection(self.GameName).document(self.UID!).collection("Liked").document(LikedUID)
-                    matchedref.setData(["matched": true])
+                    matchedref.setData(["matched": true, "timestamp": Timestamp.init()])
                     //var storageref = self.storage.reference().child(LikedUID).child(self.GameName)
                     //self.MatcherImage
                     //print("MatcherImage: ", self.MatcherImage.image)

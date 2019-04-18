@@ -51,6 +51,9 @@ class SwipeViewController: UIViewController {
     var IconImages: [UIImage] = []
     var LikedImages: [String : UIImage] = [:]
     
+    //マッチ確認用
+    var IsMatch: Bool = false
+    
     //UIView作成
     func CreateUIView(){
         UserCard = UIView(frame: cardFrame)
@@ -108,6 +111,22 @@ class SwipeViewController: UIViewController {
         UserCard.center = self.centerOfCard
         UserCard.transform = .identity
     }
+    
+    //マッチ済みかどうか確認
+    func isMatched(document_ID: String){
+        let isMatchedref = db.collection(GameName).document(UID!).collection("Liked")
+        isMatchedref.document(document_ID).getDocument{(snapshot, error) in
+            if let snapshot = snapshot, snapshot.exists  {
+                let ismatch_data = snapshot.data()
+                print("ducment_ID: ", document_ID)
+                self.IsMatch = ismatch_data!["matched"] as! Bool
+            }else{
+                self.IsMatch = false
+            }
+            print("IsMatch: ", self.IsMatch)
+        }
+    }
+    
     //Pangestureのアクション *１番手前のカードしかリセットされない
     @objc func panAction(_ sender: UIPanGestureRecognizer){
         
@@ -185,13 +204,14 @@ class SwipeViewController: UIViewController {
             } else {
                 //ドキュメント数の取得（自分の情報は除くため -1）
                 self.data_volume = querySnapshot!.count - 1
-                
                 //それぞれのドキュメントの内容を取り出して処理
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     self.document_ID = document.documentID
-                    //自分の情報を除外
-                    if self.document_ID != self.UID{
+                    //自分と既にマッチ済みの相手を除外
+                    if self.document_ID != self.UID {
+                        self.isMatched(document_ID: self.document_ID)
+                        if self.IsMatch == false{
                         self.document_data = (document.data() as? Dictionary<String, String>)!
                         self.document_nickname = self.document_data["nickname"]
                         self.NickNames.append(self.document_nickname)
@@ -203,6 +223,7 @@ class SwipeViewController: UIViewController {
                         self.CreateIntroduceLabel()
                         self.IconImages.append(self.UserIconImage.image!)//エラー吐くとしたらここ
                         self.tagnum += 1
+                        }
                     }else{
                         self.document_data = (document.data() as? Dictionary<String, String>)!
                         self.UserOwnNickName = self.document_data["nickname"]!

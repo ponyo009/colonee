@@ -40,7 +40,7 @@ class JSQChatViewController: JSQMessagesViewController {
         MatcherChatref = db.collection(GameName).document(MatcherUID).collection("Liked").document(UID!).collection("Chat")
         
         //"date"で降順に表示、リアルタイムで”Chat”から取得
-        UserChatref.order(by: "date", descending: true).limit(to: messages.count + 25).addSnapshotListener{(snapshot, err) in
+        UserChatref.order(by: "timestamp", descending: false).limit(to: messages.count + 25).addSnapshotListener{(snapshot, err) in
             guard let chat_value = snapshot else {
                 print ("snapshot is nil")
                 return
@@ -105,7 +105,7 @@ class JSQChatViewController: JSQMessagesViewController {
     //sendボタンが押された際
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date) {
         inputToolbar.contentView.textView.text = ""
-        let date = Timestamp.self
+        let date = Timestamp.init()
         print("Timestamp: ", date)
         UserChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName, "timestamp": date])
         MatcherChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName, "timestamp": date])
