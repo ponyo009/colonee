@@ -146,7 +146,7 @@ class SwipeViewController: UIViewController {
         }
     }
     
-    func createUserCard(document_id: String, nickname:String, introduce:String, isSwiped:Bool){
+    func createUserCard(document_id: String, nickname:String, introduce:String, isSwiped:Bool, callback:@escaping () -> ()){
         if document_id != UID && isSwiped == false{
             NickNames.append(nickname)
             UserIDs.append(document_id)
@@ -156,9 +156,11 @@ class SwipeViewController: UIViewController {
             CreateNickNameLabel(nickname: nickname)
             CreateIntroduceLabel(introduce: introduce)
             self.tagnum += 1
+            callback()
         }else if document_id == UID{
             self.UserOwnNickName = nickname
             print ("mynickname: ", self.UserOwnNickName)
+            callback()
         }
     }
     //Pangestureのアクション *１番手前のカードしかリセットされない
@@ -236,7 +238,12 @@ class SwipeViewController: UIViewController {
             for document in documents{
                 print("\(document.documentID) => \(document.data())")
                 self.isSwiped(document_id: document.documentID){isSwiped in
-                    self.createUserCard(document_id: document.documentID, nickname: document.data()["nickname"] as! String, introduce: document.data()["introduce"] as! String, isSwiped: isSwiped)
+                    self.createUserCard(document_id: document.documentID, nickname: document.data()["nickname"] as! String, introduce: document.data()["introduce"] as! String, isSwiped: isSwiped){
+                        if self.data_volume == 0 {
+                            self.performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
+                        }
+                    }
+                    
                 }
             }
         }
