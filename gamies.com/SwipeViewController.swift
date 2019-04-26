@@ -39,6 +39,7 @@ class SwipeViewController: UIViewController {
     var UserCard: UIView!
     var UserIconImage = UIImageView()
     var tagnum = 1
+    var tagnumsync = 1
     var centerOfCard: CGPoint!
     
     //like処理用
@@ -48,8 +49,8 @@ class SwipeViewController: UIViewController {
     var LikedUIDs: [String] = []
     var LikedUserInfos: [String:String] = [ : ]
     var IconImage:UIImage!
-    var IconImages: [UIImage] = []
-    var LikedImages: [String : UIImage] = [:]
+    var IconImages: [UIImageView] = []
+    var LikedImages: [String : UIImageView] = [:]
     
     //マッチ確認用
     var IsMatch: Bool = false
@@ -64,17 +65,31 @@ class SwipeViewController: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panAction))
         UserCard.addGestureRecognizer(panGesture)
     }
-    //imageview作成と画像取得（UserIconImage.imageがnilになる時がある）
-    func CreateIconImageView(document_id: String, callback: (UIImage) -> ()) {
-        UserIconImage = UIImageView(frame:self.iconImageFrame )
+    
+    func fetchImage(document_id: String, tag:Int, callback:@escaping (UIImage,Int) -> ()){
         let storageref = storage.reference().child(document_id).child(GameName)
-        UserIconImage.sd_setImage(with: storageref)
-        UserIconImage.tag = tagnum
-        print(UserIconImage)//入ってる
-        print(UserIconImage.image)//なぜかnil
-        callback(UserIconImage.image!)
-        UserCard.addSubview(UserIconImage)
+        storageref.getData(maxSize: 1 * 1600 * 1600){data, err in
+            if data != nil{
+                callback(UIImage(data: data!)!, tag)
+            }else{
+                print("fetch failed: ", err as Any)
+            }
+        }
     }
+    //imageview作成と画像取得（UserIconImage.imageがnilになる時がある）
+    func CreateIconImageView(document_id: String, callback: @escaping (UIImageView) -> ()) {
+        let storageref = storage.reference().child(document_id).child(GameName)
+        UserIconImage = UIImageView(frame:self.iconImageFrame )
+        UserIconImage.tag = tagnum
+        UserIconImage.sd_setImage(with: storageref)
+        UserCard.addSubview(UserIconImage)
+        //fetchImage(document_id: document_id, tag: tagnumsync){image, tag in
+        //    self.UserIconImage = self.UserIconImage.viewWithTag(tag) as! UIImageView
+        //    self.UserIconImage.image = image
+        //    self.tagnumsync += 1
+            callback(self.UserIconImage)
+        }
+    
     //nicknameラベル
     func CreateNickNameLabel(nickname: String){
         var userNickName = UILabel.init(frame: usernicknameframe)
@@ -122,8 +137,9 @@ class SwipeViewController: UIViewController {
                 isSwiped = true
                 callback(isSwiped)
             }else if document_id != self.UID{
-                isSwiped = false
                 self.data_volume += 1
+                print("newuser: ", document_id)
+                isSwiped = false
                 callback(isSwiped)
             }
         }
@@ -131,9 +147,11 @@ class SwipeViewController: UIViewController {
     
     func createUserCard(document_id: String, nickname:String, introduce:String, isSwiped:Bool){
         if document_id != UID && isSwiped == false{
+            NickNames.append(nickname)
+            UserIDs.append(document_id)
             CreateUIView()
-            CreateIconImageView(document_id: document_id){image in
-                IconImages.append(image)}
+            CreateIconImageView(document_id: document_id){imageview in
+                self.IconImages.append(imageview)}
             CreateNickNameLabel(nickname: nickname)
             CreateIntroduceLabel(introduce: introduce)
             self.tagnum += 1
@@ -215,12 +233,12 @@ class SwipeViewController: UIViewController {
         getAllDocuments(){snapshot in
             let documents = snapshot.documents
             for document in documents{
+                print("\(document.documentID) => \(document.data())")
                 self.isSwiped(document_id: document.documentID){isSwiped in
                     self.createUserCard(document_id: document.documentID, nickname: document.data()["nickname"] as! String, introduce: document.data()["introduce"] as! String, isSwiped: isSwiped)
                 }
             }
         }
-        
         // DBから<GameName>に格納されているuserの情報をすべて取得（ゆくゆくは絞る）
      /*   db.collection(GameName).getDocuments() { (querySnapshot, err) in
             if let err = err {

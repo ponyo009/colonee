@@ -21,7 +21,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var GameName = ""
     var LikedNames = [String]()
     var LikedUIDs = [String]()
-    var LikedImages = [String : UIImage]()
+    var LikedImages = [String : UIImageView]()
     var LikedUserInfos: [String:String] = [ : ]
     
     //DB参照等
@@ -79,7 +79,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     //print("MatcherImage: ", self.MatcherImage.image)
                     self.MatchedUIDs.append(LikedUID)
                     self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
-                   self.MatcherImageArray.append(self.LikedImages["\(LikedUID)"]!)
+                    self.MatcherImageArray.append((self.LikedImages["\(LikedUID)"]?.image)!)
                    // print("MatchedUIDs: ", self.MatchedUIDs)
                     //print("MatchedNames: ", self.MatchedNames)
                     //print("ImageArray: ", self.MatcherImageArray)

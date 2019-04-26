@@ -84,7 +84,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         let usericonref = storageref.child(UID!).child(GameName)
         let metadata = StorageMetadata()
         metadata.contentType = "\(GameName)"
-        let usericonimage = image?.jpegData(compressionQuality: 0.3)
+        let usericonimage = image?.jpegData(compressionQuality: 0.2)
     
         usericonref.putData(usericonimage!, metadata: metadata){metadata, error in
             if let error = error{
