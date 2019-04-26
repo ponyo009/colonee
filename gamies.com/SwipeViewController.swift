@@ -141,7 +141,8 @@ class SwipeViewController: UIViewController {
                 print("newuser: ", document_id)
                 isSwiped = false
                 callback(isSwiped)
-            }
+            }else if document_id == self.UID{isSwiped = true
+                callback(isSwiped)}
         }
     }
     
