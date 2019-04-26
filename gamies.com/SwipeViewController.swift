@@ -26,7 +26,7 @@ class SwipeViewController: UIViewController {
     var document_nickname: String!
     
     //データ数とスワイプカウンター
-    var data_volume: Int!
+    var data_volume = 0
     var swipe_counter = 1
     
     //ユーザーカード位置（レスポンシブにしたい）
@@ -37,7 +37,7 @@ class SwipeViewController: UIViewController {
     
     //ユーザーカード
     var UserCard: UIView!
-    var UserIconImage: UIImageView!
+    var UserIconImage = UIImageView()
     var tagnum = 1
     var centerOfCard: CGPoint!
     
@@ -65,46 +65,36 @@ class SwipeViewController: UIViewController {
         UserCard.addGestureRecognizer(panGesture)
     }
     //imageview作成と画像取得（UserIconImage.imageがnilになる時がある）
-    func CreateIconImageView() {
+    func CreateIconImageView(document_id: String, callback: (UIImage) -> ()) {
         UserIconImage = UIImageView(frame:self.iconImageFrame )
-        let storageref = storage.reference().child(document_ID).child(GameName)
+        let storageref = storage.reference().child(document_id).child(GameName)
         UserIconImage.sd_setImage(with: storageref)
         UserIconImage.tag = tagnum
-        print ("icon: ", UserIconImage)
-        print ("iconimage: ", UserIconImage.image)
+        print(UserIconImage)//入ってる
+        print(UserIconImage.image)//なぜかnil
+        callback(UserIconImage.image!)
         UserCard.addSubview(UserIconImage)
     }
     //nicknameラベル
-    func CreateNickNameLabel(){
+    func CreateNickNameLabel(nickname: String){
         var userNickName = UILabel.init(frame: usernicknameframe)
         userNickName.tag = tagnum
         userNickName.backgroundColor = UIColor.white
        //特定のtagnumのUILabelを指定
         UserCard.addSubview(userNickName)
         userNickName = userNickName.viewWithTag(tagnum) as! UILabel
-        
-        let nicknameref = db.collection(GameName).document(document_ID)
-        nicknameref.getDocument{(document,error) in
-            if let document = document, document.exists{
-                let document_array = document.data()
-                userNickName.text = document_array!["nickname"] as? String
-            }
-        }
+        userNickName.text = nickname
     }
+    
+    
     //introduceラベル
-    func CreateIntroduceLabel(){
+    func CreateIntroduceLabel(introduce: String){
         var userIntroduction = UILabel.init(frame: userintroductionframe)
         userIntroduction.tag = tagnum
         userIntroduction.backgroundColor = UIColor.white
         UserCard.addSubview(userIntroduction)
         userIntroduction = userIntroduction.viewWithTag(tagnum) as! UILabel
-        var introductionref = db.collection(GameName).document(document_ID)
-        introductionref.getDocument{(document,error) in
-            if let document = document, document.exists{
-                let document_array = document.data()
-                userIntroduction.text = document_array!["introduce"] as? String
-            }
-        }
+        userIntroduction.text = introduce
     }
     //Usercardを元の位置に
     func resetCard() {
@@ -112,21 +102,46 @@ class SwipeViewController: UIViewController {
         UserCard.transform = .identity
     }
     
-    //マッチ済みかどうか確認
-    func isMatched(document_ID: String){
-        let isMatchedref = db.collection(GameName).document(UID!).collection("Liked")
-        isMatchedref.document(document_ID).getDocument{(snapshot, error) in
-            if let snapshot = snapshot, snapshot.exists  {
-                let ismatch_data = snapshot.data()
-                print("ducment_ID: ", document_ID)
-                self.IsMatch = ismatch_data!["matched"] as! Bool
-            }else{
-                self.IsMatch = false
+    //
+    func getAllDocuments(callback:@escaping (QuerySnapshot) -> ()){
+        db.collection(GameName).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                callback(querySnapshot!)
             }
-            print("IsMatch: ", self.IsMatch)
+        }
+    }
+    //スワイプ済みの相手を除外
+    func isSwiped(document_id: String, callback: @escaping (Bool) -> ()){
+        var isSwiped: Bool!
+        let islikedref = db.collection(GameName).document(UID!).collection("Liked").document(document_id)
+        islikedref.getDocument{(document, error) in
+            if document!.exists  {
+                print("This User(\(document_id)) is already Swiped")
+                isSwiped = true
+                callback(isSwiped)
+            }else if document_id != self.UID{
+                isSwiped = false
+                self.data_volume += 1
+                callback(isSwiped)
+            }
         }
     }
     
+    func createUserCard(document_id: String, nickname:String, introduce:String, isSwiped:Bool){
+        if document_id != UID && isSwiped == false{
+            CreateUIView()
+            CreateIconImageView(document_id: document_id){image in
+                IconImages.append(image)}
+            CreateNickNameLabel(nickname: nickname)
+            CreateIntroduceLabel(introduce: introduce)
+            self.tagnum += 1
+        }else if document_id == UID{
+            self.UserOwnNickName = nickname
+            print ("mynickname: ", self.UserOwnNickName)
+        }
+    }
     //Pangestureのアクション *１番手前のカードしかリセットされない
     @objc func panAction(_ sender: UIPanGestureRecognizer){
         
@@ -197,8 +212,17 @@ class SwipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getAllDocuments(){snapshot in
+            let documents = snapshot.documents
+            for document in documents{
+                self.isSwiped(document_id: document.documentID){isSwiped in
+                    self.createUserCard(document_id: document.documentID, nickname: document.data()["nickname"] as! String, introduce: document.data()["introduce"] as! String, isSwiped: isSwiped)
+                }
+            }
+        }
+        
         // DBから<GameName>に格納されているuserの情報をすべて取得（ゆくゆくは絞る）
-        db.collection(GameName).getDocuments() { (querySnapshot, err) in
+     /*   db.collection(GameName).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -231,7 +255,7 @@ class SwipeViewController: UIViewController {
                     }
                 }
             }
-        }
+        } */
         
         // Do any additional setup after loading the view.
     }
