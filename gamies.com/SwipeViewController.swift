@@ -13,6 +13,7 @@ import Firebase
 class SwipeViewController: UIViewController {
 
 
+    @IBOutlet weak var NoMoreCard: UILabel!
     
     let UID = Auth.auth().currentUser?.uid
     let storage = Storage.storage()
@@ -167,7 +168,7 @@ class SwipeViewController: UIViewController {
                 db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": false])
                 swipe_counter += 1
                 if swipe_counter > data_volume{
-                    performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
+                    NoMoreCard.alpha = 1
                 }
             //LikeイメージとBadイメージ用
                 // likeimageView.alpha = 0
@@ -187,7 +188,7 @@ class SwipeViewController: UIViewController {
                 IsMatch(likedUID: UserIDs[data_volume - swipe_counter], nickname: NickNames[data_volume - swipe_counter])
                 swipe_counter += 1
                 if swipe_counter > data_volume{
-                    performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
+                  NoMoreCard.alpha = 1
                 }
                // likeimageView.alpha = 0
                 return
@@ -245,10 +246,10 @@ class SwipeViewController: UIViewController {
         if (segue.identifier == "ToMatcher"){
             let vc = segue.destination as! MatcherViewController
             vc.GameName = GameName
-            vc.LikedNames = LikedNames
-            vc.LikedUIDs = LikedUIDs
-            vc.LikedImages = LikedImages
-            vc.LikedUserInfos = LikedUserInfos
+            //vc.LikedNames = LikedNames
+            //vc.LikedUIDs = LikedUIDs
+            //vc.LikedImages = LikedImages
+            //vc.LikedUserInfos = LikedUserInfos
             vc.UserOwnNickName = UserOwnNickName
         }
     }

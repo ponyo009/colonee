@@ -74,10 +74,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCE-5e-OQf">
-                                <rect key="frame" x="157" y="588" width="60" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザーがもういません。。。  新しいユーザーをお待ちください" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0z-0x-2l3">
+                                <rect key="frame" x="16" y="179" width="343" height="153"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ToMatch"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCE-5e-OQf">
+                                <rect key="frame" x="141" y="588" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="マッチ画面へ"/>
                                 <connections>
                                     <action selector="ToMatch:" destination="Y6y-zM-9Hz" eventType="touchUpInside" id="RbF-kb-RH5"/>
                                 </connections>
@@ -87,12 +94,13 @@
                         <viewLayoutGuide key="safeArea" id="FFT-NE-Lb7"/>
                     </view>
                     <connections>
+                        <outlet property="NoMoreCard" destination="s0z-0x-2l3" id="gc9-qT-X3j"/>
                         <segue destination="CtT-G9-CLv" kind="modal" identifier="ToMatcher" id="MdU-Ml-Qtc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuI-SZ-u6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217.7151999999996" y="481.91076875355435"/>
+            <point key="canvasLocation" x="2216.8000000000002" y="481.70914542728639"/>
         </scene>
         <!--Profile-->
         <scene sceneID="A3y-af-hmC">
