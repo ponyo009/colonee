@@ -19,10 +19,10 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     //SwipeViewから受け取り
     var UserOwnNickName = ""
     var GameName = ""
-    var LikedNames = [String]()
-    var LikedUIDs = [String]()
-    var LikedImages = [String : UIImageView]()
-    var LikedUserInfos: [String:String] = [ : ]
+    //var LikedNames = [String]()
+    //var LikedUIDs = [String]()
+   // var LikedImages = [String : UIImageView]()
+   // var LikedUserInfos: [String:String] = [ : ]
     
     //DB参照等
     let db = Firestore.firestore()
@@ -53,15 +53,55 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return nil
     }
     
+    func queryMatched(callback: @escaping ([QueryDocumentSnapshot]) -> ()){
+        var documents: [QueryDocumentSnapshot] = []
+        let matchedref = db.collection(GameName).document(UID!).collection("Liked").whereField("matched", isEqualTo: true)
+        matchedref.getDocuments(){snapshot, err in
+            if err == nil{
+                documents = snapshot!.documents
+                callback(documents)
+            }else{
+                print(err)
+            }
+        }
+    }
+    
+    func fetchImages(userID: String, callback:@escaping (UIImage) -> ()){
+        //var fetchedImage = UIImage()
+        let imageRef = storage.reference().child(userID).child("\(GameName).jpeg")
+        imageRef.getData(maxSize: 1*1024*1024){data, err in
+            let image = UIImage(data: data!, scale: 1.0)
+        print("imageview: ", image)
+       // print("uiimage: ", fetchedImage.image)
+            callback(image!)
+        }
+    }
+    
     //プロフィール画像用
     var MatcherImage = UIImage()
     var MatcherImageArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        queryMatched(){documents in
+            for document in documents {
+                self.MatchedUIDs.append(document.documentID)
+                self.MatchedNames.append(document.data()["nickname"] as! String)
+                self.fetchImages(userID: document.documentID){fetchedimage in
+                    self.MatcherImageArray.append(fetchedimage)
+                    print(self.MatcherImageArray)
+                    self.isMatch_count += 1
+                    if self.isMatch_count >= documents.count{
+                        self.tableView.delegate = self
+                        self.tableView.dataSource = self
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
         
+    /*
     //マッチング処理
         for LikedUID in LikedUIDs {
         //GameNameから、LikedUIDの"Liked"に自分のID(UID)が存在するかどうか検索
@@ -93,7 +133,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                 }
             }
         }
-       
+       */
         
         //print(LikedNames)
         //print(LikedUIDs)

@@ -34,8 +34,8 @@ class RegistrationViewController: UIViewController {
     @IBAction func confirmButtonTapped(_ sender: Any) {
         
         //UserDefaultsのための定義
-        let userEmail = userEmailTextField.text
-        let userPassword = userPasswordTextField.text
+        let userEmail = userEmailTextField.text! as NSString
+        let userPassword = userPasswordTextField.text! as NSString
 
         //入力されたのが有効なアドレスとパスワードかどうかの確認
         if (userEmailTextField.text?.isEmpty)! || (userPasswordTextField.text?.isEmpty)! {

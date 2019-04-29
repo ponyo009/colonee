@@ -60,13 +60,12 @@ class SwipeViewController: UIViewController {
     }
     
     //imageview作成と画像取得（UserIconImage.imageがnilになる時がある）
-    func CreateIconImageView(document_id: String, callback: @escaping (UIImageView) -> ()) {
-        let storageref = storage.reference().child(document_id).child(GameName)
+    func CreateIconImageView(document_id: String) {
+        let storageref = storage.reference().child(document_id).child("\(GameName).jpeg")
         UserIconImage = UIImageView(frame:self.iconImageFrame )
         UserIconImage.tag = tagnum
         UserIconImage.sd_setImage(with: storageref)
         UserCard.addSubview(UserIconImage)
-        callback(self.UserIconImage)
         }
     
     //nicknameラベル
@@ -126,21 +125,18 @@ class SwipeViewController: UIViewController {
         }
     }
     
-    func createUserCard(document_id: String, nickname:String, introduce:String, isSwiped:Bool, callback:@escaping () -> ()){
+    func createUserCard(document_id: String, nickname:String, introduce:String, isSwiped:Bool){
         if document_id != UID && isSwiped == false{
             NickNames.append(nickname)
             UserIDs.append(document_id)
             CreateUIView()
-            CreateIconImageView(document_id: document_id){imageview in
-                self.IconImages.append(imageview)}
+            CreateIconImageView(document_id: document_id)
             CreateNickNameLabel(nickname: nickname)
             CreateIntroduceLabel(introduce: introduce)
             self.tagnum += 1
-            callback()
         }else if document_id == UID{
             self.UserOwnNickName = nickname
             print ("mynickname: ", self.UserOwnNickName)
-            callback()
         }
     }
     //Pangestureのアクション *１番手前のカードしかリセットされない
@@ -226,11 +222,7 @@ class SwipeViewController: UIViewController {
             for document in documents{
                 print("\(document.documentID) => \(document.data())")
                 self.isSwiped(document_id: document.documentID){isSwiped in
-                    self.createUserCard(document_id: document.documentID, nickname: document.data()["nickname"] as! String, introduce: document.data()["introduce"] as! String, isSwiped: isSwiped){
-                        if self.data_volume == 0 {
-                            self.performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
-                        }
-                    }
+                    self.createUserCard(document_id: document.documentID, nickname: document.data()["nickname"] as! String, introduce: document.data()["introduce"] as! String, isSwiped: isSwiped)
                 }
             }
         }

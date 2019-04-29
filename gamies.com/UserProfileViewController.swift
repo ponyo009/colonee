@@ -35,7 +35,7 @@ class UserProfileViewController: UIViewController {
         iconimage.image = UIImage(named: "default.png")
         
     //userimageiconの取得
-        let ref = storage.reference().child(UID).child(GameName)
+        let ref = storage.reference().child(UID).child("\(GameName).jpeg")
         iconimage.sd_setImage(with: ref)
         
         user_nickname.text = nickname

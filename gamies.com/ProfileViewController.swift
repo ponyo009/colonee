@@ -81,11 +81,10 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         let storageref = storage.reference()
         //userID下のGameNameに画像を保存
-        let usericonref = storageref.child(UID!).child(GameName)
+        let usericonref = storageref.child(UID!).child("\(GameName).jpeg")
         let metadata = StorageMetadata()
-        metadata.contentType = "\(GameName)"
+        metadata.contentType = "image/jpeg"
         let usericonimage = image?.jpegData(compressionQuality: 0.2)
-    
         usericonref.putData(usericonimage!, metadata: metadata){metadata, error in
             if let error = error{
                 print(error)
@@ -105,11 +104,11 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     @IBAction func DecideButtonTapped(_ sender: Any) {
       
-       
-         db.collection("users").document((user?.uid)!).collection("Games").document(GameName).setData([
+       /*    db.collection("users").document((user?.uid)!).collection("Games").document(GameName).setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
             ])
+         */
         
         db.collection(GameName).document((user?.uid)!).setData([
             "nickname": NicknameTextField.text!,

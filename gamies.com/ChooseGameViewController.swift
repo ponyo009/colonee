@@ -49,12 +49,12 @@ class ChooseGameViewController: UIViewController {
         let UID = user?.uid
              //print (UID)
         //選択されたゲーム名のドキュメントへの参照
-        let docref = db.collection("users").document(UID!).collection("Games").document(GameNames[tagnum])
+        let docref = db.collection(GameNames[tagnum]).document(UID!)
         //ドキュメント内容の取得
         docref.getDocument { (document, error) in
-            if let document = document, document.exists {
+            if document!.exists {
                 //取得できた場合、UserProfileへ
-                let document_array = document.data()
+                let document_array = document!.data()
                 self.nickname = document_array!["nickname"] as? String
                 self.introduce = document_array!["introduce"] as? String
                 self.performSegue(withIdentifier: "ToUserProfile", sender: (Any).self)
