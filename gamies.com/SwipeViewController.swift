@@ -20,10 +20,6 @@ class SwipeViewController: UIViewController {
     
     var UserOwnNickName = ""
     var GameName = ""
-    var document_data: Dictionary<String,String>!
-    var document_number = 0
-    var document_ID: String!
-    var document_nickname: String!
     
     //データ数とスワイプカウンター
     var data_volume = 0
@@ -39,7 +35,6 @@ class SwipeViewController: UIViewController {
     var UserCard: UIView!
     var UserIconImage = UIImageView()
     var tagnum = 1
-    var tagnumsync = 1
     var centerOfCard: CGPoint!
     
     //like処理用
@@ -52,9 +47,6 @@ class SwipeViewController: UIViewController {
     var IconImages: [UIImageView] = []
     var LikedImages: [String : UIImageView] = [:]
     
-    //マッチ確認用
-    var IsMatch: Bool = false
-    
     //UIView作成
     func CreateUIView(){
         UserCard = UIView(frame: cardFrame)
@@ -66,16 +58,6 @@ class SwipeViewController: UIViewController {
         UserCard.addGestureRecognizer(panGesture)
     }
     
-    func fetchImage(document_id: String, tag:Int, callback:@escaping (UIImage,Int) -> ()){
-        let storageref = storage.reference().child(document_id).child(GameName)
-        storageref.getData(maxSize: 1 * 1600 * 1600){data, err in
-            if data != nil{
-                callback(UIImage(data: data!)!, tag)
-            }else{
-                print("fetch failed: ", err as Any)
-            }
-        }
-    }
     //imageview作成と画像取得（UserIconImage.imageがnilになる時がある）
     func CreateIconImageView(document_id: String, callback: @escaping (UIImageView) -> ()) {
         let storageref = storage.reference().child(document_id).child(GameName)
@@ -83,11 +65,7 @@ class SwipeViewController: UIViewController {
         UserIconImage.tag = tagnum
         UserIconImage.sd_setImage(with: storageref)
         UserCard.addSubview(UserIconImage)
-        //fetchImage(document_id: document_id, tag: tagnumsync){image, tag in
-        //    self.UserIconImage = self.UserIconImage.viewWithTag(tag) as! UIImageView
-        //    self.UserIconImage.image = image
-        //    self.tagnumsync += 1
-            callback(self.UserIconImage)
+        callback(self.UserIconImage)
         }
     
     //nicknameラベル
@@ -141,7 +119,8 @@ class SwipeViewController: UIViewController {
                 print("newuser: ", document_id)
                 isSwiped = false
                 callback(isSwiped)
-            }else if document_id == self.UID{isSwiped = true
+            }else if document_id == self.UID{
+                isSwiped = true
                 callback(isSwiped)}
         }
     }
@@ -169,14 +148,13 @@ class SwipeViewController: UIViewController {
         centerOfCard = UserCard.center
         let card = sender.view
         let point = sender.translation(in: view)
-        
         card?.center = CGPoint(x: (card?.center.x)! + point.x, y: (card?.center.y)! + point.y)
         UserCard.center = CGPoint(x: (card?.center.x)! + point.x, y: card!.center.y + point.y)
+        
         //角度を変える
         let xFromCenter = card!.center.x - view.center.x
         card!.transform = CGAffineTransform(rotationAngle: xFromCenter / (view.frame.width / 2 ) * 0.785)
         UserCard.transform = CGAffineTransform(rotationAngle: xFromCenter / (view.frame.width / 2 ) * 0.785)
-        
         
         if sender.state == UIGestureRecognizer.State.ended {
             //左に大きくスワイプ(Bad)
@@ -192,8 +170,7 @@ class SwipeViewController: UIViewController {
                     performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
                 }
             //LikeイメージとBadイメージ用
-                /* likeimageView.alpha = 0
-                }*/
+                // likeimageView.alpha = 0
                 return
                 //右に大きくスワイプ(Like)
             } else if card!.center.x > self.view.frame.width - 75 {
@@ -202,20 +179,17 @@ class SwipeViewController: UIViewController {
                     self.UserCard.center = CGPoint(x: self.UserCard.center.x + 350, y: self.UserCard.center.y)
                 })
                 self.UserCard.removeFromSuperview()
-                LikedNames.append(NickNames[data_volume - swipe_counter])
-                LikedUIDs.append(UserIDs[data_volume - swipe_counter])
-                LikedImages.updateValue(IconImages[data_volume - swipe_counter], forKey: UserIDs[data_volume - swipe_counter])
-                LikedUserInfos.updateValue(UserIDs[data_volume - swipe_counter], forKey: NickNames[data_volume - swipe_counter])
+                //LikedNames.append(NickNames[data_volume - swipe_counter])
+               //LikedUIDs.append(UserIDs[data_volume - swipe_counter])
+                //LikedImages.updateValue(IconImages[data_volume - swipe_counter], forKey: UserIDs[data_volume - swipe_counter])
+                //LikedUserInfos.updateValue(UserIDs[data_volume - swipe_counter], forKey: NickNames[data_volume - swipe_counter])
                 db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
+                IsMatch(likedUID: UserIDs[data_volume - swipe_counter], nickname: NickNames[data_volume - swipe_counter])
                 swipe_counter += 1
                 if swipe_counter > data_volume{
                     performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
-                    print("LikedImages: ", LikedImages)
                 }
-                
-               /* likeimageView.alpha = 0
-               
-                */
+               // likeimageView.alpha = 0
                 return
             }
         }
@@ -226,9 +200,22 @@ class SwipeViewController: UIViewController {
         })
     }
     
-   
-
-    
+    //マッチング処理
+    func IsMatch (likedUID: String, nickname: String) {
+        let likedref = db.collection(GameName).document(likedUID).collection("Liked").document(UID!)
+        let userOwnMatchedRef = db.collection(GameName).document(UID!).collection("Liked").document(likedUID)
+        let userMatchedRef = db.collection(GameName).document(likedUID).collection("Liked").document(UID!)
+        likedref.getDocument{ (document, error) in
+            if document!.exists{
+                //存在した場合(Matchした場合)
+                userOwnMatchedRef.setData(["nickname": nickname, "matched": true, "timestamp": Timestamp.init()])
+                userMatchedRef.setData(["nickname": self.UserOwnNickName, "matched": true, "timestamp": Timestamp.init()])
+            }else{
+                print("User:\(likedUID) didnt match")
+            }
+        }
+    }
+         
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -243,46 +230,9 @@ class SwipeViewController: UIViewController {
                             self.performSegue(withIdentifier: "ToMatcher", sender: (Any).self)
                         }
                     }
-                    
                 }
             }
         }
-        // DBから<GameName>に格納されているuserの情報をすべて取得（ゆくゆくは絞る）
-     /*   db.collection(GameName).getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                //ドキュメント数の取得（自分の情報は除くため -1）
-                self.data_volume = querySnapshot!.count - 1
-                //それぞれのドキュメントの内容を取り出して処理
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    self.document_ID = document.documentID
-                    //自分と既にマッチ済みの相手を除外
-                    if self.document_ID != self.UID {
-                        self.isMatched(document_ID: self.document_ID)
-                        if self.IsMatch == false{
-                        self.document_data = (document.data() as? Dictionary<String, String>)!
-                        self.document_nickname = self.document_data["nickname"]
-                        self.NickNames.append(self.document_nickname)
-                        self.UserIDs.append(self.document_ID)
-                //data_volume分のカードの作成
-                        self.CreateUIView()
-                        self.CreateIconImageView()
-                        self.CreateNickNameLabel()
-                        self.CreateIntroduceLabel()
-                        self.IconImages.append(self.UserIconImage.image!)//エラー吐くとしたらここ
-                        self.tagnum += 1
-                        }
-                    }else{
-                        self.document_data = (document.data() as? Dictionary<String, String>)!
-                        self.UserOwnNickName = self.document_data["nickname"]!
-                        print ("mynickname: ", self.UserOwnNickName)
-                    }
-                }
-            }
-        } */
-        
         // Do any additional setup after loading the view.
     }
     

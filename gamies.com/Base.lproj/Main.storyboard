@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fEl-iL-qie">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fEl-iL-qie">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1162,23 +1162,23 @@
     <resources>
         <image name="FGO" width="300" height="300"/>
         <image name="bad" width="256" height="256"/>
-        <image name="gamiesくん" width="159.1199951171875" height="97.199996948242188"/>
+        <image name="gamiesくん" width="663" height="405"/>
         <image name="good" width="256" height="256"/>
         <image name="idol" width="1024" height="1024"/>
         <image name="kouyakoudou" width="512" height="512"/>
         <image name="monsuto" width="250" height="250"/>
         <image name="pazudora" width="1024" height="1024"/>
-        <image name="person1" width="288" height="191.8800048828125"/>
-        <image name="person2" width="288" height="191.8800048828125"/>
-        <image name="person3" width="288" height="174.05999755859375"/>
-        <image name="person4" width="384" height="256.32000732421875"/>
+        <image name="person1" width="1600" height="1066"/>
+        <image name="person2" width="1600" height="1066"/>
+        <image name="person3" width="1600" height="967"/>
+        <image name="person4" width="1600" height="1068"/>
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="DuQ-Fd-nLz"/>
         <segue reference="kO5-d8-E8e"/>
         <segue reference="E3E-Mf-7zU"/>
-        <segue reference="r57-TB-Y0w"/>
+        <segue reference="MdU-Ml-Qtc"/>
         <segue reference="nVF-Or-cfb"/>
     </inferredMetricsTieBreakers>
 </document>

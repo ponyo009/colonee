@@ -60,29 +60,20 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    //マッチング処理
-        //print ("LikedUIDs: ", LikedUIDs)
-        //print ("LikedNames: ", LikedNames)
         
+        
+    //マッチング処理
         for LikedUID in LikedUIDs {
-            //print ("LikedUID: ", LikedUID)
         //GameNameから、LikedUIDの"Liked"に自分のID(UID)が存在するかどうか検索
-    
             let likedref = db.collection(GameName).document(LikedUID).collection("Liked").document(UID!)
             likedref.getDocument{ (document, error) in
                 if let document = document, document.exists{
                 //存在した場合(Match)
                     let matchedref = self.db.collection(self.GameName).document(self.UID!).collection("Liked").document(LikedUID)
                     matchedref.setData(["matched": true, "timestamp": Timestamp.init()])
-                    //var storageref = self.storage.reference().child(LikedUID).child(self.GameName)
-                    //self.MatcherImage
-                    //print("MatcherImage: ", self.MatcherImage.image)
                     self.MatchedUIDs.append(LikedUID)
                     self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
                     self.MatcherImageArray.append((self.LikedImages["\(LikedUID)"]?.image)!)
-                   // print("MatchedUIDs: ", self.MatchedUIDs)
-                    //print("MatchedNames: ", self.MatchedNames)
-                    //print("ImageArray: ", self.MatcherImageArray)
                     self.isMatch_count += 1
                     if self.isMatch_count >= self.LikedUIDs.count{
                         //print("MatchedNames: ",self.MatchedNames)
@@ -95,7 +86,6 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     print (self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!,"didn't match")
                     self.isMatch_count += 1
                     if self.isMatch_count >= self.LikedUIDs.count{
-                        //print("MatchedNames: ",self.MatchedNames)
                         self.tableView.delegate = self
                         self.tableView.dataSource = self
                         self.tableView.reloadData()

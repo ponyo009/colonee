@@ -16,8 +16,8 @@ import FirebaseDatabase
 class RegistrationViewController: UIViewController {
     
     var ref: DatabaseReference?
-    var user = Auth.auth().currentUser!
     let db = Firestore.firestore()
+    var user = User?
     
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
@@ -47,20 +47,16 @@ class RegistrationViewController: UIViewController {
             if error != nil {
                 self.SignUpFailedMessage.alpha = 1
                 print("SignUpFailed")
-                
-                UserDefaults.standard.set(userEmail, forKey:"userEamil")
-                UserDefaults.standard.set(userPassword, forKey:"userPassword")
-                
                 // 新規登録失敗時の処理
             }else{
-               
+                user = Auth.auth().currentUser
                 let db = Firestore.firestore()
-                self.user = Auth.auth().currentUser!
-                db.collection("users").document(self.user.uid).setData([
+                db.collection("users").document(user.uid) setData([
                     "username": self.user.displayName as Any,
                     "email": self.user.email as Any,
                     ])
-                
+                UserDefaults.standard.set(userEmail, forKey:"userEamil")
+                UserDefaults.standard.set(userPassword, forKey:"userPassword")
                 self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)
                 print("SignUp!")
             
