@@ -113,14 +113,16 @@ class SwipeViewController: UIViewController {
             if document!.exists  {
                 print("This User(\(document_id)) is already Swiped")
                 isSwiped = true
+                self.data_volume -= 1
                 callback(isSwiped)
             }else if document_id != self.UID{
-                self.data_volume += 1
+               // self.data_volume += 1
                 print("newuser: ", document_id)
                 isSwiped = false
                 callback(isSwiped)
             }else if document_id == self.UID{
                 isSwiped = true
+                self.data_volume -= 1
                 callback(isSwiped)}
         }
     }
@@ -219,10 +221,14 @@ class SwipeViewController: UIViewController {
         
         getAllDocuments(){snapshot in
             let documents = snapshot.documents
+            self.data_volume = documents.count
+            print(self.data_volume)
             for document in documents{
                 print("\(document.documentID) => \(document.data())")
                 self.isSwiped(document_id: document.documentID){isSwiped in
+                    if self.data_volume != 0 {
                     self.createUserCard(document_id: document.documentID, nickname: document.data()["nickname"] as! String, introduce: document.data()["introduce"] as! String, isSwiped: isSwiped)
+                    }else{ self.NoMoreCard.alpha = 1}
                 }
             }
         }
