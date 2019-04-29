@@ -17,7 +17,7 @@ class RegistrationViewController: UIViewController {
     
     var ref: DatabaseReference?
     let db = Firestore.firestore()
-    var user = User?
+    var user: User?
     
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
@@ -34,8 +34,8 @@ class RegistrationViewController: UIViewController {
     @IBAction func confirmButtonTapped(_ sender: Any) {
         
         //UserDefaultsのための定義
-        let userEmail = userEmailTextField
-        let userPassword = userPasswordTextField
+        let userEmail = userEmailTextField.text
+        let userPassword = userPasswordTextField.text
 
         //入力されたのが有効なアドレスとパスワードかどうかの確認
         if (userEmailTextField.text?.isEmpty)! || (userPasswordTextField.text?.isEmpty)! {
@@ -47,13 +47,14 @@ class RegistrationViewController: UIViewController {
             if error != nil {
                 self.SignUpFailedMessage.alpha = 1
                 print("SignUpFailed")
+                print(error as Any)
                 // 新規登録失敗時の処理
             }else{
-                user = Auth.auth().currentUser
+                self.user = Auth.auth().currentUser
                 let db = Firestore.firestore()
-                db.collection("users").document(user.uid) setData([
-                    "username": self.user.displayName as Any,
-                    "email": self.user.email as Any,
+                db.collection("users").document(self.user!.uid).setData([
+                    "username": self.user?.displayName as Any,
+                    "email": self.user?.email as Any,
                     ])
                 UserDefaults.standard.set(userEmail, forKey:"userEamil")
                 UserDefaults.standard.set(userPassword, forKey:"userPassword")
