@@ -25,7 +25,7 @@ class UserProfileViewController: UIViewController {
     //ChooseGameから受けとり
     var nickname = ""
     var introduce = ""
-    let GameName = UserDefaults.standard.string(forKey: "GameName")
+    let GameName = UserDefaults.standard.object(forKey: "GameName") as! String
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,23 +38,9 @@ class UserProfileViewController: UIViewController {
         //userimageiconの取得
         let ref = storage.reference().child(UID).child("\(GameName).jpeg")
         iconimage.sd_setImage(with: ref)
-        user_nickname.text = nickname
+        user_nickname.text = UserDefaults.standard.object(forKey: "NickName") as? String
         user_introduce.text = introduce
-        
-  /*    //初登録用
-        if nickname .isEmpty {
-            let userref = db.collection(GameName).document(UID)
-            userref.getDocument {(document, error) in
-                if let document = document {
-                    let document_data = document.data()
-                    self.user_nickname.text = document_data!["nickname"] as? String
-                    self.user_introduce.text = document_data!["introduce"] as? String
-        }else{
-                    self.user_nickname.text = self.nickname
-                    self.user_introduce.text = self.introduce
-                }
-            }
-        }*/
+        print("nickname: ", user_nickname.text!)
         // Do any additional setup after loading the view.
     }
     

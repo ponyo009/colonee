@@ -14,8 +14,7 @@ import FirebaseUI
 class JSQChatViewController: JSQMessagesViewController {
 
     //MatcherViewから受け取り
-    var UserOwnNickName = ""
-    let GameName = UserDefaults.standard.string(forKey: "GameName")
+    let GameName = UserDefaults.standard.object(forKey: "GameName") as! String
     var MatcherUID = ""
     var MatcherName = ""
     
@@ -31,13 +30,12 @@ class JSQChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        senderDisplayName = UserOwnNickName
+        senderDisplayName = UserDefaults.standard.object(forKey: "NickName") as! String
         senderId = UID
         
         //それぞれのChatデータベースへの参照
-        UserChatref = db.collection(GameName!).document(UID!).collection("Liked").document(MatcherUID).collection("Chat")
-        MatcherChatref = db.collection(GameName!).document(MatcherUID).collection("Liked").document(UID!).collection("Chat")
+        UserChatref = db.collection(GameName).document(UID!).collection("Liked").document(MatcherUID).collection("Chat")
+        MatcherChatref = db.collection(GameName).document(MatcherUID).collection("Liked").document(UID!).collection("Chat")
         
         //"date"で降順に表示、リアルタイムで”Chat”から取得
         UserChatref.order(by: "timestamp", descending: false).limit(to: messages.count + 25).addSnapshotListener{(snapshot, err) in
@@ -106,7 +104,6 @@ class JSQChatViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date) {
         inputToolbar.contentView.textView.text = ""
         let date = Timestamp.init()
-        print("Timestamp: ", date)
         UserChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName, "timestamp": date])
         MatcherChatref.addDocument(data: ["senderId": senderId, "body": text, "displayname": senderDisplayName, "timestamp": date])
     }

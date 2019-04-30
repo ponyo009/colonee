@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     var image: UIImage!
     
     @IBOutlet weak var gamename: UILabel!
-    var GameName = UserDefaults.standard.string(forKey: "GameName")
+    var GameName = UserDefaults.standard.object(forKey: "GameName") as! String
 
     
     @IBOutlet weak var imageView: UIImageView!
@@ -43,13 +43,8 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
-        print("選択されたゲーム：" + gamename.text!)
-        
         imageView.image = UIImage(named: "default.png")
         
         //現在ログイン中のユーザーのuserNameを表示
@@ -110,7 +105,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             ])
          */
         
-        db.collection(GameName!).document((user?.uid)!).setData([
+        db.collection(GameName).document((user?.uid)!).setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
             ])

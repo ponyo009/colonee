@@ -17,7 +17,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     let UID = Auth.auth().currentUser?.uid
     
     var UserOwnNickName = ""
-    var GameName = UserDefaults.standard.string(forKey: "GameName")
+    var GameName = UserDefaults.standard.object(forKey: "GameName") as! String
     
     
     //DB参照等
@@ -28,6 +28,8 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var isMatch_count = 0
     var MatchedUIDs = [String]()
     var MatchedNames = [String]()
+    var MatchTimes = [String]()
+    //var Introduces = [String]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -36,6 +38,8 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     var MatcherImageView = UIImageView()
     var MatcherNameLabel = UILabel()
+    var MatcherIntroduce = UILabel()
+    var MatchTimeSinceNow = UILabel()
     
     var MatcherName = String()
     
@@ -51,13 +55,13 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     func queryMatched(callback: @escaping ([QueryDocumentSnapshot]) -> ()){
         var documents: [QueryDocumentSnapshot] = []
-        let matchedref = db.collection(GameName!).document(UID!).collection("Liked").whereField("matched", isEqualTo: true)
+        let matchedref = db.collection(GameName).document(UID!).collection("Liked").whereField("matched", isEqualTo: true)
         matchedref.getDocuments(){snapshot, err in
             if err == nil{
                 documents = snapshot!.documents
                 callback(documents)
             }else{
-                print(err)
+                print(err as Any)
             }
         }
     }
@@ -73,6 +77,14 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         }
     }
     
+    func compareTime(timestamp: Timestamp, callback: (String) -> ()){
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .abbreviated
+        formatter.allowedUnits = [.day, .hour, .minute]
+        let matchdata: Date = timestamp.dateValue()
+        let span = matchdata.timeIntervalSinceNow
+        callback(formatter.string(from: span * -1)!)
+    }
     //プロフィール画像用
     var MatcherImage = UIImage()
     var MatcherImageArray = [UIImage]()
@@ -82,8 +94,11 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         queryMatched(){documents in
             for document in documents {
+                self.compareTime(timestamp: document.data()["timestamp"] as! Timestamp){ time in
+                    self.MatchTimes.append(time)}
                 self.MatchedUIDs.append(document.documentID)
                 self.MatchedNames.append(document.data()["nickname"] as! String)
+                //self.Introduces.append(document.data()["introduce"] as! String)
                 self.fetchImages(userID: document.documentID){fetchedimage in
                     self.MatcherImageArray.append(fetchedimage)
                     print(self.MatcherImageArray)
@@ -116,10 +131,12 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         MatcherImageView = cell.viewWithTag(1) as! UIImageView
         MatcherNameLabel = cell.viewWithTag(2) as! UILabel
+        //MatcherIntroduce = cell.viewWithTag(3) as! UILabel
+       MatchTimeSinceNow = cell.viewWithTag(4) as! UILabel
         MatcherImageView.image = MatcherImageArray[indexPath.row]
         MatcherNameLabel.text = MatchedNames[indexPath.row]
-        //print ("matcheernamelabel.text: ", MatcherNameLabel.text)
-        //print ("MatcherImageView: ",MatcherImageView)
+        MatchTimeSinceNow.text = "\(MatchTimes[indexPath.row]) ago"
+       // MatcherIntroduce.text = Introduces[indexPath.row]
         return cell
         
     }
@@ -132,7 +149,6 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         MatcherName = MatchedNames[indexPath.row]
         MatcherUID = MatchedUIDs[indexPath.row]
         MatcherImage = MatcherImageArray[indexPath.row]
-        //print(MatcherNameLabel.text)
         //pushで画面遷移
         performSegue(withIdentifier: "ToChat", sender: (Any).self)
     }
@@ -148,7 +164,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             //chatVC.GameName = GameName
             chatVC.MatcherName = MatcherName
             chatVC.MatcherUID = MatcherUID!
-            chatVC.UserOwnNickName = UserOwnNickName
+           // chatVC.UserOwnNickName = UserOwnNickName
             
             
         }
