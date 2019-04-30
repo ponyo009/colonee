@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     var image: UIImage!
     
     @IBOutlet weak var gamename: UILabel!
-    var GameName = ""
+    var GameName = UserDefaults.standard.string(forKey: "GameName")
 
     
     @IBOutlet weak var imageView: UIImageView!
@@ -110,12 +110,13 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             ])
          */
         
-        db.collection(GameName).document((user?.uid)!).setData([
+        db.collection(GameName!).document((user?.uid)!).setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
             ])
         
         print("Profile Saved")
+        
         
         self.performSegue(withIdentifier: "ToSwipeFromRegister", sender: (Any).self)
 
@@ -125,10 +126,10 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if ( segue.identifier == "ToSwipeFromRegister"){
-            let vc = segue.destination as! UserProfileViewController
+            let vc = segue.destination as! MainTabBarViewController
             vc.nickname = NicknameTextField.text!
             vc.introduce = IntroduceTextField.text!
-            vc.GameName = GameName
+          //  vc.GameName = GameName
         }
     }
  

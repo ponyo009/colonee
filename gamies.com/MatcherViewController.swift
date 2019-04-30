@@ -16,13 +16,9 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
 
     let UID = Auth.auth().currentUser?.uid
     
-    //SwipeViewから受け取り
     var UserOwnNickName = ""
-    var GameName = ""
-    //var LikedNames = [String]()
-    //var LikedUIDs = [String]()
-   // var LikedImages = [String : UIImageView]()
-   // var LikedUserInfos: [String:String] = [ : ]
+    var GameName = UserDefaults.standard.string(forKey: "GameName")
+    
     
     //DB参照等
     let db = Firestore.firestore()
@@ -55,7 +51,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     func queryMatched(callback: @escaping ([QueryDocumentSnapshot]) -> ()){
         var documents: [QueryDocumentSnapshot] = []
-        let matchedref = db.collection(GameName).document(UID!).collection("Liked").whereField("matched", isEqualTo: true)
+        let matchedref = db.collection(GameName!).document(UID!).collection("Liked").whereField("matched", isEqualTo: true)
         matchedref.getDocuments(){snapshot, err in
             if err == nil{
                 documents = snapshot!.documents
@@ -68,10 +64,10 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     func fetchImages(userID: String, callback:@escaping (UIImage) -> ()){
         //var fetchedImage = UIImage()
-        let imageRef = storage.reference().child(userID).child("\(GameName).jpeg")
+        let imageRef = storage.reference().child(userID).child("\((GameName)).jpeg")
         imageRef.getData(maxSize: 1*1024*1024){data, err in
             let image = UIImage(data: data!, scale: 1.0)
-        print("imageview: ", image)
+            print("imageview: ", image as Any)
        // print("uiimage: ", fetchedImage.image)
             callback(image!)
         }
@@ -100,48 +96,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                 }
             }
         }
-        
-    /*
-    //マッチング処理
-        for LikedUID in LikedUIDs {
-        //GameNameから、LikedUIDの"Liked"に自分のID(UID)が存在するかどうか検索
-            let likedref = db.collection(GameName).document(LikedUID).collection("Liked").document(UID!)
-            likedref.getDocument{ (document, error) in
-                if let document = document, document.exists{
-                //存在した場合(Match)
-                    let matchedref = self.db.collection(self.GameName).document(self.UID!).collection("Liked").document(LikedUID)
-                    matchedref.setData(["matched": true, "timestamp": Timestamp.init()])
-                    self.MatchedUIDs.append(LikedUID)
-                    self.MatchedNames.append(self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!)
-                    self.MatcherImageArray.append((self.LikedImages["\(LikedUID)"]?.image)!)
-                    self.isMatch_count += 1
-                    if self.isMatch_count >= self.LikedUIDs.count{
-                        //print("MatchedNames: ",self.MatchedNames)
-                        self.tableView.delegate = self
-                        self.tableView.dataSource = self
-                        self.tableView.reloadData()
-                    }
-                } else {
-                    //存在しない場合
-                    print (self.findKeyForValue(value: LikedUID, dictionary: self.LikedUserInfos)!,"didn't match")
-                    self.isMatch_count += 1
-                    if self.isMatch_count >= self.LikedUIDs.count{
-                        self.tableView.delegate = self
-                        self.tableView.dataSource = self
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-        }
-       */
-        
-        //print(LikedNames)
-        //print(LikedUIDs)
-        
-    
-    
     }
-    
     
     //デリゲートメソッド(TableView)
     
@@ -190,7 +145,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             let chatVC:JSQChatViewController = segue.destination as! JSQChatViewController
             
             //chatVC.cellNumber = cellNumber
-            chatVC.GameName = GameName
+            //chatVC.GameName = GameName
             chatVC.MatcherName = MatcherName
             chatVC.MatcherUID = MatcherUID!
             chatVC.UserOwnNickName = UserOwnNickName

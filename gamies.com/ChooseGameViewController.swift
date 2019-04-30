@@ -43,9 +43,8 @@ class ChooseGameViewController: UIViewController {
     @IBAction func ButtonTapped(_ sender: UIButton) {
     //ボタンのtagの数字を取得
         tagnum = sender.tag
-        
     //DBからuserのProfileデータを取得して遷移
-        
+        UserDefaults.standard.set(GameNames[tagnum], forKey: "GameName")
         let UID = user?.uid
              //print (UID)
         //選択されたゲーム名のドキュメントへの参照
@@ -57,6 +56,7 @@ class ChooseGameViewController: UIViewController {
                 let document_array = document!.data()
                 self.nickname = document_array!["nickname"] as? String
                 self.introduce = document_array!["introduce"] as? String
+                UserDefaults.standard.set(self.nickname, forKey: "NickName")
                 self.performSegue(withIdentifier: "ToUserProfile", sender: (Any).self)
             } else {
                 //取得できなかった場合、profile登録画面へ
@@ -67,18 +67,18 @@ class ChooseGameViewController: UIViewController {
     }
     
     //選択されたゲーム名をregisterへ、nicnameとintroduceをUserProfileへ渡す
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
             vc.GameName = GameNames[tagnum]
         }else if (segue.identifier == "ToUserProfile"){
-            let vc2 = segue.destination as! UserProfileViewController
+            let vc2 = segue.destination as! MainTabBarViewController
             vc2.nickname = nickname
             vc2.introduce = introduce
-            vc2.GameName = GameNames[tagnum]
+            //vc2.GameName = GameNames[tagnum]
         }
 
-}
+    }
 }
 
     

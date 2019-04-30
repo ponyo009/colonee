@@ -55,16 +55,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3Z6-UN-EMj"/>
                     </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="Profile" id="VAV-QL-8n8"/>
+                    <navigationItem key="navigationItem" id="YJS-2Z-tae"/>
                     <connections>
                         <outlet property="iconimage" destination="XqW-tE-w3o" id="ZfX-zO-16s"/>
                         <outlet property="user_introduce" destination="Bxf-5g-kGN" id="ch6-Uy-ftx"/>
                         <outlet property="user_nickname" destination="66K-1r-eGk" id="iwB-OD-dq6"/>
-                        <segue destination="Y6y-zM-9Hz" kind="modal" identifier="ToSwipe" id="gOq-FM-eEn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7Y-Tg-sYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.248" y="481.91076875355435"/>
+            <point key="canvasLocation" x="2166" y="1863"/>
         </scene>
         <!--Swipe View Controller-->
         <scene sceneID="dii-D3-3ah">
@@ -93,14 +94,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="FFT-NE-Lb7"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tOo-hn-9aq"/>
                     <connections>
                         <outlet property="NoMoreCard" destination="s0z-0x-2l3" id="gc9-qT-X3j"/>
-                        <segue destination="CtT-G9-CLv" kind="modal" identifier="ToMatcher" id="MdU-Ml-Qtc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuI-SZ-u6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2216.8000000000002" y="481.70914542728639"/>
+            <point key="canvasLocation" x="2998" y="1863"/>
         </scene>
         <!--Profile-->
         <scene sceneID="A3y-af-hmC">
@@ -218,12 +219,12 @@
                         <outlet property="gamename" destination="y7h-X7-3Ze" id="0d2-N9-g36"/>
                         <outlet property="imageView" destination="f7P-jM-eQn" id="sxL-hA-8Oe"/>
                         <outlet property="username" destination="6kB-lc-AY8" id="IHG-sN-bLg"/>
-                        <segue destination="who-2N-KaB" kind="modal" identifier="ToSwipeFromRegister" id="nVF-Or-cfb"/>
+                        <segue destination="AW3-ez-ZGS" kind="modal" identifier="ToSwipeFromRegister" id="aug-OZ-WU1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-5T-nvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="251.71199999999999" y="481.91076875355435"/>
+            <point key="canvasLocation" x="2586" y="-475"/>
         </scene>
         <!--マッチ-->
         <scene sceneID="Oq4-E3-Ga9">
@@ -272,28 +273,37 @@
                     <navigationItem key="navigationItem" title="マッチ" id="b6n-kL-4ca"/>
                     <connections>
                         <outlet property="tableView" destination="pij-js-ZE2" id="Cg3-su-BAi"/>
-                        <segue destination="QTL-LS-yjk" kind="modal" identifier="ToChat" id="dsE-Pb-xRe"/>
+                        <segue destination="QTL-LS-yjk" kind="push" identifier="ToChat" id="rAf-IO-eAp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="el0-eS-hnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1288.5888" y="1541.0225921521999"/>
+            <point key="canvasLocation" x="1345" y="1863"/>
         </scene>
-        <!--Title-->
+        <!--JSQChat-->
         <scene sceneID="1gS-QB-mk1">
             <objects>
-                <viewController id="QTL-LS-yjk" customClass="JSQChatViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="QTL-LS-yjk" userLabel="JSQChat" customClass="JSQChatViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8AT-s8-wHV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GB-04-jzj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="ltE-ZW-yaU"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="exH-dY-a1c"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="mav-nv-bS8"/>
+                    <navigationItem key="navigationItem" id="h76-1r-qAm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31i-Jb-wDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217.7151999999996" y="1531.0965207051649"/>
+            <point key="canvasLocation" x="1345" y="2620"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -516,7 +526,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOz-sz-lsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3572.5439999999999" y="562.75862068965523"/>
+            <point key="canvasLocation" x="4511.1999999999998" y="562.66866566716647"/>
         </scene>
         <!--Registration-->
         <scene sceneID="PAp-IN-EAD">
@@ -840,7 +850,7 @@
                         <outlet property="Game4" destination="wPF-NX-aVM" id="gZ9-Ig-nsF"/>
                         <outlet property="Game5" destination="JIm-t2-QzI" id="26h-E4-Jo2"/>
                         <segue destination="jS6-rb-dIb" kind="modal" identifier="ToProfile" id="f3n-w3-xSo"/>
-                        <segue destination="who-2N-KaB" kind="modal" identifier="ToUserProfile" id="c2R-cg-qz3"/>
+                        <segue destination="AW3-ez-ZGS" kind="modal" identifier="ToUserProfile" id="ZbI-95-1ta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j62-JU-sqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1148,10 +1158,11 @@
             </objects>
             <point key="canvasLocation" x="1162.4000000000001" y="-2137.6847290640394"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NavBar-->
         <scene sceneID="NU2-nw-yee">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hPg-eA-EFE" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hPg-eA-EFE" userLabel="NavBar" customClass="ProfileNavController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Ga8-e9-Dwd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PEZ-HA-ksN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1159,12 +1170,69 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="CtT-G9-CLv" kind="relationship" relationship="rootViewController" id="r57-TB-Y0w"/>
+                        <segue destination="who-2N-KaB" kind="relationship" relationship="rootViewController" id="PPI-wq-UIi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMg-Kq-5eQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="251.71199999999999" y="1541.0225921521999"/>
+            <point key="canvasLocation" x="2166" y="1111"/>
+        </scene>
+        <!--Main Tab Bar View Controller-->
+        <scene sceneID="u0E-E5-5ZF">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AW3-ez-ZGS" customClass="MainTabBarViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pEE-Yv-Efl">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="hPg-eA-EFE" kind="relationship" relationship="viewControllers" id="wYh-AS-klB"/>
+                        <segue destination="zpL-t1-Ofh" kind="relationship" relationship="viewControllers" id="ZSD-LH-tVZ"/>
+                        <segue destination="GUm-ws-krh" kind="relationship" relationship="viewControllers" id="eaG-Kh-e5v"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAZ-tf-tWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2166" y="358"/>
+        </scene>
+        <!--Matcher-->
+        <scene sceneID="XOm-A2-6QG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zpL-t1-Ofh" customClass="MatcherNavController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="3" title="Matcher" id="c9j-84-cA0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="03M-Yg-Uqt">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CtT-G9-CLv" kind="relationship" relationship="rootViewController" id="Rsb-nc-VoU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rpV-Wt-ZTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="1110"/>
+        </scene>
+        <!--Swipe-->
+        <scene sceneID="dkj-nC-g2A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GUm-ws-krh" customClass="SwipeNavController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Swipe" id="8Rs-Oe-7Q1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Af1-s7-VFE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6y-zM-9Hz" kind="relationship" relationship="rootViewController" id="dyH-m5-GVK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CpI-VM-I2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2999" y="1110"/>
         </scene>
     </scenes>
     <resources>
@@ -1183,10 +1251,9 @@
         <image name="shironeko" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ZbI-95-1ta"/>
         <segue reference="DuQ-Fd-nLz"/>
         <segue reference="kO5-d8-E8e"/>
-        <segue reference="E3E-Mf-7zU"/>
-        <segue reference="MdU-Ml-Qtc"/>
-        <segue reference="nVF-Or-cfb"/>
+        <segue reference="y0A-B1-Rm4"/>
     </inferredMetricsTieBreakers>
 </document>

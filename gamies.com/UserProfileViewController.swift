@@ -25,19 +25,19 @@ class UserProfileViewController: UIViewController {
     //ChooseGameから受けとり
     var nickname = ""
     var introduce = ""
-    var GameName = ""
+    let GameName = UserDefaults.standard.string(forKey: "GameName")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let UID = user!.uid
-        
+
+        print("GameName@Profile: ", GameName)
         //imageViewの初期化
-        iconimage.image = UIImage(named: "default.png")
+       iconimage.image = UIImage(named: "default.png")
         
-    //userimageiconの取得
+        //userimageiconの取得
         let ref = storage.reference().child(UID).child("\(GameName).jpeg")
         iconimage.sd_setImage(with: ref)
-        
         user_nickname.text = nickname
         user_introduce.text = introduce
         
@@ -63,12 +63,12 @@ class UserProfileViewController: UIViewController {
         performSegue(withIdentifier: "ToSwipe", sender: (Any).self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+/*    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ToSwipe"){
             let vc = segue.destination as! SwipeViewController
             vc.GameName = GameName
         }
-    }
+    } */
 
     /*
     // MARK: - Navigation
