@@ -29,19 +29,22 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var MatchedUIDs = [String]()
     var MatchedNames = [String]()
     var MatchTimes = [String]()
+    var IsChecked = [Bool]()
     //var Introduces = [String]()
     
     @IBOutlet weak var tableView: UITableView!
     
     var cellNumber:Int = 0
-    var MatcherUID:String?
+    var SelectedUID:String?
     
     var MatcherImageView = UIImageView()
     var MatcherNameLabel = UILabel()
     var MatcherIntroduce = UILabel()
     var MatchTimeSinceNow = UILabel()
     
-    var MatcherName = String()
+    var SelectedName = String()
+    var SelectedImage = UIImage()
+    var MatcherImageArray = [UIImage]()
     
     //ValueによるDictionary検索用
     func findKeyForValue(value: String, dictionary: [String : String]) ->String?{
@@ -85,9 +88,13 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         let span = matchdata.timeIntervalSinceNow
         callback(formatter.string(from: span * -1)!)
     }
-    //プロフィール画像用
-    var MatcherImage = UIImage()
-    var MatcherImageArray = [UIImage]()
+    
+    func appendData(document: QueryDocumentSnapshot){
+        MatchedUIDs.append(document.documentID)
+        MatchedNames.append(document.data()["nickname"] as! String)
+        IsChecked.append(document.data()["checked"] as! Bool)
+    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,9 +103,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             for document in documents {
                 self.compareTime(timestamp: document.data()["timestamp"] as! Timestamp){ time in
                     self.MatchTimes.append(time)}
-                self.MatchedUIDs.append(document.documentID)
-                self.MatchedNames.append(document.data()["nickname"] as! String)
-                //self.Introduces.append(document.data()["introduce"] as! String)
+                self.appendData(document: document)
                 self.fetchImages(userID: document.documentID){fetchedimage in
                     self.MatcherImageArray.append(fetchedimage)
                     print(self.MatcherImageArray)
@@ -136,6 +141,11 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         MatcherImageView.image = MatcherImageArray[indexPath.row]
         MatcherNameLabel.text = MatchedNames[indexPath.row]
         MatchTimeSinceNow.text = "\(MatchTimes[indexPath.row]) ago"
+        if IsChecked[indexPath.row] == true{
+            cell.backgroundColor = UIColor.white
+        }else{
+            cell.backgroundColor = UIColor.cyan
+        }
        // MatcherIntroduce.text = Introduces[indexPath.row]
         return cell
         
@@ -146,9 +156,13 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         cellNumber = indexPath.row
-        MatcherName = MatchedNames[indexPath.row]
-        MatcherUID = MatchedUIDs[indexPath.row]
-        MatcherImage = MatcherImageArray[indexPath.row]
+        SelectedName = MatchedNames[indexPath.row]
+        SelectedUID = MatchedUIDs[indexPath.row]
+        SelectedImage = MatcherImageArray[indexPath.row]
+        
+        let ref = db.collection(GameName).document(UID!).collection("Liked").document(SelectedUID!)
+        ref.setData(["checked": true], merge: true)
+        IsChecked[indexPath.row] = true
         //pushで画面遷移
         performSegue(withIdentifier: "ToChat", sender: (Any).self)
     }
@@ -162,14 +176,13 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
             
             //chatVC.cellNumber = cellNumber
             //chatVC.GameName = GameName
-            chatVC.MatcherName = MatcherName
-            chatVC.MatcherUID = MatcherUID!
+            chatVC.MatcherName = SelectedName
+            chatVC.MatcherUID = SelectedUID!
            // chatVC.UserOwnNickName = UserOwnNickName
-            
-            
         }
-        
     }
     
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }

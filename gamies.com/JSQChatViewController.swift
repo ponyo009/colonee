@@ -30,7 +30,7 @@ class JSQChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        senderDisplayName = UserDefaults.standard.object(forKey: "NickName") as! String
+        senderDisplayName = UserDefaults.standard.object(forKey: "NickName") as? String
         senderId = UID
         
         //それぞれのChatデータベースへの参照

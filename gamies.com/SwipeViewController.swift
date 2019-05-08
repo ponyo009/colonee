@@ -206,8 +206,8 @@ class SwipeViewController: UIViewController {
         likedref.getDocument{ (document, error) in
             if document!.exists{
                 //存在した場合(Matchした場合)
-                userOwnMatchedRef.setData(["nickname": nickname, "matched": true, "timestamp": Timestamp.init()])
-                userMatchedRef.setData(["nickname": self.UserOwnNickName, "matched": true, "timestamp": Timestamp.init()])
+                userOwnMatchedRef.setData(["nickname": nickname, "matched": true, "timestamp": Timestamp.init(), "checked": false])
+                userMatchedRef.setData(["nickname": self.UserOwnNickName, "matched": true, "timestamp": Timestamp.init(), "checked": false])
             }else{
                 print("User:\(likedUID) didnt match")
             }
