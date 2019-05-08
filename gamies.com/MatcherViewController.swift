@@ -73,7 +73,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //var fetchedImage = UIImage()
         let imageRef = storage.reference().child(userID).child("\((GameName)).jpeg")
         imageRef.getData(maxSize: 1*1024*1024){data, err in
-            let image = UIImage(data: data!, scale: 1.0)
+            let image = UIImage(data: data!, scale: 0.1)
             print("imageview: ", image as Any)
        // print("uiimage: ", fetchedImage.image)
             callback(image!)

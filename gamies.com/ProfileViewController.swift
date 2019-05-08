@@ -38,14 +38,14 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBOutlet weak var username: UILabel!
     
     @IBAction func btnReset(_ sender: Any) {
-        self.imageView.image = UIImage(named: "default.png")
+        self.imageView.image = UIImage(named: "defaultimage.png")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
-        imageView.image = UIImage(named: "default.png")
+        imageView.image = UIImage(named: "defaultimage.png")
         
         //現在ログイン中のユーザーのuserNameを表示
         username.text = user?.displayName
