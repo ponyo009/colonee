@@ -80,7 +80,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func compareTime(timestamp: Timestamp, callback: (String) -> ()){
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .abbreviated
-        formatter.allowedUnits = [.day, .hour, .minute]
+        formatter.allowedUnits = [.day, .hour]
         let matchdata: Date = timestamp.dateValue()
         let span = matchdata.timeIntervalSinceNow
         callback(formatter.string(from: span * -1)!)
