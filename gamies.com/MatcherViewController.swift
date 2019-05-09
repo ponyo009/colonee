@@ -58,7 +58,7 @@ class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     func queryMatched(callback: @escaping ([QueryDocumentSnapshot]) -> ()){
         var documents: [QueryDocumentSnapshot] = []
-        let matchedref = db.collection(GameName).document(UID!).collection("Liked").whereField("matched", isEqualTo: true)
+        let matchedref = db.collection(GameName).document(UID!).collection("Matched")
         matchedref.getDocuments(){snapshot, err in
             if err == nil{
                 documents = snapshot!.documents

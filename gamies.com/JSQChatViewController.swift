@@ -34,8 +34,8 @@ class JSQChatViewController: JSQMessagesViewController {
         senderId = UID
         
         //それぞれのChatデータベースへの参照
-        UserChatref = db.collection(GameName).document(UID!).collection("Liked").document(MatcherUID).collection("Chat")
-        MatcherChatref = db.collection(GameName).document(MatcherUID).collection("Liked").document(UID!).collection("Chat")
+        UserChatref = db.collection(GameName).document(UID!).collection("Matched").document(MatcherUID).collection("Chat")
+        MatcherChatref = db.collection(GameName).document(MatcherUID).collection("Matched").document(UID!).collection("Chat")
         
         //"date"で降順に表示、リアルタイムで”Chat”から取得
         UserChatref.order(by: "timestamp", descending: false).limit(to: messages.count + 25).addSnapshotListener{(snapshot, err) in

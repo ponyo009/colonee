@@ -201,8 +201,8 @@ class SwipeViewController: UIViewController {
     //マッチング処理
     func IsMatch (likedUID: String, nickname: String) {
         let likedref = db.collection(GameName).document(likedUID).collection("Liked").document(UID!)
-        let userOwnMatchedRef = db.collection(GameName).document(UID!).collection("Liked").document(likedUID)
-        let userMatchedRef = db.collection(GameName).document(likedUID).collection("Liked").document(UID!)
+        let userOwnMatchedRef = db.collection(GameName).document(UID!).collection("Matched").document(likedUID)
+        let userMatchedRef = db.collection(GameName).document(likedUID).collection("Matched").document(UID!)
         likedref.getDocument{ (document, error) in
             if document!.exists{
                 //存在した場合(Matchした場合)

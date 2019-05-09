@@ -25,6 +25,8 @@
 		E94821A22282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
 		E94821A32282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
 		E94821A42282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
+		E94821A82282FD660038D5DD /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94821A72282FD660038D5DD /* CollectionViewController.swift */; };
+		E94821AA2284240F0038D5DD /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94821A92284240F0038D5DD /* HamburgerViewController.swift */; };
 		E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96269FF2237A80300E3D980 /* WelcomeViewController.swift */; };
 		E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E79412245EB300032BA7D /* SwipeViewController.swift */; };
 		E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B312B4224326EA00813580 /* UserProfileViewController.swift */; };
@@ -88,6 +90,8 @@
 		E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherViewController.swift; sourceTree = "<group>"; };
 		E914EA512261798D0071BE86 /* JSQChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQChatViewController.swift; sourceTree = "<group>"; };
 		E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E94821A72282FD660038D5DD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		E94821A92284240F0038D5DD /* HamburgerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		E96269FF2237A80300E3D980 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E96E79412245EB300032BA7D /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		E9B312B4224326EA00813580 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -175,12 +179,14 @@
 				E96E79412245EB300032BA7D /* SwipeViewController.swift */,
 				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
 				E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */,
+				E94821A72282FD660038D5DD /* CollectionViewController.swift */,
 				E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
 				E9F63089223387E400CCF153 /* RegistrationViewController.swift */,
 				E57832272233E46B0013E869 /* LoginViewController.swift */,
 				E9F6308D223502FF00CCF153 /* ProfileViewController.swift */,
 				E578320322335C4A0013E869 /* Info.plist */,
+				E94821A92284240F0038D5DD /* HamburgerViewController.swift */,
 				E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
 				E9DACC412277F6B6008C614F /* Tab,Navigationcontrollers */,
@@ -553,7 +559,9 @@
 				E9DACC402277F6A8008C614F /* SwipeNavController.swift in Sources */,
 				E9DACC3A22773662008C614F /* MainTabBarViewController.swift in Sources */,
 				E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */,
+				E94821A82282FD660038D5DD /* CollectionViewController.swift in Sources */,
 				E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */,
+				E94821AA2284240F0038D5DD /* HamburgerViewController.swift in Sources */,
 				E57832282233E46B0013E869 /* LoginViewController.swift in Sources */,
 				E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */,
 				E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */,
