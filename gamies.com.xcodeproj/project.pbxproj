@@ -21,6 +21,8 @@
 		E57832282233E46B0013E869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832272233E46B0013E869 /* LoginViewController.swift */; };
 		E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */; };
 		E5F2DAAD2245EB7C0053AF17 /* MatcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */; };
+		E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B3E228572080057B654 /* SideTabContentViewController.swift */; };
+		E9029B412285973A0057B654 /* MainSideTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B402285973A0057B654 /* MainSideTabViewController.swift */; };
 		E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914EA512261798D0071BE86 /* JSQChatViewController.swift */; };
 		E94821A22282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
 		E94821A32282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
@@ -88,6 +90,8 @@
 		E57832272233E46B0013E869 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherViewController.swift; sourceTree = "<group>"; };
+		E9029B3E228572080057B654 /* SideTabContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTabContentViewController.swift; sourceTree = "<group>"; };
+		E9029B402285973A0057B654 /* MainSideTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSideTabViewController.swift; sourceTree = "<group>"; };
 		E914EA512261798D0071BE86 /* JSQChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQChatViewController.swift; sourceTree = "<group>"; };
 		E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E94821A72282FD660038D5DD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +182,6 @@
 				E914EA512261798D0071BE86 /* JSQChatViewController.swift */,
 				E96E79412245EB300032BA7D /* SwipeViewController.swift */,
 				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
-				E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */,
 				E94821A72282FD660038D5DD /* CollectionViewController.swift */,
 				E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
@@ -190,6 +193,7 @@
 				E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
 				E9DACC412277F6B6008C614F /* Tab,Navigationcontrollers */,
+				E9029B3D228571B10057B654 /* SIdeAndTab */,
 				E9DACC422277F6E7008C614F /* others */,
 			);
 			path = gamies.com;
@@ -213,6 +217,15 @@
 			path = gamies.comUITests;
 			sourceTree = "<group>";
 		};
+		E9029B3D228571B10057B654 /* SIdeAndTab */ = {
+			isa = PBXGroup;
+			children = (
+				E9029B3E228572080057B654 /* SideTabContentViewController.swift */,
+				E9029B402285973A0057B654 /* MainSideTabViewController.swift */,
+			);
+			path = SIdeAndTab;
+			sourceTree = "<group>";
+		};
 		E9DACC412277F6B6008C614F /* Tab,Navigationcontrollers */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +240,7 @@
 		E9DACC422277F6E7008C614F /* others */ = {
 			isa = PBXGroup;
 			children = (
+				E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */,
 				E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */,
 				E57832252233D25B0013E869 /* ProtectedViewController.swift */,
 				E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */,
@@ -566,11 +580,13 @@
 				E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */,
 				E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */,
 				E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */,
+				E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */,
 				E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */,
 				E9DACC3E2277F68A008C614F /* ProfileNavController.swift in Sources */,
 				E5F2DAAD2245EB7C0053AF17 /* MatcherViewController.swift in Sources */,
 				E57831FA22335C480013E869 /* ViewController.swift in Sources */,
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
+				E9029B412285973A0057B654 /* MainSideTabViewController.swift in Sources */,
 				E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */,
 				E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */,
 				E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */,

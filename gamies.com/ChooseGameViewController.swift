@@ -31,7 +31,6 @@ class ChooseGameViewController: UIViewController {
     let db = Firestore.firestore()
     let storage = Storage.storage()
 
-    var introduce: String!
     var nickname: String!
     override func viewDidLoad() {
         
@@ -55,13 +54,12 @@ class ChooseGameViewController: UIViewController {
                 //取得できた場合、UserProfileへ
                 let document_array = document!.data()
                 self.nickname = document_array!["nickname"] as? String
-                self.introduce = document_array!["introduce"] as? String
                 UserDefaults.standard.setValue(self.nickname, forKey: "NickName")
-                self.performSegue(withIdentifier: "ToUserProfile", sender: (Any).self)
+                self.performSegue(withIdentifier: "ToMainView", sender: (Any).self)
             } else {
                 //取得できなかった場合、profile登録画面へ
                 print("Document does not exist")
-                self.performSegue(withIdentifier: "ToProfile", sender: (Any).self)
+                self.performSegue(withIdentifier: "ToUserProfile", sender: (Any).self)
             }
         }
     }
@@ -71,13 +69,7 @@ class ChooseGameViewController: UIViewController {
         if (segue.identifier == "ToProfile" ){
             let vc = segue.destination as! ProfileViewController
             vc.GameName = GameNames[tagnum]
-        }else if (segue.identifier == "ToUserProfile"){
-            let vc2 = segue.destination as! MainTabBarViewController
-            vc2.nickname = nickname
-            vc2.introduce = introduce
-            //vc2.GameName = GameNames[tagnum]
         }
-
     }
 }
 

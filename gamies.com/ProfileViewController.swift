@@ -113,21 +113,11 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         print("Profile Saved")
         
         
-        self.performSegue(withIdentifier: "ToSwipeFromRegister", sender: (Any).self)
+        self.performSegue(withIdentifier: "ToMainView", sender: (Any).self)
 
         
         
         }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if ( segue.identifier == "ToSwipeFromRegister"){
-            let vc = segue.destination as! MainTabBarViewController
-            vc.nickname = NicknameTextField.text!
-            vc.introduce = IntroduceTextField.text!
-          //  vc.GameName = GameName
-        }
-    }
- 
 }
     
 

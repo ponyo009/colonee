@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionViewController: SideTabContentViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     
     @IBOutlet weak var CollectionView: UICollectionView!
@@ -123,8 +123,6 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-            
-            
             MatcherImageView = cell.viewWithTag(1) as! UIImageView
             MatcherNameLabel = cell.viewWithTag(2) as! UILabel
             //MatcherIntroduce = cell.viewWithTag(3) as! UILabel
@@ -151,6 +149,12 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             let ref = db.collection(GameName).document(UID!).collection("Matched").document(SelectedUID!)
             ref.setData(["checked": true], merge: true)
             IsChecked[indexPath.row] = true
+            
+            //SideMenuが表示されていた場合、隠す。
+            let MainVC = self.tabBarController?.parent as? MainSideTabViewController
+            if (MainVC?.menuVisible)! {
+            MainVC?.toggleSideMenu(fromVIewController: self)
+            }
             //pushで画面遷移
             performSegue(withIdentifier: "ToChat", sender: (Any).self)
         }
@@ -159,9 +163,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         override func prepare(for segue: UIStoryboardSegue, sender:Any?){
             
             if (segue.identifier == "ToChat"){
-                
                 let chatVC:JSQChatViewController = segue.destination as! JSQChatViewController
-                
                 //chatVC.cellNumber = cellNumber
                 //chatVC.GameName = GameName
                 chatVC.MatcherName = SelectedName

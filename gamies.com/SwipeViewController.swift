@@ -10,7 +10,7 @@ import UIKit
 import FirebaseUI
 import Firebase
 
-class SwipeViewController: UIViewController {
+class SwipeViewController: SideTabContentViewController {
 
 
     @IBOutlet weak var NoMoreCard: UILabel!

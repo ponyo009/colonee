@@ -11,20 +11,11 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
 
     
-    var nickname = ""
-    var introduce = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        for viewController in viewControllers! {
-            if let ProfileNavController = viewController as? ProfileNavController {
-                if let UserProfileVC = ProfileNavController.viewControllers.first as? UserProfileViewController {
-                    UserProfileVC.nickname = nickname
-                    UserProfileVC.introduce = introduce
-                }
-            }
-        }
         // Do any additional setup after loading the view..
     }
     
