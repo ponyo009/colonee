@@ -58,12 +58,17 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
     
     func fetchImages(userID: String, callback:@escaping (UIImage) -> ()){
         //var fetchedImage = UIImage()
+        var image = UIImage(named: "default")
         let imageRef = storage.reference().child(userID).child("\((GameName)).jpeg")
         imageRef.getData(maxSize: 1*1024*1024){data, err in
-            let image = UIImage(data: data!, scale: 0.1)
-            print("imageview: ", image as Any)
-            // print("uiimage: ", fetchedImage.image)
-            callback(image!)
+            if data != nil {
+                image = UIImage(data: data!, scale: 0.1)
+                print("imageview: ", image as Any)
+                // print("uiimage: ", fetchedImage.image)
+                callback(image!)
+            }else{
+                callback(image!)
+            }
         }
     }
     

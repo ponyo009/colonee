@@ -59,7 +59,7 @@ class ChooseGameViewController: UIViewController {
             } else {
                 //取得できなかった場合、profile登録画面へ
                 print("Document does not exist")
-                self.performSegue(withIdentifier: "ToUserProfile", sender: (Any).self)
+                self.performSegue(withIdentifier: "ToProfile", sender: (Any).self)
             }
         }
     }

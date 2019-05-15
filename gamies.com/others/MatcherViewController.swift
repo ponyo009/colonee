@@ -12,7 +12,7 @@ import FirebaseUI
 
 
 
-class MatcherViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class MatcherViewController:SideTabContentViewController, UITableViewDelegate, UITableViewDataSource {
 
     let UID = Auth.auth().currentUser?.uid
     
