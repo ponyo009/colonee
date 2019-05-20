@@ -277,7 +277,6 @@
                         <viewLayoutGuide key="safeArea" id="HLo-Al-ETc"/>
                     </view>
                     <connections>
-                        <outlet property="chooseCollectionView" destination="21f-6o-VaG" id="8KE-C9-ps6"/>
                         <segue destination="ZY1-YB-rXJ" kind="modal" id="Fac-M7-4GP"/>
                     </connections>
                 </viewController>
@@ -886,7 +885,6 @@
                         <outlet property="userEmailTextField" destination="7MT-oi-dxj" id="l4h-jK-tuL"/>
                         <outlet property="userPasswordField" destination="BM6-EF-yuz" id="gye-67-1r1"/>
                         <segue destination="Pee-0p-LxU" kind="modal" identifier="ToRegister" id="tgP-lf-EMP"/>
-                        <segue destination="uiQ-sC-9om" kind="modal" identifier="ChooseGame" id="kO5-d8-E8e"/>
                         <segue destination="8KU-ru-ygm" kind="modal" identifier="ToChooseGame" id="hTG-9r-Qr7"/>
                     </connections>
                 </viewController>
@@ -1237,7 +1235,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Fac-M7-4GP"/>
         <segue reference="iov-F7-cBf"/>
-        <segue reference="kO5-d8-E8e"/>
-        <segue reference="tgP-lf-EMP"/>
+        <segue reference="E3E-Mf-7zU"/>
     </inferredMetricsTieBreakers>
 </document>
