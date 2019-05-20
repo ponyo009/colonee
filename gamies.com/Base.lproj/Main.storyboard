@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8KU-ru-ygm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fEl-iL-qie">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTR-6k-KEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3388" y="-475.41229385307349"/>
+            <point key="canvasLocation" x="3409" y="-890"/>
         </scene>
         <!--CollectionView-->
         <scene sceneID="pzm-pA-Xoj">
@@ -886,7 +886,8 @@
                         <outlet property="userEmailTextField" destination="7MT-oi-dxj" id="l4h-jK-tuL"/>
                         <outlet property="userPasswordField" destination="BM6-EF-yuz" id="gye-67-1r1"/>
                         <segue destination="Pee-0p-LxU" kind="modal" identifier="ToRegister" id="tgP-lf-EMP"/>
-                        <segue destination="uiQ-sC-9om" kind="modal" identifier="ToChooseGame" id="kO5-d8-E8e"/>
+                        <segue destination="uiQ-sC-9om" kind="modal" identifier="ChooseGame" id="kO5-d8-E8e"/>
+                        <segue destination="8KU-ru-ygm" kind="modal" identifier="ToChooseGame" id="hTG-9r-Qr7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auh-WD-qtG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1236,7 +1237,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Fac-M7-4GP"/>
         <segue reference="iov-F7-cBf"/>
-        <segue reference="FEs-Vn-5fU"/>
+        <segue reference="kO5-d8-E8e"/>
         <segue reference="tgP-lf-EMP"/>
     </inferredMetricsTieBreakers>
 </document>
