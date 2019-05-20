@@ -104,10 +104,14 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             "introduce": IntroduceTextField.text!
             ])
          */
-        
-        db.collection(GameName).document((user?.uid)!).setData([
+        let gameUserRef =  db.collection(GameName).document((user?.uid)!)
+        gameUserRef.setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
+            ])
+        
+        db.collection("users").document(user!.uid).collection("Games").document(GameName).setData ([
+            "ref": gameUserRef
             ])
         
         print("Profile Saved")

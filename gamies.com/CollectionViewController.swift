@@ -144,8 +144,10 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
             return cell
         }
         
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+           // collectionView.viewWithTag(<#T##tag: Int##Int#>)
+        
             cellNumber = indexPath.row
             SelectedName = MatchedNames[indexPath.row]
             SelectedUID = MatchedUIDs[indexPath.row]

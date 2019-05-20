@@ -11,24 +11,26 @@ import UIKit
 class SidemenuViewController: UIViewController {
 
     @IBOutlet weak var gamename: UILabel!
-    @IBOutlet weak var gameTableView: UITableView!
+    @IBOutlet weak var SideMenuCollectionView: UICollectionView!
+    
     let cellidentifier = "sidemenucell"
     var currentActivNav: UINavigationController?
     
     var gameCount = 0
     var gameIcon = UIImage()
+    let GameName = UserDefaults.standard.object(forKey: "GameName") as! String
     
     var imageArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(gameIcon)
-        gamename.text = UserDefaults.standard.object(forKey: "GameName") as? String
-        imageArray.append(UIImage(named: "荒野行動")!)
+        gamename.text = GameName
+        imageArray.append(UIImage(named: GameName)!)
         //gameTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellidentifier)
-        gameTableView.dataSource = self
-        gameTableView.delegate = self
-        gameTableView.reloadData()
+        SideMenuCollectionView.dataSource = self
+        SideMenuCollectionView.delegate = self
+        SideMenuCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
     /*
@@ -42,31 +44,31 @@ class SidemenuViewController: UIViewController {
     */
 }
 
-extension SidemenuViewController : UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension SidemenuViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellidentifier, for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellidentifier, for: indexPath)
         
         let gameimage = cell.viewWithTag(1) as! UIImageView
         gameimage.image = imageArray[indexPath.row]
-       
+        
         return cell
     }
 }
 
-extension SidemenuViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+extension SidemenuViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         
-        if let currentActiveNav = self.currentActivNav,
+        if let currentActivNav = self.currentActivNav,
             let mainVC = self.parent as? MainSideTabViewController {
             mainVC.hideSideMenu()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let profileVC = storyboard.instantiateViewController(withIdentifier: "ChooseGameViewController")
-            currentActiveNav.pushViewController(profileVC, animated: true)
+            currentActivNav.pushViewController(profileVC, animated: true)
         }
     }
 }
