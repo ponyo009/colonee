@@ -11,7 +11,6 @@
 		ACEC7B325F0B0F7032990D25 /* Pods_gamies_comTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C2A0EC00FEAC61638A5571 /* Pods_gamies_comTests.framework */; };
 		E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */; };
 		E57831F822335C480013E869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F722335C480013E869 /* AppDelegate.swift */; };
-		E57831FA22335C480013E869 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F922335C480013E869 /* ViewController.swift */; };
 		E57831FD22335C480013E869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57831FB22335C480013E869 /* Main.storyboard */; };
 		E57831FF22335C4A0013E869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E57831FE22335C4A0013E869 /* Assets.xcassets */; };
 		E578320222335C4A0013E869 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E578320022335C4A0013E869 /* LaunchScreen.storyboard */; };
@@ -21,10 +20,14 @@
 		E57832282233E46B0013E869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832272233E46B0013E869 /* LoginViewController.swift */; };
 		E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */; };
 		E5F2DAAD2245EB7C0053AF17 /* MatcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */; };
+		E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B3E228572080057B654 /* SideTabContentViewController.swift */; };
+		E9029B412285973A0057B654 /* MainSideTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B402285973A0057B654 /* MainSideTabViewController.swift */; };
+		E9029B43228A569F0057B654 /* SidemenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B42228A569F0057B654 /* SidemenuViewController.swift */; };
 		E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914EA512261798D0071BE86 /* JSQChatViewController.swift */; };
 		E94821A22282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
 		E94821A32282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
 		E94821A42282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
+		E94821A82282FD660038D5DD /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94821A72282FD660038D5DD /* CollectionViewController.swift */; };
 		E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96269FF2237A80300E3D980 /* WelcomeViewController.swift */; };
 		E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E79412245EB300032BA7D /* SwipeViewController.swift */; };
 		E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B312B4224326EA00813580 /* UserProfileViewController.swift */; };
@@ -33,7 +36,6 @@
 		E9DACC3C2277F656008C614F /* MatcherNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DACC3B2277F656008C614F /* MatcherNavController.swift */; };
 		E9DACC3E2277F68A008C614F /* ProfileNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DACC3D2277F68A008C614F /* ProfileNavController.swift */; };
 		E9DACC402277F6A8008C614F /* SwipeNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DACC3F2277F6A8008C614F /* SwipeNavController.swift */; };
-		E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308722336C3300CCF153 /* ListViewController.swift */; };
 		E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F63089223387E400CCF153 /* RegistrationViewController.swift */; };
 		E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */; };
 		E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308D223502FF00CCF153 /* ProfileViewController.swift */; };
@@ -71,7 +73,6 @@
 		E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUsersViewController.swift; sourceTree = "<group>"; };
 		E57831F422335C480013E869 /* gamies.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamies.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57831F722335C480013E869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E57831F922335C480013E869 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E57831FC22335C480013E869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E57831FE22335C4A0013E869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E578320122335C4A0013E869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,8 +87,12 @@
 		E57832272233E46B0013E869 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherViewController.swift; sourceTree = "<group>"; };
+		E9029B3E228572080057B654 /* SideTabContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTabContentViewController.swift; sourceTree = "<group>"; };
+		E9029B402285973A0057B654 /* MainSideTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSideTabViewController.swift; sourceTree = "<group>"; };
+		E9029B42228A569F0057B654 /* SidemenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuViewController.swift; sourceTree = "<group>"; };
 		E914EA512261798D0071BE86 /* JSQChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQChatViewController.swift; sourceTree = "<group>"; };
 		E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E94821A72282FD660038D5DD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		E96269FF2237A80300E3D980 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E96E79412245EB300032BA7D /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		E9B312B4224326EA00813580 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +101,6 @@
 		E9DACC3B2277F656008C614F /* MatcherNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherNavController.swift; sourceTree = "<group>"; };
 		E9DACC3D2277F68A008C614F /* ProfileNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavController.swift; sourceTree = "<group>"; };
 		E9DACC3F2277F6A8008C614F /* SwipeNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeNavController.swift; sourceTree = "<group>"; };
-		E9F6308722336C3300CCF153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E9F63089223387E400CCF153 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameViewController.swift; sourceTree = "<group>"; };
 		E9F6308D223502FF00CCF153 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +178,7 @@
 				E914EA512261798D0071BE86 /* JSQChatViewController.swift */,
 				E96E79412245EB300032BA7D /* SwipeViewController.swift */,
 				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
-				E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */,
+				E94821A72282FD660038D5DD /* CollectionViewController.swift */,
 				E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
 				E9F63089223387E400CCF153 /* RegistrationViewController.swift */,
@@ -184,6 +188,7 @@
 				E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
 				E9DACC412277F6B6008C614F /* Tab,Navigationcontrollers */,
+				E9029B3D228571B10057B654 /* SIdeMenu */,
 				E9DACC422277F6E7008C614F /* others */,
 			);
 			path = gamies.com;
@@ -207,6 +212,16 @@
 			path = gamies.comUITests;
 			sourceTree = "<group>";
 		};
+		E9029B3D228571B10057B654 /* SIdeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E9029B3E228572080057B654 /* SideTabContentViewController.swift */,
+				E9029B42228A569F0057B654 /* SidemenuViewController.swift */,
+				E9029B402285973A0057B654 /* MainSideTabViewController.swift */,
+			);
+			path = SIdeMenu;
+			sourceTree = "<group>";
+		};
 		E9DACC412277F6B6008C614F /* Tab,Navigationcontrollers */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,11 +236,10 @@
 		E9DACC422277F6E7008C614F /* others */ = {
 			isa = PBXGroup;
 			children = (
+				E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */,
 				E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */,
 				E57832252233D25B0013E869 /* ProtectedViewController.swift */,
 				E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */,
-				E57831F922335C480013E869 /* ViewController.swift */,
-				E9F6308722336C3300CCF153 /* ListViewController.swift */,
 			);
 			path = others;
 			sourceTree = "<group>";
@@ -553,18 +567,20 @@
 				E9DACC402277F6A8008C614F /* SwipeNavController.swift in Sources */,
 				E9DACC3A22773662008C614F /* MainTabBarViewController.swift in Sources */,
 				E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */,
+				E94821A82282FD660038D5DD /* CollectionViewController.swift in Sources */,
 				E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */,
 				E57832282233E46B0013E869 /* LoginViewController.swift in Sources */,
 				E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */,
+				E9029B43228A569F0057B654 /* SidemenuViewController.swift in Sources */,
 				E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */,
 				E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */,
+				E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */,
 				E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */,
 				E9DACC3E2277F68A008C614F /* ProfileNavController.swift in Sources */,
 				E5F2DAAD2245EB7C0053AF17 /* MatcherViewController.swift in Sources */,
-				E57831FA22335C480013E869 /* ViewController.swift in Sources */,
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
+				E9029B412285973A0057B654 /* MainSideTabViewController.swift in Sources */,
 				E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */,
-				E9F6308822336C3300CCF153 /* ListViewController.swift in Sources */,
 				E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */,
 				E57832262233D25B0013E869 /* ProtectedViewController.swift in Sources */,
 				E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */,

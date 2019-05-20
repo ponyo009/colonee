@@ -12,7 +12,7 @@ import FirebaseUI
 import FirebaseDatabase
 
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: SideTabContentViewController {
 
     @IBOutlet weak var user_nickname: UILabel!
     @IBOutlet weak var user_introduce: UILabel!
@@ -23,15 +23,14 @@ class UserProfileViewController: UIViewController {
     let storage = Storage.storage()
     
     //ChooseGameから受けとり
-    var nickname = ""
-    var introduce = ""
+   
     let GameName = UserDefaults.standard.object(forKey: "GameName") as! String
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let UID = user!.uid
 
-        print("GameName@Profile: ", GameName)
+        //print("GameName@Profile: ", GameName)
         //imageViewの初期化
        iconimage.image = UIImage(named: "default.png")
         
@@ -39,8 +38,9 @@ class UserProfileViewController: UIViewController {
         let ref = storage.reference().child(UID).child("\(GameName).jpeg")
         iconimage.sd_setImage(with: ref)
         user_nickname.text = UserDefaults.standard.object(forKey: "NickName") as? String
-        user_introduce.text = introduce
-        print("nickname: ", user_nickname.text!)
+        db.collection(GameName).document(UID).getDocument(){document, err  in
+            self.user_introduce.text = document?.data()!["introduce"] as? String
+        }
         // Do any additional setup after loading the view.
     }
     

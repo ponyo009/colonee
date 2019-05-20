@@ -38,14 +38,14 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBOutlet weak var username: UILabel!
     
     @IBAction func btnReset(_ sender: Any) {
-        self.imageView.image = UIImage(named: "default.png")
+        self.imageView.image = UIImage(named: "defaultimage.png")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //GameChooseで選択したゲーム名をs受け取る
         gamename.text = GameName
-        imageView.image = UIImage(named: "default.png")
+        imageView.image = UIImage(named: "defaultimage.png")
         
         //現在ログイン中のユーザーのuserNameを表示
         username.text = user?.displayName
@@ -104,30 +104,24 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             "introduce": IntroduceTextField.text!
             ])
          */
-        
-        db.collection(GameName).document((user?.uid)!).setData([
+        let gameUserRef =  db.collection(GameName).document((user?.uid)!)
+        gameUserRef.setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
+            ])
+        
+        db.collection("users").document(user!.uid).collection("Games").document(GameName).setData ([
+            "ref": gameUserRef
             ])
         
         print("Profile Saved")
         
         
-        self.performSegue(withIdentifier: "ToSwipeFromRegister", sender: (Any).self)
+        self.performSegue(withIdentifier: "ToMainView", sender: (Any).self)
 
         
         
         }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if ( segue.identifier == "ToSwipeFromRegister"){
-            let vc = segue.destination as! MainTabBarViewController
-            vc.nickname = NicknameTextField.text!
-            vc.introduce = IntroduceTextField.text!
-          //  vc.GameName = GameName
-        }
-    }
- 
 }
     
 
