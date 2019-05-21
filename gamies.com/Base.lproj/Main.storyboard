@@ -277,6 +277,7 @@
                         <viewLayoutGuide key="safeArea" id="HLo-Al-ETc"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="21f-6o-VaG" id="LXZ-00-jAY"/>
                         <segue destination="ZY1-YB-rXJ" kind="modal" id="Fac-M7-4GP"/>
                     </connections>
                 </viewController>
