@@ -21,6 +21,7 @@ class SwipeViewController: SideTabContentViewController {
     
     var UserOwnNickName = UserDefaults.standard.object(forKey: "NickName") as! String
     var GameName = UserDefaults.standard.object(forKey: "GameName") as! String
+    let gameID =  UserDefaults.standard.object(forKey: "gameID") as! String
     
     //データ数とスワイプカウンター
     var data_volume = 0
@@ -61,7 +62,7 @@ class SwipeViewController: SideTabContentViewController {
     
     //imageview作成と画像取得（UserIconImage.imageがnilになる時がある）
     func CreateIconImageView(document_id: String) {
-        let storageref = storage.reference().child(document_id).child("\(GameName).jpeg")
+        let storageref = storage.reference().child(document_id).child("\(gameID).jpeg")
         UserIconImage = UIImageView(frame:self.iconImageFrame )
         UserIconImage.tag = tagnum
         UserIconImage.sd_setImage(with: storageref)
@@ -97,7 +98,7 @@ class SwipeViewController: SideTabContentViewController {
     
     //
     func getAllDocuments(callback:@escaping (QuerySnapshot) -> ()){
-        db.collection(GameName).getDocuments() { (querySnapshot, err) in
+        db.collection(gameID).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -108,7 +109,7 @@ class SwipeViewController: SideTabContentViewController {
     //スワイプ済みの相手を除外
     func isSwiped(document_id: String, callback: @escaping (Bool) -> ()){
         var isSwiped: Bool!
-        let islikedref = db.collection(GameName).document(UID!).collection("Liked").document(document_id)
+        let islikedref = db.collection(gameID).document(UID!).collection("Liked").document(document_id)
         islikedref.getDocument{(document, error) in
             if document!.exists  {
                 print("This User(\(document_id)) is already Swiped")
@@ -162,7 +163,7 @@ class SwipeViewController: SideTabContentViewController {
                     self.UserCard.center = CGPoint(x: self.UserCard.center.x - 350, y: self.UserCard.center.y)
                 })
                 self.UserCard.removeFromSuperview()
-                db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": false])
+                db.collection(gameID).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": false])
                 swipe_counter += 1
                 if swipe_counter > data_volume{
                     NoMoreCard.alpha = 1
@@ -181,7 +182,7 @@ class SwipeViewController: SideTabContentViewController {
                //LikedUIDs.append(UserIDs[data_volume - swipe_counter])
                 //LikedImages.updateValue(IconImages[data_volume - swipe_counter], forKey: UserIDs[data_volume - swipe_counter])
                 //LikedUserInfos.updateValue(UserIDs[data_volume - swipe_counter], forKey: NickNames[data_volume - swipe_counter])
-                db.collection(GameName).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
+                db.collection(gameID).document(UID!).collection("Liked").document(UserIDs[data_volume - swipe_counter]).setData(["Liked": true])
                 IsMatch(likedUID: UserIDs[data_volume - swipe_counter], nickname: NickNames[data_volume - swipe_counter])
                 swipe_counter += 1
                 if swipe_counter > data_volume{
@@ -200,9 +201,9 @@ class SwipeViewController: SideTabContentViewController {
     
     //マッチング処理
     func IsMatch (likedUID: String, nickname: String) {
-        let likedref = db.collection(GameName).document(likedUID).collection("Liked").document(UID!)
-        let userOwnMatchedRef = db.collection(GameName).document(UID!).collection("Matched").document(likedUID)
-        let userMatchedRef = db.collection(GameName).document(likedUID).collection("Matched").document(UID!)
+        let likedref = db.collection(gameID).document(likedUID).collection("Liked").document(UID!)
+        let userOwnMatchedRef = db.collection(gameID).document(UID!).collection("Matched").document(likedUID)
+        let userMatchedRef = db.collection(gameID).document(likedUID).collection("Matched").document(UID!)
         likedref.getDocument{ (document, error) in
             if document!.exists{
                 //存在した場合(Matchした場合)

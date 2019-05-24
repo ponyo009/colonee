@@ -18,7 +18,7 @@
 		E578321822335C4B0013E869 /* gamies_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578321722335C4B0013E869 /* gamies_comUITests.swift */; };
 		E57832262233D25B0013E869 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832252233D25B0013E869 /* ProtectedViewController.swift */; };
 		E57832282233E46B0013E869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57832272233E46B0013E869 /* LoginViewController.swift */; };
-		E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */; };
+		E5BF1C8D2249FC7B00E1E7E9 /* ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF1C8C2249FC7B00E1E7E9 /* ChooseGameViewController.swift */; };
 		E5F2DAAD2245EB7C0053AF17 /* MatcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */; };
 		E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B3E228572080057B654 /* SideTabContentViewController.swift */; };
 		E9029B412285973A0057B654 /* MainSideTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B402285973A0057B654 /* MainSideTabViewController.swift */; };
@@ -37,7 +37,7 @@
 		E9DACC3E2277F68A008C614F /* ProfileNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DACC3D2277F68A008C614F /* ProfileNavController.swift */; };
 		E9DACC402277F6A8008C614F /* SwipeNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DACC3F2277F6A8008C614F /* SwipeNavController.swift */; };
 		E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F63089223387E400CCF153 /* RegistrationViewController.swift */; };
-		E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */; };
+		E9F6308C2233956F00CCF153 /* Pre_ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308B2233956F00CCF153 /* Pre_ChooseGameViewController.swift */; };
 		E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308D223502FF00CCF153 /* ProfileViewController.swift */; };
 		F52396B75E953F7AC1C35AD8 /* Pods_gamies_com.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3634EA708EBDACB1C9EF7A1 /* Pods_gamies_com.framework */; };
 /* End PBXBuildFile section */
@@ -85,7 +85,7 @@
 		E578321922335C4B0013E869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E57832252233D25B0013E869 /* ProtectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
 		E57832272233E46B0013E869 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
+		E5BF1C8C2249FC7B00E1E7E9 /* ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameViewController.swift; sourceTree = "<group>"; };
 		E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherViewController.swift; sourceTree = "<group>"; };
 		E9029B3E228572080057B654 /* SideTabContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTabContentViewController.swift; sourceTree = "<group>"; };
 		E9029B402285973A0057B654 /* MainSideTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSideTabViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		E9DACC3D2277F68A008C614F /* ProfileNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavController.swift; sourceTree = "<group>"; };
 		E9DACC3F2277F6A8008C614F /* SwipeNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeNavController.swift; sourceTree = "<group>"; };
 		E9F63089223387E400CCF153 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameViewController.swift; sourceTree = "<group>"; };
+		E9F6308B2233956F00CCF153 /* Pre_ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pre_ChooseGameViewController.swift; sourceTree = "<group>"; };
 		E9F6308D223502FF00CCF153 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,7 +179,7 @@
 				E96E79412245EB300032BA7D /* SwipeViewController.swift */,
 				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
 				E94821A72282FD660038D5DD /* CollectionViewController.swift */,
-				E9F6308B2233956F00CCF153 /* ChooseGameViewController.swift */,
+				E5BF1C8C2249FC7B00E1E7E9 /* ChooseGameViewController.swift */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
 				E9F63089223387E400CCF153 /* RegistrationViewController.swift */,
 				E57832272233E46B0013E869 /* LoginViewController.swift */,
@@ -237,7 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */,
-				E5BF1C8C2249FC7B00E1E7E9 /* PracticeViewController.swift */,
+				E9F6308B2233956F00CCF153 /* Pre_ChooseGameViewController.swift */,
 				E57832252233D25B0013E869 /* ProtectedViewController.swift */,
 				E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */,
 			);
@@ -572,8 +572,8 @@
 				E57832282233E46B0013E869 /* LoginViewController.swift in Sources */,
 				E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */,
 				E9029B43228A569F0057B654 /* SidemenuViewController.swift in Sources */,
-				E5BF1C8D2249FC7B00E1E7E9 /* PracticeViewController.swift in Sources */,
-				E9F6308C2233956F00CCF153 /* ChooseGameViewController.swift in Sources */,
+				E5BF1C8D2249FC7B00E1E7E9 /* ChooseGameViewController.swift in Sources */,
+				E9F6308C2233956F00CCF153 /* Pre_ChooseGameViewController.swift in Sources */,
 				E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */,
 				E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */,
 				E9DACC3E2277F68A008C614F /* ProfileNavController.swift in Sources */,

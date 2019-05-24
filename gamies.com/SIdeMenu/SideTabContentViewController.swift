@@ -11,7 +11,7 @@ import UIKit
 class SideTabContentViewController: UIViewController {
 
     let ProfileButton = UIButton(type: .custom)
-    var imagename = UserDefaults.standard.object(forKey: "GameName") as! String
+    var imagename = UserDefaults.standard.object(forKey: "gameID") as! String
 
     override func viewDidLoad() {
         super.viewDidLoad()

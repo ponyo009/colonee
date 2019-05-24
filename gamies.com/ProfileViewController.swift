@@ -31,8 +31,8 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var gamename: UILabel!
     var GameName = UserDefaults.standard.object(forKey: "GameName") as! String
+    let gameID =  UserDefaults.standard.object(forKey: "gameID") as! String
 
-    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var username: UILabel!
@@ -76,7 +76,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         let storageref = storage.reference()
         //userID下のGameNameに画像を保存
-        let usericonref = storageref.child(UID!).child("\(GameName).jpeg")
+        let usericonref = storageref.child(UID!).child("\(gameID).jpeg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         let usericonimage = image?.jpegData(compressionQuality: 0.2)
@@ -104,14 +104,15 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             "introduce": IntroduceTextField.text!
             ])
          */
-        let gameUserRef =  db.collection(GameName).document((user?.uid)!)
+        let gameUserRef =  db.collection(gameID).document((user?.uid)!)
         gameUserRef.setData([
             "nickname": NicknameTextField.text!,
             "introduce": IntroduceTextField.text!
             ])
         
-        db.collection("users").document(user!.uid).collection("Games").document(GameName).setData ([
-            "ref": gameUserRef
+        db.collection("users").document(user!.uid).collection("Games").document(gameID).setData ([
+            "ref": gameUserRef,
+            "title": GameName
             ])
         
         print("Profile Saved")

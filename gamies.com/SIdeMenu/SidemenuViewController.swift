@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
 
 class SidemenuViewController: UIViewController {
 
-    @IBOutlet weak var gamename: UILabel!
+   
     @IBOutlet weak var SideMenuCollectionView: UICollectionView!
     
     let cellidentifier = "sidemenucell"
@@ -18,19 +20,33 @@ class SidemenuViewController: UIViewController {
     
     var gameCount = 0
     var gameIcon = UIImage()
-    let GameName = UserDefaults.standard.object(forKey: "GameName") as! String
+    var GameName = UserDefaults.standard.object(forKey: "GameName") as! String
+    var gameID = UserDefaults.standard.object(forKey: "gameID") as! String
+    let gameref = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("Games")
     
     var imageArray = [UIImage]()
+    var gameIDs = [String]()
+    var cellcount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(gameIcon)
-        gamename.text = GameName
-        imageArray.append(UIImage(named: GameName)!)
-        //gameTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellidentifier)
-        SideMenuCollectionView.dataSource = self
-        SideMenuCollectionView.delegate = self
-        SideMenuCollectionView.reloadData()
+        //初期化
+        gameIcon = UIImage()
+        imageArray = [UIImage]()
+        gameIDs = [String]()
+        
+        gameref.getDocuments { (snapshot, err) in
+            let documents = snapshot?.documents
+            for document in documents! {
+                let iconName = document.documentID
+                self.gameIDs.append(iconName)
+                self.imageArray.append(UIImage(named: iconName)!)
+                //gameTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellidentifier)
+                self.SideMenuCollectionView.dataSource = self
+                self.SideMenuCollectionView.delegate = self
+                self.SideMenuCollectionView.reloadData()
+            }
+        }
         // Do any additional setup after loading the view.
     }
     /*
@@ -44,34 +60,48 @@ class SidemenuViewController: UIViewController {
     */
 }
 
+
 extension SidemenuViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
+        return imageArray.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellidentifier, for: indexPath)
         
         let gameimage = cell.viewWithTag(1) as! UIImageView
-        gameimage.image = imageArray[indexPath.row]
-        
+        if cellcount == imageArray.count{
+            gameimage.image = UIImage(named: "gamies")
+            cell.tag = 1
+        }else{
+             gameimage.image = imageArray[indexPath.row]
+        }
+        cellcount += 1
         return cell
     }
 }
 
 extension SidemenuViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        
-        if let currentActivNav = self.currentActivNav,
+        //collectionView.deselectItem(at: indexPath, animated: true)
+        let cell = collectionView.cellForItem(at: indexPath)
+        if cell!.tag == 1 {
+            performSegue(withIdentifier: "toChoose", sender: (Any).self)
+        }else{
+            UserDefaults.standard.set(gameIDs[indexPath.row], forKey: "gameID")
+            performSegue(withIdentifier: "toMain", sender: (Any).self)
+        }
+        //if let currentActivNav = self.currentActivNav,
+                /*
             let mainVC = self.parent as? MainSideTabViewController {
             mainVC.hideSideMenu()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let profileVC = storyboard.instantiateViewController(withIdentifier: "ChooseGameViewController")
             currentActivNav.pushViewController(profileVC, animated: true)
+        */
         }
     }
-}
+
 /*
 extension SidemenuViewController: UICollectionViewDataSource {
     

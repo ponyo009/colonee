@@ -21,10 +21,10 @@ class UserProfileViewController: SideTabContentViewController {
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     let storage = Storage.storage()
-    
-    //ChooseGameから受けとり
-   
+
     let GameName = UserDefaults.standard.object(forKey: "GameName") as! String
+    let gameID =  UserDefaults.standard.object(forKey: "gameID") as! String
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +35,10 @@ class UserProfileViewController: SideTabContentViewController {
        iconimage.image = UIImage(named: "default.png")
         
         //userimageiconの取得
-        let ref = storage.reference().child(UID).child("\(GameName).jpeg")
+        let ref = storage.reference().child(UID).child("\(gameID).jpeg")
         iconimage.sd_setImage(with: ref)
         user_nickname.text = UserDefaults.standard.object(forKey: "NickName") as? String
-        db.collection(GameName).document(UID).getDocument(){document, err  in
+        db.collection(gameID).document(UID).getDocument(){document, err  in
             self.user_introduce.text = document?.data()!["introduce"] as? String
         }
         // Do any additional setup after loading the view.

@@ -18,7 +18,8 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
         let UID = Auth.auth().currentUser?.uid
         var UserOwnNickName = ""
         var GameName = UserDefaults.standard.object(forKey: "GameName") as! String
-        
+        let gameID =  UserDefaults.standard.object(forKey: "gameID") as! String
+
         
         //DB参照等
         let db = Firestore.firestore()
@@ -45,7 +46,7 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
     
     func queryMatched(callback: @escaping ([QueryDocumentSnapshot]) -> ()){
         var documents: [QueryDocumentSnapshot] = []
-        let matchedref = db.collection(GameName).document(UID!).collection("Matched")
+        let matchedref = db.collection(gameID).document(UID!).collection("Matched")
         matchedref.getDocuments(){snapshot, err in
             if err == nil{
                 documents = snapshot!.documents
@@ -59,7 +60,7 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
     func fetchImages(userID: String, callback:@escaping (UIImage) -> ()){
         //var fetchedImage = UIImage()
         var image = UIImage(named: "default")
-        let imageRef = storage.reference().child(userID).child("\((GameName)).jpeg")
+        let imageRef = storage.reference().child(userID).child("\((gameID)).jpeg")
         imageRef.getData(maxSize: 1*1024*1024){data, err in
             if data != nil {
                 image = UIImage(data: data!, scale: 0.1)
@@ -153,7 +154,7 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
             SelectedUID = MatchedUIDs[indexPath.row]
             SelectedImage = MatcherImageArray[indexPath.row]
             
-            let ref = db.collection(GameName).document(UID!).collection("Matched").document(SelectedUID!)
+            let ref = db.collection(gameID).document(UID!).collection("Matched").document(SelectedUID!)
             ref.setData(["checked": true], merge: true)
             IsChecked[indexPath.row] = true
             
