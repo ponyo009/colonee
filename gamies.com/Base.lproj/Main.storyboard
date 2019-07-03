@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-5T-nvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2586" y="-475"/>
+            <point key="canvasLocation" x="3345" y="-475"/>
         </scene>
         <!--ChooseGameController-->
         <scene sceneID="UUY-RP-dco">
@@ -285,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTR-6k-KEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="-475"/>
+            <point key="canvasLocation" x="1425" y="-475"/>
         </scene>
         <!--CollectionView-->
         <scene sceneID="pzm-pA-Xoj">
@@ -491,9 +491,6 @@
                                 <rect key="frame" x="156.5" y="565" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="利用規約"/>
-                                <connections>
-                                    <segue destination="RdA-2y-kGz" kind="modal" id="gBB-9o-BoA"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-ly-mkX">
                                 <rect key="frame" x="112.5" y="375" width="150" height="39"/>
@@ -562,7 +559,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbT-uC-gqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wRm-d6-wmr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2396" y="-1252"/>
+            <point key="canvasLocation" x="2532" y="-2055"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="jhE-4h-Q3M">
@@ -686,7 +683,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5o-lz-UHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1250" y="-1448"/>
+            <point key="canvasLocation" x="-290" y="-1889"/>
         </scene>
         <!--register_password-->
         <scene sceneID="dvX-Cf-Urv">
@@ -758,7 +755,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ga-81-60K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-529" y="-1448"/>
+            <point key="canvasLocation" x="572" y="-1888"/>
         </scene>
         <!--register_name-->
         <scene sceneID="mll-1M-aNi">
@@ -829,7 +826,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bq6-iv-45g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202" y="-1448"/>
+            <point key="canvasLocation" x="1425" y="-1889"/>
         </scene>
         <!--firstLogin-->
         <scene sceneID="4vy-qQ-BCv">
@@ -881,9 +878,6 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="TWTRButtonTapped:" destination="kK5-y8-EkV" eventType="touchUpInside" id="pu4-wS-OZM"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1C-Z4-PXb">
                                         <rect key="frame" x="19" y="73" width="305" height="45"/>
@@ -913,7 +907,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="hWs-pf-G9E" kind="push" id="RSh-Dv-Tki"/>
+                                            <segue destination="hWs-pf-G9E" kind="push" id="JKT-eo-WSP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -935,6 +929,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                         <state key="normal" title="利用規約"/>
+                                        <connections>
+                                            <segue destination="RdA-2y-kGz" kind="push" id="ljh-BI-Raf"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タップすると" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLz-ty-CjO">
                                         <rect key="frame" x="0.0" y="0.0" width="78" height="13"/>
@@ -976,18 +973,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QIM-RD-ejD"/>
                     </view>
-                    <connections>
-                        <outlet property="TWTRButton" destination="WVG-3r-0dh" id="VMd-qj-JTa"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Ixt-eO-GDb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OM2-ip-EgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-530" y="-2119"/>
+            <point key="canvasLocation" x="598" y="-1186"/>
         </scene>
         <!--Login-->
         <scene sceneID="3Wp-YT-xxy">
             <objects>
-                <viewController id="yGQ-TZ-kYN" userLabel="Login" sceneMemberID="viewController">
+                <viewController id="yGQ-TZ-kYN" userLabel="Login" customClass="LoginViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nas-hL-Ckg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1038,6 +1033,10 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginbutton:" destination="yGQ-TZ-kYN" eventType="touchUpInside" id="p67-nI-5Br"/>
+                                            <segue destination="8KU-ru-ygm" kind="modal" id="Xd3-n4-BXy"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOJ-8c-cbA">
                                         <rect key="frame" x="19" y="73" width="305" height="45"/>
@@ -1062,10 +1061,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bfo-9Z-Ecq"/>
                     </view>
+                    <connections>
+                        <outlet property="userEmailTextField" destination="nNz-Xq-4xa" id="BRd-NC-gYr"/>
+                        <outlet property="userPasswordField" destination="XOJ-8c-cbA" id="wYm-Oz-Rjz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aJ-xF-kdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3133.5999999999999" y="-1994.3349753694581"/>
+            <point key="canvasLocation" x="598" y="-475"/>
         </scene>
         <!--Protected View Controller-->
         <scene sceneID="O2I-Xj-foJ">
@@ -1093,17 +1096,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="XLb-qf-buC"/>
                     <connections>
-                        <segue destination="IuG-4G-hGA" kind="modal" identifier="LoginView" id="iov-F7-cBf"/>
+                        <segue destination="yGQ-TZ-kYN" kind="modal" identifier="Login" id="03G-ku-rfE"/>
+                        <segue destination="vPu-To-c6H" kind="modal" identifier="First" id="R76-El-0Pq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76u-j4-pUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290.39999999999998" y="-475.1231527093596"/>
+            <point key="canvasLocation" x="-1191" y="-1204"/>
         </scene>
-        <!--Login View Controller-->
+        <!--View Controller-->
         <scene sceneID="ZDx-oy-6gi">
             <objects>
-                <viewController id="IuG-4G-hGA" customClass="LoginViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IuG-4G-hGA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tj3-Jl-FCS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -1209,7 +1213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auh-WD-qtG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="-475.41229385307349"/>
+            <point key="canvasLocation" x="2490" y="-1397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t8a-UO-o7Z">
@@ -1222,12 +1226,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fEl-iL-qie" kind="relationship" relationship="rootViewController" id="hi4-WR-XnF"/>
+                        <segue destination="kK5-y8-EkV" kind="relationship" relationship="rootViewController" id="gXd-lR-afo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTl-ng-0mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1173.5520000000001" y="-474.48275862068965"/>
+            <point key="canvasLocation" x="-316" y="-1204"/>
         </scene>
         <!--Terms Of Users View Controller-->
         <scene sceneID="9CR-3H-9Mu">
@@ -1342,9 +1346,6 @@
                                         <rect key="frame" x="172" y="767" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="同意"/>
-                                        <connections>
-                                            <segue destination="Pee-0p-LxU" kind="modal" id="y0A-B1-Rm4"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1352,10 +1353,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hAG-EV-MUz"/>
                     </scrollView>
+                    <navigationItem key="navigationItem" id="mEP-t7-N6Q"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZL-B7-lCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162.4000000000001" y="-2137.6847290640394"/>
+            <point key="canvasLocation" x="1425" y="-1187"/>
         </scene>
         <!--NavBar-->
         <scene sceneID="NU2-nw-yee">
@@ -1550,9 +1552,8 @@
         <image name="start_logo" width="295" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jj0-y4-BV1"/>
-        <segue reference="DuQ-Fd-nLz"/>
-        <segue reference="E3E-Mf-7zU"/>
-        <segue reference="G1w-W1-Nmn"/>
+        <segue reference="Fac-M7-4GP"/>
+        <segue reference="tgP-lf-EMP"/>
+        <segue reference="Xd3-n4-BXy"/>
     </inferredMetricsTieBreakers>
 </document>

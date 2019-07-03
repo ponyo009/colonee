@@ -11,6 +11,8 @@ import UIKit
 class ProtectedViewController: UIViewController {
     
     
+    let userdefaults_email = UserDefaults.standard.object(forKey: "userEmail")
+    let userdefaults_pass = UserDefaults.standard.object(forKey: "userPassword")
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -22,7 +24,12 @@ class ProtectedViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.performSegue(withIdentifier: "LoginView", sender: self)
+        
+        if userdefaults_pass != nil || userdefaults_email != nil {
+             self.performSegue(withIdentifier: "Login", sender: self)
+        }else{
+            self.performSegue(withIdentifier: "First", sender: self)
+        }
     }
     
     

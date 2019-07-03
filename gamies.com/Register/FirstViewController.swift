@@ -12,19 +12,16 @@ import FirebaseUI
 import TwitterKit
 
 class FirstViewController: UIViewController {
-
-    @IBOutlet weak var TWTRButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let loginBtn = TWTRLogInButton { (<#TWTRSession?#>, <#Error?#>) in
-            <#code#>
-        }
         // Do any additional setup after loading the view.
     }
     
-
+//    @IBAction func RegisterBtnTapped(_ sender: Any) {
+//        performSegue(withIdentifier: "mail", sender: self)
+//    }
+    
     /*
     // MARK: - Navigation
 

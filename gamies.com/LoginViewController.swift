@@ -11,18 +11,13 @@ import Firebase
 import FirebaseUI
 
 class LoginViewController: UIViewController {
-
    
     @IBOutlet weak var userEmailTextField: UITextField!
-    
     @IBOutlet weak var userPasswordField: UITextField!
-    
-    @IBOutlet weak var LoginFailedMessage: UILabel!
+   // @IBOutlet weak var LoginFailedMessage: UILabel!
     
     let userdefaults_email = UserDefaults.standard.object(forKey: "userEmail")
     let userdefaults_pass = UserDefaults.standard.object(forKey: "userPassword")
-    //UserDefaultsの定義
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +32,8 @@ class LoginViewController: UIViewController {
     @IBAction func loginbutton(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: userEmailTextField.text!, password: userPasswordField.text!) { (user, error) in
             if user == nil{
-                self.LoginFailedMessage.alpha = 1
+                //self.LoginFailedMessage.alpha = 1
+                print("signInFailed")
             }else{
                 //UserDefaultsにアドレスとパスを保存
                 UserDefaults.standard.set(self.userEmailTextField.text, forKey: "userEmail")
