@@ -12,7 +12,7 @@
 		E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */; };
 		E57831F822335C480013E869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57831F722335C480013E869 /* AppDelegate.swift */; };
 		E57831FD22335C480013E869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57831FB22335C480013E869 /* Main.storyboard */; };
-		E57831FF22335C4A0013E869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E57831FE22335C4A0013E869 /* Assets.xcassets */; };
+		E57831FF22335C4A0013E869 /* Assets.xcasset in Resources */ = {isa = PBXBuildFile; fileRef = E57831FE22335C4A0013E869 /* Assets.xcasset */; };
 		E578320222335C4A0013E869 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E578320022335C4A0013E869 /* LaunchScreen.storyboard */; };
 		E578320D22335C4B0013E869 /* gamies_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578320C22335C4B0013E869 /* gamies_comTests.swift */; };
 		E578321822335C4B0013E869 /* gamies_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578321722335C4B0013E869 /* gamies_comUITests.swift */; };
@@ -39,6 +39,7 @@
 		E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F63089223387E400CCF153 /* RegistrationViewController.swift */; };
 		E9F6308C2233956F00CCF153 /* Pre_ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308B2233956F00CCF153 /* Pre_ChooseGameViewController.swift */; };
 		E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F6308D223502FF00CCF153 /* ProfileViewController.swift */; };
+		E9FCEF1322CC46DD00533716 /* ヒラギノ角ゴシック W4.ttc in Resources */ = {isa = PBXBuildFile; fileRef = E9FCEF1222CC46DC00533716 /* ヒラギノ角ゴシック W4.ttc */; };
 		F52396B75E953F7AC1C35AD8 /* Pods_gamies_com.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3634EA708EBDACB1C9EF7A1 /* Pods_gamies_com.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +75,7 @@
 		E57831F422335C480013E869 /* gamies.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamies.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57831F722335C480013E869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E57831FC22335C480013E869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E57831FE22335C4A0013E869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E57831FE22335C4A0013E869 /* Assets.xcasset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets.xcasset; sourceTree = "<group>"; };
 		E578320122335C4A0013E869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E578320322335C4A0013E869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E578320822335C4B0013E869 /* gamies.comTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gamies.comTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +105,7 @@
 		E9F63089223387E400CCF153 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E9F6308B2233956F00CCF153 /* Pre_ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pre_ChooseGameViewController.swift; sourceTree = "<group>"; };
 		E9F6308D223502FF00CCF153 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E9FCEF1222CC46DC00533716 /* ヒラギノ角ゴシック W4.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W4.ttc"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +188,7 @@
 				E9F6308D223502FF00CCF153 /* ProfileViewController.swift */,
 				E578320322335C4A0013E869 /* Info.plist */,
 				E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */,
-				E57831FE22335C4A0013E869 /* Assets.xcassets */,
+				E57831FE22335C4A0013E869 /* Assets.xcasset */,
 				E9DACC412277F6B6008C614F /* Tab,Navigationcontrollers */,
 				E9029B3D228571B10057B654 /* SIdeMenu */,
 				E9DACC422277F6E7008C614F /* others */,
@@ -236,12 +238,21 @@
 		E9DACC422277F6E7008C614F /* others */ = {
 			isa = PBXGroup;
 			children = (
+				E9FCEF1422CC46EF00533716 /* fonts */,
 				E5F2DAAC2245EB7C0053AF17 /* MatcherViewController.swift */,
 				E9F6308B2233956F00CCF153 /* Pre_ChooseGameViewController.swift */,
 				E57832252233D25B0013E869 /* ProtectedViewController.swift */,
 				E53B1F2522438E6C00CFA3D7 /* TermsOfUsersViewController.swift */,
 			);
 			path = others;
+			sourceTree = "<group>";
+		};
+		E9FCEF1422CC46EF00533716 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E9FCEF1222CC46DC00533716 /* ヒラギノ角ゴシック W4.ttc */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		EE05039D1CE17C72C2326B64 /* Pods */ = {
@@ -368,7 +379,8 @@
 			files = (
 				E578320222335C4A0013E869 /* LaunchScreen.storyboard in Resources */,
 				E94821A22282ABFF0038D5DD /* GoogleService-Info.plist in Resources */,
-				E57831FF22335C4A0013E869 /* Assets.xcassets in Resources */,
+				E57831FF22335C4A0013E869 /* Assets.xcasset in Resources */,
+				E9FCEF1322CC46DD00533716 /* ヒラギノ角ゴシック W4.ttc in Resources */,
 				E57831FD22335C480013E869 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
