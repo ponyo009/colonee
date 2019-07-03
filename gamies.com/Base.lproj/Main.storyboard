@@ -619,7 +619,7 @@
         <!--register_email-->
         <scene sceneID="7eC-Mn-rBa">
             <objects>
-                <viewController id="hWs-pf-G9E" userLabel="register_email" sceneMemberID="viewController">
+                <viewController id="hWs-pf-G9E" userLabel="register_email" customClass="MailRegisterViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eU0-Gy-6ci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -668,7 +668,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="Je3-IN-AFF" kind="push" id="V1E-y0-rDn"/>
+                                            <action selector="ButtonTapped:" destination="hWs-pf-G9E" eventType="touchUpInside" id="wGT-HY-CFm"/>
+                                            <segue destination="Je3-IN-AFF" kind="push" id="Zr1-Pq-F8E"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -678,6 +679,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IXt-Da-Ymg"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cGa-UL-8Yy"/>
+                    <connections>
+                        <outlet property="TextField" destination="6Kr-bP-f3p" id="RLb-IM-JLh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5o-lz-UHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -686,7 +691,7 @@
         <!--register_password-->
         <scene sceneID="dvX-Cf-Urv">
             <objects>
-                <viewController id="Je3-IN-AFF" userLabel="register_password" sceneMemberID="viewController">
+                <viewController id="Je3-IN-AFF" userLabel="register_password" customClass="PasswordRegisterViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uPh-Xk-FaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -735,7 +740,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="6Im-TZ-dPQ" kind="push" id="5Wb-RF-7Rz"/>
+                                            <action selector="ButtonTapped:" destination="Je3-IN-AFF" eventType="touchUpInside" id="HjR-Jo-mCo"/>
+                                            <segue destination="6Im-TZ-dPQ" kind="push" id="vze-sB-yWc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -746,6 +752,9 @@
                         <viewLayoutGuide key="safeArea" id="e3M-ck-3L4"/>
                     </view>
                     <navigationItem key="navigationItem" id="MQf-U2-BtB"/>
+                    <connections>
+                        <outlet property="TexrField" destination="ywj-GJ-f8e" id="Kqt-Bz-FvZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ga-81-60K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -754,7 +763,7 @@
         <!--register_name-->
         <scene sceneID="mll-1M-aNi">
             <objects>
-                <viewController id="6Im-TZ-dPQ" userLabel="register_name" sceneMemberID="viewController">
+                <viewController id="6Im-TZ-dPQ" userLabel="register_name" customClass="NameRegisterViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u6s-bH-1EL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -802,6 +811,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ButtonTapped:" destination="6Im-TZ-dPQ" eventType="touchUpInside" id="oRf-Ll-pCF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -811,6 +823,9 @@
                         <viewLayoutGuide key="safeArea" id="aoA-3h-tUT"/>
                     </view>
                     <navigationItem key="navigationItem" id="i7W-QS-mgh"/>
+                    <connections>
+                        <outlet property="TextField" destination="cWU-LW-Lfa" id="bYO-qV-uVf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bq6-iv-45g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -819,7 +834,7 @@
         <!--firstLogin-->
         <scene sceneID="4vy-qQ-BCv">
             <objects>
-                <viewController id="kK5-y8-EkV" userLabel="firstLogin" sceneMemberID="viewController">
+                <viewController id="kK5-y8-EkV" userLabel="firstLogin" customClass="FirstViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2OG-3x-97Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -850,7 +865,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlU-Mz-2IY">
-                                <rect key="frame" x="16" y="399" width="343" height="190"/>
+                                <rect key="frame" x="16" y="400" width="343" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVG-3r-0dh">
@@ -866,6 +881,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="TWTRButtonTapped:" destination="kK5-y8-EkV" eventType="touchUpInside" id="pu4-wS-OZM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1C-Z4-PXb">
                                         <rect key="frame" x="19" y="73" width="305" height="45"/>
@@ -894,6 +912,9 @@
                                                 <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="hWs-pf-G9E" kind="push" id="RSh-Dv-Tki"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -955,10 +976,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QIM-RD-ejD"/>
                     </view>
+                    <connections>
+                        <outlet property="TWTRButton" destination="WVG-3r-0dh" id="VMd-qj-JTa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OM2-ip-EgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2396" y="-1993.5960591133005"/>
+            <point key="canvasLocation" x="-530" y="-2119"/>
         </scene>
         <!--Login-->
         <scene sceneID="3Wp-YT-xxy">
@@ -974,6 +998,10 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="irb-Tb-OPx">
                                         <rect key="frame" x="0.0" y="0.0" width="385" height="383"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_pattern" translatesAutoresizingMaskIntoConstraints="NO" id="yYl-aF-2KQ">
+                                        <rect key="frame" x="-2" y="0.0" width="377" height="383"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4T-yO-vYE">
@@ -993,6 +1021,43 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fk8-A3-H1n">
+                                <rect key="frame" x="16" y="400" width="343" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nX-Cr-1WO">
+                                        <rect key="frame" x="19" y="137" width="305" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="15"/>
+                                        <state key="normal" title="ログイン">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOJ-8c-cbA">
+                                        <rect key="frame" x="19" y="73" width="305" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNz-Xq-4xa">
+                                        <rect key="frame" x="19" y="8" width="305" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bfo-9Z-Ecq"/>
@@ -1000,7 +1065,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aJ-xF-kdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3134" y="-1994"/>
+            <point key="canvasLocation" x="3133.5999999999999" y="-1994.3349753694581"/>
         </scene>
         <!--Protected View Controller-->
         <scene sceneID="O2I-Xj-foJ">
@@ -1473,10 +1538,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="login_bg" width="375" height="360"/>
+        <image name="login_bg" width="375" height="373"/>
         <image name="login_first" width="375" height="377"/>
         <image name="login_line" width="375" height="1"/>
         <image name="login_logo" width="135" height="103"/>
+        <image name="login_pattern" width="750" height="720"/>
         <image name="login_title" width="185" height="40"/>
         <image name="register_logo" width="69" height="51"/>
         <image name="start_bg" width="375" height="812"/>

@@ -60,8 +60,8 @@ class RegistrationViewController: UIViewController {
                 UserDefaults.standard.set(userPassword, forKey:"userPassword")
                 self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)
                 print("SignUp!")
-            
-            }}
+            }
+        }
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
