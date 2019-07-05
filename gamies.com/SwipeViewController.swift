@@ -19,7 +19,7 @@ class SwipeViewController: SideTabContentViewController {
     let storage = Storage.storage()
     let db = Firestore.firestore()
     
-    var UserOwnNickName = UserDefaults.standard.object(forKey: "NickName") as! String
+    var UserOwnNickName = UserDefaults.standard.object(forKey: "userName") as! String
     var GameName = UserDefaults.standard.object(forKey: "GameName") as! String
     let gameID =  UserDefaults.standard.object(forKey: "gameID") as! String
     

@@ -20,6 +20,7 @@ class PasswordRegisterViewController: UIViewController {
     
     @IBAction func ButtonTapped(_ sender: Any) {
           password = TextField.text!
+        performSegue(withIdentifier: "Next", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let next = segue.destination as! NameRegisterViewController

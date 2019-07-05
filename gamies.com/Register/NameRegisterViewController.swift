@@ -28,7 +28,7 @@ class NameRegisterViewController: UIViewController {
          username = TextField.text!
         Auth.auth().createUser(withEmail: mail, password: password) { (AuthDataResult, err) in
             if err != nil{
-                 print("SignUpFailed")
+                print("SignUpFailed: ", err)
             }
             else{
                 self.user = Auth.auth().currentUser
@@ -39,7 +39,8 @@ class NameRegisterViewController: UIViewController {
                     ])
                 UserDefaults.standard.set(self.mail, forKey:"userEamil")
                 UserDefaults.standard.set(self.password, forKey:"userPassword")
-                self.performSegue(withIdentifier: "SignUpSuccessed", sender: nil)
+                UserDefaults.standard.set(self.username, forKey: "userName")
+                self.performSegue(withIdentifier: "ToWelcome", sender: nil)
             }
         }
     }

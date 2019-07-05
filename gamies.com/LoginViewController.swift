@@ -41,35 +41,14 @@ class LoginViewController: UIViewController {
                 
                 self.performSegue(withIdentifier: "ToChooseGame", sender: (Any).self)
             }
+        }
     }
+    
+    @IBAction func registerBtnTapped(_ sender: Any) {
+        performSegue(withIdentifier: "Register", sender: self)
+    }
+    
 }
-}
-        
-        //  NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
-        //     if error != nil {
-        // ログイン失敗時の処理
-        //       self.LoginFailedMessage.alpha = 1
-        // }else{
-        // ログイン成功時の処理
-        //   self.performSegue(withIdentifier: "ToChooseGame", sender: nil)
-        // }
-        // } as! NCMBUserResultBlock))
-        
-    
-
-    
-        
-      //  NCMBUser.logInWithUsername(inBackground:user.userName, password: user.password, block:({(user: NCMBUser!, error: NSError!) in
-       //     if error != nil {
-                // ログイン失敗時の処理
-         //       self.LoginFailedMessage.alpha = 1
-           // }else{
-                // ログイン成功時の処理
-             //   self.performSegue(withIdentifier: "ToChooseGame", sender: nil)
-           // }
-           // } as! NCMBUserResultBlock))
-
-    
     /*
     // MARK: - Navigation
 

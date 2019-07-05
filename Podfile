@@ -9,6 +9,7 @@ pod 'Firebase/Core'
 pod 'FirebaseUI'
 pod 'Firebase/Firestore'
 pod 'JSQMessagesViewController'
+pod 'DSCircularCollectionView'
 end
 
 

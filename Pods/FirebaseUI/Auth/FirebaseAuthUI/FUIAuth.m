@@ -126,16 +126,13 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
 - (UINavigationController *)authViewController {
   static UINavigationController *authViewController;
 
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    UIViewController *controller;
-    if ([self.delegate respondsToSelector:@selector(authPickerViewControllerForAuthUI:)]) {
-      controller = [self.delegate authPickerViewControllerForAuthUI:self];
-    } else {
-      controller = [[FUIAuthPickerViewController alloc] initWithAuthUI:self];
-    }
-    authViewController = [[UINavigationController alloc] initWithRootViewController:controller];
-  });
+  UIViewController *controller;
+  if ([self.delegate respondsToSelector:@selector(authPickerViewControllerForAuthUI:)]) {
+    controller = [self.delegate authPickerViewControllerForAuthUI:self];
+  } else {
+    controller = [[FUIAuthPickerViewController alloc] initWithAuthUI:self];
+  }
+  authViewController = [[UINavigationController alloc] initWithRootViewController:controller];
 
   return authViewController;
 }
@@ -200,9 +197,9 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
                                   credential:credential
                               resultCallback:result];
     } else {
-      [self.auth signInAndRetrieveDataWithCredential:credential
-                                          completion:^(FIRAuthDataResult *_Nullable authResult,
-                                                       NSError *_Nullable error) {
+      [self.auth signInWithCredential:credential
+                           completion:^(FIRAuthDataResult *_Nullable authResult,
+                                        NSError *_Nullable error) {
         if (error && error.code == FIRAuthErrorCodeAccountExistsWithDifferentCredential) {
           NSString *email = error.userInfo[kErrorUserInfoEmailKey];
           [self.emailAuthProvider handleAccountLinkingForEmail:email
@@ -233,9 +230,9 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
                               credential:(nullable FIRAuthCredential *)credential
                           resultCallback:(nullable FIRAuthResultCallback)callback {
   [self.auth.currentUser
-      linkAndRetrieveDataWithCredential:credential
-                             completion:^(FIRAuthDataResult *_Nullable authResult,
-                                          NSError * _Nullable error) {
+      linkWithCredential:credential
+              completion:^(FIRAuthDataResult *_Nullable authResult,
+                           NSError * _Nullable error) {
     if (error) {
       // Check for "credential in use" conflict error and handle appropriately.
       if (error.code == FIRAuthErrorCodeCredentialAlreadyInUse) {
@@ -243,7 +240,7 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
         // Check for and handle special case for Phone Auth Provider.
         if (providerUI.providerID == FIRPhoneAuthProviderID) {
           // Obtain temporary Phone Auth credential.
-          newCredential = error.userInfo[FIRAuthUpdatedCredentialKey];
+          newCredential = error.userInfo[FIRAuthErrorUserInfoUpdatedCredentialKey];
         }
         NSDictionary *userInfo = @{
           FUIAuthCredentialKey : newCredential,
@@ -286,9 +283,9 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
               return;
             }
 
-            [authResult.user linkAndRetrieveDataWithCredential:credential
-                                                    completion:^(FIRAuthDataResult *authResult,
-                                                                 NSError *linkError) {
+            [authResult.user linkWithCredential:credential
+                                     completion:^(FIRAuthDataResult *authResult,
+                                                  NSError *linkError) {
               if (linkError) {
                 [self completeSignInWithResult:nil
                                          error:linkError

@@ -56,12 +56,16 @@
 #import "FUISnapshotArrayDiff.h"
 #import "FirebaseGoogleAuthUI.h"
 #import "FUIGoogleAuth.h"
+#import "FirebaseOAuthUI.h"
+#import "FUIOAuth.h"
 #import "FirebasePhoneAuthUI.h"
 #import "FUIPhoneAuth.h"
 #import "FirebaseStorageUI.h"
+#import "FIRStorageDownloadTask+SDWebImage.h"
+#import "FUIStorageDefine.h"
+#import "FUIStorageImageLoader.h"
+#import "NSURL+FirebaseStorage.h"
 #import "UIImageView+FirebaseStorage.h"
-#import "FirebaseTwitterAuthUI.h"
-#import "FUITwitterAuth.h"
 
 FOUNDATION_EXPORT double FirebaseUIVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirebaseUIVersionString[];

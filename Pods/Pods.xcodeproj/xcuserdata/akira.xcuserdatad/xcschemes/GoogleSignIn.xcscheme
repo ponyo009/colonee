@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4DA8D48788EBD3E72E9E8FA2D8804E1F"
+               BlueprintIdentifier = "B899970512D93544E76944AEF0FF24C8"
                BuildableName = "GoogleSignIn"
                BlueprintName = "GoogleSignIn"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -119,7 +119,7 @@ class ChooseGameViewController: UIViewController, UICollectionViewDelegate {
             ref.document(gameID).getDocument { (snapshot, err) in
                 UserDefaults.standard.setValue(self.gameID, forKey: "gameID")
                 UserDefaults.standard.setValue(snapshot!["title"], forKey: "GameName")
-                self.performSegue(withIdentifier: "ToProfile", sender: (Any).self)
+                self.performSegue(withIdentifier: "ToMain", sender: (Any).self)
             }
           
         }else{

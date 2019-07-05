@@ -10,7 +10,7 @@ import UIKit
 
 class MailRegisterViewController: UIViewController {
 
-    @IBOutlet weak var TextField: UITextField!
+    @IBOutlet weak var mailAddress: UITextField!
     var mail = String()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,8 @@ class MailRegisterViewController: UIViewController {
     }
     
     @IBAction func ButtonTapped(_ sender: Any) {
-        mail = TextField.text!
+        mail = mailAddress.text!
+        performSegue(withIdentifier: "Next", sender: self)
     }
     
     
