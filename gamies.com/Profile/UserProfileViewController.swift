@@ -15,7 +15,7 @@ import FirebaseDatabase
 class UserProfileViewController: SideTabContentViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var user_nickname: UILabel!
-    @IBOutlet weak var user_introduce: UILabel!
+    @IBOutlet weak var user_introduce: UITextView!
     @IBOutlet weak var iconImage: UIButton!
     @IBOutlet weak var iconBtn: UIButton!
     @IBOutlet weak var userID: UILabel!
@@ -34,13 +34,10 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 選択した写真を取得
         image = info[.originalImage] as? UIImage
-        print("got picked image")
         // ImageViewに表示する
         if isIcon {
-            print("true")
             self.iconImage.setImage(image, for: .normal)
         }else{
-            print("false")
             self.iconBtn.setImage(image, for: .normal)
         }
         // 写真を選ぶビューを消す
@@ -56,7 +53,7 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
 //        iconImage.setImage(UIImage(named: "default.png"), for: .normal)
 //        iconBtn.setImage(UIImage(named: "register_logo"), for: .normal)
         //プローフィル編集ボタン描画
-        editProfile.layer.borderWidth = 2.0
+        editProfile.layer.borderWidth = 1.0
         editProfile.layer.borderColor = UIColor.black.cgColor
         editProfile.layer.cornerRadius = 3.0
         //iconBtn描画
@@ -64,13 +61,14 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
         iconBtn.clipsToBounds = true
         //imageIconの取得
         let ref = storage.reference().child(UID).child("\(gameID).jpeg")
-        iconImage.imageView!.sd_setImage(with: ref)
-        if iconImage.imageView == nil{
+        iconImage.imageView?.sd_setImage(with: ref)
+        iconImage.setImage(self.iconImage.imageView?.image, for: .normal)
+        if iconImage.imageView!.isHidden{
             let defaultImage = self.view.viewWithTag(10)
             defaultImage?.alpha = 1
             print("iconimage is nil")
         }else{}
-       
+
         userID.text = UID
         user_nickname.text = UserDefaults.standard.object(forKey: "userName") as? String
         db.collection(gameID).document(UID).getDocument(){document, err  in
@@ -88,7 +86,6 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
             pickerView.delegate = self
             // 表示
             self.present(pickerView, animated: true)
-            print("image picked")
             isIcon = true
         }
     }
@@ -102,7 +99,6 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
             pickerView.delegate = self
             // 表示
             self.present(pickerView, animated: true)
-            print("image picked")
             isIcon = false
         }
     }

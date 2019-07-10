@@ -32,6 +32,9 @@
 		E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E79412245EB300032BA7D /* SwipeViewController.swift */; };
 		E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B312B4224326EA00813580 /* UserProfileViewController.swift */; };
 		E9BA18E6223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BA18E5223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh */; };
+		E9C69E8522D08A2800FA3BFB /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C69E8422D08A2800FA3BFB /* ProfileEditViewController.swift */; };
+		E9C69E8822D0941800FA3BFB /* UIView_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C69E8722D0941800FA3BFB /* UIView_extension.swift */; };
+		E9C69E8B22D09CF000FA3BFB /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C69E8A22D09CF000FA3BFB /* UserInformationViewController.swift */; };
 		E9DACC3A22773662008C614F /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DACC3922773662008C614F /* MainTabBarViewController.swift */; };
 		E9DACC3C2277F656008C614F /* MatcherNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DACC3B2277F656008C614F /* MatcherNavController.swift */; };
 		E9DACC3E2277F68A008C614F /* ProfileNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DACC3D2277F68A008C614F /* ProfileNavController.swift */; };
@@ -102,6 +105,9 @@
 		E96E79412245EB300032BA7D /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		E9B312B4224326EA00813580 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E9BA18E5223FF1B70060C8CC /* Pods-gamies.com-frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "Pods-gamies.com-frameworks.sh"; path = "Pods/Target Support Files/Pods-gamies.com/Pods-gamies.com-frameworks.sh"; sourceTree = "<group>"; };
+		E9C69E8422D08A2800FA3BFB /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		E9C69E8722D0941800FA3BFB /* UIView_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_extension.swift; sourceTree = "<group>"; };
+		E9C69E8A22D09CF000FA3BFB /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		E9DACC3922773662008C614F /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		E9DACC3B2277F656008C614F /* MatcherNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherNavController.swift; sourceTree = "<group>"; };
 		E9DACC3D2277F68A008C614F /* ProfileNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavController.swift; sourceTree = "<group>"; };
@@ -187,16 +193,17 @@
 				E96269FF2237A80300E3D980 /* WelcomeViewController.swift */,
 				E914EA512261798D0071BE86 /* JSQChatViewController.swift */,
 				E96E79412245EB300032BA7D /* SwipeViewController.swift */,
-				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
 				E94821A72282FD660038D5DD /* CollectionViewController.swift */,
 				E5BF1C8C2249FC7B00E1E7E9 /* ChooseGameViewController.swift */,
 				E578320022335C4A0013E869 /* LaunchScreen.storyboard */,
 				E9F63089223387E400CCF153 /* RegistrationViewController.swift */,
 				E57832272233E46B0013E869 /* LoginViewController.swift */,
+				E9C69E8922D09C9E00FA3BFB /* Profile */,
 				E9F6308D223502FF00CCF153 /* ProfileViewController.swift */,
 				E578320322335C4A0013E869 /* Info.plist */,
 				E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
+				E9C69E8622D093EC00FA3BFB /* extension */,
 				E9FCEF1722CC69AD00533716 /* Register */,
 				E9DACC412277F6B6008C614F /* Tab,Navigationcontrollers */,
 				E9029B3D228571B10057B654 /* SIdeMenu */,
@@ -231,6 +238,24 @@
 				E9029B402285973A0057B654 /* MainSideTabViewController.swift */,
 			);
 			path = SIdeMenu;
+			sourceTree = "<group>";
+		};
+		E9C69E8622D093EC00FA3BFB /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				E9C69E8722D0941800FA3BFB /* UIView_extension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		E9C69E8922D09C9E00FA3BFB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E9C69E8422D08A2800FA3BFB /* ProfileEditViewController.swift */,
+				E9B312B4224326EA00813580 /* UserProfileViewController.swift */,
+				E9C69E8A22D09CF000FA3BFB /* UserInformationViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		E9DACC412277F6B6008C614F /* Tab,Navigationcontrollers */ = {
@@ -611,14 +636,17 @@
 				E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */,
 				E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */,
 				E9DACC3E2277F68A008C614F /* ProfileNavController.swift in Sources */,
+				E9C69E8822D0941800FA3BFB /* UIView_extension.swift in Sources */,
 				E9FCEF1D22CC6A3A00533716 /* NameRegisterViewController.swift in Sources */,
 				E5F2DAAD2245EB7C0053AF17 /* MatcherViewController.swift in Sources */,
 				E57831F822335C480013E869 /* AppDelegate.swift in Sources */,
 				E9029B412285973A0057B654 /* MainSideTabViewController.swift in Sources */,
 				E9FCEF1F22CC6A6A00533716 /* FirstViewController.swift in Sources */,
+				E9C69E8B22D09CF000FA3BFB /* UserInformationViewController.swift in Sources */,
 				E9F6308A223387E400CCF153 /* RegistrationViewController.swift in Sources */,
 				E9F6308E223502FF00CCF153 /* ProfileViewController.swift in Sources */,
 				E57832262233D25B0013E869 /* ProtectedViewController.swift in Sources */,
+				E9C69E8522D08A2800FA3BFB /* ProfileEditViewController.swift in Sources */,
 				E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
