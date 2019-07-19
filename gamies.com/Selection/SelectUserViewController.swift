@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
 
 class SelectUserViewController: UIViewController {
 
@@ -15,8 +17,6 @@ class SelectUserViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
     /*
     // MARK: - Navigation
 

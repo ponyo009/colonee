@@ -12,7 +12,7 @@ import FirebaseUI
 import FirebaseDatabase
 
 
-class UserProfileViewController: SideTabContentViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class UserProfileViewController: SideTabContentViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
 
     @IBOutlet weak var ProfileTags: UICollectionView!
     @IBOutlet weak var user_nickname: UILabel!
@@ -22,7 +22,6 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
     @IBOutlet weak var userID: UILabel!
     @IBOutlet weak var editProfile: UIButton!
     
-    
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     let storage = Storage.storage()
@@ -31,6 +30,8 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
     let gameID =  UserDefaults.standard.object(forKey: "gameID") as! String
     var image: UIImage!
     var isIcon: Bool!
+    
+    var tags: [String]!
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 選択した写真を取得
@@ -73,6 +74,7 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
         userID.text = UID
         user_nickname.text = UserDefaults.standard.object(forKey: "userName") as? String
         db.collection(gameID).document(UID).getDocument(){document, err  in
+            self.tags = document?.data()?["tag"] as? [String]
             self.user_introduce.text = document?.data()?["introduce"] as? String
         }
         // Do any additional setup after loading the view.
@@ -116,4 +118,17 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tags.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let tag = cell.viewWithTag(11) as! UIButton
+        tag.titleLabel?.text = tags[indexPath.row]
+        
+        return cell
+    }
 }
+
