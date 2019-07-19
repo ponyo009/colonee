@@ -11,10 +11,13 @@ import UIKit
 class PasswordRegisterViewController: UIViewController {
 
     @IBOutlet weak var TextField: UITextField!
+    @IBOutlet weak var email: UILabel!
+    
     var password = String()
     var mail = String()
     override func viewDidLoad() {
         super.viewDidLoad()
+        email.text = mail
         // Do any additional setup after loading the view.
     }
     

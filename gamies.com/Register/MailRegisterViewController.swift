@@ -27,6 +27,11 @@ class MailRegisterViewController: UIViewController {
         let next = segue.destination as! PasswordRegisterViewController
         next.mail = mail
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        mailAddress.text = mailAddress.text
+        self.view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 

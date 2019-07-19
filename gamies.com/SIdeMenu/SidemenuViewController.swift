@@ -71,7 +71,7 @@ extension SidemenuViewController : UICollectionViewDataSource {
         
         let gameimage = cell.viewWithTag(1) as! UIImageView
         if cellcount == imageArray.count{
-            gameimage.image = UIImage(named: "gamies")
+            gameimage.image = UIImage(named: "plus")
             cell.tag = 1
         }else{
              gameimage.image = imageArray[indexPath.row]

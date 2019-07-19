@@ -13,6 +13,10 @@ import FirebaseUI
 class NameRegisterViewController: UIViewController {
 
     @IBOutlet weak var TextField: UITextField!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var pass: UILabel!
+    
+    
     var mail = String()
     var password = String()
     var username = String()
@@ -20,7 +24,9 @@ class NameRegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        email.text = mail
+        pass.text = password
         // Do any additional setup after loading the view.
     }
     
@@ -29,8 +35,7 @@ class NameRegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: mail, password: password) { (AuthDataResult, err) in
             if err != nil{
                 print("SignUpFailed: ", err)
-            }
-            else{
+            }else{
                 self.user = Auth.auth().currentUser
                 let db = Firestore.firestore()
                 db.collection("users").document(self.user!.uid).setData([
