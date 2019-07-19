@@ -14,6 +14,7 @@ import FirebaseDatabase
 
 class UserProfileViewController: SideTabContentViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+    @IBOutlet weak var ProfileTags: UICollectionView!
     @IBOutlet weak var user_nickname: UILabel!
     @IBOutlet weak var user_introduce: UITextView!
     @IBOutlet weak var iconImage: UIButton!

@@ -28,6 +28,7 @@
 		E94821A32282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
 		E94821A42282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
 		E94821A82282FD660038D5DD /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94821A72282FD660038D5DD /* CollectionViewController.swift */; };
+		E948DD9622D81F7A00DF799D /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948DD9522D81F7A00DF799D /* SelectUserViewController.swift */; };
 		E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96269FF2237A80300E3D980 /* WelcomeViewController.swift */; };
 		E96E79422245EB300032BA7D /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E79412245EB300032BA7D /* SwipeViewController.swift */; };
 		E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B312B4224326EA00813580 /* UserProfileViewController.swift */; };
@@ -101,6 +102,7 @@
 		E914EA512261798D0071BE86 /* JSQChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQChatViewController.swift; sourceTree = "<group>"; };
 		E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E94821A72282FD660038D5DD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		E948DD9522D81F7A00DF799D /* SelectUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
 		E96269FF2237A80300E3D980 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E96E79412245EB300032BA7D /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		E9B312B4224326EA00813580 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				E9F6308D223502FF00CCF153 /* ProfileViewController.swift */,
 				E578320322335C4A0013E869 /* Info.plist */,
 				E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */,
+				E948DD9422D81F5600DF799D /* Selection */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
 				E9C69E8622D093EC00FA3BFB /* extension */,
 				E9FCEF1722CC69AD00533716 /* Register */,
@@ -238,6 +241,14 @@
 				E9029B402285973A0057B654 /* MainSideTabViewController.swift */,
 			);
 			path = SIdeMenu;
+			sourceTree = "<group>";
+		};
+		E948DD9422D81F5600DF799D /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				E948DD9522D81F7A00DF799D /* SelectUserViewController.swift */,
+			);
+			path = Selection;
 			sourceTree = "<group>";
 		};
 		E9C69E8622D093EC00FA3BFB /* extension */ = {
@@ -632,6 +643,7 @@
 				E9029B43228A569F0057B654 /* SidemenuViewController.swift in Sources */,
 				E9FCEF1B22CC6A2100533716 /* PasswordRegisterViewController.swift in Sources */,
 				E5BF1C8D2249FC7B00E1E7E9 /* ChooseGameViewController.swift in Sources */,
+				E948DD9622D81F7A00DF799D /* SelectUserViewController.swift in Sources */,
 				E9F6308C2233956F00CCF153 /* Pre_ChooseGameViewController.swift in Sources */,
 				E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */,
 				E53B1F2622438E6C00CFA3D7 /* TermsOfUsersViewController.swift in Sources */,
