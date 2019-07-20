@@ -18,6 +18,7 @@ class PasswordRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         email.text = mail
+        TextField.isSecureTextEntry = true
         // Do any additional setup after loading the view.
     }
     
@@ -29,6 +30,20 @@ class PasswordRegisterViewController: UIViewController {
         let next = segue.destination as! NameRegisterViewController
         next.mail = mail
         next.password = password
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        TextField.text = TextField.text
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func eyeBtnTouchdown(_ sender: Any) {
+        TextField.isSecureTextEntry = false
+    }
+    
+    
+    @IBAction func eyeBtnTapped(_ sender: Any) {
+        TextField.isSecureTextEntry = true
     }
     
     /*

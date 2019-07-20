@@ -10,13 +10,24 @@ import UIKit
 
 class ProfileEditViewController: UIViewController {
 
+    @IBOutlet weak var editTagBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        editTagBtn.layer.borderWidth = 1.0
+        editTagBtn.layer.borderColor = UIColor.darkGray.cgColor
+        editTagBtn.layer.cornerRadius = 3.0
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func editFinishBtnTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func editTagBtnTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toEditTag", sender: self)
+    }
     /*
     // MARK: - Navigation
 

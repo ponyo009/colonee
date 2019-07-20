@@ -37,7 +37,7 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
         
         var MatcherImageView = UIImageView()
         var MatcherNameLabel = UILabel()
-        var MatcherIntroduce = UILabel()
+        var MatcherIcon = UIImageView()
         var MatchTimeSinceNow = UILabel()
         
         var SelectedName = String()
@@ -50,7 +50,12 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
         matchedref.getDocuments(){snapshot, err in
             if err == nil{
                 documents = snapshot!.documents
-                callback(documents)
+                if documents.count == 0 {
+                    let noMatcherView = self.view.viewWithTag(11) as! UIView
+                    noMatcherView.alpha = 1
+                }else{
+                     callback(documents)
+                }
             }else{
                 print(err as Any)
             }
@@ -131,9 +136,12 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
             MatcherImageView = cell.viewWithTag(1) as! UIImageView
             MatcherNameLabel = cell.viewWithTag(2) as! UILabel
-            //MatcherIntroduce = cell.viewWithTag(3) as! UILabel
+            MatcherIcon = cell.viewWithTag(3) as! UIImageView
             MatchTimeSinceNow = cell.viewWithTag(4) as! UILabel
             MatcherImageView.image = MatcherImageArray[indexPath.row]
+            MatcherIcon.image = MatcherImageArray[indexPath.row]
+            MatcherIcon.layer.cornerRadius = 35.0 / 2
+            MatcherIcon.clipsToBounds = true
             MatcherNameLabel.text = MatchedNames[indexPath.row]
             MatchTimeSinceNow.text = "\(MatchTimes[indexPath.row]) ago"
             if IsChecked[indexPath.row] == true{

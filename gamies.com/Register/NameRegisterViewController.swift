@@ -14,7 +14,7 @@ class NameRegisterViewController: UIViewController {
 
     @IBOutlet weak var TextField: UITextField!
     @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var pass: UILabel!
+    @IBOutlet weak var pass: UITextField!
     
     
     var mail = String()
@@ -24,9 +24,12 @@ class NameRegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         email.text = mail
         pass.text = password
+        pass.isSecureTextEntry = true
+        pass.isEnabled = false
+        
         // Do any additional setup after loading the view.
     }
     
@@ -48,6 +51,20 @@ class NameRegisterViewController: UIViewController {
                 self.performSegue(withIdentifier: "ToWelcome", sender: nil)
             }
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        TextField.text = TextField.text
+        self.view.endEditing(true)
+    }
+    
+    
+    @IBAction func eyeBtnTouchdown(_ sender: Any) {
+        pass.isSecureTextEntry = false
+    }
+    
+    @IBAction func eyeBtnTapped(_ sender: Any) {
+        pass.isSecureTextEntry = true
     }
     
     /*

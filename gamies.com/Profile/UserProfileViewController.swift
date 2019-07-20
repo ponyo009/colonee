@@ -39,6 +39,8 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
         // ImageViewに表示する
         if isIcon {
             self.iconImage.setImage(image, for: .normal)
+            let defaultImage = self.view.viewWithTag(10)
+            defaultImage?.alpha = 0
         }else{
             self.iconBtn.setImage(image, for: .normal)
         }
@@ -82,6 +84,7 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
     
     @IBAction func iconImageBtnTapped(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            isIcon = true
             // 写真を選ぶビュー
             let pickerView = UIImagePickerController()
             // ライブラリから選ぶ
@@ -89,12 +92,12 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
             pickerView.delegate = self
             // 表示
             self.present(pickerView, animated: true)
-            isIcon = true
         }
     }
     
     @IBAction func iconBtnTapped(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            isIcon = false
             // 写真を選ぶビュー
             let pickerView = UIImagePickerController()
             // ライブラリから選ぶ
@@ -102,17 +105,26 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
             pickerView.delegate = self
             // 表示
             self.present(pickerView, animated: true)
-            isIcon = false
         }
     }
     
     @IBAction func editProfileBtnTapped(_ sender: Any) {
         performSegue(withIdentifier: "editProfile", sender: self)
     }
-    
-    
     // MARK: - Navigation
-
+    @IBAction func plusBtnTapped(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            isIcon = true
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // ライブラリから選ぶ
+            pickerView.sourceType = .photoLibrary
+            pickerView.delegate = self
+            // 表示
+            self.present(pickerView, animated: true)
+        }
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
