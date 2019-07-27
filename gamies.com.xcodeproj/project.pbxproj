@@ -23,6 +23,7 @@
 		E9029B3F228572080057B654 /* SideTabContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B3E228572080057B654 /* SideTabContentViewController.swift */; };
 		E9029B412285973A0057B654 /* MainSideTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B402285973A0057B654 /* MainSideTabViewController.swift */; };
 		E9029B43228A569F0057B654 /* SidemenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9029B42228A569F0057B654 /* SidemenuViewController.swift */; };
+		E90F722C22E3155C00606621 /* AllTalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F722B22E3155C00606621 /* AllTalkViewController.swift */; };
 		E914EA522261798D0071BE86 /* JSQChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914EA512261798D0071BE86 /* JSQChatViewController.swift */; };
 		E94821A22282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
 		E94821A32282ABFF0038D5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */; };
@@ -99,6 +100,7 @@
 		E9029B3E228572080057B654 /* SideTabContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTabContentViewController.swift; sourceTree = "<group>"; };
 		E9029B402285973A0057B654 /* MainSideTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSideTabViewController.swift; sourceTree = "<group>"; };
 		E9029B42228A569F0057B654 /* SidemenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuViewController.swift; sourceTree = "<group>"; };
+		E90F722B22E3155C00606621 /* AllTalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTalkViewController.swift; sourceTree = "<group>"; };
 		E914EA512261798D0071BE86 /* JSQChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQChatViewController.swift; sourceTree = "<group>"; };
 		E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E94821A72282FD660038D5DD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +195,6 @@
 				E57831FB22335C480013E869 /* Main.storyboard */,
 				E57831F722335C480013E869 /* AppDelegate.swift */,
 				E96269FF2237A80300E3D980 /* WelcomeViewController.swift */,
-				E914EA512261798D0071BE86 /* JSQChatViewController.swift */,
 				E96E79412245EB300032BA7D /* SwipeViewController.swift */,
 				E94821A72282FD660038D5DD /* CollectionViewController.swift */,
 				E5BF1C8C2249FC7B00E1E7E9 /* ChooseGameViewController.swift */,
@@ -203,6 +204,7 @@
 				E9C69E8922D09C9E00FA3BFB /* Profile */,
 				E9F6308D223502FF00CCF153 /* ProfileViewController.swift */,
 				E578320322335C4A0013E869 /* Info.plist */,
+				E90F722A22E3152B00606621 /* Chat */,
 				E94821A12282ABFF0038D5DD /* GoogleService-Info.plist */,
 				E948DD9422D81F5600DF799D /* Selection */,
 				E57831FE22335C4A0013E869 /* Assets.xcassets */,
@@ -241,6 +243,15 @@
 				E9029B402285973A0057B654 /* MainSideTabViewController.swift */,
 			);
 			path = SIdeMenu;
+			sourceTree = "<group>";
+		};
+		E90F722A22E3152B00606621 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				E914EA512261798D0071BE86 /* JSQChatViewController.swift */,
+				E90F722B22E3155C00606621 /* AllTalkViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		E948DD9422D81F5600DF799D /* Selection */ = {
@@ -635,6 +646,7 @@
 				E9DACC402277F6A8008C614F /* SwipeNavController.swift in Sources */,
 				E9DACC3A22773662008C614F /* MainTabBarViewController.swift in Sources */,
 				E9626A002237A80300E3D980 /* WelcomeViewController.swift in Sources */,
+				E90F722C22E3155C00606621 /* AllTalkViewController.swift in Sources */,
 				E9FCEF1922CC6A0000533716 /* MailRegisterViewController.swift in Sources */,
 				E94821A82282FD660038D5DD /* CollectionViewController.swift in Sources */,
 				E9B312B5224326EA00813580 /* UserProfileViewController.swift in Sources */,
