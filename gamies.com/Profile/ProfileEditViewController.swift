@@ -12,9 +12,13 @@ class ProfileEditViewController: UIViewController {
 
     @IBOutlet weak var editTagBtn: UIButton!
     
+    var introduce = String()
+    
+    let childVC = UserInformationViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        childVC.introduce.text = introduce
         editTagBtn.layer.borderWidth = 1.0
         editTagBtn.layer.borderColor = UIColor.darkGray.cgColor
         editTagBtn.layer.cornerRadius = 3.0

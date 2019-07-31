@@ -23,6 +23,7 @@ class UserInformationViewController: UIViewController {
         
         userName.text = user?.displayName
         mailAddress.text = user?.email
+        introduce.text = 
         // Do any additional setup after loading the view.
     }
     

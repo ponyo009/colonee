@@ -128,6 +128,8 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        let nextVC = segue.destination as! ProfileEditViewController
+        nextVC.introduce = self.user_introduce.text
         // Pass the selected object to the new view controller.
     }
     
