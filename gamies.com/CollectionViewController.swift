@@ -134,6 +134,13 @@ class CollectionViewController: SideTabContentViewController, UICollectionViewDe
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+            cell.cornerRadius = 5.0
+            //セルの影
+            cell.layer.masksToBounds = false
+            cell.layer.shadowOpacity = 0.7
+            cell.layer.shadowRadius = 5.0
+            cell.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+            cell.layer.shadowColor = UIColor.black.cgColor
             MatcherImageView = cell.viewWithTag(1) as! UIImageView
             MatcherNameLabel = cell.viewWithTag(2) as! UILabel
             MatcherIcon = cell.viewWithTag(3) as! UIImageView

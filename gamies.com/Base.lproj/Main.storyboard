@@ -1136,7 +1136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnl-tT-HMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2314" y="-1187"/>
+            <point key="canvasLocation" x="1894" y="-1188"/>
         </scene>
         <!--register_email-->
         <scene sceneID="7eC-Mn-rBa">
@@ -1208,7 +1208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5o-lz-UHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290.39999999999998" y="-1889.408866995074"/>
+            <point key="canvasLocation" x="513" y="-1889"/>
         </scene>
         <!--register_password-->
         <scene sceneID="dvX-Cf-Urv">
@@ -1303,7 +1303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ga-81-60K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-1888.6699507389164"/>
+            <point key="canvasLocation" x="1207" y="-1889"/>
         </scene>
         <!--register_name-->
         <scene sceneID="mll-1M-aNi">
@@ -1402,7 +1402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bq6-iv-45g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424.8" y="-1889.408866995074"/>
+            <point key="canvasLocation" x="1895" y="-1889"/>
         </scene>
         <!--firstLogin-->
         <scene sceneID="4vy-qQ-BCv">
@@ -1944,7 +1944,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZL-B7-lCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424.8" y="-1204.4334975369459"/>
+            <point key="canvasLocation" x="1121" y="-1204"/>
         </scene>
         <!--NavBar-->
         <scene sceneID="NU2-nw-yee">
@@ -2303,6 +2303,6 @@
         <segue reference="uEX-ri-ZXp"/>
         <segue reference="7sn-bP-zDQ"/>
         <segue reference="tgP-lf-EMP"/>
-        <segue reference="u0v-ht-jKz"/>
+        <segue reference="G1w-W1-Nmn"/>
     </inferredMetricsTieBreakers>
 </document>
