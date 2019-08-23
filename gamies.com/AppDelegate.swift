@@ -11,15 +11,16 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
-        -> Bool {
-            FirebaseApp.configure()
-//            TWTRTwitter.sharedInstance().start(withConsumerKey:"{GU9hamC8s2c7InRCbbW5fF4qk}",consumerSecret:"{QWE31zG6eerByaldO7aGaWA8z5yfS6CKbVCxvF7TvpE4TMa1GJ}")
-            return true
+                     didFinishLaunchingWithOptions launchOptions:
+        [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+        return true
     }
+}
     
 //    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 //        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
@@ -46,7 +47,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
-}
 

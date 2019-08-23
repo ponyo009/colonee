@@ -29,7 +29,11 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
     let GameName = UserDefaults.standard.object(forKey: "GameName") as! String
     let gameID =  UserDefaults.standard.object(forKey: "gameID") as! String
     var image: UIImage!
+    //pickerView分岐用
     var isIcon: Bool!
+    //値渡し用
+    var isIconImage: Bool!
+    var isIconBtn: Bool!
     
     var tags: [String]!
     
@@ -63,23 +67,41 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
         //iconBtn描画
         iconBtn.layer.cornerRadius = 35.0 / 2
         iconBtn.clipsToBounds = true
+        iconImage.clipsToBounds = true
         //imageIconの取得
-        let ref = storage.reference().child(UID).child("\(gameID).jpeg")
-        iconImage.imageView?.sd_setImage(with: ref)
-        iconImage.setImage(self.iconImage.imageView?.image, for: .normal)
-        if iconImage.imageView!.isHidden{
-            let defaultImage = self.view.viewWithTag(10)
-            defaultImage?.alpha = 1
-            print("iconimage is nil")
-        }else{}
-
+       fetchIconImage(UID: UID)
+        //IconBtnの取得
+        fetchIcon(UID: UID)
+        
         userID.text = UID
-        user_nickname.text = UserDefaults.standard.object(forKey: "userName") as? String
+        user_nickname.text = user?.displayName
         db.collection(gameID).document(UID).getDocument(){document, err  in
             self.tags = document?.data()?["tag"] as? [String]
             self.user_introduce.text = document?.data()?["introduce"] as? String
         }
         // Do any additional setup after loading the view.
+    }
+    
+    func fetchIconImage(UID:String) {
+        let ref = storage.reference().child(UID).child("Image_\(gameID).jpeg")
+        iconImage.imageView?.sd_setImage(with: ref)
+        iconImage.setImage(self.iconImage.imageView?.image, for: .normal)
+        if iconImage.imageView!.isHidden{
+            let defaultImage = self.view.viewWithTag(10)
+            defaultImage?.alpha = 1
+            isIconImage = false
+        }else{}
+    }
+    
+    func fetchIcon(UID:String){
+        let ref = storage.reference().child(UID).child("Icon_\(gameID).jpeg")
+        iconBtn.imageView?.sd_setImage(with: ref)
+        iconBtn.setImage(self.iconBtn.imageView?.image, for: .normal)
+        if iconBtn.imageView!.isHidden{
+            iconBtn.setImage(UIImage(named: "icon_default"), for: .normal)
+            print("iconBtn:",iconBtn)
+            isIconBtn = false
+        }else{}
     }
     
     @IBAction func iconImageBtnTapped(_ sender: Any) {
@@ -129,7 +151,16 @@ class UserProfileViewController: SideTabContentViewController, UIImagePickerCont
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         let nextVC = segue.destination as! ProfileEditViewController
-        nextVC.introduce = self.user_introduce.text
+        nextVC.passedIntroduce = self.user_introduce.text
+        if isIconImage && isIconBtn {
+            nextVC.passedIconImage = self.iconImage.imageView!.image!
+            nextVC.passedProfileImage = self.iconBtn.imageView!.image!
+        }else if isIconImage{
+            nextVC.passedIconImage = self.iconImage.imageView!.image!
+        }else if isIconBtn{
+            nextVC.passedProfileImage = self.iconBtn.imageView!.image!
+        }else{}
+       
         // Pass the selected object to the new view controller.
     }
     

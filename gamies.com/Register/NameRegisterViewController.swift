@@ -40,6 +40,14 @@ class NameRegisterViewController: UIViewController {
                 print("SignUpFailed: ", err)
             }else{
                 self.user = Auth.auth().currentUser
+                self.user?.createProfileChangeRequest().displayName = self.username
+                self.user?.createProfileChangeRequest().commitChanges(completion: { (err) in
+                    if let err = err {
+                        print("UserProfileUpdate Failed")
+                    }else{
+                        print("UserProfileUpdate Successed")
+                    }
+                })
                 let db = Firestore.firestore()
                 db.collection("users").document(self.user!.uid).setData([
                     "email": self.user?.email as Any,
