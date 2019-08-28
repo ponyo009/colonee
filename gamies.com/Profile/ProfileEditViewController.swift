@@ -83,7 +83,7 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
             changerequest!.displayName = userName.text!
             changerequest?.commitChanges(completion: { (err) in
                 if let err = err {
-                    print("UserProfileUpdate Failed")
+                    print("UserProfileUpdate Failed:", err)
                 }else{
                     print("UserProfileUpdate Successed")
                     self.navigationController?.popViewController(animated: true)
