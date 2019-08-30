@@ -354,7 +354,7 @@
             <objects>
                 <viewController title="Profile" id="jS6-rb-dIb" customClass="ProfileViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k4Q-Lc-wRC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="75" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o4d-DK-S9F">
@@ -477,7 +477,7 @@
             <objects>
                 <viewController id="8KU-ru-ygm" userLabel="ChooseGameController" customClass="ChooseGameViewController" customModule="gamies_com" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="geQ-HR-oed">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="75" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="好きなゲームを選んでください" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l71-4J-FTO">
@@ -2369,7 +2369,7 @@
         <image name="szPCZepWDOXTiKJin7h0" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fac-M7-4GP"/>
+        <segue reference="nhp-26-Wcg"/>
         <segue reference="uEX-ri-ZXp"/>
         <segue reference="7sn-bP-zDQ"/>
         <segue reference="tgP-lf-EMP"/>

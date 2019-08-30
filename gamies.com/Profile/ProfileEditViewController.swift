@@ -20,23 +20,27 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var IconImage: UIButton!
     @IBOutlet weak var ProfileImage: UIButton!
     
-    var passedIntroduce = String()
-    var passedIconImage = UIImage()
-    var passedProfileImage = UIImage()
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     let storage = Storage.storage().reference()
-    let preUsername = Auth.auth().currentUser?.displayName
+
     let GameID = UserDefaults.standard.object(forKey: "gameID") as! String
     var image: UIImage!
+   
+    //ImagePicker判定用
     var isIcon: Bool!
+    
+    //プロフィル更新確認用
+    let preUsername = Auth.auth().currentUser?.displayName
+    var passedIntroduce = String()
+    var passedIconImage = UIImage()
+    var passedProfileImage = UIImage()
+    var iconChanged = false
+    var profileImageChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //debug
-        print("displayname:",preUsername)
-        //debug
         userName.text = user?.displayName
         mailAddress.text = user!.email
         introduce.text = passedIntroduce
@@ -56,9 +60,11 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func editFinishBtnTapped(_ sender: Any) {
-        ///ユーザーネームか自己紹介が更新されていた場合、書き換える
+        //ユーザーネームか自己紹介が更新されていた場合、アップロード
         updateProfile()
-        
+        //プロファイル画像かアイコンが更新されていた場合、アップロード
+        updateImage()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func updateProfile(){
@@ -73,10 +79,9 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
             changerequest!.displayName = userName.text!
             changerequest?.commitChanges(completion: { (err) in
                 if let err = err {
-                    print("UserProfileUpdate Failed")
+                    print("UserProfileUpdate Failed:", err)
                 }else{
                     print("UserProfileUpdate Successed")
-                    self.navigationController?.popViewController(animated: true)
                 }
             })
         }else if preUsername != userName.text{
@@ -86,15 +91,34 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
                     print("UserProfileUpdate Failed:", err)
                 }else{
                     print("UserProfileUpdate Successed")
-                    self.navigationController?.popViewController(animated: true)
                 }
             })
             userref.updateData(["username" : userName.text!])
         }else if preIntroduce != introduce.text{
             ref.setData( [ "introduce": introduce.text])
-        }else{
-            self.navigationController?.popViewController(animated: true)
-        }
+        }else{}
+    }
+    
+    func updateImage(){
+        let storageref = storage.child(user!.uid)
+        
+        if iconChanged && profileImageChanged {
+            let iconref = storageref.child("iconImage.jpeg")
+            let iconImageData = IconImage.imageView!.image!.jpegData(compressionQuality: 0.2)
+            let profileimageref = storageref.child("\(GameID).jpeg")
+            let profileImageData = ProfileImage.imageView!.image!.jpegData(compressionQuality: 0.2)
+            
+            iconref.putData(iconImageData!)
+            profileimageref.putData(profileImageData!)
+        }else if profileImageChanged{
+            let profileimageref = storageref.child("\(GameID).jpeg")
+            let profileImageData = ProfileImage.imageView!.image!.jpegData(compressionQuality: 0.2)
+            profileimageref.putData(profileImageData!)
+        }else if iconChanged {
+            let iconref = storageref.child("iconImage.jpeg")
+            let iconImageData = IconImage.imageView!.image!.jpegData(compressionQuality: 0.2)
+             iconref.putData(iconImageData!)
+        }else{}
     }
     
     @IBAction func editTagBtnTapped(_ sender: Any) {
@@ -109,8 +133,10 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
             self.IconImage.setImage(image, for: .normal)
             let defaultImage = self.view.viewWithTag(10)
             defaultImage?.alpha = 0
+            iconChanged = true
         }else{
             self.ProfileImage.setImage(image, for: .normal)
+            profileImageChanged = true
         }
         // 写真を選ぶビューを消す
         self.dismiss(animated: true)
